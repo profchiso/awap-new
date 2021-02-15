@@ -1,9 +1,12 @@
 import React from 'react'
+import Header from '../components/Header/Header'
 
 export default function LandingPage() {
     return (
-        <div className="border border-red-500">
-            Hello world
+        <div className="">
+            <div>
+                <Header/>
+            </div>
         </div>
     )
 }
