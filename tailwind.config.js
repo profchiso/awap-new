@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: (theme) => ({
         awesum: "url('assets/images/MainBackground.svg')",
+        footer: "url('assets/images/MainFooter.svg')",
       }),
     },
     borderColor: theme => ({
@@ -35,6 +36,8 @@ module.exports = {
       ...theme('colors'),
       primary: "#0D065F",
       primeGrey: "rgba(13, 6, 95, 0.03)",
+      footerBlueOne: "#0F0957",
+      footerRowThree: "#090729",
       danger: "#e3342f",
     }),
   },
