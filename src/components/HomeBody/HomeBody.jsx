@@ -8,6 +8,8 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import { NavLink, Route } from "react-router-dom";
+import ClassCards from "./ClassCards";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -58,7 +60,7 @@ export default function HomeBody() {
         </div>
       </div>
 
-      <div className="text-center mb-12 mt-24  px-6 sm:px-16  pb-96">
+      <div className="text-center  my-24  px-6 sm:px-16 ">
         <p className="text-primary text-2xl font-medium">Explore Our Classes</p>
 
         <div className="flex justify-end items-center content-center">
@@ -92,6 +94,16 @@ export default function HomeBody() {
           </div>
         </div>
       </div>
+
+      {/* <div>
+        <div className="">
+          <NavLink to="/"></NavLink>
+        </div>
+        <div className="">
+        <Route exact path="/" component={ClassCards} />
+        </div>
+      </div> */}
+
     </div>
   );
 }

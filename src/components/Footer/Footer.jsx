@@ -6,7 +6,7 @@ import FooterRowTwo from './FooterRowTwo';
 
 export default function Footer() {
     return (
-        <div className="max-w-screen-2xl mx-auto text-white">
+        <div className="max-w-screen-2xl mx-auto text-white pt-96">
             <div className="bg-footer  bg-no-repeat">
             <FooterRowOne/>
             <FooterRowTwo/>
