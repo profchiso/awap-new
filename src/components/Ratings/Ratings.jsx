@@ -12,10 +12,10 @@ export const HeartRating=()=> {
 
     const StyledRating = withStyles({
         iconFilled: {
-          color: "var(--woozRed)",
+          color: "#FFDC64",
         },
         iconHover: {
-          color: "#ff3d47",
+          color: "#FFDC64",
         },
       })(Rating);
       
