@@ -12,9 +12,9 @@ export default function ClassCards() {
       <img src={biologyThumbNail} alt="biologyThumbNail" />
       <p className="text-lg">Introduction to Cells</p>
       <div className="flex">
-        <div>
+        <div className="flex items-center">
           <EyeIcon />
-          <span>2k views</span>
+          <span className="text-sm">2k views</span>
         </div>
         <div>
           <PlayIcon />
@@ -27,14 +27,14 @@ export default function ClassCards() {
       </div>
 
       <div className="flex">
-        <img src={profilePic} alt="profile Pic" />
+        <img src={profilePic} alt="profile Pic"/>
         <div>
           <p className="text-sm">Doris Peluola</p>
-          <div className="flex">
+          <div className="flex items-center">
             <div className="xs:-ml-2 mt-2 mb-1  transform scale-95">
               <ReadOnlyRating size="small" color="primary" ratingCount={5} />
             </div>
-            <span>(5 star)</span>
+            <span className="text-xs">(5 star)</span>
           </div>
         </div>
       </div>

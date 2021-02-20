@@ -4,7 +4,7 @@ import HeaderRowTwo from './HeaderRowTwo'
 
 export default function Header() {
   return (
-    <div>
+    <div className="hidden sm:block">
       <HeaderRowOne/>
       <HeaderRowTwo/>
     </div>

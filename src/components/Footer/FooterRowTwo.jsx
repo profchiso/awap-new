@@ -5,10 +5,10 @@ export default function FooterRowTwo() {
     return (
          
         <Grid container className="flex pb-12">
-        <Grid item xs={12} sm={6} md={4}>
-            <div className="flex justify-center items-center">
-            <div className="flex flex-col pb-10">
-            <h3 className="font-medium text-lg pb-2 font-medium">CONTACT US</h3>
+        <Grid item xs={12} sm={4}>
+            <div className="flex sm:justify-center items-center">
+            <div className="flex flex-col pb-10  pl-10 sm:pl-0">
+            <h3 className="font-medium text-lg pb-2 font-medium">CONTACT US </h3>
 
             <div className="py-4">
             <p className="text-sm font-normal leading-loose">PHONE:</p>
@@ -24,7 +24,7 @@ export default function FooterRowTwo() {
             <p className="text-sm font-normal leading-loose">WORKING DAYS/HOURS:</p>
             <p className="text-sm font-normal leading-loose">Mon - Fri / 9:00AM - 5:00PM</p>
             </div>
-
+            
             <div className="py-4">
             <p className="text-sm font-normal leading-loose">WORKING DAYS/HOURS:</p>
             <p className="text-sm font-normal leading-loose">Mon - Fri / 9:00AM - 5:00PM</p>
@@ -39,9 +39,9 @@ export default function FooterRowTwo() {
             </div>
           
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-        <div className="flex justify-center items-center">
-          <div className="flex flex-col gap-3 pb-10">
+        <Grid item xs={12} sm={4}>
+        <div className="flex sm:justify-center items-center">
+          <div className="flex flex-col gap-3 pb-10  pl-10 sm:pl-0">
             <h3 className="font-medium text-lg pb-2 font-medium">WHO WE ARE</h3>
             <p className="text-sm font-normal leading-loose">About Us</p>
             <p className="text-sm font-normal leading-loose">Our Team</p>
@@ -50,9 +50,9 @@ export default function FooterRowTwo() {
           </div>
 
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-        <div className="flex justify-center items-center">
-          <div className="flex flex-col gap-3 pb-10">
+        <Grid item xs={12} sm={4}>
+        <div className="flex sm:justify-center items-center ">
+          <div className="flex flex-col gap-3 pb-10  pl-10 sm:pl-0">
             <h3 className="font-medium text-lg pb-2 font-medium">AWESUM</h3>
             <p className="text-sm font-normal leading-loose">Awesum Quiz</p>
             <p className="text-sm font-normal leading-loose">Refer a Friend</p>

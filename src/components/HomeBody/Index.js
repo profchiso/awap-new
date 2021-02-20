@@ -1,15 +1,16 @@
 import React from "react";
 import { ReactComponent as AplusIcon } from "../svgs/AplusIcon.svg";
 // import { ReactComponent as ERM } from "../svgs/ERM.svg";
-// import  ERM  from "../svgs/ERM.svg";
-
+import { ReactComponent as SelfPacedLearning } from "../svgs/SelfPacedLearning.svg";
+import { ReactComponent as TestTimer } from "../svgs/TestTimer.svg";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-// import { NavLink, Route } from "react-router-dom";
-// import ClassCards from "./ClassCards";
+import { NavLink, Route } from "react-router-dom";
+import ClassCards from "./ClassCards";
+import MobileHeader from "../Header/MobileHeader";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -32,6 +33,10 @@ export default function HomeBody() {
   return (
     <div className="max-w-screen-2xl mx-auto">
       <div className="bg-awesum bg-cover bg-center bg-no-repeat text-white  px-6 sm:px-16  pb-96">
+        <div className="block sm:hidden">
+          <MobileHeader />
+        </div>
+
         <div className="flex">
           <div>
             <p className="pt-32 pb-12 text-2xl md:text-4xl">
@@ -50,13 +55,22 @@ export default function HomeBody() {
         </div>
       </div>
 
-      <div className="flex text-center justify-center">
-        <div>
-          <p className="text-2xl font-medium text-primary">
-            Why Learn with AwesumEdge
-          </p>
-          <AplusIcon className="mx-auto" />
-          <p>Prepare Adequately for your next Test/Exam</p>
+      <h3 className="text-2xl text-center  font-medium text-primary">
+        Why Learn with AwesumEdge
+      </h3>
+
+      <div className="flex flex-1 py-8 justify-around gap-4 flex-wrap">
+        <div className="text-center text-primary pb-4">
+            <TestTimer className="mx-auto transform scale-75 md:scale-90" />
+          <p className="-mt-5 sm:-mt-2 md:mt-0">Prepare Adequately for your next Test/Exam</p>
+        </div>
+        <div className="text-center text-primary pb-4">
+          <AplusIcon className="mx-auto transform scale-75 md:scale-90" />
+          <p className="-mt-5 sm:-mt-2 md:mt-0">Excellent Result Guaranteed</p>
+        </div>
+        <div className="text-center text-primary pb-4">
+          <SelfPacedLearning className="mx-auto transform scale-75 md:scale-90" />
+          <p className="-mt-5 sm:-mt-2 md:mt-0">Self Paced Learning</p>
         </div>
       </div>
 
@@ -95,15 +109,14 @@ export default function HomeBody() {
         </div>
       </div>
 
-      {/* <div>
+      <div>
         <div className="">
           <NavLink to="/"></NavLink>
         </div>
         <div className="">
-        <Route exact path="/" component={ClassCards} />
+          <Route exact path="/" component={ClassCards} />
         </div>
-      </div> */}
-
+      </div>
     </div>
   );
 }

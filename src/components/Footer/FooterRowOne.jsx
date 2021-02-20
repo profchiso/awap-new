@@ -9,13 +9,12 @@ import { Link } from 'react-router-dom';
 
 export default function FooterRowOne() {
     return (
-        
-        <div className=" flex justify-center footerRowOne">
+        <div className="bg-gradient-to-b from-blueFour to-blueTwo lg:bg-transparent flex justify-center footerRowOne">
         <div className="">
-          <div className="pt-32 pb-16">
+          <div className="md:pt-32 md:pb-16 pt-8 pb-4 transform scale-75 md:scale-100">
             <AwesumEdgeWhiteLogo />
           </div>
-          <div className="flex gap-10  pb-32">
+          <div className="flex gap-10 md:pb-32 pb-8 transform scale-75 md:scale-100">
             <div className="p-2">
               <Link to="twitter.com" target="_blank">
                 <TwitterIcon />
@@ -39,6 +38,6 @@ export default function FooterRowOne() {
           </div>
         </div>
       </div>
-     
+       
     )
 }

@@ -36,10 +36,30 @@ module.exports = {
       ...theme('colors'),
       primary: "#0D065F",
       primeGrey: "rgba(13, 6, 95, 0.03)",
-      footerBlueOne: "#0F0957",
+      orangeLight: "",
+      orangeDark: "",
+      blueOne: "#0F0957",
       footerRowThree: "#090729",
       danger: "#e3342f",
     }),
+
+    gradientColorStops: theme => ({
+      ...theme('colors'),
+      'primary': '#3490dc',
+      'secondary': '#ffed4a',
+      'blueTwo': "#100B4A",
+      'blueThree': "#090729",
+      'blueFour': "#0F0957",
+     }),
+
+    //  maxWidth: {
+    //    'tsx':"5rem",
+    //    "ts":"12rem",
+
+    //   '1/4': '25%',
+    //   '1/2': '50%',
+    //   '3/4': '75%',
+    //  },
   },
   variants: {
     extend: {},
