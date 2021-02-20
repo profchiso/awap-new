@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## CSS library - [TAILWIND](https://tailwindcss.com/)
+Please read the [docs](http://tailwindcss.com/docs/) its very easy to use
+
 ## Available Scripts
 
 In the project directory, you can run:

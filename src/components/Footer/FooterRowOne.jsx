@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 export default function FooterRowOne() {
     return (
-        <div className="bg-gradient-to-b from-blueFour to-blueTwo lg:bg-transparent flex justify-center footerRowOne">
+        <div className="bg-gradient-to-b from-blueFour to-blueTwo lg:bg-none flex justify-center footerRowOne">
         <div className="">
           <div className="md:pt-32 md:pb-16 pt-8 pb-4 transform scale-75 md:scale-100">
             <AwesumEdgeWhiteLogo />

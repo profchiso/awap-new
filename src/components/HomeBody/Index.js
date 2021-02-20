@@ -1,16 +1,21 @@
 import React from "react";
-import { ReactComponent as AplusIcon } from "../svgs/AplusIcon.svg";
 // import { ReactComponent as ERM } from "../svgs/ERM.svg";
-import { ReactComponent as SelfPacedLearning } from "../svgs/SelfPacedLearning.svg";
-import { ReactComponent as TestTimer } from "../svgs/TestTimer.svg";
+// import { ReactComponent as AplusIcon } from "../svgs/AplusIcon.svg";
+// import TheRest from "../svgs/TheRest.svg";
+import { ReactComponent as NextIcon } from "../svgs/NextIcon.svg";
+import aplusIcon from "../svgs/AplusIcon.svg";
+import selfPacedLearning from "../svgs/SelfPacedLearning.svg";
+import testTimer from "../svgs/TestTimer.svg";
+
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import { NavLink, Route } from "react-router-dom";
-import ClassCards from "./ClassCards";
+// import { NavLink, Route } from "react-router-dom";
+// import ClassCards from "./ClassCards";
 import MobileHeader from "../Header/MobileHeader";
+// import ComingSoon from "./ComingSoon";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -55,31 +60,41 @@ export default function HomeBody() {
         </div>
       </div>
 
-      <h3 className="text-2xl text-center  font-medium text-primary">
-        Why Learn with AwesumEdge
+      <h3 className="text-2xl md:text-4xl text-center md:mt-24 md:mb-12 font-medium text-primary">
+        <span className="font-normal sm:font-medium">Why Learn with </span>
+        <span>AwesumEdge </span>
       </h3>
 
-      <div className="flex flex-1 py-8 justify-around gap-4 flex-wrap">
-        <div className="text-center text-primary pb-4">
-            <TestTimer className="mx-auto transform scale-75 md:scale-90" />
-          <p className="-mt-5 sm:-mt-2 md:mt-0">Prepare Adequately for your next Test/Exam</p>
+      <div className="flex flex-1 py-8 px-4 justify-around gap-0 sm:gap-4">
+        <div className="text-center text-primary pb-4  max-w-1/3">
+          <img src={testTimer} className="mx-auto px-2" alt="" />
+          <p className="text-sm md:text-base px-2">
+            Prepare Adequately for your Test/Exam
+          </p>
         </div>
-        <div className="text-center text-primary pb-4">
-          <AplusIcon className="mx-auto transform scale-75 md:scale-90" />
-          <p className="-mt-5 sm:-mt-2 md:mt-0">Excellent Result Guaranteed</p>
+        <div className="text-center text-primary pb-4 max-w-1/3">
+          <img src={aplusIcon} className="mx-auto px-2" alt="" />
+          <p className="text-sm md:text-base px-1">
+            Excellent Result Guaranteed
+          </p>
         </div>
-        <div className="text-center text-primary pb-4">
-          <SelfPacedLearning className="mx-auto transform scale-75 md:scale-90" />
-          <p className="-mt-5 sm:-mt-2 md:mt-0">Self Paced Learning</p>
+        <div className="text-center text-primary pb-4 max-w-1/3 ">
+          <img src={selfPacedLearning} alt="" className="mx-auto px-2" />
+          <p className="text-sm md:text-base">Self Paced Learning</p>
         </div>
       </div>
 
       <div className="text-center  my-24  px-6 sm:px-16 ">
-        <p className="text-primary text-2xl font-medium">Explore Our Classes</p>
+        <p className="text-primary text-2xl sm:text-4xl  font-medium">
+          Explore Our Classes
+        </p>
 
         <div className="flex justify-end items-center content-center">
           <div className="mt-8">
-            <FormControl variant="outlined" className={classes.formControl}>
+            <FormControl
+              variant="outlined"
+              className={`${classes.formControl} transform scale-90 lg:scale-100`}
+            >
               <InputLabel id="demo-simple-select-outlined-label">
                 Class
               </InputLabel>
@@ -103,20 +118,49 @@ export default function HomeBody() {
             </FormControl>
           </div>
 
-          <div className="pt-8 pl-8">
-            <p className="text-primary text-sm">SEE ALL</p>
+          <div className="pt-8 pl-8 flex items-center">
+            <p className="text-primary text-sm pr-2">SEE ALL</p>
+            <NextIcon className="text-sm w-3.5 -mt-1" />
           </div>
         </div>
       </div>
 
-      <div>
+
+      {/* COMMENT: THIS SECTION IS BEING WORKED ON */}
+      {/* <div>
         <div className="">
-          <NavLink to="/"></NavLink>
+          <NavLink to="/">Biology</NavLink>
+          <NavLink to="/physics">Physics</NavLink>
+          <NavLink to="/chemistry">Chemistry</NavLink>
+          <NavLink to="/math">Mathematics</NavLink>
+
         </div>
         <div className="">
-          <Route exact path="/" component={ClassCards} />
+            <Route exact path="/" component={ComingSoon} />
         </div>
-      </div>
+      </div> 
+
+      <h3 className="text-2xl md:text-4xl text-center mb-32  font-light text-gray-400">
+        Coming Soon
+      </h3>
+
+      <div className="flex items-center text-center text-light">
+        <img src={TheRest} alt="" className="px-24 pt-32" />
+        <div className="max-w-md px-4">
+          <p className="py-4 text-center">
+            Top instructors from around the world teach students on AwesumEdge.
+          </p>
+          <p className="py-4 text-center">
+            We provide the tools and skills to teach what you love.
+          </p>
+          <button className="text-white bg-primary shadow-primary px-24 py-4 mt-8 rounded-md focus:outline-none text-sm lg:text-base">
+            Join
+          </button>
+        </div>
+
+        <div></div>
+      </div>*/}
+
     </div>
   );
 }
