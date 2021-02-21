@@ -8,6 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import ClassCards from './ClassCards';
 
 
 function TabPanel(props) {
@@ -99,7 +100,7 @@ export default function ExploreContent() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          Item One
+          <ClassCards/>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           Item Two

@@ -8,30 +8,31 @@ import { ReadOnlyRating } from "../Ratings/Ratings";
 
 export default function ClassCards() {
   return (
-    <div>
+    <div className="font-body  max-w-ts1 flex justify-center  pt-3.5 pb-12 shadow-card rounded-md">
+      <div className=" max-w-ts1">
       <img src={biologyThumbNail} alt="biologyThumbNail" />
-      <p className="text-lg">Introduction to Cells</p>
-      <div className="flex">
+      <p className="text-lg pt-5 pb-3">Introduction to Cells</p>
+      <div className="flex text-sm">
         <div className="flex items-center">
           <EyeIcon />
-          <span className="text-sm">2k views</span>
+          <span className="px-2">2k views</span>
         </div>
-        <div>
+        <div className="flex items-center px-3">
           <PlayIcon />
-          <span>2 lectures</span>
+          <span className="px-2">2 lectures</span>
         </div>
-        <div>
+        <div className="flex items-center">
           <ClockIcon />
-          <span>1h</span>
+          <span className="px-2">1h</span>
         </div>
       </div>
 
-      <div className="flex">
+      <div className="flex items-center gap-2.5 pt-8">
         <img src={profilePic} alt="profile Pic"/>
         <div>
-          <p className="text-sm">Doris Peluola</p>
-          <div className="flex items-center">
-            <div className="xs:-ml-2 mt-2 mb-1  transform scale-95">
+          <p className="text-sm pt-3">Doris Peluola</p>
+          <div className="flex items-center -ml-1">
+            <div className="xs:-ml-2 pt-2 transform scale-95">
               <ReadOnlyRating size="small" color="primary" ratingCount={5} />
             </div>
             <span className="text-xs">(5 star)</span>
@@ -39,5 +40,7 @@ export default function ClassCards() {
         </div>
       </div>
     </div>
+      </div>
+     
   );
 }

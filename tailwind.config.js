@@ -8,6 +8,13 @@ module.exports = {
         footer: "url('assets/images/MainFooter.svg')",
       }),
     },
+    fontFamily: {
+      'sans': ['ui-sans-serif', 'system-ui'],
+      'serif': ['ui-serif', 'Georgia'],
+      'mono': ['ui-monospace', 'SFMono-Regular'],
+      'display': ['Oswald'],
+      'body': ['Google Sans', 'Segoe UI','Open Sans'],
+     },
     borderColor: theme => ({
       ...theme('colors'),
       'primary': '#0D065F',
@@ -31,6 +38,7 @@ module.exports = {
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       none: 'none',
       primary: '0px 3px 10px rgba(13, 6, 95, 0.12);',
+      card: '0px 8px 40px rgba(27, 67, 170, 0.05);',
     },
     backgroundColor: (theme) => ({
       ...theme('colors'),
@@ -55,6 +63,7 @@ module.exports = {
      maxWidth: (theme, { breakpoints }) => ({
       none: "none",
       0: "0rem",
+      ts1: "19rem",
       xs: "20rem",
       sm: "24rem",
       md: "28rem",
