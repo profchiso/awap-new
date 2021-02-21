@@ -85,7 +85,7 @@ export default function HomeBody() {
         </div>
       </div>
 
-      <div className="text-center  my-24  px-6 sm:px-16 ">
+      <div className="text-center  mt-24 pb-8 px-6 sm:px-16 ">
         <p className="text-primary text-2xl sm:text-4xl  font-medium">
           Explore Our Classes
         </p>
@@ -161,7 +161,7 @@ export default function HomeBody() {
         <div></div>
       </div>*/}
 
-      <div className="flex px-7 sm:max-w-2xl mx-auto">
+      <div className="flex px-7 sm:max-w-3xl mx-auto">
         <ExploreContent />
       </div>
     </div>

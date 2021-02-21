@@ -7,6 +7,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -59,8 +61,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ExploreContent() {
+    const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
+
   const classes = useStyles();
-  const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -84,8 +89,8 @@ export default function ExploreContent() {
         >
           <Tab label="Biology" {...a11yProps(0)} className={classes.tab}/>
           <Tab label="Physics" {...a11yProps(1)} className={classes.tab}/>
-          <Tab label="Chemitsry" {...a11yProps(2)} className={classes.tab}/>
-          <Tab label="Mathematics" {...a11yProps(2)} className={classes.tab}/>
+          <Tab label="Chemistry" {...a11yProps(2)} className={classes.tab}/>
+        { matches ? <Tab label="Mathematics" {...a11yProps(2)} className={classes.tab}/> : <Tab label="Maths" {...a11yProps(2)} className={classes.tab}/> }
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -102,7 +107,7 @@ export default function ExploreContent() {
         <TabPanel value={value} index={2} dir={theme.direction}>
           Item Three
         </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
+        <TabPanel value={value} index={3} dir={theme.direction}>
           Item Four
         </TabPanel>
       </SwipeableViews>

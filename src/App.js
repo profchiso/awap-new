@@ -6,12 +6,11 @@ import LandingPage from "./Pages/LandingPage";
 
 
 const theme = createMuiTheme({
-  overrides: {
-    pallete: {
-      primary: "#0D065F",
-      // secondary: "#FF5757",
-    }
-  }
+  palette: {
+    primary: {
+      main: '#0D065F',
+    },
+  },
 })
 
 
