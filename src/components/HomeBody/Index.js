@@ -13,9 +13,10 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 // import { NavLink, Route } from "react-router-dom";
-// import ClassCards from "./ClassCards";
+// import ClassCards from "../ExploreClasses/ClassCards";
 import MobileHeader from "../Header/MobileHeader";
-// import ComingSoon from "./ComingSoon";
+import ExploreContent from "../ExploreClasses/Index";
+// import ComingSoon from "../ExploreClasses/ComingSoon";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -125,7 +126,6 @@ export default function HomeBody() {
         </div>
       </div>
 
-
       {/* COMMENT: THIS SECTION IS BEING WORKED ON */}
       {/* <div>
         <div className="">
@@ -161,6 +161,9 @@ export default function HomeBody() {
         <div></div>
       </div>*/}
 
+      <div className="flex px-7 sm:max-w-2xl mx-auto">
+        <ExploreContent />
+      </div>
     </div>
   );
 }
