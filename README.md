@@ -8,8 +8,8 @@ Please read the [docs](http://tailwindcss.com/docs/) its very easy to use
 ## Home Page
  For the Home Page, to see the video carousel go to ;
  - src > components > ExploreClasses > index.js
- - Look for `isVideoReady` and change the value to true
- 
+ - Look for `isVideoReady` and change the value to `true`
+
 ## Available Scripts
 
 In the project directory, you can run:
