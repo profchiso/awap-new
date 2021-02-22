@@ -135,10 +135,10 @@ export default function HomeBody() {
       
 
 
-        <div className="flex flex-wrap justify-center items-center text-center text-light mt-64">
+        <div className="flex flex-wrap justify-center items-center text-center text-light mt-64  px-2">
         {/* <img src={TheRest} alt="" className="px-24 pt-32" /> */}
         {/* <Wrapper/> */}
-        <SwipeableTextMobileStepper/>
+        <SwipeableTextMobileStepper/> 
         <div className="max-w-xl pl-12 pr-4">
           <h3 className="py-4 text-center text-2xl text-primary opacity-50 font-body font-normal pt-8 lg:pt-0">
             We Teach to Create Impact and Enrich Lives
