@@ -99,7 +99,7 @@ function SwipeableTextMobileStepper() {
           <div key={step.label}>
             {Math.abs(activeStep - index) <= 2 ? (
               <img
-                className={`${classes.img} rounded-full`}
+                className={`${classes.img} rounded-full px-2`}
                 src={step.imgPath}
                 alt={step.label}
               />
