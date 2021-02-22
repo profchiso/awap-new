@@ -1,15 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import ClassCards from './ClassCards';
-
+import React from "react";
+import PropTypes from "prop-types";
+import SwipeableViews from "react-swipeable-views";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import WithTutorial from "../MultiCarousel/WithTutorial";
+import UAParser from "ua-parser-js";
+import "semantic-ui-css/semantic.min.css";
+import "react-multi-carousel/lib/styles.css";
+import ComingSoon from "./ComingSoon";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -40,7 +43,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
+    "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
 
@@ -49,22 +52,22 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff",
     width: "100%",
   },
-  tab:{
-      textTransform:"capitalize",
+  tab: {
+    textTransform: "capitalize",
   },
-  appBar:{
-      backgroundColor:"#fff",
-      boxShadow:"none",
-      '& span': {
-        textAlign: 'left'
-      }
+  appBar: {
+    backgroundColor: "#fff",
+    boxShadow: "none",
+    "& span": {
+      textAlign: "left",
+    },
   },
 }));
 
 export default function ExploreContent() {
-    const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('sm'));
-
+  const theme = useTheme();
+  const isVideoReady = false;
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -88,30 +91,51 @@ export default function ExploreContent() {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="Biology" {...a11yProps(0)} className={classes.tab}/>
-          <Tab label="Physics" {...a11yProps(1)} className={classes.tab}/>
-          <Tab label="Chemistry" {...a11yProps(2)} className={classes.tab}/>
-        { matches ? <Tab label="Mathematics" {...a11yProps(2)} className={classes.tab}/> : <Tab label="Maths" {...a11yProps(2)} className={classes.tab}/> }
+          <Tab label="Biology" {...a11yProps(0)} className={classes.tab} />
+          <Tab label="Physics" {...a11yProps(1)} className={classes.tab} />
+          <Tab label="Chemistry" {...a11yProps(2)} className={classes.tab} />
+          {matches ? (
+            <Tab
+              label="Mathematics"
+              {...a11yProps(2)}
+              className={classes.tab}
+            />
+          ) : (
+            <Tab label="Maths" {...a11yProps(2)} className={classes.tab} />
+          )}
         </Tabs>
       </AppBar>
       <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={value}
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <ClassCards/>
+          {isVideoReady ? <WithTutorial /> : <ComingSoon />}
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Item Two
+          {isVideoReady ? <WithTutorial /> : <ComingSoon />}
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
+          {isVideoReady ? <WithTutorial /> : <ComingSoon />}
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
-          Item Four
+          {isVideoReady ? <WithTutorial /> : <ComingSoon />}
         </TabPanel>
       </SwipeableViews>
     </div>
   );
 }
+ExploreContent.getInitialProps = ({ req }) => {
+  let userAgent;
+  if (req) {
+    userAgent = req.headers["user-agent"];
+  } else {
+    userAgent = navigator.userAgent;
+  }
+  const parser = new UAParser();
+  parser.setUA(userAgent);
+  const result = parser.getResult();
+  const deviceType = (result.device && result.device.type) || "desktop";
+  return { deviceType };
+};

@@ -5,6 +5,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## CSS library - [TAILWIND](https://tailwindcss.com/)
 Please read the [docs](http://tailwindcss.com/docs/) its very easy to use
 
+## Home Page
+ For the Home Page, to see the video carousel go to ;
+ - src > components > ExploreClasses > index.js
+ - Look for `isVideoReady` and change the value to true
+ 
 ## Available Scripts
 
 In the project directory, you can run:

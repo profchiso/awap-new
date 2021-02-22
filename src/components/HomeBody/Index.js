@@ -15,7 +15,7 @@ import Select from "@material-ui/core/Select";
 // import { NavLink, Route } from "react-router-dom";
 // import ClassCards from "../ExploreClasses/ClassCards";
 import MobileHeader from "../Header/MobileHeader";
-import ExploreContent from "../ExploreClasses/Index";
+import ExploreContent from "../ExploreClasses";
 // import ComingSoon from "../ExploreClasses/ComingSoon";
 
 const useStyles = makeStyles((theme) => ({
@@ -126,24 +126,14 @@ export default function HomeBody() {
         </div>
       </div>
 
-      {/* COMMENT: THIS SECTION IS BEING WORKED ON */}
-      {/* <div>
-        <div className="">
-          <NavLink to="/">Biology</NavLink>
-          <NavLink to="/physics">Physics</NavLink>
-          <NavLink to="/chemistry">Chemistry</NavLink>
-          <NavLink to="/math">Mathematics</NavLink>
+      <div className="flex px-7 sm:max-w-6xl mx-auto">
+        <ExploreContent />
+      </div>
 
-        </div>
-        <div className="">
-            <Route exact path="/" component={ComingSoon} />
-        </div>
-      </div> 
 
-      <h3 className="text-2xl md:text-4xl text-center mb-32  font-light text-gray-400">
-        Coming Soon
-      </h3>
-
+      
+       {/* COMMENT: THIS SECTION IS BEING WORKED ON */}
+      {/* 
       <div className="flex items-center text-center text-light">
         <img src={TheRest} alt="" className="px-24 pt-32" />
         <div className="max-w-md px-4">
@@ -161,9 +151,6 @@ export default function HomeBody() {
         <div></div>
       </div>*/}
 
-      <div className="flex px-7 sm:max-w-3xl mx-auto">
-        <ExploreContent />
-      </div>
     </div>
   );
 }
