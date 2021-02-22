@@ -8,7 +8,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import WithTutorial from "../MultiCarousel/WithTutorial";
+import WithTutorial from "../Carousels/WithTutorial";
 import UAParser from "ua-parser-js";
 import "semantic-ui-css/semantic.min.css";
 import "react-multi-carousel/lib/styles.css";

@@ -12,11 +12,9 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-// import { NavLink, Route } from "react-router-dom";
-// import ClassCards from "../ExploreClasses/ClassCards";
 import MobileHeader from "../Header/MobileHeader";
 import ExploreContent from "../ExploreClasses";
-// import ComingSoon from "../ExploreClasses/ComingSoon";
+import SwipeableTextMobileStepper from "../Carousels/SingleCarousel";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -131,25 +129,25 @@ export default function HomeBody() {
       </div>
 
 
-      
+<br/>
+
        {/* COMMENT: THIS SECTION IS BEING WORKED ON */}
-      {/* 
-      <div className="flex items-center text-center text-light">
-        <img src={TheRest} alt="" className="px-24 pt-32" />
-        <div className="max-w-md px-4">
-          <p className="py-4 text-center">
-            Top instructors from around the world teach students on AwesumEdge.
-          </p>
-          <p className="py-4 text-center">
-            We provide the tools and skills to teach what you love.
-          </p>
-          <button className="text-white bg-primary shadow-primary px-24 py-4 mt-8 rounded-md focus:outline-none text-sm lg:text-base">
+      
+
+
+        <div className="flex justify-center items-center text-center text-light mt-64">
+        {/* <img src={TheRest} alt="" className="px-24 pt-32" /> */}
+        {/* <Wrapper/> */}
+        <SwipeableTextMobileStepper/>
+        <div className="max-w-xl pl-12 pr-4">
+          <h3 className="py-4 text-center text-2xl text-primary opacity-50 font-body font-normal">
+            We Teach to Create Impact and Enrich Lives
+          </h3>
+          <button className="text-white bg-primary shadow-primary px-24 py-4 mt-8 rounded-md focus:outline-none text-sm lg:text-lg">
             Join
           </button>
         </div>
-
-        <div></div>
-      </div>*/}
+        </div>
 
     </div>
   );

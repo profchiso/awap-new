@@ -5,7 +5,7 @@ import { ReactComponent as EyeIcon } from "../svgs/eyeIcon.svg";
 import { ReactComponent as PlayIcon } from "../svgs/playIcon.svg";
 import { ReactComponent as ClockIcon } from "../svgs/clockIcon.svg";
 import { ReadOnlyRating } from "../Ratings/Ratings";
-import Video from "../MultiCarousel/Video";
+import Video from "../Carousels/Video";
 
 export default function ClassCards(props) {
   return (
