@@ -6,10 +6,9 @@ import HomeBody from "../components/HomeBody/index";
 export default function LandingPage() {
   return (
     <div className="">
-        <Header />
-        <HomeBody />
-
-        <Footer />
+      <Header />
+      <HomeBody />
+      <Footer />
     </div>
   );
 }

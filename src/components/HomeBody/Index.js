@@ -6,7 +6,9 @@ import { ReactComponent as NextIcon } from "../svgs/NextIcon.svg";
 import aplusIcon from "../svgs/AplusIcon.svg";
 import selfPacedLearning from "../svgs/SelfPacedLearning.svg";
 import testTimer from "../svgs/TestTimer.svg";
-
+import GradientWithDots from "../../assets/images/GradientWithDots.svg";
+import bgCard from "../../assets/images/bgCard.svg";
+import person from "../../assets/images/person.svg";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -128,17 +130,14 @@ export default function HomeBody() {
         <ExploreContent />
       </div>
 
+      <br />
 
-<br/>
+      {/* COMMENT: THIS SECTION IS BEING WORKED ON */}
 
-       {/* COMMENT: THIS SECTION IS BEING WORKED ON */}
-      
-
-
-        <div className="flex flex-wrap justify-center items-center text-center text-light mt-64  px-2">
+      <div className="flex flex-wrap justify-center items-center text-center text-light mt-64  px-2">
         {/* <img src={TheRest} alt="" className="px-24 pt-32" /> */}
         {/* <Wrapper/> */}
-        <SwipeableTextMobileStepper/> 
+        <SwipeableTextMobileStepper />
         <div className="max-w-xl pl-12 pr-4">
           <h3 className="py-4 text-center text-2xl text-primary opacity-50 font-body font-normal pt-8 lg:pt-0">
             We Teach to Create Impact and Enrich Lives
@@ -147,8 +146,35 @@ export default function HomeBody() {
             Join
           </button>
         </div>
-        </div>
+      </div>
 
+      <div className="flex flex-wrap justify-center items-center text-center mt-64">
+        <h3 className="relative top-0 lg:top-48 text-primary  z-20 text-4xl font-semibold">
+          Trusted by ...
+        </h3>
+
+        <img
+          src={GradientWithDots}
+          alt=""
+          className="relative z-0 object-cover w-full"
+        />
+
+        <div className="absolute">
+          <img src={bgCard} alt="relative top-0 z-0 object-cover h-48 w-full sm:h-full" />
+          <div className="absolute top-1/4 right-1/4 left-1/4 z-10 text-primary text-center">
+            <img src={person} alt="" className="relative top-0 mx-auto w-24 md:w-auto" />
+            {/* <img src={person} alt=""/> */}
+            <div className="opacity-50 text-sm md:text-lg top-0 ">
+              <p className="leading-1 md:leading-5 text-nowrap">
+                I love the past questions, and how they were solved.
+              </p>
+              <p className="leading-1 md:leading-5 text-nowrap">
+                  They helped me prepare well for my WAEC !
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
