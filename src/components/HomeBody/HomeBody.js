@@ -15,7 +15,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MobileHeader from "../Header/MobileHeader";
-import ExploreContent from "../ExploreClasses";
+import ExploreContent from "../ExploreClasses/Index";
 import SwipeableTextMobileStepper from "../Carousels/SingleCarousel";
 
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  menuItem:{
+    fontFamily: 'Google Sans',
+  }
 }));
 
 export default function HomeBody() {
@@ -109,19 +112,19 @@ export default function HomeBody() {
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
-                <MenuItem value="JSS1-3 (Grade 7-9)">
+                <MenuItem value="JSS1-3 (Grade 7-9)" className={classes.menuItem}>
                   JSS1-3 (Grade 7-9)
                 </MenuItem>
-                <MenuItem value="SS1-3 (Grade 9-12)">
+                <MenuItem value="SS1-3 (Grade 9-12)" className={classes.menuItem}>
                   SS1-3 (Grade 9-12)
                 </MenuItem>
               </Select>
             </FormControl>
           </div>
 
-          <div className="pt-8 pl-8 flex items-center">
-            <p className="text-primary text-sm pr-2">SEE ALL</p>
-            <NextIcon className="text-sm w-3.5 -mt-1" />
+          <div className="mt-8 pl-8 flex items-center">
+            <p className="text-primary text-sm pr-2 my-auto whitespace-nowrap">SEE ALL</p>
+            <NextIcon className="text-sm " />
           </div>
         </div>
       </div>
