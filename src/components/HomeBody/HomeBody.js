@@ -1,7 +1,4 @@
 import React from "react";
-// import { ReactComponent as ERM } from "../svgs/ERM.svg";
-// import { ReactComponent as AplusIcon } from "../svgs/AplusIcon.svg";
-// import TheRest from "../svgs/TheRest.svg";
 import { ReactComponent as NextIcon } from "../svgs/NextIcon.svg";
 import aplusIcon from "../svgs/AplusIcon.svg";
 import selfPacedLearning from "../svgs/SelfPacedLearning.svg";
@@ -138,8 +135,7 @@ export default function HomeBody() {
       {/* COMMENT: THIS SECTION IS BEING WORKED ON */}
 
       <div className="flex flex-wrap justify-center items-center text-center text-light mt-64  px-2">
-        {/* <img src={TheRest} alt="" className="px-24 pt-32" /> */}
-        {/* <Wrapper/> */}
+      
         <SwipeableTextMobileStepper />
         <div className="max-w-xl pl-12 pr-4">
           <h3 className="py-4 text-center text-2xl text-primary opacity-50 font-body font-normal pt-8 lg:pt-0">
