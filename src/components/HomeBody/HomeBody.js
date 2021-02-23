@@ -168,10 +168,10 @@ export default function HomeBody() {
             <img src={person} alt="" className="relative top-0 mx-auto w-24 md:w-auto" />
             {/* <img src={person} alt=""/> */}
             <div className="opacity-50 text-sm md:text-lg top-0 ">
-              <p className="leading-1 md:leading-5 text-nowrap">
+              <p className="text-nowrap">
                 I love the past questions, and how they were solved.
               </p>
-              <p className="leading-1 md:leading-5 text-nowrap">
+              <p className="text-nowrap">
                   They helped me prepare well for my WAEC !
                 </p>
             </div>
