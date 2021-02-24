@@ -3,8 +3,6 @@ import { ReactComponent as NextIcon } from "../svgs/NextIcon.svg";
 import aplusIcon from "../svgs/AplusIcon.svg";
 import selfPacedLearning from "../svgs/SelfPacedLearning.svg";
 import testTimer from "../svgs/TestTimer.svg";
-import GradientWithDots from "../../assets/images/GradientWithDots.svg";
-import bgCard from "../../assets/images/bgCard.svg";
 import person from "../../assets/images/person.svg";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -25,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
   },
   menuItem:{
     fontFamily: 'Google Sans',
+  },
+  border:{
+    borderColor: 'rgba(6,69,134, 0.1)',
   }
 }));
 
@@ -85,7 +86,7 @@ export default function HomeBody() {
         </div>
       </div>
 
-      <div className="text-center  mt-24 pb-8 px-6 sm:px-16 ">
+      <div className="text-center mt-64 pb-8 px-6 sm:px-16 ">
         <p className="text-primary text-2xl sm:text-4xl  font-medium">
           Explore Our Classes
         </p>
@@ -94,7 +95,7 @@ export default function HomeBody() {
           <div className="mt-8">
             <FormControl
               variant="outlined"
-              className={`${classes.formControl} transform scale-90 lg:scale-100`}
+              className={`${classes.formControl} transform scale-90 lg:scale-100 `}
             >
               <InputLabel id="demo-simple-select-outlined-label">
                 Class
@@ -141,37 +142,33 @@ export default function HomeBody() {
           <h3 className="py-4 text-center text-2xl text-primary opacity-50 font-body font-normal pt-8 lg:pt-0">
             We Teach to Create Impact and Enrich Lives
           </h3>
-          <button className="text-white bg-primary shadow-primary px-24 py-4 mt-8 rounded-md focus:outline-none text-sm lg:text-lg">
+          <button className="text-white bg-primary shadow-primary px-24 py-2.5 mt-8 rounded-md focus:outline-none text-base font-semibold font-body lg:text-xl">
             Join
           </button>
         </div>
       </div>
 
       <div className="flex flex-wrap justify-center items-center text-center mt-64">
-        <h3 className="relative top-0 lg:top-48 text-primary  z-20 text-4xl font-semibold">
-          Trusted by ...
+        <h3 className="relative top-44 lg:top-48 text-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
+          What Our Users Say
         </h3>
 
-        <img
-          src={GradientWithDots}
-          alt=""
-          className="relative z-0 object-cover w-full"
-        />
-
-        <div className="absolute">
-          <img src={bgCard} alt="relative top-0 z-0 object-cover h-48 w-full sm:h-full" />
-          <div className="absolute top-1/4 right-1/4 left-1/4 z-10 text-primary text-center">
-            <img src={person} alt="" className="relative top-0 mx-auto w-24 md:w-auto" />
-            {/* <img src={person} alt=""/> */}
+        <div className="bg-bodyLightBlue bg-cover bg-center bg-no-repeat py-48 lg:py-64 w-full">
+          <div className="bg-card bg-cover bg-center bg-no-repeat sm:py-30 lg:pt-36 lg:pb-60 pt-12 pb-24 max-w-5/6 md:max-w-3/4 mx-auto text-primary text-center">
+            <img src={person} alt="" className="mx-auto w-24 sm:w-auto pb-4" />
             <div className="opacity-50 text-sm md:text-lg top-0 ">
-              <p className="text-nowrap">
+              <p className="whitespace-nowrap">
                 I love the past questions, and how they were solved.
               </p>
-              <p className="text-nowrap">
+              <p className="whitespace-nowrap">
                   They helped me prepare well for my WAEC !
                 </p>
             </div>
+           
           </div>
+          <button className="text-white bg-primary shadow-primary px-12 py-4 mt-8 rounded-md focus:outline-none text-base font-medium font-body lg:text-xl">
+            Get Started Now
+          </button>
         </div>
       </div>
     </div>
