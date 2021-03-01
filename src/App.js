@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import LandingPage from "./Pages/LandingPage";
+import Login from "./Pages/login/Login"
 import 'react-multi-carousel/lib/styles.css';
 
 
@@ -22,6 +23,7 @@ class App extends React.Component {
           {/* <Provider store={store}> */}
             <Switch>
               <Route exact path="/" component={LandingPage} />
+              <Route exact path="/login" component={Login} />
             </Switch>
           {/* </Provider> */}
           </ThemeProvider>
