@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import LandingPage from "./Pages/LandingPage";
 import 'react-multi-carousel/lib/styles.css';
+import UntimedPQ from "./Pages/UntimedPQ";
+import ChooseYear from "./Pages/ChooseYear";
 
 
 const theme = createMuiTheme({
@@ -22,6 +24,8 @@ class App extends React.Component {
           {/* <Provider store={store}> */}
             <Switch>
               <Route exact path="/" component={LandingPage} />
+              <Route path="/untimed-pq" component={UntimedPQ} />
+              <Route path="/choose-year" component={ChooseYear} />
             </Switch>
           {/* </Provider> */}
           </ThemeProvider>
