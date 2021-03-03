@@ -2,6 +2,7 @@ import React from "react";
 import Search from "../Search/Search";
 import { ReactComponent as AwesumEdgeLogo } from "../svgs/AwesumEdgeLogo.svg";
 import awesumBook from "../svgs/AwesumBook.svg";
+import { Link } from "react-router-dom";
 
 
 export default function HeaderRowOne() {
@@ -9,7 +10,7 @@ export default function HeaderRowOne() {
     <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
       <div className="flex items-center my-6">
         <div className="transform md:scale-80 scale-70 hidden md:block">
-          <AwesumEdgeLogo />
+        <Link to="/"><AwesumEdgeLogo /></Link>  
         </div>
         <div className="block md:hidden">
           <img src={awesumBook} alt=""/>

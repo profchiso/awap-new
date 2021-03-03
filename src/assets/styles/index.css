@@ -13,7 +13,7 @@ body {
   padding: 0;
   background-color: #ffffff;
   font-size: 1rem;
-  font-family: "Google Sans", "Segoe UI", sans-serif;
+  font-family: "Google Sans", "Segoe UI", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
