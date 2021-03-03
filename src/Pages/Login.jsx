@@ -4,7 +4,7 @@ import LoginBody from '../components/Auth/LoginBody';
 
 export default function Login() {
   return (
-    <div className="h-screen bg-f8">
+    <div className="bg-f8 pb-8">
       <LoginHeader />
       <LoginBody />
     </div>

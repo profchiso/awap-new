@@ -142,7 +142,7 @@ export default function LoginBody() {
               New to AwesumEdge ?
             </div>
             <div className="py-2 flex justify-center">
-              <button className="text-primary bg-white shadow-primary px-10 py-2 rounded-md focus:outline-none text-sm lg:text-base">
+              <button className="text-primary bg-white shadow-primary px-20 py-4 rounded-md focus:outline-none text-sm lg:text-base">
                 Sign Up
               </button>
             </div>

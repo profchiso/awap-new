@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function LoginHeader() {
   return (
-    <div className="flex justify-between py-4 px-10 shadow-awesumOne bg-white">
+    <div className="flex justify-between items-center py-4 px-10 shadow-awesumOne bg-white">
       <div>
         <div className="transform md:scale-80 scale-70 hidden md:block">
         <Link to="/"><AwesumEdgeLogo /></Link>  
