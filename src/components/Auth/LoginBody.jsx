@@ -126,7 +126,7 @@ export default function LoginBody() {
             </div>
 
             <div className="flex justify-center py-3 px-20">
-              <button className="text-white bg-primary shadow-primary px-10 py-2 rounded-md focus:outline-none text-sm lg:text-base">
+              <button className="text-white bg-primary shadow-primary px-14 py-2 rounded-md focus:outline-none text-sm lg:text-base">
                 Continue
               </button>
             </div>
