@@ -6,6 +6,13 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import LandingPage from './Pages/LandingPage';
 import Login from './Pages/login/Login';
 import 'react-multi-carousel/lib/styles.css';
+// <<<<<<< Login-screen
+// =======
+// import UntimedPQ from "./Pages/UntimedPQ";
+// import ChooseYear from "./Pages/ChooseYear";
+// import Login from "./Pages/Login"
+// import ProtectedRoute from "./Pages/ProtectedRoute";
+// >>>>>>> main
 
 const theme = createMuiTheme({
   palette: {
@@ -24,7 +31,13 @@ class App extends React.Component {
             {/* <Provider store={store}> */}
             <Switch>
               <Route exact path="/" component={LandingPage} />
-              <Route exact path="/login" component={Login} />
+// <<<<<<< Login-screen
+//               <Route exact path="/login" component={Login} />
+// =======
+//               <Route path="/login" component={Login} />
+//               <ProtectedRoute path="/untimed-pq" component={UntimedPQ} />
+//               <ProtectedRoute path="/choose-year" component={ChooseYear} />
+// >>>>>>> main
             </Switch>
             {/* </Provider> */}
           </ThemeProvider>
