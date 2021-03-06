@@ -14,7 +14,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MobileHeader from "../Header/MobileHeader";
-import ExploreContent from "../ExploreClasses/Index";
+import ExploreContentSenior from "../ExploreClasses/Index";
 import ExploreContentJunior from "../ExploreClasses/ExploreContentJunior";
 import SwipeableTextMobileStepper from "../Carousels/SingleCarousel";
 import TextCarousel from "../Carousels/TextCarousel"
@@ -42,17 +42,19 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function HomeBody() {
-  const [secondaySchoolContent, setsecondaySchoolContent] = React.useState(<ExploreContent />)
+  const [secondaySchoolContent, setsecondaySchoolContent] = React.useState(<ExploreContentSenior />)
+
   const handleSS =()=>{
-    setsecondaySchoolContent(<ExploreContent />)
+    setsecondaySchoolContent(<ExploreContentSenior />)
   }
+
   const handleJSS =()=>{
     setsecondaySchoolContent(<ExploreContentJunior />)
   }
   const classes = useStyles();
 
   const [studentClass, setstudentClass] = React.useState("SS1-3 (Grade 9-12)");
-
+  
   const handleChange = (event) => {
     setstudentClass(event.target.value);
   };
