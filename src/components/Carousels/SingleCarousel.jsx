@@ -14,22 +14,26 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
   {
-    label: "Teacher and Student",
+    id:1,
+    // label: "Teacher and Student",
     imgPath: `${teacherStudent}`,
   },
   {
-    label: "Bird",
+    id:2,
+    // label: "Bird",
     imgPath:
-      "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
+      "https://images.pexels.com/photos/5198239/pexels-photo-5198239.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   },
   {
-    label: "Teacher & Student",
+    id:3,
+    // label: "Teacher & Student",
     imgPath: `${teacherStudent}`,
   },
   {
-    label: "Bali, Indonesia",
+    id:4,
+    // label: "Bali, Indonesia",
     imgPath:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80",
+      "https://images.pexels.com/photos/5198239/pexels-photo-5198239.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   },
 ];
 
@@ -43,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     height: 50,
     paddingLeft: theme.spacing(4),
-    // backgroundColor: theme.palette.background.default,
     backgroundColor: "#fff",
 
   },
@@ -90,7 +93,7 @@ function SwipeableTextMobileStepper() {
         enableMouseEvents
       >
         {tutorialSteps.map((step, index) => (
-          <div key={step.label}>
+          <div key={step.id}>
             {Math.abs(activeStep - index) <= 2 ? (
               <img
                 className={`${classes.img} rounded-full`}

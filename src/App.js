@@ -8,7 +8,8 @@ import "react-multi-carousel/lib/styles.css";
 import UntimedPQ from "./Pages/UntimedPQ";
 import ChooseYear from "./Pages/ChooseYear";
 import Login from "./Pages/Login";
-import ProtectedRoute from "./Pages/ProtectedRoute";
+import TextCarousel from "./components/Carousels/TextCarousel";
+// import ProtectedRoute from "./Pages/ProtectedRoute";
 
 const theme = createMuiTheme({
   palette: {
@@ -27,9 +28,16 @@ class App extends React.Component {
             {/* <Provider store={store}> */}
             <Switch>
               <Route exact path="/" component={LandingPage} />
-              <Route exact path="/login" component={Login} />
-              <ProtectedRoute path="/untimed-pq" component={UntimedPQ} />
-              <ProtectedRoute path="/choose-year" component={ChooseYear} />
+              <Route path="/login" component={Login} />
+
+
+              <Route path="/untimed-pq" component={UntimedPQ} />
+              <Route path="/choose-year" component={ChooseYear} />
+              <Route path="/text" component={TextCarousel} />
+
+              {/* <ProtectedRoute path="/untimed-pq" component={UntimedPQ} />
+              <ProtectedRoute path="/choose-year" component={ChooseYear} /> */}
+
             </Switch>
             {/* </Provider> */}
           </ThemeProvider>

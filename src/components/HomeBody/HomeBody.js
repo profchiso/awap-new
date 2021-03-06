@@ -3,8 +3,12 @@ import { ReactComponent as NextIcon } from "../svgs/NextIcon.svg";
 import aplusIcon from "../svgs/AplusIcon.svg";
 import selfPacedLearning from "../svgs/SelfPacedLearning.svg";
 import testTimer from "../svgs/TestTimer.svg";
-import person from "../../assets/images/person.svg";
-import { makeStyles } from "@material-ui/core/styles";
+import ERM from "../svgs/ERM.svg";
+// import { ReactComponent as ERM} from "../svgs/ERM.svg";
+import someb from "../../assets/images/somebody.jpeg";
+// import person from "../../assets/images/person.svg";
+import { makeStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
@@ -12,6 +16,7 @@ import Select from "@material-ui/core/Select";
 import MobileHeader from "../Header/MobileHeader";
 import ExploreContent from "../ExploreClasses/Index";
 import SwipeableTextMobileStepper from "../Carousels/SingleCarousel";
+import TextCarousel from "../Carousels/TextCarousel"
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -26,7 +31,11 @@ const useStyles = makeStyles((theme) => ({
   },
   border:{
     borderColor: 'rgba(6,69,134, 0.1)',
-  }
+  },
+  large: {
+    width: theme.spacing(10),
+    height: theme.spacing(10),
+  },
 }));
 
 export default function HomeBody() {
@@ -46,18 +55,19 @@ export default function HomeBody() {
 
         <div className="flex">
           <div>
-            <p className="pt-32 pb-12 text-2xl md:text-4xl">
+            <p className="pt-32 pb-12 text-xl  md:text-3xl lg:text-4xl whitespace-nowrap">
               Curious Learners Change the World
             </p>
-            <p className="text-xl pb-8">
+            <p className="text-md sm:text-lg lg:text-xl pb-8">
               Courses for Secondary/High School Students
             </p>
-            <button className="bg-white text-primary text-lg py-4 mt-32 px-20 rounded-md">
+            <button className="bg-white text-primary text-md lg:text-lg py-4 mt-32 px-20 rounded-md">
               Get Started
             </button>
           </div>
-          <div className="flex">
-            {/* <img src={ERM} alt="erm" className="relative "/> */}
+          <div className="flex items-center lg:absolute right-5">
+            <img src={ERM} alt="erm" className="mt-24"/>
+            {/* <ERM/> */}
           </div>
         </div>
       </div>
@@ -139,8 +149,8 @@ export default function HomeBody() {
       
         <SwipeableTextMobileStepper />
         <div className="max-w-xl pl-12 pr-4">
-          <h3 className="py-4 text-center text-2xl text-primary opacity-50 font-body font-normal pt-8 lg:pt-0">
-            We Teach to Create Impact and Enrich Lives
+          <h3 className="py-4 text-center pt-8 lg:pt-0">
+            <TextCarousel/>
           </h3>
           <button className="text-white bg-primary shadow-primary px-24 py-2.5 mt-8 rounded-md focus:outline-none text-base font-semibold font-body lg:text-xl">
             Join
@@ -155,7 +165,11 @@ export default function HomeBody() {
 
         <div className="bg-bodyLightBlue bg-cover bg-center bg-no-repeat py-48 lg:py-64 w-full">
           <div className="bg-card bg-cover bg-center bg-no-repeat sm:py-30 lg:pt-36 lg:pb-60 pt-12 pb-24 max-w-5/6 md:max-w-3/4 mx-auto text-primary text-center">
-            <img src={person} alt="" className="mx-auto w-24 sm:w-auto pb-4" />
+            {/* <img src={person} alt="" className="mx-auto w-24 sm:w-auto pb-4" /> */}
+            <div className=" pb-4">
+            <Avatar alt="Remy Sharp" src={someb} className={`${classes.large} mx-auto sm:w-auto`} />
+
+            </div>
             <div className="opacity-50 text-sm md:text-lg top-0 ">
               <p className="whitespace-nowrap">
                 I love the past questions, and how they were solved.
