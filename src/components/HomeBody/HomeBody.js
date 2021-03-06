@@ -43,10 +43,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function HomeBody() {
   const [secondaySchoolContent, setsecondaySchoolContent] = React.useState(<ExploreContent />)
-  const handleJSS =()=>{
+  const handleSS =()=>{
     setsecondaySchoolContent(<ExploreContent />)
   }
-  const handleSS =()=>{
+  const handleJSS =()=>{
     setsecondaySchoolContent(<ExploreContentJunior />)
   }
   const classes = useStyles();
