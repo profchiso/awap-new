@@ -76,7 +76,7 @@ export default function HomeBody() {
               Get Started
             </button>
           </div>
-          <div className="flex items-center lg:absolute right-5">
+          <div className="flex items-center right-5">
             <img src={ERM} alt="erm" className="mt-24"/>
             {/* <ERM/> */}
           </div>
