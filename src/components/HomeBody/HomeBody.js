@@ -51,7 +51,7 @@ export default function HomeBody() {
   }
   const classes = useStyles();
 
-  const [studentClass, setstudentClass] = React.useState("");
+  const [studentClass, setstudentClass] = React.useState("SS1-3 (Grade 9-12)");
 
   const handleChange = (event) => {
     setstudentClass(event.target.value);
@@ -128,9 +128,9 @@ export default function HomeBody() {
                 onChange={handleChange}
                 label="class"
               >
-                <MenuItem value="">
+                {/* <MenuItem value="">
                   <em>None</em>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem value="JSS1-3 (Grade 7-9)" className={classes.menuItem} onClick={handleJSS}>
                   JSS1-3 (Grade 7-9)
                 </MenuItem>
