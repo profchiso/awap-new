@@ -48,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
     height: 50,
     paddingLeft: theme.spacing(4),
     backgroundColor: "#fff",
-
   },
   img: {
     height: 255,
