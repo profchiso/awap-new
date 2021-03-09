@@ -21,6 +21,8 @@ export default function GoogleButton() {
     console.log(data);
     // store returned user somehow
   };
+
+  
   return (
     <div className="flex justify-center py-3 px-4 mx-auto">
       <GoogleLogin

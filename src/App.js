@@ -30,7 +30,6 @@ class App extends React.Component {
               <Route exact path="/" component={LandingPage} />
               <Route path="/login" component={Login} />
 
-
               <Route path="/untimed-pq" component={UntimedPQ} />
               <Route path="/choose-year" component={ChooseYear} />
               <Route path="/text" component={TextCarousel} />
