@@ -69,7 +69,6 @@ export default function LoginBody(props) {
 
   return (
     <div className="flex justify-center mt-4">
-      {localStorage.token ? <Redirect to="/pq/biology-choose-year" /> : null}
       <div className="py-2 pl-auto pr-auto w-3/4 md:w-3/6">
         <div className="rounded-md shadow w-full bg-white shadow-login">
           <div className="px-10 md:w-4/6 mx-auto">

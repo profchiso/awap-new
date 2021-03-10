@@ -1,6 +1,6 @@
-import React from "react";
-import LoginHeader from "../components/Auth/LoginHeader";
-import LoginBody from "../components/Auth/LoginBody";
+import React from 'react';
+import LoginHeader from '../components/Auth/LoginHeader';
+import LoginBody from '../components/Auth/LoginBody';
 // import { Redirect } from "react-router";
 
 export default function Login(props) {
@@ -8,6 +8,7 @@ export default function Login(props) {
 
   return (
     <div className="bg-f8 pb-8">
+      {localStorage.token ? <Redirect to="/pq/biology-choose-year" /> : null}
       <LoginHeader />
       <LoginBody />
     </div>
