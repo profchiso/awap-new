@@ -95,7 +95,6 @@ export default function PQList() {
                     <div className="flex m-8 gap-x-4">
                       <div>
                         <MenuItem
-                          onClick={handleClose}
                           className={`${classes.menuItem} font-body font-normal flex`}
                         >
                           <span className="font-body font-normal flex-1 pr-8">
@@ -106,7 +105,6 @@ export default function PQList() {
                           </span>
                         </MenuItem>
                         <MenuItem
-                          onClick={handleClose}
                           className={`${classes.menuItem} font-body font-normal flex`}
                         >
                           <span className="font-body font-normal flex-1 pr-8">
@@ -117,7 +115,6 @@ export default function PQList() {
                           </span>
                         </MenuItem>
                         <MenuItem
-                          onClick={handleClose}
                           className={`${classes.menuItem} font-body font-normal flex`}
                         >
                           <span className="font-body font-normal flex-1 pr-8">
