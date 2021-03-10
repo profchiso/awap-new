@@ -7,7 +7,7 @@ import { ReactComponent as Person } from '../svgs/person.svg';
 import { Checkbox, FormControl, IconButton, Input } from '@material-ui/core';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {

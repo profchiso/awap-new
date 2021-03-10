@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import LoginHeader from '../components/Auth/LoginHeader';
 import SignUpBody from '../components/Auth/SignUpBody';
 
-import { connect } from 'react-redux';
 import {
   register,
   saveRegisteredUserDataToState,

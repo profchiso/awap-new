@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginHeader from '../components/Auth/LoginHeader';
 import LoginBody from '../components/Auth/LoginBody';
-// import { Redirect } from "react-router";
+import { Redirect } from 'react-router-dom';
 
 export default function Login(props) {
   // const isAuthenticated = false;
