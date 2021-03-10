@@ -32,9 +32,9 @@ export default function ChooseType() {
                   value="Timed Questions"
                   control={<Radio />}
                   label="Timed Questions"
-                  className="color-primary "
+                  className=" pb-2 "
                 />
-                <div className="py-2 flex justify-center horizontal_Line max-w-3/4 mx-auto"></div>
+                <hr className="w-full p-5 py-5" />
                 <FormControlLabel
                   value="Untimed Questions"
                   control={<Radio />}
