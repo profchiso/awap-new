@@ -5,7 +5,7 @@ export const register = (userData) => {
     return async(dispatch) => {
         try {
             const registeredUser = await axios.post(
-                `${BASE_URL}/signup`,
+                `${BASE_URL}users/signup`,
                 userData,
                 requestHeaders
             );
@@ -19,7 +19,6 @@ export const register = (userData) => {
     };
 };
 export const saveRegisteredUserDataToState = (registeredUserData) => {
-    console.log(registeredUserData);
     return {
         type: 'SAVE_REGISTERED_USER_DATA',
         payload: registeredUserData,
