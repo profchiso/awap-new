@@ -24,3 +24,10 @@ export const saveRegisteredUserDataToState = (registeredUserData) => {
         payload: registeredUserData,
     };
 };
+
+export const registrationError = (err) => {
+    return {
+        type: 'REGISTRATION_ERROR',
+        payload: err,
+    };
+};

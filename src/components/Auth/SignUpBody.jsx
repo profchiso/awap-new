@@ -25,14 +25,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LoginBody() {
+export default function LoginBody(props) {
   const classes = useStyles();
+
   const [values, setValues] = React.useState({
     amount: '',
     password: '',
     weight: '',
     weightRange: '',
     showPassword: false,
+    email: '',
+    confirmPassword: '',
   });
 
   const handleChange = (prop) => (event) => {
@@ -53,14 +56,25 @@ export default function LoginBody() {
     setChecked(event.target.checked);
   };
 
+  const handleSigUp = async (e) => {
+    e.preventDefault();
+    let signUpData = {
+      email: values.email,
+      password: values.password,
+      confirmPassword: values.confirmPassword,
+    };
+    console.log(signUpData);
+    await props.signUpRequest(signUpData);
+  };
+
   return (
     <div className="flex justify-center mt-4">
       {localStorage.token ? <Redirect to="/pq/biology-choose-year" /> : null}
       <div className="py-2 pl-auto pr-auto w-3/4 md:w-3/6">
-        <div className="rounded-md shadow w-full bg-white shadow-login max-w-screen-md mx-auto">
+        <div className="rounded-md shadow w-full bg-white shadow-login">
           <div className="px-10 md:w-4/6 mx-auto">
             <div className="flex justify-center pt-8 pb-16  text-xl text-primary">
-              Log In.
+              Sign Up
             </div>
             <form>
               <div className="flex justify-center pb-12  font-body">
@@ -68,6 +82,8 @@ export default function LoginBody() {
                   id="standard-basic"
                   placeholder="Email"
                   className="w-full m-5 p-4  my-4 font-body"
+                  onChange={handleChange('email')}
+                  value={values.email}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -86,6 +102,34 @@ export default function LoginBody() {
                     type={values.showPassword ? 'text' : 'password'}
                     value={values.password}
                     onChange={handleChange('password')}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          className={classes.iconButton}
+                          color="primary"
+                        >
+                          {values.showPassword ? (
+                            <Visibility />
+                          ) : (
+                            <VisibilityOff />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              </div>
+              <div className="flex justify-center pb-8 font-body">
+                <FormControl className=" w-full">
+                  <Input
+                    id="standard-adornment-password"
+                    placeholder="Comfirm Password"
+                    type={values.showPassword ? 'text' : 'password'}
+                    value={values.comfirmPassword}
+                    onChange={handleChange('confirmPassword')}
                     startAdornment={
                       <InputAdornment position="start">
                         <IconButton
@@ -126,7 +170,10 @@ export default function LoginBody() {
               </div>
 
               <div className="flex justify-center py-3 px-20">
-                <button className="text-white bg-primary shadow-primary px-14 py-2 rounded-md focus:outline-none text-sm lg:text-base">
+                <button
+                  onClick={(e) => handleSigUp(e)}
+                  className="text-white bg-primary shadow-primary px-14 py-2 rounded-md focus:outline-none text-sm lg:text-base"
+                >
                   Continue
                 </button>
               </div>
@@ -137,14 +184,14 @@ export default function LoginBody() {
 
           <div className="justify-center w-full bg-gray-50 h-full py-6">
             <div className="py-2 flex justify-center horizontal_Line max-w-3/4 mx-auto">
-              New to AwesumEdge ?
+              Already have an account ?
             </div>
             <div className="py-2 flex justify-center">
               <Link
-                to="/sign-up"
+                to="/login"
                 className="text-primary bg-white shadow-primary px-20 py-4 rounded-md focus:outline-none text-sm lg:text-base"
               >
-                Sign Up
+                Login
               </Link>
             </div>
           </div>
