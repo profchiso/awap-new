@@ -79,8 +79,23 @@ export default function HeaderRowTwo() {
             className={`${classes.menu} font-body font-normal`}
           >
             <div className="flex m-8 gap-x-4">
-             <MenuColOne onClick={handleCloseTwo} titleOne="WAEC (SSCE)" titleTwo="UME (SSCE)" titleThree="WAEC (JSCE)"/>
-             <MenuColTwo onClick={handleCloseTwo} titleOne="Biology" titleTwo="Chemistry" titleThree="Physics" titleFour="Mathematics"/>
+              <MenuColOne
+                onClick={handleCloseTwo}
+                titleOne="WAEC (SSCE)"
+                titleTwo="UME (SSCE)"
+                titleThree="WAEC (JSCE)"
+              />
+              <MenuColTwo
+                onClick={handleCloseTwo}
+                titleOne="Biology"
+                urlOne="/pq/biology-choose-year"
+                titleTwo="Chemistry"
+                urlTwo="/pq/chemistry"
+                titleThree="Physics"
+                urlThree="/pq/physics"
+                titleFour="Mathematics"
+                urlFour="/pq/math"
+              />
             </div>
           </Menu>
         </div>
