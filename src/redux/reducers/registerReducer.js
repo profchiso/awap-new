@@ -15,12 +15,12 @@ export const registerReducer = (state = initialState, actions) => {
         type === 'SAVE_REGISTERED_USER_DATA' ||
         type === 'SAVE_LOGGED_IN_USER_DATA'
     ) {
-        localStorage.setItem('token', JSON.stringify(payload.token));
-        localStorage.setItem('user', JSON.stringify(payload.user));
+        localStorage.setItem('token', JSON.stringify(payload.data.accessToken));
+        localStorage.setItem('user', JSON.stringify(payload.data.user));
         return {
             ...state,
-            token: payload.token,
-            user: payload.user,
+            token: payload.data.accessToken,
+            user: payload.data.user,
             isSuccessful: true,
             error: {},
         };
