@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { BASE_URL, requestHeaders } from './config';
+import { SAVE_REGISTERED_USER_DATA, REGISTRATION_ERROR } from './types';
 
 export const register = (userData) => {
     return async(dispatch) => {
@@ -20,14 +21,14 @@ export const register = (userData) => {
 };
 export const saveRegisteredUserDataToState = (registeredUserData) => {
     return {
-        type: 'SAVE_REGISTERED_USER_DATA',
+        type: SAVE_REGISTERED_USER_DATA,
         payload: registeredUserData,
     };
 };
 
 export const registrationError = (err) => {
     return {
-        type: 'REGISTRATION_ERROR',
+        type: REGISTRATION_ERROR,
         payload: err,
     };
 };

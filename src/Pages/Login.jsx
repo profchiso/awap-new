@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import LoginHeader from '../components/Auth/LoginHeader';
 import LoginBody from '../components/Auth/LoginBody';
 
