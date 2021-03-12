@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
   },
-  menuItem: {
+  menuItem:{
     marginTop: 4,
     marginBottom: 4,
   },

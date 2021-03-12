@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/styles/index.css';
-import './assets/styles/extraStyles.css';
+import './assets/styles/extraStyles.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import * as serviceWorker from "./serviceWorker";

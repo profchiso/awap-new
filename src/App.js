@@ -9,7 +9,10 @@ import BiologyUntimedPQ from "./Pages/UntimedPQ";
 import BiologyChooseYear from "./Pages/ChooseYear";
 import BiologyChooseType from "./Pages/ChooseType";
 import Login from "./Pages/Login";
+import Answers from "./Pages/Answers/BiologyAnswers";
 // import ProtectedRoute from "./Pages/ProtectedRoute";
+import { biologyPQYear } from "./DB/BiologyPQ";
+import Unavailable from "./Pages/404";
 
 const theme = createMuiTheme({
   palette: {
@@ -40,12 +43,20 @@ class App extends React.Component {
                 component={BiologyChooseType}
               />
               <Route path="/pq/biology-untimed" component={BiologyUntimedPQ} />
-             
+              {/* <Route path="/pq/answers-biology-2000" component={Answers} /> */}
+
+              {biologyPQYear.map((item, index) => (
+                  <Route
+                    key={index}
+                    path={item.url}
+                    component={Answers}
+                  />
+              ))}
+              <Route path="*" component={Unavailable} />
 
               {/* FOR LATER USE */}
               {/* <ProtectedRoute path="/untimed-pq" component={UntimedPQ} />
               <ProtectedRoute path="/choose-year" component={ChooseYear} /> */}
-
             </Switch>
             {/* </Provider> */}
           </ThemeProvider>

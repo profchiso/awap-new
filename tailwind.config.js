@@ -44,9 +44,6 @@ module.exports = {
       awesumOne: '0px 3px 8px rgba(13, 6, 95, 0.1);',
       login:'0px 5px 24px rgba(0, 0, 0, 0.129);',
       googleButton:'1px 6px 10px rgba(13, 6, 95, 0.1);',
-
-      
-
     },
     backgroundColor: (theme) => ({
       ...theme('colors'),
@@ -58,6 +55,7 @@ module.exports = {
       footerRowThree: "#090729",
       danger: "#e3342f",
       f8: "#F8F8FA",
+      lightRed: "#EF4358",
     }),
 
     gradientColorStops: theme => ({
@@ -67,10 +65,14 @@ module.exports = {
       'blueTwo': "#100B4A",
       'blueThree': "#090729",
       'blueFour': "#0F0957",
+      'ansBlue1': "#0D065F",
+      'ansBlue2': "#0A1472",
+      'ansBlue3': "#064586",
      }),
      height: (theme) => ({
       auto: "auto",
       ...theme("spacing"),
+      "128":"32rem",
       "1/2": "50%",
       "1/3": "33.333333%",
       "2/3": "66.666667%",
@@ -129,7 +131,9 @@ module.exports = {
     }),
     minWidth: {
       '0': '0',
+      'xs1': "18rem",
       'xs': "20rem",
+      'md': "30rem",
       '1/4': '25%',
       '1/2': '50%',
       '3/4': '75%',

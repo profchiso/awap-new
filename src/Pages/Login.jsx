@@ -7,7 +7,7 @@ export default function Login(props) {
   // const isAuthenticated = false;
 
   return (
-    <div className="bg-f8 pb-8">
+    <div className="bg-f8 pb-8 h-screen">
       <LoginHeader />
       <LoginBody />
     </div>
