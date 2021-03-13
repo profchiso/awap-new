@@ -29,13 +29,13 @@ export default function PQList() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
-  // const handleToggle = () => {
-  //   setOpen((prevOpen) => !prevOpen);
-  // };
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
 
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   const handleClose = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
@@ -45,26 +45,12 @@ export default function PQList() {
     setOpen(false);
   };
 
-  // function handleListKeyDown(event) {
-  //   if (event.key === "Tab") {
-  //     event.preventDefault();
-  //     setOpen(false);
-  //   }
-  // }
-
-  //Beginning of copy
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  function handlePopClick(event) {
-    if (anchorEl !== event.currentTarget) {
-      setAnchorEl(event.currentTarget);
+  function handleListKeyDown(event) {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      setOpen(false);
     }
   }
-
-  function handlePopClose() {
-    setAnchorEl(null);
-  }
-  //END of copy
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
@@ -79,19 +65,13 @@ export default function PQList() {
     <div className={classes.root}>
       <div>
         <Button
-          // ref={anchorRef}
-          // aria-controls={open ? "menu-list-grow" : undefined}
-          // aria-haspopup="true"
-          // onMouseEnter={handleToggle}
-          // onMouseOver={handleOpen}
-          aria-owns={anchorEl ? "simple-menu" : undefined}
+          ref={anchorRef}
+          aria-controls={open ? "menu-list-grow" : undefined}
           aria-haspopup="true"
-          onClick={handlePopClick}
-          onMouseOver={handlePopClick}
+          // onMouseEnter={handleToggle}
+          onMouseOver={handleOpen}
         >
-          <span className="capitalize font-body font-normal">
-            Past Questions
-          </span>
+          <span className="capitalize font-body font-normal">Past Questions</span>
         </Button>
         <Popper
           open={open}
@@ -109,17 +89,13 @@ export default function PQList() {
               }}
             >
               <Paper>
-                <ClickAwayListener>
+                <ClickAwayListener onClickAway={handleClose} onMouseLeave={handleClose}>
                   <MenuList
-                    // autoFocusItem={open}
-                    // id="menu-list-grow"
-                    // onKeyDown={handleListKeyDown}
-                    id="simple-menu"
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={handlePopClose}
-                    MenuListProps={{ onMouseLeave: handlePopClose }}
+                    autoFocusItem={open}
+                    id="menu-list-grow"
+                    onKeyDown={handleListKeyDown}
                   >
+
                     {/* ADDED */}
                     <div className="flex m-8 gap-x-4">
                       <div>
@@ -156,40 +132,28 @@ export default function PQList() {
                       </div>
 
                       <div className="bg-f8 pr-4">
-                        <MenuItem
-                          className="font-body font-normal mr-8"
-                          onClick={handleClose}
-                        >
+                        <MenuItem className="font-body font-normal mr-8" onClick={handleClose}>
                           <Link to="/pq/biology-choose-year">
                             <span className="font-body font-normal text-gray-800">
                               Biology
                             </span>
                           </Link>
                         </MenuItem>
-                        <MenuItem
-                          className="font-body font-normal mr-8"
-                          onClick={handleClose}
-                        >
+                        <MenuItem className="font-body font-normal mr-8" onClick={handleClose}>
                           <Link to="/pq/chemistry">
                             <span className="font-body font-normal text-gray-800">
                               Chemistry
                             </span>
                           </Link>
                         </MenuItem>
-                        <MenuItem
-                          className="font-body font-normal mr-8"
-                          onClick={handleClose}
-                        >
+                        <MenuItem className="font-body font-normal mr-8" onClick={handleClose}>
                           <Link to="/pq/physics">
                             <span className="font-body font-normal text-gray-800">
                               Physics
                             </span>
                           </Link>
                         </MenuItem>
-                        <MenuItem
-                          className="font-body font-normal mr-8"
-                          onClick={handleClose}
-                        >
+                        <MenuItem className="font-body font-normal mr-8" onClick={handleClose}>
                           <Link to="/pq/math">
                             <span className="font-body font-normal text-gray-800">
                               Math

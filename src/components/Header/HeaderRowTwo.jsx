@@ -1,6 +1,7 @@
 import React from "react";
-import PQList from "./PQList";
+// import PQList from "./PQList";
 import GradeList from "./GradeList";
+import Test from "./Test";
 
 export default function HeaderRowTwo() {
  
@@ -10,8 +11,11 @@ export default function HeaderRowTwo() {
         <div className="mr-20 ">
           <GradeList/>
         </div>
-        <div>
+        {/* <div>
           <PQList/>
+        </div> */}
+        <div>
+          <Test/>
         </div>
       </div>
     </div>

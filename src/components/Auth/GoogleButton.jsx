@@ -1,6 +1,6 @@
 import React from "react";
 import { GoogleLogin } from "react-google-login";
-import { ReactComponent as GoogleIcon } from "../svgs/GoogleIcon.svg";
+import { ReactComponent as GoogleIcon } from "../../assets/svgs/GoogleIcon.svg";
 
 export default function GoogleButton() {
   const handleLogin = async (googleData) => {

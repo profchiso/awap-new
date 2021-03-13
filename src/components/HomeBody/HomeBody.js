@@ -1,10 +1,10 @@
 import React from "react";
-import { ReactComponent as NextIcon } from "../svgs/NextIcon.svg";
-import aplusIcon from "../svgs/AplusIcon.svg";
-import selfPacedLearning from "../svgs/SelfPacedLearning.svg";
-import testTimer from "../svgs/TestTimer.svg";
-import ERM from "../svgs/ERM.svg";
-// import { ReactComponent as ERM} from "../svgs/ERM.svg";
+import { ReactComponent as NextIcon } from "../../assets/svgs/NextIcon.svg";
+import aplusIcon from "../../assets/svgs/AplusIcon.svg";
+import selfPacedLearning from "../../assets/svgs/SelfPacedLearning.svg";
+import testTimer from "../../assets/svgs/TestTimer.svg";
+import ERM from "../../assets/svgs/ERM.svg";
+// import { ReactComponent as ERM} from "../../assets/svgs/ERM.svg";
 import someb from "../../assets/images/somebody.jpeg";
 // import person from "../../assets/images/person.svg";
 import { makeStyles } from '@material-ui/core/styles';

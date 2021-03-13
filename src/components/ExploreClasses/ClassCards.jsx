@@ -1,9 +1,9 @@
 import React from "react";
 // import biologyThumbNail from "../../assets/images/biologyThumbNail.svg";
 import profilePic from "../../assets/images/profilePic.svg";
-import { ReactComponent as EyeIcon } from "../svgs/eyeIcon.svg";
-import { ReactComponent as PlayIcon } from "../svgs/playIcon.svg";
-import { ReactComponent as ClockIcon } from "../svgs/clockIcon.svg";
+import { ReactComponent as EyeIcon } from "../../assets/svgs/eyeIcon.svg";
+import { ReactComponent as PlayIcon } from "../../assets/svgs/playIcon.svg";
+import { ReactComponent as ClockIcon } from "../../assets/svgs/clockIcon.svg";
 import { ReadOnlyRating } from "../Ratings/Ratings";
 import Video from "../Carousels/Video";
 
