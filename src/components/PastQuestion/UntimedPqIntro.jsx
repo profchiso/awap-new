@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as QuestionMark } from "../svgs/QuestionMark.svg";
+import { ReactComponent as QuestionMark } from "../../assets/svgs/QuestionMark.svg";
 
 export default function UntimedPqIntro() {
   return (

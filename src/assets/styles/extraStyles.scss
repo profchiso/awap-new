@@ -1,0 +1,54 @@
+/* The styles in this css file is added because the css names here are not supported in
+ TAILWIND 2.0 at the time of writing (22nd February 2021), & installing another 
+ package(e.g tailwind-filter-utilities) is unneccesary for just one image styling. */
+
+.MuiInputBase-input {
+  font-family: "Google Sans", "Segoe UI", sans-serif !important;
+}
+
+.MuiSvgIcon-root {
+  font-size: 1.3rem !important;
+}
+
+.horizontal_Line {
+  display: flex;
+  flex-direction: row;
+}
+
+.horizontal_Line:before,
+.horizontal_Line:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid #e1e1e1;
+  margin: auto;
+}
+.horizontal_Line::before {
+  margin-right: 10px;
+}
+.horizontal_Line::after {
+  margin-left: 10px;
+}
+
+/* SCROLL BAR, ALL BROWSERS */
+
+.scrollSection {
+  /* Works on Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: white white;
+  }
+
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 0.35rem !important;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: white !important;
+    border-radius: 20px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: white;
+  }
+}

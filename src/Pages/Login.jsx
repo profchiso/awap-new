@@ -10,10 +10,14 @@ function Login({ login }) {
   // const isAuthenticated = false;
 
   return (
+// <<<<<<< signup
     <div className="bg-f8 pb-8">
       {localStorage.token ? <Redirect to="/pq/biology-choose-year" /> : null}
-      <LoginHeader />
-      <LoginBody loginRequest={login} />
+// =======
+//     <div className="bg-f8 pb-8 h-screen">
+// >>>>>>> main
+//       <LoginHeader />
+//       <LoginBody loginRequest={login} />
     </div>
   );
 

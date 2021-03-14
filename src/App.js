@@ -1,3 +1,4 @@
+// <<<<<<< signup
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -8,9 +9,22 @@ import 'react-multi-carousel/lib/styles.css';
 import BiologyUntimedPQ from './Pages/UntimedPQ';
 import BiologyChooseYear from './Pages/ChooseYear';
 import BiologyChooseType from './Pages/ChooseType';
-import Login from './Pages/Login';
+// import Login from './Pages/Login';
 import SignUP from './Pages/SignUp';
+// =======
+// import store from "./redux/store";
+// import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+// import LandingPage from "./Pages/LandingPage";
+// import "react-multi-carousel/lib/styles.css";
+// import BiologyUntimedPQ from "./Pages/UntimedPQ";
+// import BiologyChooseYear from "./Pages/ChooseYear";
+// import BiologyChooseType from "./Pages/ChooseType";
+// import Login from "./Pages/Login";
+import Answers from "./Pages/Answers/BiologyAnswers";
+// >>>>>>> main
 // import ProtectedRoute from "./Pages/ProtectedRoute";
+import { biologyPQYear } from "./DB/BiologyPQ";
+import Unavailable from "./Pages/404";
 
 const theme = createMuiTheme({
   palette: {
@@ -42,6 +56,18 @@ class App extends React.Component {
                 component={BiologyChooseType}
               />
               <Route path="/pq/biology-untimed" component={BiologyUntimedPQ} />
+// <<<<<<< signup
+// =======
+              
+              {biologyPQYear.map((item, index) => (
+                  <Route
+                    key={index}
+                    path={item.url}
+                    component={Answers}
+                  />
+              ))}
+              <Route path="*" component={Unavailable} />
+// >>>>>>> main
 
               {/* FOR LATER USE */}
               {/* <ProtectedRoute path="/untimed-pq" component={UntimedPQ} />

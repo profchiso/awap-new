@@ -1,6 +1,6 @@
 import React from 'react';
-import { ReactComponent as AwesumEdgeLogo } from '../../components/svgs/AwesumEdgeLogo.svg';
-import awesumBook from '../../components/svgs/AwesumBook.svg';
+import { ReactComponent as AwesumEdgeLogo } from '../../assets/svgs/AwesumEdgeLogo.svg';
+import awesumBook from '../../assets/svgs/AwesumBook.svg';
 import { Link } from 'react-router-dom';
 
 export default function LoginHeader() {

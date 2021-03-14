@@ -1,9 +1,9 @@
 import React from 'react'
-import { ReactComponent as AwesumEdgeWhiteLogo } from "../svgs/AwesumEdgeWhiteLogo.svg";
-import { ReactComponent as TwitterIcon } from "../svgs/TwitterIcon.svg";
-import { ReactComponent as FacebookIcon } from "../svgs/FacebookIcon.svg";
-import { ReactComponent as YoutubeIcon } from "../svgs/YoutubeIcon.svg";
-import { ReactComponent as InstagramIcon } from "../svgs/InstagramIcon.svg";
+import { ReactComponent as AwesumEdgeWhiteLogo } from "../../assets/svgs/AwesumEdgeWhiteLogo.svg";
+import { ReactComponent as TwitterIcon } from "../../assets/svgs/TwitterIcon.svg";
+import { ReactComponent as FacebookIcon } from "../../assets/svgs/FacebookIcon.svg";
+import { ReactComponent as YoutubeIcon } from "../../assets/svgs/YoutubeIcon.svg";
+import { ReactComponent as InstagramIcon } from "../../assets/svgs/InstagramIcon.svg";
 import { Link } from 'react-router-dom';
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Search from '../Search/Search';
-import { ReactComponent as MenuIcon } from "../svgs/menuIcon.svg";
+import { ReactComponent as MenuIcon } from "../../assets/svgs/menuIcon.svg";
 
 
 export default function MobileHeader() {
