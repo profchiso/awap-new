@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import GoogleButton from './GoogleButton';
-import { ReactComponent as Person } from '../svgs/person.svg';
+import { ReactComponent as Person } from '../../assets/svgs/person.svg';
 import { Checkbox, FormControl, IconButton, Input } from '@material-ui/core';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
