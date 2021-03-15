@@ -1,6 +1,6 @@
 export const biologyPQYear = [
   {
-    url: "/pq/answers-biology-2000",
+    url: "/pq/answers",
     year: "2000",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -11,7 +11,7 @@ export const biologyPQYear = [
     ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2001",
+    url: "/pq/answers",
     year: "2001",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -22,7 +22,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2002",
+    url: "/pq/answers",
     year: "2002",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -33,7 +33,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2003",
+    url: "/pq/answers",
     year: "2003",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -44,7 +44,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2004",
+    url: "/pq/answers",
     year: "2004",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -55,7 +55,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2005",
+    url: "/pq/answers",
     year: "2005",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -66,7 +66,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2006",
+    url: "/pq/answers",
     year: "2006",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -77,7 +77,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2007",
+    url: "/pq/answers",
     year: "2007",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -88,7 +88,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2008",
+    url: "/pq/answers",
     year: "2008",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -100,7 +100,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2009",
+    url: "/pq/answers",
     year: "2009",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -112,7 +112,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2010",
+    url: "/pq/answers",
     year: "2010",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -124,7 +124,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2011",
+    url: "/pq/answers",
     year: "2011",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -136,7 +136,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2012",
+    url: "/pq/answers",
     year: "2012",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -148,7 +148,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2013",
+    url: "/pq/answers",
     year: "2013",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -160,7 +160,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2014",
+    url: "/pq/answers",
     year: "2014",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -172,7 +172,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2015",
+    url: "/pq/answers",
     year: "2015",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -184,7 +184,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2016",
+    url: "/pq/answers",
     year: "2016",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -196,7 +196,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2017",
+    url: "/pq/answers",
     year: "2017",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -208,7 +208,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2018",
+    url: "/pq/answers",
     year: "2018",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -220,7 +220,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2019",
+    url: "/pq/answers",
     year: "2019",
     qtsn: "Express 287.387934578 correct to 2 significant figures",
     expl:
@@ -232,7 +232,7 @@ export const biologyPQYear = [
       ans_option_d: "287.39",
   },
   {
-    url: "/pq/answers-biology-2020",
+    url: "/pq/answers",
     year: "2020",
     qtsn: "",
     expl:
