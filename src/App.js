@@ -11,6 +11,7 @@ import BiologyChooseType from "./Pages/ChooseType";
 import Login from "./Pages/Login";
 import SignUP from "./Pages/SignUp";
 import Answers from "./Pages/Answers/BiologyAnswers";
+import PracticeQuestion from "./Pages/PracticeQuestion"
 // import ProtectedRoute from "./Pages/ProtectedRoute";
 import { biologyPQYear } from "./DB/BiologyPQ";
 import Unavailable from "./Pages/404";
@@ -41,7 +42,15 @@ class App extends React.Component {
                 component={BiologyChooseYear}
               />
               <Route
+                path="/pq/practice"
+                component={PracticeQuestion}
+              />
+              <Route
                 path="/pq/biology-choose-type"
+                component={BiologyChooseType}
+              />
+              <Route
+                path="/pq"
                 component={BiologyChooseType}
               />
               <Route path="/pq/biology-untimed" component={BiologyUntimedPQ} />

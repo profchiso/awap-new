@@ -4,8 +4,9 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import Header from '../components/Header/Header';
+import ArrowBackOutlinedIcon from '@material-ui/icons/ArrowBackOutlined';
+
+import Header from '../components/Header/HeaderWithSearchButtonOnly';
 import Footer from '../components/Footer/Footer';
 
 export default function ChooseType() {
@@ -15,13 +16,13 @@ export default function ChooseType() {
   };
   return (
     <div>
-      {!localStorage.token ? <Redirect to="/login" /> : null}
+      {/* {!localStorage.token ? <Redirect to="/login" /> : null} */}
       <Header />
-      <div className="flex justify-center mb-24">
-        <div className="font-body flex flex-col gap-28 text-center mt-40">
-          <h3 className="text-3xl font-body">Choose type</h3>
-          <div className="flex items-center justify-center">
-            <FormControl component="fieldset">
+      <div className="text-center pl-20 mb-24">
+        <div className="font-body flex flex-col gap-7 text-center mt-10">
+          <h3 className="text-3xl font-body flex justify-center items-center p-3">< ArrowBackOutlinedIcon className=""/><span className="pl-5">Choose type</span></h3>
+          <div className="  pl-80">
+            <FormControl component="fieldset" className="w-4/5 p-50">
               <RadioGroup
                 aria-label="chooseType"
                 name="chooseType"
@@ -30,29 +31,24 @@ export default function ChooseType() {
               >
                 <FormControlLabel
                   value="Timed Questions"
-                  control={<Radio />}
+                  control={<Radio color="primary" />}
                   label="Timed Questions"
-                  className=" pb-2 "
+                  className="pb-3 pl-4"
                 />
-                <hr className="w-full p-5 py-5" />
+                <hr className="w-2/5" />
                 <FormControlLabel
                   value="Untimed Questions"
-                  control={<Radio />}
+                  control={<Radio color="primary" />}
                   label="Untimed Questions"
+                  className="pt-3 pl-4"
                 />
               </RadioGroup>
             </FormControl>
           </div>
-          <div>
-            <Link to="/biology-choose-type">
-              <button className="text-white bg-primary  font-body shadow-primary px-5  md:px-20 py-2 rounded-md focus:outline-none text-sm lg:text-base">
-                Next
-              </button>
-            </Link>
-          </div>
+         
         </div>
       </div>
-      <Footer />
+      { <Footer /> }
     </div>
   );
 }
