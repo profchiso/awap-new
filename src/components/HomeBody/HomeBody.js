@@ -76,7 +76,7 @@ export default function HomeBody() {
               Courses for Secondary/High School Students
             </p>
             <Link to="/login">
-            <button className="bg-white text-primary text-md lg:text-lg py-4 mt-32 px-20 rounded-md">
+            <button className="bg-white text-primary text-md lg:text-lg py-4 mt-32 px-20 rounded-md font-body">
               Get Started
             </button>
             </Link>
@@ -165,7 +165,7 @@ export default function HomeBody() {
       <div className="flex flex-wrap justify-center items-center text-center text-light mt-64  px-2">
       
         <SwipeableTextMobileStepper />
-        <div className="max-w-xl pl-12 pr-4">
+        <div className="max-w-xl sm:pl-12 sm:pr-4">
           <h3 className="py-4 text-center pt-8 lg:pt-0">
             <TextCarousel/>
           </h3>

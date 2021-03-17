@@ -32,7 +32,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   textStyle: {
-    fontSize: "1.5rem",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "1.5rem",
+    },
     fontFamily: "Google Sans",
   },
 }));
@@ -50,7 +52,7 @@ function TextCarousel() {
     <div className={classes.root}>
       <Paper square elevation={0}>
         <Typography
-          className={`${classes.textStyle} whitespace-nowrap text-center py-4 text-center text-2xl text-primary opacity-50 font-body font-normal`}
+          className={`${classes.textStyle} whitespace-nowrap text-center py-4 text-center text-sm md:text-2xl text-primary opacity-50 font-body font-normal`}
         >
           {tutorialSteps[activeStep].label}
         </Typography>
