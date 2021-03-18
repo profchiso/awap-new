@@ -4,11 +4,9 @@ import aplusIcon from "../../assets/svgs/AplusIcon.svg";
 import selfPacedLearning from "../../assets/svgs/SelfPacedLearning.svg";
 import testTimer from "../../assets/svgs/TestTimer.svg";
 import ERM from "../../assets/svgs/ERM.svg";
-// import { ReactComponent as ERM} from "../../assets/svgs/ERM.svg";
 import someb from "../../assets/images/somebody.jpeg";
-// import person from "../../assets/images/person.svg";
-import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
+import { makeStyles } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
@@ -17,8 +15,9 @@ import MobileHeader from "../Header/MobileHeader";
 import ExploreContentSenior from "../ExploreClasses/Index";
 import ExploreContentJunior from "../ExploreClasses/ExploreContentJunior";
 import SwipeableTextMobileStepper from "../Carousels/SingleCarousel";
-import TextCarousel from "../Carousels/TextCarousel"
+import TextCarousel from "../Carousels/TextCarousel";
 import { Link } from "react-router-dom";
+import useWindowDimensions from "../../Hooks/UseWindowDimension";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -28,11 +27,11 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
-  menuItem:{
-    fontFamily: 'Google Sans',
+  menuItem: {
+    fontFamily: "Google Sans",
   },
-  border:{
-    borderColor: 'rgba(6,69,134, 0.1)',
+  border: {
+    borderColor: "rgba(6,69,134, 0.1)",
   },
   large: {
     width: theme.spacing(10),
@@ -40,25 +39,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 export default function HomeBody() {
-  const [secondaySchoolContent, setsecondaySchoolContent] = React.useState(<ExploreContentSenior />)
+  const [secondaySchoolContent, setsecondaySchoolContent] = React.useState(
+    <ExploreContentSenior />
+  );
 
-  const handleSS =()=>{
-    setsecondaySchoolContent(<ExploreContentSenior />)
-  }
+  const handleSS = () => {
+    setsecondaySchoolContent(<ExploreContentSenior />);
+  };
 
-  const handleJSS =()=>{
-    setsecondaySchoolContent(<ExploreContentJunior />)
-  }
+  const handleJSS = () => {
+    setsecondaySchoolContent(<ExploreContentJunior />);
+  };
   const classes = useStyles();
 
   const [studentClass, setstudentClass] = React.useState("SS1-3 (Grade 9-12)");
-  
+
   const handleChange = (event) => {
     setstudentClass(event.target.value);
   };
+  const { width } = useWindowDimensions();
 
   return (
     <div className="max-w-screen-2xl mx-auto">
@@ -76,15 +76,13 @@ export default function HomeBody() {
               Courses for Secondary/High School Students
             </p>
             <Link to="/login">
-            <button className="bg-white text-primary text-md lg:text-lg py-4 mt-32 px-20 rounded-md font-body">
-              Get Started
-            </button>
+              <button className="bg-white text-primary text-md lg:text-lg py-4 mt-32 px-20 rounded-md font-body">
+                Get Started
+              </button>
             </Link>
-           
           </div>
           <div className="flex items-center right-5">
-            <img src={ERM} alt="erm" className="mt-24"/>
-            {/* <ERM/> */}
+            <img src={ERM} alt="erm" className="mt-24" />
           </div>
         </div>
       </div>
@@ -97,8 +95,11 @@ export default function HomeBody() {
       <div className="flex flex-1 py-8 px-4 justify-around gap-0 sm:gap-4">
         <div className="text-center text-primary pb-4  max-w-1/3">
           <img src={testTimer} className="mx-auto px-2" alt="" />
+
           <p className="text-sm md:text-base px-2">
-            Prepare Adequately for your Test/Exam
+            {width < 480
+              ? `Prepare Adequately`
+              : `Prepare Adequately for your Test/Exam`}
           </p>
         </div>
         <div className="text-center text-primary pb-4 max-w-1/3">
@@ -134,13 +135,18 @@ export default function HomeBody() {
                 onChange={handleChange}
                 label="class"
               >
-                {/* <MenuItem value="">
-                  <em>None</em>
-                </MenuItem> */}
-                <MenuItem value="JSS1-3 (Grade 7-9)" className={classes.menuItem} onClick={handleJSS}>
+                <MenuItem
+                  value="JSS1-3 (Grade 7-9)"
+                  className={classes.menuItem}
+                  onClick={handleJSS}
+                >
                   JSS1-3 (Grade 7-9)
                 </MenuItem>
-                <MenuItem value="SS1-3 (Grade 9-12)" className={classes.menuItem} onClick={handleSS}>
+                <MenuItem
+                  value="SS1-3 (Grade 9-12)"
+                  className={classes.menuItem}
+                  onClick={handleSS}
+                >
                   SS1-3 (Grade 9-12)
                 </MenuItem>
               </Select>
@@ -148,7 +154,9 @@ export default function HomeBody() {
           </div>
 
           <div className="mt-8 pl-8 flex items-center">
-            <p className="text-primary text-sm pr-2 my-auto whitespace-nowrap">SEE ALL</p>
+            <p className="text-primary text-sm pr-2 my-auto whitespace-nowrap">
+              SEE ALL
+            </p>
             <NextIcon className="text-sm " />
           </div>
         </div>
@@ -163,16 +171,15 @@ export default function HomeBody() {
       {/* COMMENT: THIS SECTION IS BEING WORKED ON */}
 
       <div className="flex flex-wrap justify-center items-center text-center text-light mt-64  px-2">
-      
         <SwipeableTextMobileStepper />
         <div className="max-w-xl sm:pl-12 sm:pr-4">
           <h3 className="py-4 text-center pt-8 lg:pt-0">
-            <TextCarousel/>
+            <TextCarousel />
           </h3>
           <Link to="/login">
-          <button className="text-white bg-primary shadow-primary px-24 py-2.5 mt-8 rounded-md focus:outline-none text-base font-semibold font-body lg:text-xl">
-            Join
-          </button>
+            <button className="text-white bg-primary shadow-primary px-24 py-2.5 mt-8 rounded-md focus:outline-none text-base font-semibold font-body lg:text-xl">
+              Join
+            </button>
           </Link>
         </div>
       </div>
@@ -184,25 +191,26 @@ export default function HomeBody() {
 
         <div className="bg-bodyLightBlue bg-cover bg-center bg-no-repeat py-48 lg:py-64 w-full">
           <div className="bg-card bg-cover bg-center bg-no-repeat sm:py-30 lg:pt-36 lg:pb-60 pt-12 pb-24 max-w-5/6 md:max-w-3/4 mx-auto text-primary text-center">
-            {/* <img src={person} alt="" className="mx-auto w-24 sm:w-auto pb-4" /> */}
             <div className=" pb-4">
-            <Avatar alt="Remy Sharp" src={someb} className={`${classes.large} mx-auto sm:w-auto`} />
-
+              <Avatar
+                alt="Remy Sharp"
+                src={someb}
+                className={`${classes.large} mx-auto sm:w-auto`}
+              />
             </div>
             <div className="opacity-50 text-sm md:text-lg top-0 ">
               <p className="whitespace-nowrap">
                 I love the past questions, and how they were solved.
               </p>
               <p className="whitespace-nowrap">
-                  They helped me prepare well for my WAEC !
-                </p>
+                They helped me prepare well for my WAEC !
+              </p>
             </div>
-           
           </div>
           <Link to="/login">
-          <button className="text-white bg-primary shadow-primary px-12 py-4 mt-8 rounded-md focus:outline-none text-base font-medium font-body lg:text-xl">
-            Get Started Now
-          </button>
+            <button className="text-white bg-primary shadow-primary px-12 py-4 mt-8 rounded-md focus:outline-none text-base font-medium font-body lg:text-xl">
+              Get Started Now
+            </button>
           </Link>
         </div>
       </div>
