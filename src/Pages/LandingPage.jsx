@@ -8,7 +8,9 @@ export default function LandingPage() {
     <div className="">
       <Header />
       <HomeBody />
+      
       <Footer />
+
     </div>
   );
 }
