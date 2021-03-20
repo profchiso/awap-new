@@ -7,22 +7,22 @@ import Pagination from "../components/AnswerContent/Pagination"
 
 import {DefaultAnswerBtn,SelectedBtn} from "../components/Button/AnswerButton"
 
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import RadioGroup from '@material-ui/core/RadioGroup';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 
-import Radio from '@material-ui/core/Radio';
+// import Radio from '@material-ui/core/Radio';
 
 
 export default function PracticeQuestion() {
-  const [value, setValue] = React.useState("A");
-  const [isSelected, setIsSelected] = React.useState("py-5 px-10 text-base font-medium bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 rounded w-full shadow-awesumOne max-w-md text-white text-left");
-  const [isDefault, setIsDefault] = React.useState("py-5 px-10 text-base font-medium bg-white shadow-awesumOne w-full max-w-md text-left rounded")
+  // const [value, setValue] = React.useState("A");
+  // const [isSelected, setIsSelected] = React.useState("py-5 px-10 text-base font-medium bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 rounded w-full shadow-awesumOne max-w-md text-white text-left");
+  // const [isDefault, setIsDefault] = React.useState("py-5 px-10 text-base font-medium bg-white shadow-awesumOne w-full max-w-md text-left rounded")
 
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setValue(event.target.value);
+  // };
   return (
     <>
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-16 shadow-primary pt-2 pb-1">
