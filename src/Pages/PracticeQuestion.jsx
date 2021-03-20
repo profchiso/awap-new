@@ -5,6 +5,8 @@ import awesumBook from "../assets/svgs/AwesumBook.svg";
 import { Link } from 'react-router-dom';
 import Pagination from "../components/AnswerContent/Pagination"
 
+import {DefaultAnswerBtn,SelectedBtn} from "../components/Button/AnswerButton"
+
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -14,6 +16,9 @@ import Radio from '@material-ui/core/Radio';
 
 export default function PracticeQuestion() {
   const [value, setValue] = React.useState("A");
+  const [isSelected, setIsSelected] = React.useState("py-5 px-10 text-base font-medium bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 rounded w-full shadow-awesumOne max-w-md text-white text-left");
+  const [isDefault, setIsDefault] = React.useState("py-5 px-10 text-base font-medium bg-white shadow-awesumOne w-full max-w-md text-left rounded")
+
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -47,38 +52,31 @@ export default function PracticeQuestion() {
 
       <div className="flex justify-center items-center pt-6 pb-6">
         <FormControl component="fieldset" className="w-6/12 text-center">
-              <RadioGroup
-                aria-label="chooseType"
-                name="chooseType"
-                value={value}
-                onChange={handleChange}
-              >
-                <FormControlLabel
-                  value="A"
-                  control={<Radio color="primary" />}
-                  label="87635"
-                  className="pb-3 pt-3  shadow-primary  "
-                />
-                <FormControlLabel
-                  value="B"
-                  control={<Radio color="primary" />}
-                  label="87635"
-                  className="pb-3 pt-3 shadow-primary"
-                />
-                <FormControlLabel
-                  value="C"
-                  control={<Radio color="primary" />}
-                  label="87635"
-                  className="pb-3 pt-3 shadow-primary"
-                />
-                
-                <FormControlLabel
-                  value="D"
-                  control={<Radio color="primary" />}
-                  label="87635"
-                  className="pb-3 pt-3 shadow-primary"
-                />
-              </RadioGroup>
+          
+          <div className="pb-3 pt-3 ">
+            <SelectedBtn>
+              <span className="pr-8">a.</span>
+              <span>287</span>
+            </SelectedBtn>
+          </div>
+          <div className="pb-3 pt-3 ">
+            <DefaultAnswerBtn>
+                <span className="pr-8">a.</span>
+                <span>289</span>
+            </DefaultAnswerBtn>
+          </div>
+          <div className="pb-3 pt-3 ">
+          <DefaultAnswerBtn>
+                <span className="pr-8">a.</span>
+                <span>287.3</span>
+            </DefaultAnswerBtn>
+          </div>
+          <div className="pb-3 pt-3 ">
+          <DefaultAnswerBtn>
+                <span className="pr-8">a.</span>
+                <span>287.38</span>
+            </DefaultAnswerBtn>
+          </div>
             </FormControl>
       </div>
 

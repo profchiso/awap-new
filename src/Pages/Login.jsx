@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import LoginHeader from "../components/Auth/LoginHeader";
 import LoginBody from "../components/Auth/LoginBody";
 
-import { login, saveLoginUserDataToState } from "../redux/actions/login";
+import { login, saveLoginUserDataToState, } from "../redux/actions/login";
 
-function Login({ login }) {
-  // const isAuthenticated = false;
+function Login(props) {
+  console.log(props)
 
   return (
     <div className="bg-f8 pb-8">
@@ -15,7 +15,7 @@ function Login({ login }) {
 
       <div className="bg-f8 pb-8 h-screen">
         <LoginHeader />
-        <LoginBody loginRequest={login} />
+        <LoginBody loginRequest={props.login} error={props.loginReducer.error.message} />
       </div>
     </div>
   );

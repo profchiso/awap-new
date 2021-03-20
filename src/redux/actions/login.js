@@ -6,11 +6,11 @@ export const login = (userData) => {
     return async(dispatch) => {
         try {
             const loggedInUser = await axios.post(
-                `${BASE_URL}login`,
+                `${BASE_URL}users/login`,
                 userData,
                 requestHeaders
             );
-
+            console.log(loggedInUser)
             loggedInUser.status === 200 &&
                 dispatch(saveLoginUserDataToState(loggedInUser.data));
         } catch (error) {

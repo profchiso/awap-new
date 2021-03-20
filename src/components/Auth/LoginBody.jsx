@@ -26,22 +26,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LoginBody() {
+export default function LoginBody(props) {
+  console.log(props)
   const classes = useStyles();
   const [values, setValues] = React.useState({
     amount: '',
     password: '',
     weight: '',
     weightRange: '',
+    email:"",
     showPassword: false,
   });
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
+    console.log(values)
   };
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
+    
   };
 
   const handleMouseDownPassword = (event) => {
@@ -52,7 +56,15 @@ export default function LoginBody() {
 
   const handleCheckChange = (event) => {
     setChecked(event.target.checked);
+   
   };
+const {email,password}= values
+
+const handleLogin=(e)=>{
+  e.preventDefault()
+  props.loginRequest({email,password})
+
+}
 
   return (
     <div className="flex justify-center mt-4">
@@ -68,6 +80,7 @@ export default function LoginBody() {
                   id="standard-basic"
                   placeholder="Email"
                   className="w-full m-5 p-4  my-4 font-body"
+                  onChange={handleChange('email')}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -105,10 +118,13 @@ export default function LoginBody() {
                     }
                   />
                 </FormControl>
+                
               </div>
+              <div><span style={{color:"red"}}>{props.error}</span></div>
 
               <div className="pb-12 mt-3 flex justify-center items-center">
                 <div className="flex items-center">
+
                   <Checkbox
                     checked={checked}
                     color="primary"
@@ -126,7 +142,7 @@ export default function LoginBody() {
               </div>
 
               <div className="flex justify-center py-3 px-20">
-                <button className="text-white bg-primary shadow-primary px-14 py-2 rounded-md focus:outline-none text-sm lg:text-base">
+                <button onClick={(e)=>handleLogin(e)} className="text-white bg-primary shadow-primary px-14 py-2 rounded-md focus:outline-none text-sm lg:text-base">
                   Continue
                 </button>
               </div>
