@@ -19,7 +19,6 @@ export default function Unavailable() {
       </div>
       <Footer />
 
-      
     </div>
   );
 }

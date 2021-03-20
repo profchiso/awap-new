@@ -9,7 +9,7 @@ export default function AnswerLayout(props) {
 
   return (
     <div>
-      <Header />
+      <Header showFilter={true}/>
       <div className="flex ">
         {width < 768 ? <MobileSideNav /> : <WebSideNav />}
         {props.children}
