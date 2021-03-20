@@ -1,8 +1,10 @@
 import React from "react";
 import { GoogleLogin } from "react-google-login";
+import {connect} from "react-redux"
 import { ReactComponent as GoogleIcon } from "../../assets/svgs/GoogleIcon.svg";
+import {socialLogin} from "../../redux/actions/login"
 
-export default function GoogleButton() {
+ function GoogleButton({socialLogin}) {
   const handleLogin = async (googleData) => {
     console.log(googleData);
     const res = await fetch(
@@ -18,6 +20,8 @@ export default function GoogleButton() {
       }
     );
     const data = await res.json();
+    socialLogin(data)
+
     console.log(data);
     // store returned user somehow
   };
@@ -46,3 +50,12 @@ export default function GoogleButton() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+}
+export default connect(mapStateToProps, {
+  socialLogin,
+})(GoogleButton);
