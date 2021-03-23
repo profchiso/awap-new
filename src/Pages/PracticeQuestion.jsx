@@ -1,28 +1,29 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 import { ReactComponent as AwesumEdgeLogo } from "../assets/svgs/AwesumEdgeLogo.svg";
 import awesumBook from "../assets/svgs/AwesumBook.svg";
 import { Link } from 'react-router-dom';
 import Pagination from "../components/AnswerContent/Pagination"
 
-import {DefaultAnswerBtn,SelectedBtn} from "../components/Button/AnswerButton"
+import {DefaultAnswerBtn} from "../components/Button/AnswerButton"
 
-// import RadioGroup from '@material-ui/core/RadioGroup';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 import FormControl from '@material-ui/core/FormControl';
 
-// import Radio from '@material-ui/core/Radio';
+
 
 
 export default function PracticeQuestion() {
-  // const [value, setValue] = React.useState("A");
-  // const [isSelected, setIsSelected] = React.useState("py-5 px-10 text-base font-medium bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 rounded w-full shadow-awesumOne max-w-md text-white text-left");
-  // const [isDefault, setIsDefault] = React.useState("py-5 px-10 text-base font-medium bg-white shadow-awesumOne w-full max-w-md text-left rounded")
+  
+   const [value, setValue] = useState("");
+   const isSelected="bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3"
+   
 
-
-  // const handleChange = (event) => {
-  //   // setValue(event.target.value);
-  // };
+  const onSelectedOptionChange = (option) => {
+    console.log(option)
+     setValue(option);
+    
+  };
   return (
     <>
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-16 shadow-primary pt-2 pb-1">
@@ -54,25 +55,25 @@ export default function PracticeQuestion() {
         <FormControl component="fieldset" className="w-6/12 text-center">
           
           <div className="pb-3 pt-3 ">
-            <SelectedBtn>
+            <DefaultAnswerBtn isSelected={value==="a"? `${isSelected}`:""}  onClick={()=>onSelectedOptionChange("a")}>
               <span className="pr-8">a.</span>
               <span>287</span>
-            </SelectedBtn>
+            </DefaultAnswerBtn>
           </div>
           <div className="pb-3 pt-3 ">
-            <DefaultAnswerBtn>
+            <DefaultAnswerBtn isSelected={value==="b"? `${isSelected}`:""}  onClick={()=>onSelectedOptionChange("b")}>
                 <span className="pr-8">b.</span>
                 <span>289</span>
             </DefaultAnswerBtn>
           </div>
           <div className="pb-3 pt-3 ">
-          <DefaultAnswerBtn>
+          <DefaultAnswerBtn isSelected={value==="c"? `${isSelected}`:""}  onClick={()=>onSelectedOptionChange("c")}>
                 <span className="pr-8">c.</span>
                 <span>287.3</span>
             </DefaultAnswerBtn>
           </div>
           <div className="pb-3 pt-3 ">
-          <DefaultAnswerBtn>
+          <DefaultAnswerBtn isSelected={value==="d"? `${isSelected}`:""}  onClick={()=>onSelectedOptionChange("d")}>
                 <span className="pr-8">d.</span>
                 <span>287.38</span>
             </DefaultAnswerBtn>
