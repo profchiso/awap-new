@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL, requestHeaders } from './config';
-import { LOGIN_SUCCESS, SAVE_LOGGED_IN_USER_DATA, LOGIN_ERROR } from './types';
+import { SAVE_LOGGED_IN_USER_DATA, LOGIN_ERROR } from './types';
 
 export const login = (userData) => {
     return async(dispatch) => {
@@ -10,7 +10,7 @@ export const login = (userData) => {
                 userData,
                 requestHeaders
             );
-            console.log(loggedInUser)
+
             loggedInUser.status === 200 &&
                 dispatch(saveLoginUserDataToState(loggedInUser.data));
         } catch (error) {
@@ -34,26 +34,52 @@ export const loginError = (err) => {
     };
 };
 
-export const socialLogin = (payload, history) => async(dispatch) => {
-    try {
-        const response = await fetch(`${BASE_URL}users/oauth/google`, {
-            method: 'POST',
-            body: JSON.stringify(payload),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        const data = await response.json();
-        //dispatch(saveLoginUserDataToState(data.data));
-        console.log(data)
-        saveLoginUserDataToState(data)
-        dispatch({
-            type: LOGIN_SUCCESS,
-            payload: data,
-        });
-        return data;
-    } catch (error) {
-        console.log(error);
-        return;
-    }
+
+
+
+export const socialLogin = (userData) => {
+    return async(dispatch) => {
+        try {
+            const loggedInUser = await axios.post(
+                `${BASE_URL}users/oauth/google`,
+                userData,
+                requestHeaders
+            );
+            console.log(loggedInUser)
+
+            loggedInUser.success &&
+                dispatch(saveLoginUserDataToState(loggedInUser.data));
+        } catch (error) {
+            console.log('login error', error);
+            dispatch(loginError(error.response.data));
+        }
+    };
 };
+
+
+
+
+
+
+// export const socialLogin = (payload, history) => async(dispatch) => {
+//     try {
+//         const response = await fetch(`${BASE_URL}users/oauth/google`, {
+//             method: 'POST',
+//             body: JSON.stringify(payload),
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//         });
+//         const data = await response.json();
+//         console.log(data)
+
+//         if (data.success) {
+//             dispatch(saveLoginUserDataToState(data.data))
+
+//         }
+
+//     } catch (error) {
+//         console.log(error);
+//         dispatch(loginError(error))
+//     }
+// };
