@@ -1,16 +1,18 @@
 import React from "react";
+import {connect} from "react-redux"
 import Search from "../Search/Search";
 import { ReactComponent as AwesumEdgeLogo } from "../../assets/svgs/AwesumEdgeLogo.svg";
 import awesumBook from "../../assets/svgs/AwesumBook.svg";
 import { Link } from "react-router-dom";
 import { ReactComponent as AwesumQuiz } from "../../assets/svgs/AwesumQuiz.svg";
 import { ReactComponent as Filter } from "../../assets/svgs/FilterIcon.svg";
+//import {loginReducer} from "../../redux/reducers/loginReducer"
 
 import { CircleUserAvatar } from "../Avatar/Avatar";
 import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 
-export default function HeaderRowOne({ showFilter }) {
-  // const login = true;
+ function HeaderRowOne({ showFilter,loginReducer }) {
+  const {user}= loginReducer
   return (
     <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
       <div className="flex items-center my-6">
@@ -32,7 +34,7 @@ export default function HeaderRowOne({ showFilter }) {
             </button>
             <button className="flex items-center  font-body">
               <CircleUserAvatar imgUrl="https://images.unsplash.com/photo-1536766768598-e09213fdcf22?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8YmVhdXRpZnVsJTIwbGFkeXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" />
-              <span className="px-1 text-primary">Hi Jane</span>
+              <span className="px-1 text-primary">Hi {user.firstName? user.firstName:"Jane"}</span>
               <ExpandMoreRoundedIcon color="primary" />
             </button>
             {showFilter ? (
@@ -57,3 +59,12 @@ export default function HeaderRowOne({ showFilter }) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps, {
+  
+})(HeaderRowOne);
