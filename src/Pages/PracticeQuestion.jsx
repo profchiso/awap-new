@@ -61,19 +61,19 @@ export default function PracticeQuestion() {
           </div>
           <div className="pb-3 pt-3 ">
             <DefaultAnswerBtn>
-                <span className="pr-8">a.</span>
+                <span className="pr-8">b.</span>
                 <span>289</span>
             </DefaultAnswerBtn>
           </div>
           <div className="pb-3 pt-3 ">
           <DefaultAnswerBtn>
-                <span className="pr-8">a.</span>
+                <span className="pr-8">c.</span>
                 <span>287.3</span>
             </DefaultAnswerBtn>
           </div>
           <div className="pb-3 pt-3 ">
           <DefaultAnswerBtn>
-                <span className="pr-8">a.</span>
+                <span className="pr-8">d.</span>
                 <span>287.38</span>
             </DefaultAnswerBtn>
           </div>

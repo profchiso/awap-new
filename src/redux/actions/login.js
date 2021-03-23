@@ -45,6 +45,8 @@ export const socialLogin = (payload, history) => async(dispatch) => {
         });
         const data = await response.json();
         //dispatch(saveLoginUserDataToState(data.data));
+        console.log(data)
+        saveLoginUserDataToState(data)
         dispatch({
             type: LOGIN_SUCCESS,
             payload: data,

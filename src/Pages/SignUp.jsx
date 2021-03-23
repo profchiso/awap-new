@@ -14,7 +14,7 @@ function SignUp({ registerReducer, register }) {
     <div className="bg-f8 pb-8">
       {localStorage.token ? <Redirect to="/pq/biology-choose-year" /> : null}
       <LoginHeader />
-      <SignUpBody signUpRequest={register} />
+      <SignUpBody signUpRequest={register} error={registerReducer.error.message} success={registerReducer.message}/>
     </div>
   );
 }
