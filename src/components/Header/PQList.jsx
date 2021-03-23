@@ -1,14 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Grow from "@material-ui/core/Grow";
-import Paper from "@material-ui/core/Paper";
-import Popper from "@material-ui/core/Popper";
+import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-
 import { FiChevronRight } from "react-icons/fi";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,188 +19,245 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PQList() {
+function SimpleMenu() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
 
-  // const handleToggle = () => {
-  //   setOpen((prevOpen) => !prevOpen);
-  // };
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [waecSSCESubmenu, setwaecSSCESubmenu] = useState(false)
+  const [umeSubmenu, setumeSubmenu] = useState(false)
+  const [waecJSCESubmenu, setwaecJSCESubmenu] = useState(false)
 
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
-
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
-
-    setOpen(false);
-  };
-
-  // function handleListKeyDown(event) {
-  //   if (event.key === "Tab") {
-  //     event.preventDefault();
-  //     setOpen(false);
-  //   }
-  // }
-
-  //Beginning of copy
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  function handlePopClick(event) {
+  function handleClick(event) {
     if (anchorEl !== event.currentTarget) {
       setAnchorEl(event.currentTarget);
     }
   }
 
-  function handlePopClose() {
+  function handleClose() {
     setAnchorEl(null);
   }
-  //END of copy
 
-  // return focus to the button when we transitioned from !open -> open
-  const prevOpen = React.useRef(open);
-  React.useEffect(() => {
-    if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
-    }
+  const waecSSCEHover =()=>{
+    setwaecSSCESubmenu(true)
+    setumeSubmenu(false)
+    setwaecJSCESubmenu(false)
+  }
+  const umeHover =()=>{
+    setumeSubmenu(true)
+    setwaecSSCESubmenu(false)
+    setwaecJSCESubmenu(false)
+  }
+  const waecJSCEHover =()=>{
+    setwaecJSCESubmenu(true)
+    setumeSubmenu(false)
+    setwaecSSCESubmenu(false)
+  }
 
-    prevOpen.current = open;
-  }, [open]);
   return (
-    <div className={classes.root}>
-      <div>
-        <Button
-          // ref={anchorRef}
-          // aria-controls={open ? "menu-list-grow" : undefined}
-          // aria-haspopup="true"
-          // onMouseEnter={handleToggle}
-          // onMouseOver={handleOpen}
-          aria-owns={anchorEl ? "simple-menu" : undefined}
-          aria-haspopup="true"
-          onClick={handlePopClick}
-          onMouseOver={handlePopClick}
-        >
-          <span className="capitalize font-body font-normal">
+    <div>
+      <Button
+        aria-owns={anchorEl ? "simple-menu" : undefined}
+        aria-haspopup="true"
+        onClick={handleClick}
+        onMouseOver={handleClick}
+        // onMouseLeave={handleClose}
+
+      >
+         <span className="capitalize font-body font-normal">
             Past Questions
           </span>
-        </Button>
-        <Popper
-          open={open}
-          anchorEl={anchorRef.current}
-          role={undefined}
-          transition
-          disablePortal
-        >
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{
-                transformOrigin:
-                  placement === "bottom" ? "center top" : "center bottom",
-              }}
-            >
-              <Paper>
-                <ClickAwayListener>
-                  <MenuList
-                    // autoFocusItem={open}
-                    // id="menu-list-grow"
-                    // onKeyDown={handleListKeyDown}
-                    id="simple-menu"
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={handlePopClose}
-                    MenuListProps={{ onMouseLeave: handlePopClose }}
-                  >
-                    {/* ADDED */}
-                    <div className="flex m-8 gap-x-4">
-                      <div>
-                        <MenuItem
-                          className={`${classes.menuItem} font-body font-normal flex`}
-                        >
-                          <span className="font-body font-normal flex-1 pr-8">
-                            WAEC (SSCE)
-                          </span>
-                          <span className="justify-self-end">
-                            <FiChevronRight />
-                          </span>
-                        </MenuItem>
-                        <MenuItem
-                          className={`${classes.menuItem} font-body font-normal flex`}
-                        >
-                          <span className="font-body font-normal flex-1 pr-8">
-                            UME (SSCE)
-                          </span>
-                          <span className="justify-self-end">
-                            <FiChevronRight />
-                          </span>
-                        </MenuItem>
-                        <MenuItem
-                          className={`${classes.menuItem} font-body font-normal flex`}
-                        >
-                          <span className="font-body font-normal flex-1 pr-8">
-                            WAEC (JSCE)
-                          </span>
-                          <span className="justify-self-end">
-                            <FiChevronRight />
-                          </span>
-                        </MenuItem>
-                      </div>
+      </Button>
 
-                      <div className="bg-f8 pr-4">
-                        <MenuItem
-                          className="font-body font-normal mr-8"
-                          onClick={handleClose}
-                        >
-                          <Link to="/pq/biology-choose-year">
-                            <span className="font-body font-normal text-gray-800">
-                              Biology
-                            </span>
-                          </Link>
-                        </MenuItem>
-                        <MenuItem
-                          className="font-body font-normal mr-8"
-                          onClick={handleClose}
-                        >
-                          <Link to="/pq/chemistry">
-                            <span className="font-body font-normal text-gray-800">
-                              Chemistry
-                            </span>
-                          </Link>
-                        </MenuItem>
-                        <MenuItem
-                          className="font-body font-normal mr-8"
-                          onClick={handleClose}
-                        >
-                          <Link to="/pq/physics">
-                            <span className="font-body font-normal text-gray-800">
-                              Physics
-                            </span>
-                          </Link>
-                        </MenuItem>
-                        <MenuItem
-                          className="font-body font-normal mr-8"
-                          onClick={handleClose}
-                        >
-                          <Link to="/pq/math">
-                            <span className="font-body font-normal text-gray-800">
-                              Math
-                            </span>
-                          </Link>
-                        </MenuItem>
-                      </div>
-                    </div>
-                    {/* END */}
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
-      </div>
+      <Menu
+        // id="simple-menu"
+        id="menu-appbar"
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        MenuListProps={{ onMouseLeave: handleClose }}
+        PaperProps={{
+          style: {
+            left: '50%',
+            transform: 'translateX(-10%) translateY(55%)',
+          }
+        }}
+      >
+      
+        <div className="flex mx-8 my-4 gap-x-4">
+          <div className="flex flex-col gap-0.5">
+            <MenuItem
+              className={`${classes.menuItem} font-body font-normal flex rounded-lg`}
+              onMouseOver={waecSSCEHover}
+            >
+              <span className="font-body font-normal flex-1 pr-8 py-1">
+                WAEC (SSCE)
+              </span>
+              <span className="justify-self-end">
+                <FiChevronRight />
+              </span>
+            </MenuItem>
+            <MenuItem
+              className={`${classes.menuItem} font-body font-normal flex rounded-lg`}
+              onMouseOver={umeHover}
+            >
+              <span className="font-body font-normal flex-1 pr-8 py-1">
+                UME (SSCE)
+              </span>
+              <span className="justify-self-end">
+                <FiChevronRight />
+              </span>
+            </MenuItem>
+            <MenuItem
+              className={`${classes.menuItem} font-body font-normal flex rounded-lg`}
+              onMouseOver={waecJSCEHover}
+            >
+              <span className="font-body font-normal flex-1 pr-8 py-1">
+                WAEC (JSCE)
+              </span>
+              <span className="justify-self-end">
+                <FiChevronRight />
+              </span>
+            </MenuItem>
+          </div>
+
+
+          {waecSSCESubmenu ?
+          <div className="bg-f8 p-4">
+          <MenuItem
+            className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
+            onClick={handleClose}
+          >
+            <Link to="/pq/biology-choose-year" className="w-48 ">
+              <span className="font-body font-normal text-gray-800">
+                Biology
+              </span>
+            </Link>
+          </MenuItem>
+          <MenuItem
+            className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
+            onClick={handleClose}
+          >
+            <Link to="/pq/chemistry" className="w-48 ">
+              <span className="font-body font-normal text-gray-800">
+                Chemistry
+              </span>
+            </Link>
+          </MenuItem>
+          <MenuItem
+            className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
+            onClick={handleClose}
+          >
+            <Link to="/pq/physics" className="w-48 ">
+              <span className="font-body font-normal text-gray-800">
+                Physics
+              </span>
+            </Link>
+          </MenuItem>
+          <MenuItem
+            className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
+            onClick={handleClose}
+          >
+            <Link to="/pq/math" className="w-48 ">
+              <span className="font-body font-normal text-gray-800">
+                Math
+              </span>
+            </Link>
+          </MenuItem>
+        </div> : `` }
+          
+        {umeSubmenu ?
+          <div className="bg-f8 p-4">
+          <MenuItem
+            className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
+            onClick={handleClose}
+          >
+            <Link to="/pq/math" className="w-48 ">
+              <span className="font-body font-normal text-gray-800">
+                Math
+              </span>
+            </Link>
+          </MenuItem>
+          <MenuItem
+            className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
+            onClick={handleClose}
+          >
+            <Link to="/pq/english" className="w-48 ">
+              <span className="font-body font-normal text-gray-800">
+                English
+              </span>
+            </Link>
+          </MenuItem>
+          <MenuItem
+            className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
+            onClick={handleClose}
+          >
+            <Link to="/pq/physics" className="w-48 ">
+              <span className="font-body font-normal text-gray-800">
+                Physics
+              </span>
+            </Link>
+          </MenuItem>
+          <MenuItem
+            className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
+            onClick={handleClose}
+          >
+            <Link to="/pq/chemistry" className="w-48 ">
+              <span className="font-body font-normal text-gray-800">
+                Chemistry
+              </span>
+            </Link>
+          </MenuItem>
+        </div> : `` }
+
+        {waecJSCESubmenu ?
+          <div className="bg-f8 p-4">
+          <MenuItem
+            className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
+            onClick={handleClose}
+          >
+            <Link to="/pq/english" className="w-48 ">
+              <span className="font-body font-normal text-gray-800">
+                English
+              </span>
+            </Link>
+          </MenuItem>
+          <MenuItem
+            className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
+            onClick={handleClose}
+          >
+            <Link to="/pq/math" className="w-48 ">
+              <span className="font-body font-normal text-gray-800">
+                Math
+              </span>
+            </Link>
+          </MenuItem>
+          <MenuItem
+            className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
+            onClick={handleClose}
+          >
+            <Link to="/pq/basic-science" className="w-48 ">
+              <span className="font-body font-normal text-gray-800">
+                Basic Science
+              </span>
+            </Link>
+          </MenuItem>
+          <MenuItem
+            className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
+            onClick={handleClose}
+          >
+            <Link to="/pq/basic-tech" className="w-48 ">
+              <span className="font-body font-normal text-gray-800">
+                Basic Tech
+              </span>
+            </Link>
+          </MenuItem>
+        </div> : `` }
+
+       
+        </div>
+      </Menu>
     </div>
   );
 }
+
+export default SimpleMenu;

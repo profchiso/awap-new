@@ -10,7 +10,10 @@ import BiologyChooseYear from "./Pages/ChooseYear";
 import BiologyChooseType from "./Pages/ChooseType";
 import Login from "./Pages/Login";
 import SignUP from "./Pages/SignUp";
+// import Answers from "./Pages/Answers/BiologyAnswers";
+
 import Answers from "./Pages/Answers/BiologyAnswers";
+
 import PracticeQuestion from "./Pages/PracticeQuestion"
 // import ProtectedRoute from "./Pages/ProtectedRoute";
 import { biologyPQYear } from "./DB/BiologyPQ";
@@ -36,7 +39,7 @@ class App extends React.Component {
               <Route path="/login" component={Login} />
               <Route exact path="/sign-up" component={SignUP} />
 
-              {/* BIOLOGY PQ in order*/}
+              {/* BIOLOGY PQ */}
               <Route
                 path="/pq/biology-choose-year"
                 component={BiologyChooseYear}
@@ -49,15 +52,17 @@ class App extends React.Component {
                 path="/pq/biology-choose-type"
                 component={BiologyChooseType}
               />
-              <Route
+              {/* <Route
                 path="/pq"
                 component={BiologyChooseType}
-              />
+              /> */}
               <Route path="/pq/biology-untimed" component={BiologyUntimedPQ} />
 
               {biologyPQYear.map((item, index) => (
                 <Route key={index} path={item.url} component={Answers} />
               ))}
+                {/* <Route path="/pq/answers" component={Answers} /> */}
+
               <Route path="*" component={Unavailable} />
 
               {/* FOR LATER USE */}

@@ -25,7 +25,7 @@ export default function LoginHeader() {
                   ? '/sign-up'
                   : '/login'
               }
-              className="text-white bg-primary shadow-primary px-8 font-body py-2 rounded-md focus:outline-none text-sm lg:text-base"
+              className="text-white hover:text-white bg-primary shadow-primary px-8 font-body py-2 rounded-md focus:outline-none text-sm lg:text-base"
             >
               {window.location.pathname.includes('login') ? 'Sign Up' : 'Login'}
             </Link>

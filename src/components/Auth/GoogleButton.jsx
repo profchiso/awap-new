@@ -37,7 +37,7 @@ import {saveLoginUserDataToState} from "../../redux/actions/login"
             <button
               onClick={renderProps.onClick}
               disabled={renderProps.disabled}
-              className="text-primary font-body"
+              className="text-primary font-body whitespace-nowrap"
             >
               Log in with Google
             </button>
