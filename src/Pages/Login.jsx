@@ -7,8 +7,6 @@ import LoginBody from "../components/Auth/LoginBody";
 import { login, saveLoginUserDataToState, } from "../redux/actions/login";
 
 function Login(props) {
-  console.log(props)
-
   return (
     <div className="bg-f8 pb-8">
       {localStorage.token ? <Redirect to="/pq/biology-choose-year" /> : null}

@@ -36,6 +36,8 @@ export default function LoginBody(props) {
     showPassword: false,
     email: '',
     confirmPassword: '',
+    firstName:"",
+    lastName:""
   });
 
   const handleChange = (prop) => (event) => {
@@ -62,9 +64,13 @@ export default function LoginBody(props) {
       email: values.email,
       password: values.password,
       confirmPassword: values.confirmPassword,
+      lastName:values.lastName,
+      firstName:values.firstName,
+      
     };
     console.log(signUpData);
     await props.signUpRequest(signUpData);
+    setValues({...values,email:"", firstName:"", lastName:"", password:"", confirmPassword:""})
   };
 
   return (
@@ -125,9 +131,9 @@ export default function LoginBody(props) {
                 <FormControl className=" w-full">
                   <Input
                     id="standard-adornment-password"
-                    placeholder="Comfirm Password"
+                    placeholder="Confirm Password"
                     type={values.showPassword ? 'text' : 'password'}
-                    value={values.comfirmPassword}
+                    value={values.confirmPassword}
                     onChange={handleChange('confirmPassword')}
                     startAdornment={
                       <InputAdornment position="start">
@@ -149,6 +155,8 @@ export default function LoginBody(props) {
                   />
                 </FormControl>
               </div>
+              <div><span style={{color:"red"}}>{props.error}</span></div>
+              <div><span style={{color:"green"}}>{props.success}</span></div>
 
               <div className="pb-12 mt-3 flex justify-center items-center">
                 <div className="flex items-center">

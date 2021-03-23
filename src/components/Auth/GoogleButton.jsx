@@ -2,9 +2,9 @@ import React from "react";
 import { GoogleLogin } from "react-google-login";
 import {connect} from "react-redux"
 import { ReactComponent as GoogleIcon } from "../../assets/svgs/GoogleIcon.svg";
-import {socialLogin} from "../../redux/actions/login"
+import {saveLoginUserDataToState} from "../../redux/actions/login"
 
- function GoogleButton({socialLogin}) {
+ function GoogleButton({saveLoginUserDataToState}) {
   const handleLogin = async (googleData) => {
     console.log(googleData);
     const res = await fetch(
@@ -20,10 +20,7 @@ import {socialLogin} from "../../redux/actions/login"
       }
     );
     const data = await res.json();
-    socialLogin(data)
-
-    console.log(data);
-    // store returned user somehow
+    saveLoginUserDataToState(data)
   };
 
   
@@ -57,5 +54,5 @@ const mapStateToProps = (state) => {
   };
 }
 export default connect(mapStateToProps, {
-  socialLogin,
+saveLoginUserDataToState
 })(GoogleButton);

@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-// import { Link, Redirect } from 'react-router-dom';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import ArrowBackOutlinedIcon from '@material-ui/icons/ArrowBackOutlined';
-
 import Header from '../components/Header/HeaderWithSearchButtonOnly';
 import Footer from '../components/Footer/Footer';
 
