@@ -6,7 +6,7 @@ import awesumBook from "../../assets/svgs/AwesumBook.svg";
 import { Link } from "react-router-dom";
 import { ReactComponent as AwesumQuiz } from "../../assets/svgs/AwesumQuiz.svg";
 import { ReactComponent as Filter } from "../../assets/svgs/FilterIcon.svg";
-//import {loginReducer} from "../../redux/reducers/loginReducer"
+
 import { makeStyles } from "@material-ui/core/styles";
 import { CircleUserAvatar } from "../Avatar/Avatar";
 import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 function HeaderRowOne({ showFilter, loginReducer }) {
   const classes = useStyles();
 
-  const user  = JSON.parse(localStorage.user);
+  const user  =localStorage.user? JSON.parse(localStorage.user):null;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -102,7 +102,7 @@ function HeaderRowOne({ showFilter, loginReducer }) {
                   <span className="justify-self-start px-2">
                     <FiLogOut />
                   </span>
-                  <span className="font-body font-normal flex-1 pr-8" onClick={logout}>
+                  <span className="font-body font-normal flex-1 pr-8" onClick={()=>logout()}>
                     Log Out
                   </span>
                 </MenuItem>
