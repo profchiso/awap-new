@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 function HeaderRowOne({ showFilter, loginReducer }) {
   const classes = useStyles();
 
-  const { user } = loginReducer;
+  const user  = JSON.parse(localStorage.user);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -40,6 +40,10 @@ function HeaderRowOne({ showFilter, loginReducer }) {
 
   function handleClose() {
     setAnchorEl(null);
+  }
+  const logout=()=>{
+    localStorage.removeItem("token");
+    localStorage.removeItem("user")
   }
 
   return (
@@ -98,7 +102,7 @@ function HeaderRowOne({ showFilter, loginReducer }) {
                   <span className="justify-self-start px-2">
                     <FiLogOut />
                   </span>
-                  <span className="font-body font-normal flex-1 pr-8">
+                  <span className="font-body font-normal flex-1 pr-8" onClick={logout}>
                     Log Out
                   </span>
                 </MenuItem>
