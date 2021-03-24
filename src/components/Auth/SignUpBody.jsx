@@ -76,14 +76,14 @@ export default function LoginBody(props) {
 
   return (
     <div className="flex justify-center mt-4">
-      <div className="py-2 pl-auto pr-auto w-3/4 md:w-3/6">
-        <div className="rounded-md shadow w-full bg-white shadow-login">
-          <div className="px-10 md:w-4/6 mx-auto">
+      <div className="py-2 px-auto w-11/12 sm:w-4/6 lg:w-9/20">
+        <div className="rounded-md shadow w-full bg-white shadow-login max-w-screen-md mx-auto">
+          <div className="px-10 md:px-0 md:w-4/6 mx-auto">
             <div className="flex justify-center pt-8 pb-16  text-xl text-primary">
               Sign Up
             </div>
             <form>
-            <div className="flex justify-center pb-12  font-body">
+            <div className="flex justify-start sm:justify-center pb-12  font-body">
                 <div className="flex gap-12 flex-col sm:flex-row">
                 <TextField
                   id="standard-basic"
@@ -195,7 +195,7 @@ export default function LoginBody(props) {
               <div><span style={{color:"red"}}>{props.error}</span></div>
               <div><span style={{color:"green"}}>{props.success}</span></div>
 
-              <div className="pb-12 mt-3 flex justify-center items-center">
+              <div className="pb-12 mt-3 flex flex-col justify-start items-start sm:flex-row sm:justify-center sm:items-center">
                 <div className="flex items-center">
                   <Checkbox
                     checked={checked}
@@ -206,7 +206,7 @@ export default function LoginBody(props) {
                   <span className="font-sm">Keep me logged in</span>
                 </div>
                 <div className="flex flex-1"></div>
-                <div className="font-sm flex">
+                <div className="font-sm flex pt-8 pl-10 sm:p-0">
                   <Link to="/" className="font-sm text-primary">
                     Forgot Password?
                   </Link>
@@ -227,7 +227,7 @@ export default function LoginBody(props) {
           </div>
 
           <div className="justify-center w-full bg-gray-50 h-full py-6">
-            <div className="py-2 flex justify-center horizontal_Line max-w-3/4 mx-auto">
+            <div className="py-2 flex justify-center horizontal_Line max-w-3/4 mx-auto whitespace-nowrap">
               Already have an account ?
             </div>
             <div className="py-2 flex justify-center">

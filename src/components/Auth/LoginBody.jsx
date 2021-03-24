@@ -68,9 +68,9 @@ const handleLogin=(e)=>{
 
   return (
     <div className="flex justify-center mt-4">
-      <div className="py-2 pl-auto pr-auto w-5/6 sm:w-3/4 md:w-3/6">
+      <div className="py-2 px-auto w-11/12 sm:w-4/6 lg:w-9/20">
         <div className="rounded-md shadow w-full bg-white shadow-login max-w-screen-md mx-auto">
-          <div className="px-10 md:w-4/6 mx-auto">
+          <div className="px-10 md:px-0 md:w-4/6 mx-auto">
             <div className="flex justify-center pt-8 pb-16  text-xl text-primary">
               Log In.
             </div>
@@ -122,9 +122,8 @@ const handleLogin=(e)=>{
               </div>
               <div><span style={{color:"red"}}>{props.error}</span></div>
 
-              <div className="pb-12 mt-3 flex justify-center items-center">
+              <div className="pb-12 mt-3 flex flex-col justify-start items-start sm:flex-row sm:justify-center sm:items-center">
                 <div className="flex items-center">
-
                   <Checkbox
                     checked={checked}
                     color="primary"
@@ -134,7 +133,7 @@ const handleLogin=(e)=>{
                   <span className="font-sm">Keep me logged in</span>
                 </div>
                 <div className="flex flex-1"></div>
-                <div className="font-sm flex">
+                <div className="font-sm flex pt-8 pl-10 sm:p-0">
                   <Link to="/" className="font-sm text-primary">
                     Forgot Password?
                   </Link>

@@ -11,7 +11,7 @@ import {
 
 function SignUp({ registerReducer, register }) {
   return (
-    <div className="bg-f8 pb-8">
+    <div className="bg-f8 pb-8 2xl:h-screen">
       {localStorage.token ? <Redirect to="/pq/biology-choose-year" /> : null}
       <LoginHeader />
       <SignUpBody signUpRequest={register} error={registerReducer.error.message} success={registerReducer.message}/>

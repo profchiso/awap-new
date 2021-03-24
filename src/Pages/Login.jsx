@@ -8,13 +8,10 @@ import { login, saveLoginUserDataToState, } from "../redux/actions/login";
 
 function Login(props) {
   return (
-    <div className="bg-f8 pb-8">
+    <div className="bg-f8 pb-8 2xl:h-screen">
       {localStorage.token ? <Redirect to="/pq/biology-choose-year" /> : null}
-
-      <div className="bg-f8 pb-8 h-screen">
         <LoginHeader />
         <LoginBody loginRequest={props.login} error={props.loginReducer.error.message} />
-      </div>
     </div>
   );
 
