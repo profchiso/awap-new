@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import GoogleButton from './GoogleButton';
 import { ReactComponent as Person } from '../../assets/svgs/person.svg';
+import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
 import { Checkbox, FormControl, IconButton, Input } from '@material-ui/core';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
@@ -127,14 +128,14 @@ export default function LoginBody(props) {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <Person className="mr-5 mb-1" />
+                        <EmailRoundedIcon color="primary" className="mr-5 mb-1" />
                       </InputAdornment>
                     ),
                   }}
                 />
               </div>
 
-              <div className="flex justify-center pb-8 font-body">
+              <div className="flex justify-center pb-12 font-body">
                 <FormControl className=" w-full">
                   <Input
                     id="standard-adornment-password"
@@ -162,7 +163,8 @@ export default function LoginBody(props) {
                   />
                 </FormControl>
               </div>
-              <div className="flex justify-center pb-8 font-body">
+
+              <div className="flex justify-center pb-12 font-body">
                 <FormControl className=" w-full">
                   <Input
                     id="standard-adornment-password"
