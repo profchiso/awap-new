@@ -82,6 +82,41 @@ export default function LoginBody(props) {
               Sign Up
             </div>
             <form>
+            <div className="flex justify-center pb-12  font-body">
+                <div className="flex gap-3">
+                <TextField
+                  id="standard-basic"
+                  placeholder="First Name"
+                  className="w-full m-5 p-4  my-4 font-body"
+                  onChange={handleChange('firstName')}
+                  value={values.firstName}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Person className="mr-5 mb-1" />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                 <TextField
+                  id="standard-basic"
+                  placeholder="Last Name"
+                  className="w-full m-5 p-4  my-4 font-body"
+                  onChange={handleChange('lastName')}
+                  value={values.lastName}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Person className="mr-5 mb-1" />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                </div>
+            
+               
+              </div>
+
               <div className="flex justify-center pb-12  font-body">
                 <TextField
                   id="standard-basic"
