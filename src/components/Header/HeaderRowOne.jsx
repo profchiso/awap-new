@@ -34,7 +34,7 @@ import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
             </button>
             <button className="flex items-center  font-body">
               <CircleUserAvatar imgUrl="https://images.unsplash.com/photo-1536766768598-e09213fdcf22?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8YmVhdXRpZnVsJTIwbGFkeXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" />
-              <span className="px-1 text-primary">Hi {user.firstName? user.firstName:"Jane"}</span>
+              <span className="px-1 text-primary">Hi {user.firstName? user.firstName:",Welcome"}</span>
               <ExpandMoreRoundedIcon color="primary" />
             </button>
             {showFilter ? (
