@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from "react-redux";
-import store from "./redux/store";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import LandingPage from "./Pages/LandingPage";
 import "react-multi-carousel/lib/styles.css";
@@ -15,6 +15,9 @@ import PracticeQuestion from "./Pages/PracticeQuestion"
 // import ProtectedRoute from "./Pages/ProtectedRoute";
 import { biologyPQYear } from "./DB/BiologyPQ";
 import Unavailable from "./Pages/404";
+import {store,persistor} from "./redux/store";
+
+//const {store,persistor} = storeObject
 
 const theme = createMuiTheme({
   palette: {
@@ -28,6 +31,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
         <Router>
           <ThemeProvider theme={theme}>
             {/* <Provider store={store}> */}
@@ -69,6 +73,7 @@ class App extends React.Component {
             {/* </Provider> */}
           </ThemeProvider>
         </Router>
+        </PersistGate>
       </Provider>
     );
   }
