@@ -1,4 +1,5 @@
 import React from "react";
+import NumberBadge from "../Badge/NumberBadge";
 import {
   CorrectAnswerBtn,
   DefaultAnswerBtn,
@@ -13,9 +14,7 @@ export default function AnswerContent() {
       <div className="pt-10 w-full">
         <h4 className="pb-8">Answers</h4>
         <div className="flex items-center">
-          <div class="mr-8 font-medium rounded-full border-2 border-primary h-8 w-8 flex items-center justify-center text-center text-primary">
-            1
-          </div>
+          <NumberBadge>1</NumberBadge>
           <p className="text-lg">
             Express 287.387934578 correct to 2 significant figures
           </p>
@@ -55,16 +54,15 @@ export default function AnswerContent() {
         aenean tristique adipiscing."
           />
         </div>
-       
+
         <div className="my-12 pl-32 text-center">
           <PaginationLink />
         </div>
         <div className="text-right">
-        <button className="text-white bg-primary shadow-primary px-24 py-2.5 mb-24 rounded-md focus:outline-none text-base font-semibold font-body">
-          Next
-        </button>
-          </div> 
-        
+          <button className="text-white bg-primary shadow-primary px-24 py-2.5 mb-24 rounded-md focus:outline-none text-base font-semibold font-body">
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );

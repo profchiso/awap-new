@@ -68,8 +68,7 @@ function HeaderRowOne({ showFilter, loginReducer }) {
                 onClick={handleClick}
                 onMouseOver={handleClick}
               >
-                              <CircleUserAvatar imgUrl="" />
-
+                <CircleUserAvatar imgUrl="" />
                 <span className="capitalize font-body font-normal">
                   <span className="px-1 text-primary">
                     Hi {user.firstName ? user.firstName : ",Welcome"}
@@ -79,33 +78,32 @@ function HeaderRowOne({ showFilter, loginReducer }) {
               </Button>
             </button>
             <Menu
-          id="menu-appbar"
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-          MenuListProps={{ onMouseLeave: handleClose }}
-          PaperProps={{
-            style: {
-              left: "50%",
-              transform: "translateX(10%) translateY(75%)",
-            },
-          }}
-        >
-          <div>
-            <MenuItem
-              onClick={handleClose}
-              className={`${classes.menuItem} font-body font-normal flex`}
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+              MenuListProps={{ onMouseLeave: handleClose }}
+              PaperProps={{
+                style: {
+                  left: "50%",
+                  transform: "translateX(10%) translateY(75%)",
+                },
+              }}
             >
-              <span className="justify-self-start px-2">
-                <FiLogOut />
-              </span>
-              <span className="font-body font-normal flex-1 pr-8">
-                Log Out
-              </span>
-              
-            </MenuItem>
-          </div>
-        </Menu>
+              <div>
+                <MenuItem
+                  onClick={handleClose}
+                  className={`${classes.menuItem} font-body font-normal flex`}
+                >
+                  <span className="justify-self-start px-2">
+                    <FiLogOut />
+                  </span>
+                  <span className="font-body font-normal flex-1 pr-8">
+                    Log Out
+                  </span>
+                </MenuItem>
+              </div>
+            </Menu>
             {showFilter ? (
               <button className="flex items-center font-body">
                 <Filter /> <span className="pl-2 text-primary">Filter</span>

@@ -10,10 +10,7 @@ import BiologyChooseYear from "./Pages/ChooseYear";
 import BiologyChooseType from "./Pages/ChooseType";
 import Login from "./Pages/Login";
 import SignUP from "./Pages/SignUp";
-// import Answers from "./Pages/Answers/BiologyAnswers";
-
 import Answers from "./Pages/Answers/BiologyAnswers";
-
 import PracticeQuestion from "./Pages/PracticeQuestion"
 // import ProtectedRoute from "./Pages/ProtectedRoute";
 import { biologyPQYear } from "./DB/BiologyPQ";

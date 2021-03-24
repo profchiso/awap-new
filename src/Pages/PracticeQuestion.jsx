@@ -1,106 +1,96 @@
-import React,{useState} from 'react'
-import { ReactComponent as AwesumEdgeLogo } from "../assets/svgs/AwesumEdgeLogo.svg";
-import awesumBook from "../assets/svgs/AwesumBook.svg";
-import { Link } from 'react-router-dom';
-import Pagination from "../components/AnswerContent/Pagination"
-import {DefaultAnswerBtn} from "../components/Button/AnswerButton"
-import FormControl from '@material-ui/core/FormControl';
-// import Radio from '@material-ui/core/Radio';
-// import RadioGroup from '@material-ui/core/RadioGroup';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-
-
+import React, { useState } from "react";
+import Pagination from "../components/AnswerContent/Pagination";
+import { DefaultAnswerBtn } from "../components/Button/AnswerButton";
+import FormControl from "@material-ui/core/FormControl";
+import PracticeHeader from "../components/Header/PracticeHeader";
+import NumberBadge from "../components/Badge/NumberBadge";
 
 export default function PracticeQuestion() {
-   // const [value, setValue] = React.useState("A");
-  // const [isSelected, setIsSelected] = React.useState("py-5 px-10 text-base font-medium bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 rounded w-full shadow-awesumOne max-w-md text-white text-left");
-  // const [isDefault, setIsDefault] = React.useState("py-5 px-10 text-base font-medium bg-white shadow-awesumOne w-full max-w-md text-left rounded")
+  const [value, setValue] = useState("");
+  const isSelected =
+    "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
 
-   const [value, setValue] = useState("");
-   const isSelected="bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3"
-   
   const onSelectedOptionChange = (option) => {
-    console.log(option)
-     setValue(option);
+    console.log(option);
+    setValue(option);
   };
-  
-  // const handleChange = (event) => {
-  //   setValue(event.target.value);
-  // };
-  
+
   return (
     <>
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-16 shadow-primary pt-2 pb-1">
-        <div className="flex items-center my-6">
-          <div className="transform md:scale-80 scale-70 hidden md:block">
-            <Link to="/">
-              <AwesumEdgeLogo />
-            </Link>
+      <PracticeHeader />
+
+      <div className="max-w-3xl mx-auto">
+        <div className="flex justify-between items-center pt-6 pb-6">
+          <div className="flex items-center">
+            <NumberBadge>1</NumberBadge>
+            <span className="text-base font-medium">
+              Express 287.387934578 correct to 2 significant figures
+            </span>
           </div>
-          <div className="block md:hidden">
-            <img src={awesumBook} alt="" />
-          </div>
-          <div className="flex flex-1 justify-center mx-5 md:mx-10">
-            2012  BIOLOGY WAEC Practice Questions
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-evenly items-center pt-6 pb-6">
-        
-        <div> <span className="py-2 px-3 mr-7 rounded-full shadow-primary">1</span>Express 287.387934578 correct to 2 significant figures</div>
-        <div>
-          <button className="text-white bg-primary  font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-base">
+          <div>
+            <button className="text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body shadow-primary px-16 py-2 rounded-md text-sm lg:text-base font-medium">
               End
             </button>
+          </div>
         </div>
       </div>
 
       <div className="flex justify-center items-center pt-6 pb-6">
         <FormControl component="fieldset" className="w-6/12 text-center">
-          
           <div className="pb-3 pt-3 ">
-            <DefaultAnswerBtn isSelected={value==="a"? `${isSelected}`:""}  onClick={()=>onSelectedOptionChange("a")}>
-              <span className="pr-8">a.</span>
-              <span>287</span>
+            <DefaultAnswerBtn
+              isSelected={value === "a" ? `${isSelected}` : ""}
+              onClick={() => onSelectedOptionChange("a")}
+            >
+                <span className="pr-8">a.</span>
+                <span>287</span>
             </DefaultAnswerBtn>
           </div>
           <div className="pb-3 pt-3 ">
-            <DefaultAnswerBtn isSelected={value==="b"? `${isSelected}`:""}  onClick={()=>onSelectedOptionChange("b")}>
-                <span className="pr-8">b.</span>
-                <span>289</span>
+            <DefaultAnswerBtn
+              isSelected={value === "b" ? `${isSelected}` : ""}
+              onClick={() => onSelectedOptionChange("b")}
+            >
+              <span className="pr-8">b.</span>
+              <span>289</span>
             </DefaultAnswerBtn>
           </div>
           <div className="pb-3 pt-3 ">
-          <DefaultAnswerBtn isSelected={value==="c"? `${isSelected}`:""}  onClick={()=>onSelectedOptionChange("c")}>
-                <span className="pr-8">c.</span>
-                <span>287.3</span>
+            <DefaultAnswerBtn
+              isSelected={value === "c" ? `${isSelected}` : ""}
+              onClick={() => onSelectedOptionChange("c")}
+            >
+              <span className="pr-8">c.</span>
+              <span>287.3</span>
             </DefaultAnswerBtn>
           </div>
           <div className="pb-3 pt-3 ">
-          <DefaultAnswerBtn isSelected={value==="d"? `${isSelected}`:""}  onClick={()=>onSelectedOptionChange("d")}>
-                <span className="pr-8">d.</span>
-                <span>287.38</span>
+            <DefaultAnswerBtn
+              isSelected={value === "d" ? `${isSelected}` : ""}
+              onClick={() => onSelectedOptionChange("d")}
+            >
+              <span className="pr-8">d.</span>
+              <span>287.38</span>
             </DefaultAnswerBtn>
           </div>
-            </FormControl>
+        </FormControl>
       </div>
 
       <div className="flex justify-evenly items-center pt-6 pb-6">
-      
-        <div> <button className="text-white bg-primary  font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-base">
-              PREVIOUS
-            </button>
+        <div>
+          <button className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium">
+            PREVIOUS
+          </button>
         </div>
         <div>
-          <button className="text-white bg-primary  font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-base">
-              NEXT
+          <button className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium">
+            NEXT
           </button>
         </div>
       </div>
-      <div className="flex justify-center -items-center align-text-bottom">
-         <Pagination/>
+      <div className="flex justify-center items-center align-text-bottom mt-5">
+        <Pagination />
       </div>
-      
-  </>
-  )
+    </>
+  );
 }

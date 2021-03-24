@@ -68,6 +68,9 @@ module.exports = {
       'ansBlue1': "#0D065F",
       'ansBlue2': "#0A1472",
       'ansBlue3': "#064586",
+      'orange1': "#F14008",
+      'orange2': "#FF8D33",
+
      }),
      height: (theme) => ({
       auto: "auto",
