@@ -8,9 +8,11 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import FeedbackRoundedIcon from "@material-ui/icons/FeedbackRounded";
+import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 import { ReactComponent as MenuIcon } from "../../assets/svgs/menuIcon.svg";
+import AwesumEdgeLogo from "../../assets/svgs/AwesumEdgeLogo.svg";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   list: {
@@ -19,8 +21,15 @@ const useStyles = makeStyles({
   fullList: {
     width: "auto",
   },
-  btnClass:{
-      marginLeft: "-0.875rem"
+  btnClass: {
+    marginLeft: "-0.875rem",
+  },
+  listOneClass:{
+    marginBottom: "1rem",
+
+  },
+  listTwoClass:{
+    marginTop: "1.5rem",
   }
 });
 
@@ -40,7 +49,6 @@ export default function TemporaryDrawer(props) {
     ) {
       return;
     }
-
     setState({ ...state, [anchor]: open });
   };
 
@@ -53,26 +61,36 @@ export default function TemporaryDrawer(props) {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+      <List className={classes.listOneClass}>
+        <ListItem button>
+          <ListItemIcon>
+            <Link to="/">
+              <img src={AwesumEdgeLogo} alt="" />
+            </Link>
+          </ListItemIcon>
+        </ListItem>
       </List>
+
       <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
+
+      <List className={classes.listTwoClass}>
+        <Link to="/">
+          <ListItem button>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <FeedbackRoundedIcon />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary="Feedback" className="text-primary" />
           </ListItem>
-        ))}
+        </Link>
+
+        <Link to="/">
+          <ListItem button>
+            <ListItemIcon>
+              <ExitToAppRoundedIcon />
+            </ListItemIcon>
+            <ListItemText primary="Log Out" className="text-primary" />
+          </ListItem>
+        </Link>
       </List>
     </div>
   );
@@ -81,8 +99,10 @@ export default function TemporaryDrawer(props) {
     <div>
       {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
-          {/* <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button> */}
-          <Button onClick={toggleDrawer(anchor, true)} className={classes.btnClass}>
+          <Button
+            onClick={toggleDrawer(anchor, true)}
+            className={classes.btnClass}
+          >
             <MenuIcon className="transform scale-150" />
           </Button>
 

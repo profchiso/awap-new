@@ -62,21 +62,21 @@ export default function HomeBody() {
 
   return (
     <div className="max-w-screen-2xl mx-auto">
-      <div className="bg-awesum bg-cover bg-center bg-no-repeat text-white  px-6 sm:px-16  pb-96">
+      <div className="bg-mobileAwesum sm:bg-awesum bg-cover bg-center bg-no-repeat text-white  px-6 sm:px-16 pb-40 sm:pb-96">
         <div className="block sm:hidden">
           <MobileHeader />
         </div>
 
         <div className="flex">
           <div>
-            <p className="pt-32 pb-12 text-xl  md:text-3xl lg:text-4xl whitespace-nowrap">
+            <p className="pt-16 sm:pt-32 pb-8 sm:pb-12 text-xl  md:text-3xl lg:text-4xl whitespace-nowrap">
               Curious Learners Change the World
             </p>
             <p className="text-md sm:text-lg lg:text-xl pb-8">
               Courses for Secondary/High School Students
             </p>
             <Link to="/login">
-              <button className="bg-white text-primary text-md lg:text-lg py-4 mt-32 px-20 rounded-md font-body">
+              <button className="bg-white text-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 rounded-md font-body">
                 Get Started
               </button>
             </Link>
@@ -87,7 +87,7 @@ export default function HomeBody() {
         </div>
       </div>
 
-      <h3 className="text-2xl md:text-4xl text-center md:mt-24 md:mb-12 font-medium text-primary">
+      <h3 className="text-2xl md:text-4xl text-center mt-0 md:mt-24 md:mb-12 font-medium text-primary">
         <span className="font-normal sm:font-medium">Why Learn with </span>
         <span>AwesumEdge </span>
       </h3>
@@ -199,7 +199,7 @@ export default function HomeBody() {
               />
             </div>
             <div className="opacity-50 text-sm md:text-lg top-0 ">
-              <p className="whitespace-nowrap">
+              <p className="sm:whitespace-nowrap">
                 I love the past questions, and how they were solved.
               </p>
               <p className="whitespace-nowrap">

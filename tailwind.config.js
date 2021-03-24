@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: (theme) => ({
         awesum: "url('../images/MainBackground.svg')",
+        mobileAwesum: "url('../images/mobileBg.svg')",
         footer: "url('../images/MainFooter.svg')",
         bodyLightBlue: "url('../images/GradientWithDots.svg')",
         card: "url('../images/bgCard.svg')",
