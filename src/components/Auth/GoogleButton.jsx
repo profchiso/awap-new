@@ -32,7 +32,7 @@ import {saveLoginUserDataToState} from "../../redux/actions/login"
         className="google-login"
         onSuccess={handleLogin}
         render={(renderProps) => (
-          <div className="flex gap-5 px-16 mb-8 py-4 shadow-googleButton rounded-full">
+          <div className="flex gap-5  px-8 sm:px-16 mb-8 py-4 shadow-googleButton rounded-full">
             <GoogleIcon />
             <button
               onClick={renderProps.onClick}
