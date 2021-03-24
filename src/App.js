@@ -60,7 +60,7 @@ class App extends React.Component {
               ))}
                 {/* <Route path="/pq/answers" component={Answers} /> */}
 
-              {/* <Route path="*" component={Unavailable} /> */}
+              <Route path="*" component={Unavailable} />
 
               {/* FOR LATER USE */}
               {/* <ProtectedRoute path="/untimed-pq" component={UntimedPQ} />
