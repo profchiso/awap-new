@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import Search from "../Search/Search";
 import { ReactComponent as AwesumEdgeLogo } from "../../assets/svgs/AwesumEdgeLogo.svg";
 import awesumBook from "../../assets/svgs/AwesumBook.svg";
-import { Link } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 import { ReactComponent as AwesumQuiz } from "../../assets/svgs/AwesumQuiz.svg";
 import { ReactComponent as Filter } from "../../assets/svgs/FilterIcon.svg";
-//import {loginReducer} from "../../redux/reducers/loginReducer"
+
 import { makeStyles } from "@material-ui/core/styles";
 import { CircleUserAvatar } from "../Avatar/Avatar";
 import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
@@ -28,8 +28,9 @@ const useStyles = makeStyles((theme) => ({
 
 function HeaderRowOne({ showFilter, loginReducer }) {
   const classes = useStyles();
+  const [isLoggedIn,setIsLoggedIn]= React.useState(true)
 
-  const { user } = loginReducer;
+  const user  =localStorage.user? JSON.parse(localStorage.user):null;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -41,9 +42,15 @@ function HeaderRowOne({ showFilter, loginReducer }) {
   function handleClose() {
     setAnchorEl(null);
   }
+  const logout=()=>{
+    localStorage.removeItem("token");
+    localStorage.removeItem("user")
+    setIsLoggedIn(false)
+  }
 
   return (
     <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
+      {isLoggedIn? null:<Redirect to="/login"/>}
       <div className="flex items-center my-6">
         <div className="transform md:scale-80 scale-70 hidden md:block">
           <Link to="/">
@@ -98,7 +105,7 @@ function HeaderRowOne({ showFilter, loginReducer }) {
                   <span className="justify-self-start px-2">
                     <FiLogOut />
                   </span>
-                  <span className="font-body font-normal flex-1 pr-8">
+                  <span className="font-body font-normal flex-1 pr-8" onClick={()=>logout()}>
                     Log Out
                   </span>
                 </MenuItem>
