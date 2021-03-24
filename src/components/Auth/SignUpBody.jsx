@@ -84,7 +84,7 @@ export default function LoginBody(props) {
             </div>
             <form>
             <div className="flex justify-center pb-12  font-body">
-                <div className="flex gap-12">
+                <div className="flex gap-12 flex-col sm:flex-row">
                 <TextField
                   id="standard-basic"
                   placeholder="First Name"
