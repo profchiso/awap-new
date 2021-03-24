@@ -30,7 +30,7 @@ function HeaderRowOne({ showFilter, loginReducer }) {
   const classes = useStyles();
   const [isLoggedIn,setIsLoggedIn]= React.useState(true)
 
-  const user  =localStorage.user? JSON.parse(localStorage.user):null;
+  const {user } = loginReducer 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
