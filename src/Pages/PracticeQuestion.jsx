@@ -32,6 +32,11 @@ export default function PracticeQuestion() {
     
   }
 
+  const submitPracticeQuestion=()=>{
+    console.log("answer submitted")
+
+  }
+
   return (
     <>
       <PracticeHeader />
@@ -100,9 +105,17 @@ export default function PracticeQuestion() {
           </button>
         </div>
         <div>
+        {questionNumber===20? (
+          <button onClick={()=>submitPracticeQuestion()} className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium">
+          FINISH 
+        </button>
+
+        ):(
           <button onClick={()=>increaseQuestionNumber()} className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium">
-            {questionNumber===20? "FINISH":"NEXT"}
+            NEXT
           </button>
+        )}
+          
         </div>
       </div>
       <div className="flex justify-center items-center align-text-bottom mt-5">
