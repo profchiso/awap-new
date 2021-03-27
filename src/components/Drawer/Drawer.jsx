@@ -13,6 +13,9 @@ import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 import { ReactComponent as MenuIcon } from "../../assets/svgs/menuIcon.svg";
 import AwesumEdgeLogo from "../../assets/svgs/AwesumEdgeLogo.svg";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { CircleUserAvatar } from "../Avatar/Avatar";
+// import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 
 const useStyles = makeStyles({
   list: {
@@ -24,17 +27,28 @@ const useStyles = makeStyles({
   btnClass: {
     marginLeft: "-0.875rem",
   },
-  listOneClass:{
+  listOneClass: {
     marginBottom: "1rem",
-
   },
-  listTwoClass:{
+  listTwoClass: {
     marginTop: "1.5rem",
+  },
+  avatarClass:{
+    marginLeft:"-10px",
   }
 });
 
-export default function TemporaryDrawer(props) {
+function TemporaryDrawer({ loginReducer, ...props }) {
   const classes = useStyles();
+  const { user } = loginReducer;
+  // const [isLoggedIn,setIsLoggedIn]= React.useState(true)
+
+  const logout=()=>{
+    localStorage.removeItem("token");
+    localStorage.removeItem("user")
+    // setIsLoggedIn(false)
+  }
+
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -74,6 +88,19 @@ export default function TemporaryDrawer(props) {
       <Divider />
 
       <List className={classes.listTwoClass}>
+
+      <Link to="/">
+          <ListItem button className="flex">
+            <ListItemIcon className={classes.avatarClass}>
+              <CircleUserAvatar imgUrl="" />
+            </ListItemIcon>
+            <ListItemText
+              primary={` Hi ${user.firstName ? user.firstName : ",Welcome"}`}
+              className="text-primary capitalize font-body font-normal"
+            />
+          </ListItem>
+        </Link>
+
         <Link to="/">
           <ListItem button>
             <ListItemIcon>
@@ -88,7 +115,8 @@ export default function TemporaryDrawer(props) {
             <ListItemIcon>
               <ExitToAppRoundedIcon />
             </ListItemIcon>
-            <ListItemText primary="Log Out" className="text-primary" />
+            {localStorage.token ?<ListItemText primary="Log Out" className="text-primary" onClick={()=>logout()}/>:
+            <Link to="/login"> <ListItemText primary="Log In" className="text-primary" /></Link>}
           </ListItem>
         </Link>
       </List>
@@ -119,3 +147,10 @@ export default function TemporaryDrawer(props) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps, {})(TemporaryDrawer);

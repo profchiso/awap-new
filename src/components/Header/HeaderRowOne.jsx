@@ -6,7 +6,6 @@ import awesumBook from "../../assets/svgs/AwesumBook.svg";
 import { Link,Redirect } from "react-router-dom";
 import { ReactComponent as AwesumQuiz } from "../../assets/svgs/AwesumQuiz.svg";
 import { ReactComponent as Filter } from "../../assets/svgs/FilterIcon.svg";
-
 import { makeStyles } from "@material-ui/core/styles";
 import { CircleUserAvatar } from "../Avatar/Avatar";
 import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";

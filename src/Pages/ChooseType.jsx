@@ -5,7 +5,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import { makeStyles } from "@material-ui/core/styles";
 import { ReactComponent as RoundBackIcon } from "../assets/svgs/RoundBackIcon.svg";
-import Header from "../components/Header/HeaderWithSearchButtonOnly";
+import Header from "../components/Header/HeaderRowOne";
 import Footer from "../components/Footer/Footer";
 import { Link, Redirect } from "react-router-dom";
 
@@ -31,7 +31,10 @@ export default function ChooseType() {
   if (value === null) {
     return (
       <div>
+        <div className="shadow py-005">
         <Header />
+        </div>
+        
         <div className="text-center pl-20 mb-24  flex flex-col max-w-3xl mx-auto">
           <div className="mt-32 mb-20">
             <h3 className="text-3xl font-body flex items-center">

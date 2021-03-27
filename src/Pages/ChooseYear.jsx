@@ -9,6 +9,7 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
+import MobileHeader from "../components/Header/MobileHeader";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,7 +46,10 @@ export default function ChooseYear() {
   return (
     <div>
       {!localStorage.token ? <Redirect to="/login" /> : null}
-      <Header />
+       <div className="block bg-blueOne pb-8 pl-2 sm:hidden">
+          <MobileHeader />
+        </div>
+        <Header/>
       <div className="flex justify-center mb-24">
         <div className="font-body flex flex-col gap-28 text-center mt-40">
           <h3 className="text-3xl font-body">BIOLOGY (SSCE) WAEC Questions</h3>

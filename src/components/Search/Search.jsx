@@ -3,7 +3,7 @@ import { CgSearch } from "react-icons/cg";
 
 export default function Search() {
   return (
-    <div className="flex flex-1 justify-center mx-5 md:mx-10">
+    <div className="flex flex-1 justify-center ml-4 mr-5 md:mx-10">
       <form className="flex justify-self-center items-center flex-1  max-w-sm sm:max-w-lg">
         <CgSearch className="absolute text-xl text-primary ml-3" />
         <input

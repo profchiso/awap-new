@@ -15,7 +15,7 @@ import PracticeQuestion from "./Pages/PracticeQuestion"
 // import ProtectedRoute from "./Pages/ProtectedRoute";
 import { biologyPQYear } from "./DB/BiologyPQ";
 import Unavailable from "./Pages/404";
-import {store,persistor} from "./redux/store";
+import {store,persistor} from "./redux/store/store";
 
 //const {store,persistor} = storeObject
 

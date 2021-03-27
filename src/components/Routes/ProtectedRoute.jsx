@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import Login from "./Login";
+import Login from "../../Pages/Login";
 
 export default function ProtectedRoute(props) {
 

@@ -2,7 +2,7 @@
  TAILWIND 2.0 at the time of writing (22nd February 2021), & installing another 
  package(e.g tailwind-filter-utilities) is unneccesary for just one image styling. */
 
-.MuiInputBase-input {
+.MuiInputBase-input,.MuiTypography-root {
   font-family: "Google Sans", "Segoe UI", sans-serif !important;
 }
 
@@ -51,4 +51,9 @@
   ::-webkit-scrollbar-thumb:hover {
     background: white;
   }
+}
+
+.py-005{
+padding-top: 0.5px;
+padding-bottom: 0.5px;
 }

@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Pagination from "../components/AnswerContent/Pagination";
 import { DefaultAnswerBtn } from "../components/Button/AnswerButton";
 import FormControl from "@material-ui/core/FormControl";
-import PracticeHeader from "../components/Header/PracticeHeader";
+// import PracticeHeader from "../components/Header/PracticeHeader";
+import Header from "../components/Header/Header";
+
 import NumberBadge from "../components/Badge/NumberBadge";
 
 export default function PracticeQuestion() {
@@ -17,7 +19,8 @@ export default function PracticeQuestion() {
 
   return (
     <>
-      <PracticeHeader />
+      {/* <PracticeHeader /> */}
+      <Header />
 
       <div className="max-w-3xl mx-auto">
         <div className="flex justify-between items-center pt-6 pb-6">
