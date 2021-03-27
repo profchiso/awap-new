@@ -14,7 +14,10 @@ export default function LoginHeader() {
             </Link>
           </div>
           <div className="block md:hidden">
+          <Link to="/">
             <img src={awesumBook} alt="" />
+            </Link>
+
           </div>
         </div>
         <div>
