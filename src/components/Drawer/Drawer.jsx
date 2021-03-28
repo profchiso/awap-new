@@ -95,7 +95,7 @@ function TemporaryDrawer({ loginReducer, ...props }) {
               <CircleUserAvatar imgUrl="" />
             </ListItemIcon>
             <ListItemText
-              primary={` Hi ${user.firstName ? user.firstName : ",Welcome"}`}
+              primary={` Hi, ${user.firstName ? user.firstName : " Welcome"}`}
               className="text-primary capitalize font-body font-normal"
             />
           </ListItem>
