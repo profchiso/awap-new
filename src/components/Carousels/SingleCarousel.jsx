@@ -50,9 +50,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff",
   },
   img: {
-    height: 255,
+    height: "16rem",
     display: "block",
-    maxWidth: 400,
     overflow: "hidden",
     width: "100%",
   },
@@ -95,7 +94,7 @@ function SwipeableTextMobileStepper() {
           <div key={step.id}>
             {Math.abs(activeStep - index) <= 2 ? (
               <img
-                className={`${classes.img} rounded-full`}
+                className={`sm:${classes.img} rounded-full sm:max-w-sm max-w-5/6 mx-auto`}
                 src={step.imgPath}
                 alt={step.label}
               />

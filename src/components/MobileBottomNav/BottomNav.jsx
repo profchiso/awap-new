@@ -1,11 +1,12 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import FolderIcon from '@material-ui/icons/Folder';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import BottomNavigation from "@material-ui/core/BottomNavigation";
+import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import EmojiEventsIcon from "@material-ui/icons/EmojiEvents";
+import GroupRoundedIcon from "@material-ui/icons/GroupRounded";
+import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
+import ImportContactsRoundedIcon from "@material-ui/icons/ImportContactsRounded";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -26,10 +27,29 @@ export default function SimpleBottomNavigation() {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="Home" icon={<RestoreIcon />} />
-      <BottomNavigationAction label="Classes" icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="Past Questions" icon={<LocationOnIcon />} />
-      <BottomNavigationAction label="Quizes" value="folder" icon={<FolderIcon />} />
+      <BottomNavigationAction
+        component={Link}
+        to="/"
+        label="Home"
+        icon={<HomeRoundedIcon />}
+        className="whitespace-nowrap"
+      />
+      <BottomNavigationAction
+        label="Classes"
+        icon={<GroupRoundedIcon />}
+        className="whitespace-nowrap"
+      />
+      <BottomNavigationAction
+        label="PQs"
+        icon={<ImportContactsRoundedIcon />}
+        className="whitespace-nowrap"
+      />
+      <BottomNavigationAction
+        label="Quizes"
+        value="folder"
+        icon={<EmojiEventsIcon />}
+        className="whitespace-nowrap"
+      />
     </BottomNavigation>
   );
 }

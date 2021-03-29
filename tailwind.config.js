@@ -54,6 +54,7 @@ module.exports = {
       awesumOne: '0px 3px 8px rgba(13, 6, 95, 0.1);',
       login:'0px 5px 24px rgba(0, 0, 0, 0.129);',
       googleButton:'1px 6px 10px rgba(13, 6, 95, 0.1);',
+      bottomNav:'0px -3px 14px rgba(7, 18, 84, 0.08);',
     },
     backgroundColor: (theme) => ({
       ...theme('colors'),

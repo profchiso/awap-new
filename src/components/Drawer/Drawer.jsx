@@ -96,7 +96,7 @@ function TemporaryDrawer({ loginReducer, ...props }) {
             </ListItemIcon>
             <ListItemText
               primary={` Hi, ${user.firstName ? user.firstName : " Welcome"}`}
-              className="text-primary capitalize font-body font-normal"
+              className="text-primary capitalize font-body font-normal pl-2.5"
             />
           </ListItem>
         </Link>
