@@ -81,7 +81,7 @@ export default function HomeBody() {
               </button>
             </Link>
           </div>
-          <div className="flex items-center right-5">
+          <div className="items-center right-5 hidden lg:flex">
             <img src={ERM} alt="erm" className="mt-24" />
           </div>
         </div>
