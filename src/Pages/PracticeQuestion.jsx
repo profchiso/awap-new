@@ -1,24 +1,17 @@
 import React, { useState } from "react";
-
-
-
-
-
-
 import Pagination from "../components/AnswerContent/Pagination";
 import { DefaultAnswerBtn } from "../components/Button/AnswerButton";
 import FormControl from "@material-ui/core/FormControl";
 // import PracticeHeader from "../components/Header/PracticeHeader";
 import Header from "../components/Header/Header";
-
 import NumberBadge from "../components/Badge/NumberBadge";
 import {questionArray} from "../DB/dummyQuestion"
-
-
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import useWindowDimensions from "../Hooks/UseWindowDimension";
+// import MobileHeader from "../components/Header/MobileHeader";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -63,6 +56,8 @@ export default function PracticeQuestion() {
   
 
   const classes = useStyles();
+  const { width } = useWindowDimensions();
+
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -76,8 +71,14 @@ export default function PracticeQuestion() {
   return (
     <>
       {/* <PracticeHeader /> */}
-      <Header />
 
+      {width < 640 ? (
+        <div className="block bg-blueOne pb-6 pl-2 sm:hidden">
+          {/* <MobileHeader /> */}
+        </div>
+      ) : (
+        <Header />
+        )}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

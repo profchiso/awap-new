@@ -6,7 +6,7 @@ import TemporaryDrawer from '../Drawer/Drawer';
 
 export default function MobileHeader() {
     return (
-        <div className="pt-8 flex items-center sm:gap-5">
+        <div className="pt-6 flex items-center sm:gap-5">
             <TemporaryDrawer/>
             {/* <MenuIcon className="transform scale-150"/> */}
            

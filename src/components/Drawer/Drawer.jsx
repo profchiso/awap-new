@@ -131,7 +131,7 @@ function TemporaryDrawer({ loginReducer, ...props }) {
             onClick={toggleDrawer(anchor, true)}
             className={classes.btnClass}
           >
-            <MenuIcon className="transform scale-150" />
+            <MenuIcon className="transform scale-110" />
           </Button>
 
           <Drawer
