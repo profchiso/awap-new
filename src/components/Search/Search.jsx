@@ -8,7 +8,7 @@ export default function Search() {
         <CgSearch className="absolute text-xl text-primary ml-3" />
         <input
           type="text"
-          className="py-2.5 px-4 pl-12 focus:outline-none w-full border text-primary border-primary-400 rounded-full text-sm"
+          className="py-2.5 px-4 pl-12 focus:outline-none w-full border text-black border-primary-400 rounded-full text-sm"
           placeholder="Search anything"
         />
       </form>
