@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     minWidth: "500px",
-    minHeight: "335px",
+    minHeight: "310px",
   },
 }));
 
@@ -79,8 +79,10 @@ export default function FilterModal(props) {
         }}
       >
         <Fade in={openModal}>
-          <div className={`${classes.paperTwo} flex outline-none `}>
+          <div className={`${classes.paperTwo} flex outline-none text-center`}>
             <FormControl component="fieldset" className="w-full">
+            <h3 className="font-normal pt-1">Filter</h3>
+
               <RadioGroup
                 aria-label="gender"
                 name="gender1"
@@ -102,7 +104,7 @@ export default function FilterModal(props) {
                         value="Correct"
                         control={<Radio color="primary" />}
                         label="Correct"
-                        className="pt-14"
+                        className="pt-12"
                       />
                     </div>
                   </div>
@@ -119,7 +121,7 @@ export default function FilterModal(props) {
                         value="Unanswered"
                         control={<Radio color="primary" />}
                         label="Unanswered"
-                        className="pt-14"
+                        className="pt-12"
                       />
                     </div>
                   </div>
