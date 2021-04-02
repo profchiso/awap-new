@@ -92,8 +92,16 @@ export default function ExploreContent() {
           aria-label="full width tabs example"
         >
           <Tab label="Mathematics" {...a11yProps(0)} className={classes.tab} />
-          <Tab label="Basic Science" {...a11yProps(1)} className={classes.tab} />
-          <Tab label="Basic Technology" {...a11yProps(2)} className={classes.tab} />
+          <Tab
+            label="Basic Science"
+            {...a11yProps(1)}
+            className={classes.tab}
+          />
+          <Tab
+            label="Basic Technology"
+            {...a11yProps(2)}
+            className={classes.tab}
+          />
           {matches ? (
             <Tab
               label="Business studies"
@@ -126,6 +134,7 @@ export default function ExploreContent() {
     </div>
   );
 }
+
 ExploreContent.getInitialProps = ({ req }) => {
   let userAgent;
   if (req) {
