@@ -184,7 +184,7 @@ export default function HomeBody() {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-center items-center text-center  mt-32 sm:mt-64 ">
+      <div className="flex flex-wrap justify-center items-center text-center  mt-32 sm:mt-64 mb-24">
         <h3 className="relative top-44 lg:top-48 text-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
           What Our Users Say
         </h3>

@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { CircleUserAvatar } from "../Avatar/Avatar";
 // import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
+import * as HiIcon from "react-icons/hi"
 
 const useStyles = makeStyles({
   list: {
@@ -38,7 +39,7 @@ const useStyles = makeStyles({
   }
 });
 
-function TemporaryDrawer({ loginReducer, ...props }) {
+function TemporaryDrawer({ loginReducer, blueMenu, ...props }) {
   const classes = useStyles();
   const { user } = loginReducer;
   // const [isLoggedIn,setIsLoggedIn]= React.useState(true)
@@ -131,7 +132,8 @@ function TemporaryDrawer({ loginReducer, ...props }) {
             onClick={toggleDrawer(anchor, true)}
             className={classes.btnClass}
           >
-            <MenuIcon className="transform scale-110" />
+           {blueMenu? <HiIcon.HiOutlineMenuAlt2 className="text-primary font-medium text-2xl"/> :
+            <MenuIcon className="transform scale-110" />}
           </Button>
 
           <Drawer

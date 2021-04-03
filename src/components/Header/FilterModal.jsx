@@ -37,7 +37,6 @@ export default function FilterModal(props) {
 
   //
   const [value, setValue] = React.useState("showAll");
-
   const handleCheckChange = (event) => {
     setValue(event.target.value);
   };

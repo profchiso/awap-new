@@ -2,18 +2,16 @@ import React, { useState } from "react";
 import Pagination from "../components/AnswerContent/Pagination";
 import { DefaultAnswerBtn } from "../components/Button/AnswerButton";
 import FormControl from "@material-ui/core/FormControl";
-// import PracticeHeader from "../components/Header/PracticeHeader";
-import Header from "../components/Header/Header";
+import PracticeHeader from "../components/Header/PracticeHeader";
 import NumberBadge from "../components/Badge/NumberBadge";
 import { questionArray } from "../DB/dummyQuestion";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import useWindowDimensions from "../Hooks/UseWindowDimension";
 import { Button } from "@material-ui/core";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
-// import MobileHeader from "../components/Header/MobileHeader";
+import PreviousNextQstn from "../components/Button/PreviousNextQstn";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -26,6 +24,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 4,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+  },
+  bottomNav: {
+    width: "100%",
+    height: "60px",
   },
 }));
 
@@ -53,28 +55,19 @@ export default function PracticeQuestion() {
   };
 
   const classes = useStyles();
-  const { width } = useWindowDimensions();
 
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
 
   return (
     <>
-      {/* <PracticeHeader /> */}
-      {width < 640 ? (
-        <div className="block bg-blueOne pb-6 pl-2 sm:hidden">
-          {/* <MobileHeader /> */}
-        </div>
-      ) : (
-        <Header />
-      )}
+      <PracticeHeader />
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -121,94 +114,80 @@ export default function PracticeQuestion() {
         </Fade>
       </Modal>
 
-      <div className="max-w-3xl mx-auto">
-        <div className="flex justify-between items-center pt-6 pb-6">
-          <div className="flex items-center">
-            <NumberBadge>
-              {questionArray[questionNumber - 1].questionNumber}
-            </NumberBadge>
-            <span className="text-base font-medium">
-              {questionArray[questionNumber - 1].question}
-            </span>
-          </div>
-          <div>
-            <button className="text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body shadow-primary px-16 py-2 rounded-md text-sm lg:text-base font-medium">
-              End
-            </button>
+      <div className="">
+        <div className="max-w-3xl mx-auto px-8">
+          <div className="flex justify-between items-center py-6">
+            <div className="flex items-center">
+              <NumberBadge>
+                {questionArray[questionNumber - 1].questionNumber}
+              </NumberBadge>
+              <span className="text-base font-medium">
+                {questionArray[questionNumber - 1].question}
+              </span>
+            </div>
+            <div>
+              <button className="hidden sm:block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body shadow-primary px-16 py-2 rounded-md text-sm lg:text-base font-medium">
+                End
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="flex justify-center items-center pt-6 pb-6">
-        <FormControl component="fieldset" className="w-6/12 text-center">
-          <div className="pb-3 pt-3 ">
-            <DefaultAnswerBtn
-              isSelected={value === "a" ? `${isSelected}` : ""}
-              onClick={() => onSelectedOptionChange("a")}
-            >
-              <span className="pr-8">a.</span>
-              <span>{questionArray[questionNumber - 1].optionA}</span>
-            </DefaultAnswerBtn>
-          </div>
-          <div className="pb-3 pt-3 ">
-            <DefaultAnswerBtn
-              isSelected={value === "b" ? `${isSelected}` : ""}
-              onClick={() => onSelectedOptionChange("b")}
-            >
-              <span className="pr-8">b.</span>
-              <span>{questionArray[questionNumber - 1].optionB}</span>
-            </DefaultAnswerBtn>
-          </div>
-          <div className="pb-3 pt-3 ">
-            <DefaultAnswerBtn
-              isSelected={value === "c" ? `${isSelected}` : ""}
-              onClick={() => onSelectedOptionChange("c")}
-            >
-              <span className="pr-8">c.</span>
-              <span>{questionArray[questionNumber - 1].optionC}</span>
-            </DefaultAnswerBtn>
-          </div>
-          <div className="pb-3 pt-3 ">
-            <DefaultAnswerBtn
-              isSelected={value === "d" ? `${isSelected}` : ""}
-              onClick={() => onSelectedOptionChange("d")}
-            >
-              <span className="pr-8">d.</span>
-              <span>{questionArray[questionNumber - 1].optionD}</span>
-            </DefaultAnswerBtn>
-          </div>
-        </FormControl>
-      </div>
-
-      <div className="flex justify-evenly items-center pt-6 pb-6">
-        <div>
-          <button
-            onClick={() => decreaseQuestionNumber()}
-            className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+        <div className="flex justify-center items-center pt-3 pb-6 mb-24 px-8">
+          <FormControl
+            component="fieldset"
+            className="w-full sm:w-6/12 text-center"
           >
-            PREVIOUS
-          </button>
+            <div className="py-3 ">
+              <DefaultAnswerBtn
+                isSelected={value === "a" ? `${isSelected}` : ""}
+                onClick={() => onSelectedOptionChange("a")}
+              >
+                <span className="pr-8">a.</span>
+                <span>{questionArray[questionNumber - 1].optionA}</span>
+              </DefaultAnswerBtn>
+            </div>
+            <div className="py-3 ">
+              <DefaultAnswerBtn
+                isSelected={value === "b" ? `${isSelected}` : ""}
+                onClick={() => onSelectedOptionChange("b")}
+              >
+                <span className="pr-8">b.</span>
+                <span>{questionArray[questionNumber - 1].optionB}</span>
+              </DefaultAnswerBtn>
+            </div>
+            <div className="py-3 ">
+              <DefaultAnswerBtn
+                isSelected={value === "c" ? `${isSelected}` : ""}
+                onClick={() => onSelectedOptionChange("c")}
+              >
+                <span className="pr-8">c.</span>
+                <span>{questionArray[questionNumber - 1].optionC}</span>
+              </DefaultAnswerBtn>
+            </div>
+            <div className="py-3 ">
+              <DefaultAnswerBtn
+                isSelected={value === "d" ? `${isSelected}` : ""}
+                onClick={() => onSelectedOptionChange("d")}
+              >
+                <span className="pr-8">d.</span>
+                <span>{questionArray[questionNumber - 1].optionD}</span>
+              </DefaultAnswerBtn>
+            </div>
+          </FormControl>
         </div>
-        <div>
-          {questionNumber === 20 ? (
-            <button
-              onClick={() => handleOpen()}
-              className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-            >
-              FINISH
-            </button>
-          ) : (
-            <button
-              onClick={() => increaseQuestionNumber()}
-              className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-            >
-              NEXT
-            </button>
-          )}
+
+        <div className="shadow-bottomNav w-full fixed bottom-0 sm:block sm:static sm:shadow-none">
+          <PreviousNextQstn
+            handleOpen={handleOpen}
+            increaseQuestionNumber={increaseQuestionNumber}
+            decreaseQuestionNumber={decreaseQuestionNumber}
+          />
         </div>
-      </div>
-      <div className="flex justify-center items-center align-text-bottom mt-5">
-        <Pagination />
+
+        <div className="hidden sm:flex justify-center items-center align-text-bottom mt-5 px-8">
+          <Pagination />
+        </div>
       </div>
     </>
   );

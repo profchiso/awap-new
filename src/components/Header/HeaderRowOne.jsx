@@ -68,7 +68,7 @@ function HeaderRowOne({ showFilter, loginReducer }) {
               <AwesumQuiz />
               <span className="pl-2 text-primary">Awesum Quiz</span>
             </button>
-            <button className="flex items-center  font-body">
+            <div className="flex items-center  font-body">
               <Button
                 aria-owns={anchorEl ? "simple-menu" : undefined}
                 aria-haspopup="true"
@@ -83,7 +83,7 @@ function HeaderRowOne({ showFilter, loginReducer }) {
                   <ExpandMoreRoundedIcon color="primary" />
                 </span>
               </Button>
-            </button>
+            </div>
             <Menu
               id="menu-appbar"
               anchorEl={anchorEl}
@@ -111,6 +111,7 @@ function HeaderRowOne({ showFilter, loginReducer }) {
                 </MenuItem>
               </div>
             </Menu>
+            
             {showFilter ? (
               <FilterModal>
                 <Filter /> <span className="pl-2 text-primary capitalize font-body font-normal">Filter</span>
