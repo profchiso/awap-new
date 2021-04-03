@@ -116,7 +116,7 @@ export default function PracticeQuestion() {
 
       <div className="">
         <div className="max-w-3xl mx-auto px-8">
-          <div className="flex justify-between items-center py-6">
+          <div className="flex justify-between items-center py-3 sm:py-6">
             <div className="flex items-center">
               <NumberBadge>
                 {questionArray[questionNumber - 1].questionNumber}
