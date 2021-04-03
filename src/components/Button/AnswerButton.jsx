@@ -44,7 +44,7 @@ export const SelectedBtn = (props) => {
 export const DefaultAnswerBtn = (props) => {
   return (
     <div className="flex items-center">
-      <div className="pr-20"></div>
+      <div className="pr-10 md:pr-20"></div>
 
       <div className="w-full">
         <button

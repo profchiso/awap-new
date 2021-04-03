@@ -4,7 +4,7 @@ import { ReactComponent as QuestionMark } from "../../assets/svgs/QuestionMark.s
 
 export default function UntimedPqIntro() {
   return (
-    <div className="flex justify-center sm:mb-24">
+    <div className="flex justify-center mb-24">
       <div className="font-body flex flex-col gap-28 text-center mt-24 lg:mt-40">
         <h3 className="text-md sm:text-xl md:text-2xl lg:text-3xl font-body">Untimed Past Questions</h3>
         <div className="flex items-center justify-center">

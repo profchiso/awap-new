@@ -50,7 +50,7 @@ export default function ChooseYear() {
           <MobileHeader />
         </div>
         <Header/>
-      <div className="flex justify-center mb-24">
+      <div className="flex justify-center pb-40">
         <div className="font-body flex flex-col gap-28 text-center mt-40">
           <h3 className="px-3 text-md sm:text-xl md:text-2xl lg:text-3xl font-body">BIOLOGY (SSCE) WAEC Questions</h3>
           <div className="flex items-center justify-center">

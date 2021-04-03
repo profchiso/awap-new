@@ -8,13 +8,13 @@ export default function Unavailable() {
     <div>
       <Header />
       <div className="flex justify-center">
-        <div className="">
+        <div className="pb-40">
           <p className="text-primary text-base md:text-xl py-20">
             Sorry the Page you are looking for is Unavailable or under
             Construction
           </p>
 
-          <img src={Construction} alt="" className="w-full max-w-lg mb-16 mx-auto" />
+          <img src={Construction} alt="" className="w-full max-w-lg mx-auto" />
         </div>
       </div>
       <Footer />

@@ -11,6 +11,7 @@ import { CircleUserAvatar } from "../Avatar/Avatar";
 import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 import { Button, Menu, MenuItem } from "@material-ui/core";
 import { FiLogOut } from "react-icons/fi";
+import FilterModal from "./FilterModal"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,12 +68,12 @@ function HeaderRowOne({ showFilter, loginReducer }) {
               <AwesumQuiz />
               <span className="pl-2 text-primary">Awesum Quiz</span>
             </button>
-            <button className="flex items-center  font-body">
+            <div className="flex items-center  font-body">
               <Button
                 aria-owns={anchorEl ? "simple-menu" : undefined}
                 aria-haspopup="true"
                 onClick={handleClick}
-                onMouseOver={handleClick}
+                // onMouseOver={handleClick}
               >
                 <CircleUserAvatar imgUrl="" />
                 <span className="capitalize font-body font-normal">
@@ -82,7 +83,7 @@ function HeaderRowOne({ showFilter, loginReducer }) {
                   <ExpandMoreRoundedIcon color="primary" />
                 </span>
               </Button>
-            </button>
+            </div>
             <Menu
               id="menu-appbar"
               anchorEl={anchorEl}
@@ -110,10 +111,11 @@ function HeaderRowOne({ showFilter, loginReducer }) {
                 </MenuItem>
               </div>
             </Menu>
+            
             {showFilter ? (
-              <button className="flex items-center font-body">
-                <Filter /> <span className="pl-2 text-primary">Filter</span>
-              </button>
+              <FilterModal>
+                <Filter /> <span className="pl-2 text-primary capitalize font-body font-normal">Filter</span>
+              </FilterModal>
             ) : null}
           </div>
         ) : (

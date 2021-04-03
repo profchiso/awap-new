@@ -44,7 +44,7 @@ export default function ChooseType() {
           </div>
         )}
 
-        <div className="text-center sm:pl-20 px-10 mb-24  flex flex-col max-w-3xl mx-auto">
+        <div className="text-center sm:pl-20 px-10 pb-40 flex flex-col max-w-3xl mx-auto">
           <div className="mt-32 mb-20">
             <h3 className="text-3xl font-body flex items-center">
               <Link to="/pq/biology-choose-year">
