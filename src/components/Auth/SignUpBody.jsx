@@ -203,7 +203,7 @@ export default function LoginBody(props) {
               {/* TO BE FIXED: SINCE IT PREVIOUSLY ALWAYS SHOW, EVEN IN AN EMPTY FORM */}
               {values.confirmPassword? (
                 <div>
-                  <span style={{ color: "red" }}>{props.error}, Try again</span>
+                  <span style={{ color: "red" }}>{props.error}</span>
                 </div>
               ) : null}
               <div>
