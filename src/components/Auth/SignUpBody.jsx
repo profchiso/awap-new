@@ -59,7 +59,7 @@ export default function LoginBody(props) {
     setChecked(event.target.checked);
   };
 
-  const handleSigUp = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     let signUpData = {
       email: values.email,
@@ -230,7 +230,7 @@ export default function LoginBody(props) {
 
               <div className="flex justify-center py-3 px-20">
                 <button
-                  onClick={(e) => handleSigUp(e)}
+                  onClick={(e) => handleSignUp(e)}
                   className="text-white bg-primary shadow-primary px-14 py-2 rounded-md focus:outline-none text-sm lg:text-base"
                 >
                   Continue
