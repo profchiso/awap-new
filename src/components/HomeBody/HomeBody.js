@@ -76,7 +76,7 @@ export default function HomeBody() {
               Courses for Secondary/High School Students
             </p>
             <Link to="/sign-up">
-              <button className="bg-white text-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 rounded-md font-body">
+              <button className="bg-white text-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 rounded-md font-body rounded-full">
                 Get Started
               </button>
             </Link>
