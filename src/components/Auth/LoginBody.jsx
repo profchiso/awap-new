@@ -157,7 +157,7 @@ const handleLogin=(e)=>{
             <div className="py-2 flex justify-center">
               <Link
                 to="/sign-up"
-                className="text-primary bg-white shadow-primary px-20 py-4 rounded-md focus:outline-none text-sm lg:text-base"
+                className="text-primary hover:text-primary bg-white shadow-primary px-20 py-4 rounded-md focus:outline-none text-sm lg:text-base"
               >
                 Sign Up
               </Link>

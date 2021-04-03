@@ -111,7 +111,7 @@ function HeaderRowOne({ showFilter, loginReducer }) {
                 </MenuItem>
               </div>
             </Menu>
-            
+
             {showFilter ? (
               <FilterModal>
                 <Filter /> <span className="pl-2 text-primary capitalize font-body font-normal">Filter</span>
@@ -123,9 +123,14 @@ function HeaderRowOne({ showFilter, loginReducer }) {
             <button className="text-primary font-body shadow-primary px-5 py-2 rounded-md mr-4 md:mr-8 focus:outline-none text-sm lg:text-base">
               Awesum Quiz
             </button>
-            <Link to="/login">
+            {/* <Link to="/login">
               <button className="text-white bg-primary  font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-base">
                 Get Started
+              </button>
+            </Link> */}
+            <Link to="/login">
+              <button className="text-white bg-primary  font-body shadow-primary px-8 py-2 rounded-md focus:outline-none text-sm lg:text-base">
+                Login
               </button>
             </Link>
           </div>

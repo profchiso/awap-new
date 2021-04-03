@@ -61,7 +61,6 @@ function SimpleMenu() {
         onClick={handleClick}
         onMouseOver={handleClick}
         // onMouseLeave={handleClose}
-
       >
          <span className="capitalize font-body font-normal">
             Past Questions

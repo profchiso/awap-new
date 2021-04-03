@@ -75,7 +75,7 @@ export default function HomeBody() {
             <p className="text-md sm:text-lg lg:text-xl pb-8">
               Courses for Secondary/High School Students
             </p>
-            <Link to="/login">
+            <Link to="/sign-up">
               <button className="bg-white text-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 rounded-md font-body">
                 Get Started
               </button>
@@ -176,7 +176,7 @@ export default function HomeBody() {
           <h3 className="py-4 text-center pt-8 lg:pt-0">
             <TextCarousel />
           </h3>
-          <Link to="/login">
+          <Link to="/sign-up">
             <button className="text-white bg-primary shadow-primary px-24 py-2.5 mt-8 rounded-md focus:outline-none text-base font-semibold font-body lg:text-xl">
               Join
             </button>
@@ -207,7 +207,7 @@ export default function HomeBody() {
               </p>
             </div>
           </div>
-          <Link to="/login">
+          <Link to="/sign-up">
             <button className="text-white bg-primary shadow-primary px-12 py-4 mt-8 rounded-md focus:outline-none text-base font-medium font-body lg:text-xl">
               Get Started Now
             </button>
