@@ -223,7 +223,7 @@ export default function LoginBody(props) {
               </div>
             </form>
             <div className="flex justify-center py-3 px-20">or</div>
-            <GoogleButton />
+            <GoogleButton textName="Sign Up"/>
           </div>
 
           <div className="justify-center w-full bg-gray-50 h-full py-6">

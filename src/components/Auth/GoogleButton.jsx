@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 import { ReactComponent as GoogleIcon } from "../../assets/svgs/GoogleIcon.svg";
 import {saveLoginUserDataToState} from "../../redux/actions/login"
 
- function GoogleButton({saveLoginUserDataToState}) {
+ function GoogleButton({saveLoginUserDataToState, ...props}) {
   const handleLogin = async (googleData) => {
     console.log(googleData);
     const res = await fetch(
@@ -39,7 +39,7 @@ import {saveLoginUserDataToState} from "../../redux/actions/login"
               disabled={renderProps.disabled}
               className="text-primary font-body whitespace-nowrap"
             >
-              Log in with Google
+              {props.textName} with Google
             </button>
           </div>
         )}
