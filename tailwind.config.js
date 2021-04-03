@@ -51,7 +51,7 @@ module.exports = {
       none: 'none',
       primary: '0px 3px 10px rgba(13, 6, 95, 0.12);',
       card: '0px 8px 40px rgba(27, 67, 170, 0.05);',
-      awesumOne: '0px 3px 8px rgba(13, 6, 95, 0.1);',
+      awesumOne: '0px 3px 8px rgba(13, 6, 95, 0.14);',
       login:'0px 5px 24px rgba(0, 0, 0, 0.129);',
       googleButton:'1px 6px 10px rgba(13, 6, 95, 0.1);',
       bottomNav:'0px -3px 14px rgba(7, 18, 84, 0.12);',
