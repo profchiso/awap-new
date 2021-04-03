@@ -1,28 +1,28 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import GoogleButton from './GoogleButton';
-import { ReactComponent as Person } from '../../assets/svgs/person.svg';
-import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
-import { Checkbox, FormControl, IconButton, Input } from '@material-ui/core';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import GoogleButton from "./GoogleButton";
+import { ReactComponent as Person } from "../../assets/svgs/person.svg";
+import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
+import { Checkbox, FormControl, IconButton, Input } from "@material-ui/core";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexWrap: "wrap",
   },
   // textField: {
   //   width: "60%",
   // },
   inputField: {
-    fontFamily: 'Google Sans',
+    fontFamily: "Google Sans",
   },
   iconButton: {
-    marginLeft: '-0.75rem !important',
+    marginLeft: "-0.75rem !important",
   },
 }));
 
@@ -30,15 +30,15 @@ export default function LoginBody(props) {
   const classes = useStyles();
 
   const [values, setValues] = React.useState({
-    amount: '',
-    password: '',
-    weight: '',
-    weightRange: '',
+    amount: "",
+    password: "",
+    weight: "",
+    weightRange: "",
     showPassword: false,
-    email: '',
-    confirmPassword: '',
-    firstName:"",
-    lastName:""
+    email: "",
+    confirmPassword: "",
+    firstName: "",
+    lastName: "",
   });
 
   const handleChange = (prop) => (event) => {
@@ -65,13 +65,19 @@ export default function LoginBody(props) {
       email: values.email,
       password: values.password,
       confirmPassword: values.confirmPassword,
-      lastName:values.lastName,
-      firstName:values.firstName,
-      
+      lastName: values.lastName,
+      firstName: values.firstName,
     };
     console.log(signUpData);
     await props.signUpRequest(signUpData);
-    setValues({...values,email:"", firstName:"", lastName:"", password:"", confirmPassword:""})
+    setValues({
+      ...values,
+      email: "",
+      firstName: "",
+      lastName: "",
+      password: "",
+      confirmPassword: "",
+    });
   };
 
   return (
@@ -83,39 +89,37 @@ export default function LoginBody(props) {
               Sign Up
             </div>
             <form>
-            <div className="flex justify-start sm:justify-center pb-12  font-body">
+              <div className="flex justify-start sm:justify-center pb-12  font-body">
                 <div className="flex gap-12 flex-col sm:flex-row">
-                <TextField
-                  id="standard-basic"
-                  placeholder="First Name"
-                  className="w-full m-5 p-4  my-4 font-body"
-                  onChange={handleChange('firstName')}
-                  value={values.firstName}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Person className="mr-5 mb-1" />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-                 <TextField
-                  id="standard-basic"
-                  placeholder="Last Name"
-                  className="w-full m-5 p-4  my-4 font-body"
-                  onChange={handleChange('lastName')}
-                  value={values.lastName}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Person className="mr-5 mb-1" />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
+                  <TextField
+                    id="standard-basic"
+                    placeholder="First Name"
+                    className="w-full m-5 p-4  my-4 font-body"
+                    onChange={handleChange("firstName")}
+                    value={values.firstName}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <Person className="mr-5 mb-1" />
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                  <TextField
+                    id="standard-basic"
+                    placeholder="Last Name"
+                    className="w-full m-5 p-4  my-4 font-body"
+                    onChange={handleChange("lastName")}
+                    value={values.lastName}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <Person className="mr-5 mb-1" />
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
                 </div>
-            
-               
               </div>
 
               <div className="flex justify-center pb-12  font-body">
@@ -123,12 +127,15 @@ export default function LoginBody(props) {
                   id="standard-basic"
                   placeholder="Email"
                   className="w-full m-5 p-4  my-4 font-body"
-                  onChange={handleChange('email')}
+                  onChange={handleChange("email")}
                   value={values.email}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <EmailRoundedIcon color="primary" className="mr-5 mb-1" />
+                        <EmailRoundedIcon
+                          color="primary"
+                          className="mr-5 mb-1"
+                        />
                       </InputAdornment>
                     ),
                   }}
@@ -140,9 +147,9 @@ export default function LoginBody(props) {
                   <Input
                     id="standard-adornment-password"
                     placeholder="Password"
-                    type={values.showPassword ? 'text' : 'password'}
+                    type={values.showPassword ? "text" : "password"}
                     value={values.password}
-                    onChange={handleChange('password')}
+                    onChange={handleChange("password")}
                     startAdornment={
                       <InputAdornment position="start">
                         <IconButton
@@ -169,9 +176,9 @@ export default function LoginBody(props) {
                   <Input
                     id="standard-adornment-password"
                     placeholder="Confirm Password"
-                    type={values.showPassword ? 'text' : 'password'}
+                    type={values.showPassword ? "text" : "password"}
                     value={values.confirmPassword}
-                    onChange={handleChange('confirmPassword')}
+                    onChange={handleChange("confirmPassword")}
                     startAdornment={
                       <InputAdornment position="start">
                         <IconButton
@@ -192,8 +199,16 @@ export default function LoginBody(props) {
                   />
                 </FormControl>
               </div>
-              <div><span style={{color:"red"}}>{props.error}</span></div>
-              <div><span style={{color:"green"}}>{props.success}</span></div>
+             
+              {/* TO BE FIXED: SINCE IT PREVIOUSLY ALWAYS SHOW, EVEN IN AN EMPTY FORM */}
+              {values.confirmPassword? (
+                <div>
+                  <span style={{ color: "red" }}>{props.error}, Try again</span>
+                </div>
+              ) : null}
+              <div>
+                <span style={{ color: "green" }}>{props.success}</span>
+              </div>
 
               <div className="pb-12 mt-3 flex flex-col justify-start items-start sm:flex-row sm:justify-center sm:items-center">
                 <div className="flex items-center">
@@ -201,7 +216,7 @@ export default function LoginBody(props) {
                     checked={checked}
                     color="primary"
                     onChange={handleCheckChange}
-                    inputProps={{ 'aria-label': 'secondary checkbox' }}
+                    inputProps={{ "aria-label": "secondary checkbox" }}
                   />
                   <span className="font-sm">Keep me logged in</span>
                 </div>
@@ -223,12 +238,12 @@ export default function LoginBody(props) {
               </div>
             </form>
             <div className="flex justify-center py-3 px-20">or</div>
-            <GoogleButton textName="Sign Up"/>
+            <GoogleButton textName="Sign Up" />
           </div>
 
           <div className="justify-center w-full bg-gray-50 h-full py-6">
             <div className="py-2 flex justify-center horizontal_Line max-w-3/4 mx-auto whitespace-nowrap">
-              Already have an account ?
+              Already have an account?
             </div>
             <div className="py-2 flex justify-center">
               <Link
