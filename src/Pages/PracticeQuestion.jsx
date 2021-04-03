@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Pagination from "../components/AnswerContent/Pagination";
 import { DefaultAnswerBtn } from "../components/Button/AnswerButton";
 import FormControl from "@material-ui/core/FormControl";
 // import PracticeHeader from "../components/Header/PracticeHeader";
 import Header from "../components/Header/Header";
 import NumberBadge from "../components/Badge/NumberBadge";
-import {questionArray} from "../DB/dummyQuestion"
+//import {questionArray} from "../DB/dummyQuestion"
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import useWindowDimensions from "../Hooks/UseWindowDimension";
+import axios from "axios"
+import {BASE_URL,requestHeaders} from "../redux/actions/config"
 // import MobileHeader from "../components/Header/MobileHeader";
+
+
+//api/v1/past-question/biology?sort=questionNumber&year=2007
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -30,7 +35,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PracticeQuestion() {
   const [value, setValue] = useState("");
-  const [questionNumber, setQuestionNumber]= useState(1)
+  const [questionNumber, setQuestionNumber]= useState(0)
+  const [questionArray,setQuestionArray]=useState([]);
   const isSelected =
     "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
 
@@ -38,16 +44,27 @@ export default function PracticeQuestion() {
     console.log(option);
     setValue(option);
   };
+  useEffect(()=>{
+    async function fetchQuestions() {
+      const {data}= await axios.get(`${BASE_URL}past-question/biology?sort=questionNumber&year=2007`,requestHeaders)
+      console.log(data)
+    
+      setQuestionArray(data.data.questions)
+    } 
+    fetchQuestions()
+
+  },[])
 
   const increaseQuestionNumber=()=>{
-    if(questionNumber>0 && questionNumber<20){
+    if(questionNumber>=0 && questionNumber<questionArray.length-1){
+      console.log(questionNumber)
       setQuestionNumber(prev=>prev+1)
     }
     
   }
 
   const decreaseQuestionNumber=()=>{
-    if(questionNumber<21 && questionNumber>1){
+    if(questionNumber<questionArray.length && questionNumber>=1){
       setQuestionNumber(prev=>prev-1)
     }
     
@@ -111,12 +128,14 @@ export default function PracticeQuestion() {
         </Fade>
       </Modal>
 
-      <div className="max-w-3xl mx-auto">
+      
+      {questionArray.length? 
+      (<><div className="max-w-3xl mx-auto">
         <div className="flex justify-between items-center pt-6 pb-6">
           <div className="flex items-center">
-            <NumberBadge>{questionArray[questionNumber-1].questionNumber}</NumberBadge>
+            <NumberBadge>{questionArray[questionNumber].questionNumber}</NumberBadge>
             <span className="text-base font-medium">
-            {questionArray[questionNumber-1].question}
+            {questionArray[questionNumber].question}
             </span>
           </div>
           <div>
@@ -135,7 +154,7 @@ export default function PracticeQuestion() {
               onClick={() => onSelectedOptionChange("a")}
             >
                 <span className="pr-8">a.</span>
-                <span>{questionArray[questionNumber-1].optionA}</span>
+                <span>{questionArray[questionNumber].optionA.textOption}</span>
             </DefaultAnswerBtn>
           </div>
           <div className="pb-3 pt-3 ">
@@ -144,7 +163,7 @@ export default function PracticeQuestion() {
               onClick={() => onSelectedOptionChange("b")}
             >
               <span className="pr-8">b.</span>
-              <span>{questionArray[questionNumber-1].optionB}</span>
+              <span>{questionArray[questionNumber].optionB.textOption}</span>
             </DefaultAnswerBtn>
           </div>
           <div className="pb-3 pt-3 ">
@@ -153,7 +172,7 @@ export default function PracticeQuestion() {
               onClick={() => onSelectedOptionChange("c")}
             >
               <span className="pr-8">c.</span>
-              <span>{questionArray[questionNumber-1].optionC}</span>
+              <span>{questionArray[questionNumber].optionC.textOption}</span>
             </DefaultAnswerBtn>
           </div>
           <div className="pb-3 pt-3 ">
@@ -162,12 +181,12 @@ export default function PracticeQuestion() {
               onClick={() => onSelectedOptionChange("d")}
             >
               <span className="pr-8">d.</span>
-              <span>{questionArray[questionNumber-1].optionD}</span>
+              <span>{questionArray[questionNumber].optionD.textOption}</span>
             </DefaultAnswerBtn>
           </div>
         </FormControl>
       </div>
-
+      </>):(null)}
       <div className="flex justify-evenly items-center pt-6 pb-6">
         <div>
           <button onClick={()=>decreaseQuestionNumber()} className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium">
