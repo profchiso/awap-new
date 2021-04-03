@@ -133,7 +133,7 @@ export default function PracticeQuestion() {
           </div>
         </div>
 
-        <div className="flex justify-center items-center pt-3 pb-6 mb-24 px-8">
+        <div className="flex justify-center items-center pt-3 pb-40 sm:pb-24 px-8">
           <FormControl
             component="fieldset"
             className="w-full sm:w-6/12 text-center"
@@ -185,7 +185,7 @@ export default function PracticeQuestion() {
           />
         </div>
 
-        <div className="hidden sm:flex justify-center items-center align-text-bottom mt-5 px-8">
+        <div className="hidden sm:flex justify-center items-center align-text-bottom mt-5 px-8 pb-40">
           <Pagination />
         </div>
       </div>
