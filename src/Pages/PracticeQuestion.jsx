@@ -177,7 +177,7 @@ export default function PracticeQuestion() {
           </FormControl>
         </div>
 
-        <div className="shadow-bottomNav w-full fixed bottom-0 sm:block sm:static sm:shadow-none">
+        <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none">
           <PreviousNextQstn
             handleOpen={handleOpen}
             increaseQuestionNumber={increaseQuestionNumber}
