@@ -4,7 +4,7 @@ import { DefaultAnswerBtn } from "../components/Button/AnswerButton";
 import FormControl from "@material-ui/core/FormControl";
 import PracticeHeader from "../components/Header/PracticeHeader";
 import NumberBadge from "../components/Badge/NumberBadge";
-import { questionArray } from "../DB/dummyQuestion";
+//import { questionArray } from "../DB/dummyQuestion";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -12,6 +12,8 @@ import Fade from "@material-ui/core/Fade";
 import { Button } from "@material-ui/core";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import PreviousNextQstn from "../components/Button/PreviousNextQstn";
+import axios from "axios";
+import  {BASE_URL,requestHeaders} from "../redux/actions/config"
 
 
 //api/v1/past-question/biology?sort=questionNumber&year=2007
@@ -36,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PracticeQuestion() {
   const [value, setValue] = useState("");
-  const [questionNumber, setQuestionNumber] = useState(1);
+  const [questionNumber, setQuestionNumber] = useState(0);
+  const [questionArray, setQuestionArray]=useState([])
   const isSelected =
     "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
 
@@ -56,13 +59,13 @@ export default function PracticeQuestion() {
   },[])
 
   const increaseQuestionNumber = () => {
-    if (questionNumber > 0 && questionNumber < 20) {
+    if (questionNumber >= 0 && questionNumber <questionArray.length-1) {
       setQuestionNumber((prev) => prev + 1);
     }
   };
 
   const decreaseQuestionNumber = () => {
-    if (questionNumber < 21 && questionNumber > 1) {
+    if (questionNumber < questionArray.length && questionNumber >= 1) {
       setQuestionNumber((prev) => prev - 1);
     }
   };
@@ -81,6 +84,7 @@ export default function PracticeQuestion() {
   return (
     <>
       <PracticeHeader />
+      {questionArray.length ?<>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -126,16 +130,15 @@ export default function PracticeQuestion() {
           </div>
         </Fade>
       </Modal>
-
-      <div className="">
+        <div className="">
         <div className="max-w-3xl mx-auto px-8">
           <div className="flex justify-between items-center py-3 sm:py-6">
             <div className="flex items-center">
               <NumberBadge>
-                {questionArray[questionNumber - 1].questionNumber}
+                {questionArray[questionNumber].questionNumber}
               </NumberBadge>
               <span className="text-base font-medium">
-                {questionArray[questionNumber - 1].question}
+                {questionArray[questionNumber].question}
               </span>
             </div>
             <div>
@@ -157,7 +160,7 @@ export default function PracticeQuestion() {
                 onClick={() => onSelectedOptionChange("a")}
               >
                 <span className="pr-8">a.</span>
-                <span>{questionArray[questionNumber - 1].optionA}</span>
+                <span>{questionArray[questionNumber].optionA.textOption}</span>
               </DefaultAnswerBtn>
             </div>
             <div className="py-3 ">
@@ -166,7 +169,7 @@ export default function PracticeQuestion() {
                 onClick={() => onSelectedOptionChange("b")}
               >
                 <span className="pr-8">b.</span>
-                <span>{questionArray[questionNumber - 1].optionB}</span>
+                <span>{questionArray[questionNumber].optionB.textOption}</span>
               </DefaultAnswerBtn>
             </div>
             <div className="py-3 ">
@@ -175,7 +178,7 @@ export default function PracticeQuestion() {
                 onClick={() => onSelectedOptionChange("c")}
               >
                 <span className="pr-8">c.</span>
-                <span>{questionArray[questionNumber - 1].optionC}</span>
+                <span>{questionArray[questionNumber].optionC.textOption}</span>
               </DefaultAnswerBtn>
             </div>
             <div className="py-3 ">
@@ -184,7 +187,7 @@ export default function PracticeQuestion() {
                 onClick={() => onSelectedOptionChange("d")}
               >
                 <span className="pr-8">d.</span>
-                <span>{questionArray[questionNumber - 1].optionD}</span>
+                <span>{questionArray[questionNumber].optionD.textOption}</span>
               </DefaultAnswerBtn>
             </div>
           </FormControl>
@@ -202,6 +205,7 @@ export default function PracticeQuestion() {
           <Pagination />
         </div>
       </div>
+      </>:null}
     </>
   );
 }
