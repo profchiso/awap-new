@@ -30,7 +30,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     } else if (type === 'SELECT_SUBJECT') {
         return {
             ...state,
-            subject: payload.toLowerCase(),
+            subject: payload,
 
         };
     } else if (type === 'SELECT_PAST_QUESTION_PRACTICE_TYPE') {

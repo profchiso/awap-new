@@ -137,4 +137,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, {})(PracticeHeader);
+export default connect(mapStateToProps, {logout})(PracticeHeader);
