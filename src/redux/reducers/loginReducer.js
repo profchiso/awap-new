@@ -17,12 +17,13 @@ export const loginReducer = (state = initialState, actions) => {
     ) {
         localStorage.setItem('token', JSON.stringify(payload.data.accessToken));
         localStorage.setItem('user', JSON.stringify(payload.data.user));
+        let error = {}
         return {
             ...state,
             token: payload.data.accessToken,
             user: payload.data.user,
             isSuccessful: true,
-            error: {},
+            error
         };
     } else if (type === 'REGISTRATION_ERROR' || type === 'LOGIN_ERROR') {
         localStorage.removeItem('token');
@@ -43,10 +44,12 @@ export const loginReducer = (state = initialState, actions) => {
             token: '',
         };
     } else if (type === 'CLEAR_LOGIN_RELATED_ERROR') {
+        let error = {};
 
         return {
             ...state,
-            error: {},
+            error
+
         };
     }
 

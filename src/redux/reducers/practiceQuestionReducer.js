@@ -37,13 +37,14 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
 
         return {
             ...state,
-            error: {},
+            questionType: payload
         };
-    } else if (type === 'CLEAR_LOGIN_RELATED_ERROR') {
+    } else if (type === 'API_ERROR') {
+        let error = {}
 
         return {
             ...state,
-            questionType: payload,
+            error
         };
     }
 

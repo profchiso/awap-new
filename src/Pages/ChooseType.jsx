@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {connect} from "react-redux"
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -10,6 +11,7 @@ import Footer from "../components/Footer/Footer";
 import { Link, Redirect } from "react-router-dom";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 import MobileHeader from "../components/Header/MobileHeader";
+import {selectPastQuestionPracticeType} from "../redux/actions/practiceQuestion"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,13 +24,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ChooseType() {
+ function ChooseType(props) {
   const classes = useStyles();
   const { width } = useWindowDimensions();
 
   const [value, setValue] = useState(null);
   const handleChange = (event) => {
     setValue(event.target.value);
+    props.selectPastQuestionPracticeType(event.target.value)
   };
 
   if (value === null) {
@@ -88,3 +91,10 @@ export default function ChooseType() {
     return <Redirect to="/pq/biology-timed" />;
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps, {selectPastQuestionPracticeType})(ChooseType);
