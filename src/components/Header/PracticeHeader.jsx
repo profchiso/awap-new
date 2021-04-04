@@ -10,6 +10,7 @@ import { FiLogOut } from "react-icons/fi";
 import { makeStyles } from "@material-ui/core/styles";
 import TemporaryDrawer from "../Drawer/Drawer";
 import useWindowDimensions from "../../Hooks/UseWindowDimension";
+import {logout} from "../../redux/actions/login"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,12 +25,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function PracticeHeader({ loginReducer }) {
+function PracticeHeader({ loginReducer,practiceQuestionReducer,logout }) {
   const classes = useStyles();
   const { width } = useWindowDimensions();
   const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
   const { user } = loginReducer;
+  const {year,subject}=practiceQuestionReducer
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -41,9 +43,10 @@ function PracticeHeader({ loginReducer }) {
   function handleClose() {
     setAnchorEl(null);
   }
-  const logout = () => {
+  const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    logout()
     setIsLoggedIn(false);
   };
 
@@ -67,7 +70,7 @@ function PracticeHeader({ loginReducer }) {
         </div>
         <div className="flex flex-1 justify-center pr-3 sm:px-5 sm:px-0 -ml-1 lg:-ml-28 font-medium text-base md:text-lg">
           <span className="whitespace-nowrap">
-            <span>2012 Biology WAEC</span>
+            <span>{year} {subject} WAEC</span>
             {` `}
             <span className="hidden sm:inline-block">Practice Questions</span>
             {width > 330 ? (
@@ -117,7 +120,7 @@ function PracticeHeader({ loginReducer }) {
               </span>
               <span
                 className="font-body font-normal flex-1 pr-8"
-                onClick={() => logout()}
+                onClick={() => handleLogout()}
               >
                 Log Out
               </span>
