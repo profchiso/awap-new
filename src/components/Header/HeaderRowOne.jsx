@@ -12,6 +12,7 @@ import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 import { Button, Menu, MenuItem } from "@material-ui/core";
 import { FiLogOut } from "react-icons/fi";
 import FilterModal from "./FilterModal"
+import {logout} from "../../redux/actions/login"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,9 +43,10 @@ function HeaderRowOne({ showFilter, loginReducer }) {
   function handleClose() {
     setAnchorEl(null);
   }
-  const logout=()=>{
+  const handleLogout=()=>{
     localStorage.removeItem("token");
     localStorage.removeItem("user")
+    logout()
     setIsLoggedIn(false)
   }
 
@@ -105,7 +107,7 @@ function HeaderRowOne({ showFilter, loginReducer }) {
                   <span className="justify-self-start px-2">
                     <FiLogOut />
                   </span>
-                  <span className="font-body font-normal flex-1 pr-8" onClick={()=>logout()}>
+                  <span className="font-body font-normal flex-1 pr-8" onClick={()=>handleLogout()}>
                     Log Out
                   </span>
                 </MenuItem>
@@ -140,4 +142,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, {})(HeaderRowOne);
+export default connect(mapStateToProps, {logout})(HeaderRowOne);

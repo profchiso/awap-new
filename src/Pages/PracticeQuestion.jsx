@@ -61,6 +61,7 @@ export default function PracticeQuestion() {
   const increaseQuestionNumber = () => {
     if (questionNumber >= 0 && questionNumber <questionArray.length-1) {
       setQuestionNumber((prev) => prev + 1);
+      setValue("")
     }
   };
 
@@ -156,8 +157,8 @@ export default function PracticeQuestion() {
           >
             <div className="py-3 ">
               <DefaultAnswerBtn
-                isSelected={value === "a" ? `${isSelected}` : ""}
-                onClick={() => onSelectedOptionChange("a")}
+                isSelected={value === "optionA" ? `${isSelected}` : ""}
+                onClick={() => onSelectedOptionChange("optionA")}
               >
                 <span className="pr-8">a.</span>
                 <span>{questionArray[questionNumber].optionA.textOption}</span>
@@ -165,8 +166,8 @@ export default function PracticeQuestion() {
             </div>
             <div className="py-3 ">
               <DefaultAnswerBtn
-                isSelected={value === "b" ? `${isSelected}` : ""}
-                onClick={() => onSelectedOptionChange("b")}
+                isSelected={value === "optionB" ? `${isSelected}` : ""}
+                onClick={() => onSelectedOptionChange("optionB")}
               >
                 <span className="pr-8">b.</span>
                 <span>{questionArray[questionNumber].optionB.textOption}</span>
@@ -174,8 +175,8 @@ export default function PracticeQuestion() {
             </div>
             <div className="py-3 ">
               <DefaultAnswerBtn
-                isSelected={value === "c" ? `${isSelected}` : ""}
-                onClick={() => onSelectedOptionChange("c")}
+                isSelected={value === "optionC" ? `${isSelected}` : ""}
+                onClick={() => onSelectedOptionChange("optionC")}
               >
                 <span className="pr-8">c.</span>
                 <span>{questionArray[questionNumber].optionC.textOption}</span>
@@ -183,8 +184,8 @@ export default function PracticeQuestion() {
             </div>
             <div className="py-3 ">
               <DefaultAnswerBtn
-                isSelected={value === "d" ? `${isSelected}` : ""}
-                onClick={() => onSelectedOptionChange("d")}
+                isSelected={value === "optionD" ? `${isSelected}` : ""}
+                onClick={() => onSelectedOptionChange("optionD")}
               >
                 <span className="pr-8">d.</span>
                 <span>{questionArray[questionNumber].optionD.textOption}</span>

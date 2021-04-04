@@ -42,6 +42,12 @@ export const loginReducer = (state = initialState, actions) => {
             isSuccessful: false,
             token: '',
         };
+    } else if (type === 'CLEAR_LOGIN_RELATED_ERROR') {
+
+        return {
+            ...state,
+            error: {},
+        };
     }
 
     return state;
