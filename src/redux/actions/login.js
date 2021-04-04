@@ -35,6 +35,7 @@ export const loginError = (err) => {
 };
 
 export const logout = () => {
+    console.log("logout function")
     return {
         type: LOGOUT,
 

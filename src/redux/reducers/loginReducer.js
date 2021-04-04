@@ -1,9 +1,8 @@
 const initialState = {
     token: '',
     user: {},
-    isSuccessful: false,
     error: { message: "" },
-    isCallFinished: false,
+
 };
 
 export const loginReducer = (state = initialState, actions) => {
@@ -36,9 +35,10 @@ export const loginReducer = (state = initialState, actions) => {
     } else if (type === 'LOGOUT') {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
+        let user = {}
         return {
             ...state,
-            user: {},
+            user,
             isSuccessful: false,
             token: '',
         };

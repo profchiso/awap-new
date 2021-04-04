@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function HeaderRowOne({ showFilter, loginReducer }) {
+function HeaderRowOne({ showFilter, loginReducer,logout }) {
   const classes = useStyles();
   const [isLoggedIn,setIsLoggedIn]= React.useState(true)
 
