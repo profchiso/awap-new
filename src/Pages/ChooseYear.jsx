@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
+import {connect} from "react-redux"
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import {
@@ -10,6 +11,7 @@ import {
   Select,
 } from "@material-ui/core";
 import MobileHeader from "../components/Header/MobileHeader";
+import {selectPastQuestionYear} from "../redux/actions/practiceQuestion"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,13 +28,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ChooseYear() {
+ function ChooseYear(props) {
   const classes = useStyles();
 
   const [itemNumber, setitemNumber] = useState("");
 
   const handleChange = (event) => {
     setitemNumber(event.target.value);
+    props.selectPastQuestionYear(event.target.value)
   };
 
   const range = (start, end) => {
@@ -91,3 +94,11 @@ export default function ChooseYear() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps, {selectPastQuestionYear})(ChooseYear);
+

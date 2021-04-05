@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL, requestHeaders } from './config';
-import { SAVE_LOGGED_IN_USER_DATA, LOGIN_ERROR } from './types';
+import { SAVE_LOGGED_IN_USER_DATA, LOGIN_ERROR, LOGOUT, CLEAR_LOGIN_RELATED_ERROR } from './types';
 
 export const login = (userData) => {
     return async(dispatch) => {
@@ -33,6 +33,21 @@ export const loginError = (err) => {
         payload: err,
     };
 };
+
+export const logout = () => {
+    console.log("logout function")
+    return {
+        type: LOGOUT,
+
+    };
+};
+export const clearLoginRelatedErrors = () => {
+    return {
+        type: CLEAR_LOGIN_RELATED_ERROR,
+
+    };
+};
+
 
 
 

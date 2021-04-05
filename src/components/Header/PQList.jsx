@@ -1,10 +1,12 @@
 import React, {useState} from "react";
+import {connect} from "react-redux"
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import { FiChevronRight } from "react-icons/fi";
+import {selectPastQuestionSubject} from "../../redux/actions/practiceQuestion"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SimpleMenu() {
+function SimpleMenu(props) {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -126,8 +128,8 @@ function SimpleMenu() {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/biology-choose-year" className="w-48 ">
-              <span className="font-body font-normal text-gray-800">
+            <Link to="/pq/biology-choose-year" className="w-48 " >
+              <span className="font-body font-normal text-gray-800" onClick={()=>props.selectPastQuestionSubject("Biology")}>
                 Biology
               </span>
             </Link>
@@ -136,8 +138,8 @@ function SimpleMenu() {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/chemistry" className="w-48 ">
-              <span className="font-body font-normal text-gray-800">
+            <Link to="/pq/chemistry" className="w-48 " >
+              <span className="font-body font-normal text-gray-800" onClick={()=>props.selectPastQuestionSubject("Chemistry")}>
                 Chemistry
               </span>
             </Link>
@@ -146,8 +148,8 @@ function SimpleMenu() {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/physics" className="w-48 ">
-              <span className="font-body font-normal text-gray-800">
+            <Link to="/pq/physics" className="w-48 " >
+              <span className="font-body font-normal text-gray-800" onClick={()=>props.selectPastQuestionSubject("Physics")}>
                 Physics
               </span>
             </Link>
@@ -156,8 +158,8 @@ function SimpleMenu() {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/math" className="w-48 ">
-              <span className="font-body font-normal text-gray-800">
+            <Link to="/pq/math" className="w-48 " >
+              <span className="font-body font-normal text-gray-800" onClick={()=>props.selectPastQuestionSubject("Math")}>
                 Math
               </span>
             </Link>
@@ -259,4 +261,9 @@ function SimpleMenu() {
   );
 }
 
-export default SimpleMenu;
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps, {selectPastQuestionSubject})(SimpleMenu);
