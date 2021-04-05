@@ -147,17 +147,17 @@ const handleLogin=(e)=>{
               </div>
             </form>
             <div className="flex justify-center py-3 px-20">or</div>
-            <GoogleButton />
+            <GoogleButton  textName="Log In"/>
           </div>
 
           <div className="justify-center w-full bg-gray-50 h-full py-6">
             <div className="py-2 flex justify-center horizontal_Line max-w-3/4 mx-auto">
-              New to AwesumEdge ?
+              New to AwesumEdge?
             </div>
             <div className="py-2 flex justify-center">
               <Link
                 to="/sign-up"
-                className="text-primary bg-white shadow-primary px-20 py-4 rounded-md focus:outline-none text-sm lg:text-base"
+                className="text-primary hover:text-primary bg-white shadow-primary px-20 py-4 rounded-md focus:outline-none text-sm lg:text-base"
               >
                 Sign Up
               </Link>

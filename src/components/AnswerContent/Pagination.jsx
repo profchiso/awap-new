@@ -1,25 +1,31 @@
-import React from 'react';
-import { MemoryRouter, Route } from 'react-router';
-import { Link } from 'react-router-dom';
-import Pagination from '@material-ui/lab/Pagination';
-import PaginationItem from '@material-ui/lab/PaginationItem';
+import React from "react";
+import { MemoryRouter, Route } from "react-router";
+import Pagination from "@material-ui/lab/Pagination";
+import { NavLink } from "react-router-dom";
+import PaginationItem from "@material-ui/lab/PaginationItem";
 
-export default function PaginationLink() {
+export default function PaginationNavLink(props) {
+
   return (
-    <MemoryRouter initialEntries={['/answers']} initialIndex={0}>
+    //Although the Navlink Functionality Was Just Partially Used
+
+    <MemoryRouter initialEntries={["/answers"]} initialIndex={0}>
       <Route>
         {({ location }) => {
           const query = new URLSearchParams(location.search);
-          const page = parseInt(query.get('page') || '1', 10);
+          const page = parseInt(query.get("page") || "1", props.count);
           return (
             <Pagination
               page={page}
-              count={20}
+              count={props.count}
               shape="rounded"
+              onChange={props.setQuestionNumber(page-1)}
               renderItem={(item) => (
                 <PaginationItem
-                  component={Link}
-                  to={`/answers${item.page === 1 ? '' : `?page=${item.page}`}`}
+                  component={NavLink}
+                  to={`/pq/biology/2007/${
+                    item.page === 1 ? "" : `?page=${item.page}`
+                  }`}
                   {...item}
                 />
               )}

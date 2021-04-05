@@ -146,6 +146,7 @@ module.exports = {
     }),
     minWidth: {
       '0': '0',
+      'badge': '2rem',
       'xs1': "18rem",
       'xs': "20rem",
       'md': "30rem",

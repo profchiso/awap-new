@@ -36,12 +36,12 @@ export const loginReducer = (state = initialState, actions) => {
     } else if (type === 'LOGOUT') {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        let user = {}
+        // let user = {}
         return {
             ...state,
-            user,
+            user:null,
             isSuccessful: false,
-            token: '',
+            token:null,
         };
     } else if (type === 'CLEAR_LOGIN_RELATED_ERROR') {
         let error = {};

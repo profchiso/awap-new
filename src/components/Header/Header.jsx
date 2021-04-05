@@ -1,12 +1,16 @@
-import React from 'react'
-import HeaderRowOne from './HeaderRowOne'
-import HeaderRowTwo from './HeaderRowTwo'
+import React from "react";
+import HeaderRowOne from "./HeaderRowOne";
+import HeaderRowTwo from "./HeaderRowTwo";
 
-export default function Header({ showFilter}) {
+export default function Header(props) {
   return (
     <div className="hidden sm:block">
-      <HeaderRowOne showFilter={showFilter}/>
-      <HeaderRowTwo/>
+      <HeaderRowOne
+        showFilter={props.showFilter}
+        showHeaderTitle={props.showHeaderTitle}
+        headerTitle={props.headerTitle}
+      />
+      <HeaderRowTwo />
     </div>
-  )
+  );
 }

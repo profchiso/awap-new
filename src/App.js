@@ -53,10 +53,7 @@ class App extends React.Component {
                 path="/pq/biology-choose-type"
                 component={BiologyChooseType}
               />
-              {/* <Route
-                path="/pq"
-                component={BiologyChooseType}
-              /> */}
+              
               <Route path="/pq/biology-untimed" component={BiologyUntimedPQ} />
 
               {biologyPQYear.map((item, index) => (
