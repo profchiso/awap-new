@@ -16,12 +16,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { CircleUserAvatar } from "../Avatar/Avatar";
 // import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
-<<<<<<< HEAD
-import * as HiIcon from "react-icons/hi"
-import {logout} from "../../redux/actions/login"
-=======
 import * as HiIcon from "react-icons/hi";
->>>>>>> main
+import {logout} from "../../redux/actions/login"
 
 const useStyles = makeStyles({
   list: {
@@ -50,20 +46,12 @@ function TemporaryDrawer({ loginReducer,logout, blueMenu, ...props }) {
   const { user } = loginReducer;
   // const [isLoggedIn,setIsLoggedIn]= React.useState(true)
 
-<<<<<<< HEAD
-  const handleLogout=()=>{
-=======
-  const logout = () => {
->>>>>>> main
+  const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     // setIsLoggedIn(false)
-<<<<<<< HEAD
     logout()
-  }
-=======
   };
->>>>>>> main
 
   const [state, setState] = React.useState({
     top: false,
@@ -130,22 +118,17 @@ function TemporaryDrawer({ loginReducer,logout, blueMenu, ...props }) {
             <ListItemIcon>
               <ExitToAppRoundedIcon />
             </ListItemIcon>
-<<<<<<< HEAD
-            {localStorage.token ?<ListItemText primary="Log Out" className="text-primary" onClick={()=>handleLogout()}/>:
-            <Link to="/login"> <ListItemText primary="Log In" className="text-primary" /></Link>}
-=======
             {localStorage.token ? (
               <ListItemText
                 primary="Log Out"
                 className="text-primary"
-                onClick={() => logout()}
+                onClick={() => handleLogout()}
               />
             ) : (
               <Link to="/login">
                 <ListItemText primary="Log In" className="text-primary" />
               </Link>
             )}
->>>>>>> main
           </ListItem>
         </Link>
       </List>
