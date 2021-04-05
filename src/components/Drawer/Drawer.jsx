@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { CircleUserAvatar } from "../Avatar/Avatar";
 // import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
-import * as HiIcon from "react-icons/hi"
+import * as HiIcon from "react-icons/hi";
 
 const useStyles = makeStyles({
   list: {
@@ -29,14 +29,15 @@ const useStyles = makeStyles({
     marginLeft: "-0.875rem",
   },
   listOneClass: {
-    marginBottom: "1rem",
+    marginTop: "0.5rem",
+    marginBottom: "0.5rem",
   },
   listTwoClass: {
     marginTop: "1.5rem",
   },
-  avatarClass:{
-    marginLeft:"-10px",
-  }
+  avatarClass: {
+    marginLeft: "-10px",
+  },
 });
 
 function TemporaryDrawer({ loginReducer, blueMenu, ...props }) {
@@ -44,11 +45,11 @@ function TemporaryDrawer({ loginReducer, blueMenu, ...props }) {
   const { user } = loginReducer;
   // const [isLoggedIn,setIsLoggedIn]= React.useState(true)
 
-  const logout=()=>{
+  const logout = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("user")
+    localStorage.removeItem("user");
     // setIsLoggedIn(false)
-  }
+  };
 
   const [state, setState] = React.useState({
     top: false,
@@ -80,7 +81,7 @@ function TemporaryDrawer({ loginReducer, blueMenu, ...props }) {
         <ListItem button>
           <ListItemIcon>
             <Link to="/">
-              <img src={AwesumEdgeLogo} alt="" />
+              <img src={AwesumEdgeLogo} alt="" className="transform scale-90" />
             </Link>
           </ListItemIcon>
         </ListItem>
@@ -89,8 +90,7 @@ function TemporaryDrawer({ loginReducer, blueMenu, ...props }) {
       <Divider />
 
       <List className={classes.listTwoClass}>
-
-      <Link to="/">
+        <Link to="/">
           <ListItem button className="flex">
             <ListItemIcon className={classes.avatarClass}>
               <CircleUserAvatar imgUrl="" />
@@ -116,8 +116,17 @@ function TemporaryDrawer({ loginReducer, blueMenu, ...props }) {
             <ListItemIcon>
               <ExitToAppRoundedIcon />
             </ListItemIcon>
-            {localStorage.token ?<ListItemText primary="Log Out" className="text-primary" onClick={()=>logout()}/>:
-            <Link to="/login"> <ListItemText primary="Log In" className="text-primary" /></Link>}
+            {localStorage.token ? (
+              <ListItemText
+                primary="Log Out"
+                className="text-primary"
+                onClick={() => logout()}
+              />
+            ) : (
+              <Link to="/login">
+                <ListItemText primary="Log In" className="text-primary" />
+              </Link>
+            )}
           </ListItem>
         </Link>
       </List>
@@ -132,8 +141,11 @@ function TemporaryDrawer({ loginReducer, blueMenu, ...props }) {
             onClick={toggleDrawer(anchor, true)}
             className={classes.btnClass}
           >
-           {blueMenu? <HiIcon.HiOutlineMenuAlt2 className="text-primary font-medium text-2xl"/> :
-            <MenuIcon className="transform scale-110" />}
+            {blueMenu ? (
+              <HiIcon.HiOutlineMenuAlt2 className="text-primary font-medium text-2xl" />
+            ) : (
+              <MenuIcon className="transform scale-110" />
+            )}
           </Button>
 
           <Drawer

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import {connect} from "react-redux"
+import { connect } from "react-redux";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import {
@@ -11,7 +11,7 @@ import {
   Select,
 } from "@material-ui/core";
 import MobileHeader from "../components/Header/MobileHeader";
-import {selectPastQuestionYear} from "../redux/actions/practiceQuestion"
+import { selectPastQuestionYear } from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,14 +28,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- function ChooseYear(props) {
+function ChooseYear(props) {
   const classes = useStyles();
 
-  const [itemNumber, setitemNumber] = useState("");
+  const [itemNumber, setitemNumber] = useState();
 
   const handleChange = (event) => {
     setitemNumber(event.target.value);
-    props.selectPastQuestionYear(event.target.value)
+    props.selectPastQuestionYear(event.target.value);
   };
 
   const range = (start, end) => {
@@ -49,13 +49,15 @@ const useStyles = makeStyles((theme) => ({
   return (
     <div>
       {!localStorage.token ? <Redirect to="/login" /> : null}
-       <div className="block bg-blueOne pb-8 pl-2 sm:hidden">
-          <MobileHeader />
-        </div>
-        <Header/>
+      <div className="block bg-blueOne pb-8 pl-2 sm:hidden">
+        <MobileHeader />
+      </div>
+      <Header />
       <div className="flex justify-center pb-40">
         <div className="font-body flex flex-col gap-28 text-center mt-40">
-          <h3 className="px-3 text-md sm:text-xl md:text-2xl lg:text-3xl font-body">BIOLOGY (SSCE) WAEC Questions</h3>
+          <h3 className="px-3 text-md sm:text-xl md:text-2xl lg:text-3xl font-body">
+            BIOLOGY (SSCE) WAEC Questions
+          </h3>
           <div className="flex items-center justify-center">
             <div className="text-center">
               <FormControl variant="outlined">
@@ -73,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
                   MenuProps={{ classes: { paper: classes.menuPaper } }}
                 >
                   {rangeValue.map((e, i) => (
-                    <MenuItem value={i} key={i}>
+                    <MenuItem value={e} key={i}>
                       {e}
                     </MenuItem>
                   ))}
@@ -82,11 +84,13 @@ const useStyles = makeStyles((theme) => ({
             </div>
           </div>
           <div>
-            <Link to="/pq/biology-choose-type">
-              <button className="text-white bg-primary font-body shadow-primary px-16 md:px-20 py-2 rounded-md focus:outline-none text-sm lg:text-base">
-                Next
-              </button>
-            </Link>
+            {itemNumber ? (
+              <Link to="/pq/biology-choose-type">
+                <button className="text-white bg-primary font-body shadow-primary px-16 md:px-20 py-2 rounded-md focus:outline-none text-sm lg:text-base">
+                  Next
+                </button>
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>
@@ -100,5 +104,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, {selectPastQuestionYear})(ChooseYear);
-
+export default connect(mapStateToProps, { selectPastQuestionYear })(ChooseYear);
