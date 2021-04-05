@@ -12,7 +12,7 @@ export default function PreviousNextQstn(props) {
         </button>
       </div>
       <div>
-        {props.questionNumber === 20 ? (
+        {props.questionNumber+1 === props.questionLength ? (
           <button
             onClick={() => props.handleOpen()}
             className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"

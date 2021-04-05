@@ -43,13 +43,12 @@ export const SelectedBtn = (props) => {
 
 export const DefaultAnswerBtn = (props) => {
   return (
-    <div className="flex items-center">
-      <div className="pr-10 md:pr-20"></div>
+    <div className="flex justify-center items-center">
 
       <div className="w-full">
         <button
           type="button"
-          className={`py-5 px-10 text-base font-medium bg-white ${props.isSelected} shadow-awesumOne w-full max-w-md text-left rounded`}
+          className={`flex py-5 px-6 sm:px-10 text-base font-medium bg-white ${props.isSelected} shadow-awesumOne w-full max-w-md sm:min-w-xs mx-auto text-left rounded`}
           onClick={props.onClick}
         >
           {props.children}

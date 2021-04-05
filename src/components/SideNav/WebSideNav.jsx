@@ -6,7 +6,9 @@ export default function WebSideNav() {
   return (
     <div className="bg-primary min-h-screen min-w-xs1 scrollSection">
       <div className="text-white pb-24">
-        <h4 className="pt-12 pl-4 mb-12"> Biology Past Question</h4>
+        <div className="pt-10 pl-8 mb-8">
+          <h4 >Year</h4>
+        </div>
         <div className="h-128 bg-local overflow-y-scroll mr-2">
           {biologyPQYear.map((item, index) => (
             <div className="p-4 pl-8">

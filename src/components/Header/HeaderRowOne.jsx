@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Search from "../Search/Search";
 import { ReactComponent as AwesumEdgeLogo } from "../../assets/svgs/AwesumEdgeLogo.svg";
 import awesumBook from "../../assets/svgs/AwesumBook.svg";
-import { Link,Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { ReactComponent as AwesumQuiz } from "../../assets/svgs/AwesumQuiz.svg";
 import { ReactComponent as Filter } from "../../assets/svgs/FilterIcon.svg";
 import { makeStyles } from "@material-ui/core/styles";
@@ -11,8 +11,8 @@ import { CircleUserAvatar } from "../Avatar/Avatar";
 import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 import { Button, Menu, MenuItem } from "@material-ui/core";
 import { FiLogOut } from "react-icons/fi";
-import FilterModal from "./FilterModal"
-import {logout} from "../../redux/actions/login"
+import FilterModal from "./FilterModal";
+import { logout } from "../../redux/actions/login";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,11 +27,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function HeaderRowOne({ showFilter, loginReducer,logout }) {
+function HeaderRowOne({
+  showFilter,
+  showHeaderTitle,
+  loginReducer,
+  logout,
+  ...props
+}) {
   const classes = useStyles();
-  const [isLoggedIn,setIsLoggedIn]= React.useState(true)
+  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
-  const {user } = loginReducer 
+  const { user } = loginReducer;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -43,17 +49,17 @@ function HeaderRowOne({ showFilter, loginReducer,logout }) {
   function handleClose() {
     setAnchorEl(null);
   }
-  const handleLogout=()=>{
+  const handleLogout = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("user")
-    logout()
-    setIsLoggedIn(false)
-  }
+    localStorage.removeItem("user");
+    logout();
+    setIsLoggedIn(false);
+  };
 
   return (
     <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
-      {isLoggedIn? null:<Redirect to="/login"/>}
-      <div className="flex items-center my-6">
+      {isLoggedIn ? null : <Redirect to="/login" />}
+      <div className="flex items-center my-5">
         <div className="transform md:scale-80 scale-70 hidden md:block">
           <Link to="/">
             <AwesumEdgeLogo />
@@ -62,7 +68,9 @@ function HeaderRowOne({ showFilter, loginReducer,logout }) {
         <div className="block md:hidden">
           <img src={awesumBook} alt="" />
         </div>
-        <Search />
+
+        {showHeaderTitle ? <div className="flex-1 text-center text-base md:text-md lg:text-lg font-medium">{props.headerTitle}</div> : <Search />}
+
         {localStorage.token ? (
           // {login ? (
           <div className="flex items-center gap-5">
@@ -107,7 +115,10 @@ function HeaderRowOne({ showFilter, loginReducer,logout }) {
                   <span className="justify-self-start px-2">
                     <FiLogOut />
                   </span>
-                  <span className="font-body font-normal flex-1 pr-8" onClick={()=>handleLogout()}>
+                  <span
+                    className="font-body font-normal flex-1 pr-8"
+                    onClick={() => handleLogout()}
+                  >
                     Log Out
                   </span>
                 </MenuItem>
@@ -116,7 +127,10 @@ function HeaderRowOne({ showFilter, loginReducer,logout }) {
 
             {showFilter ? (
               <FilterModal>
-                <Filter /> <span className="pl-2 text-primary capitalize font-body font-normal">Filter</span>
+                <Filter />
+                <span className="pl-2 text-primary capitalize font-body font-normal">
+                  Filter
+                </span>
               </FilterModal>
             ) : null}
           </div>
@@ -147,4 +161,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, {logout})(HeaderRowOne);
+export default connect(mapStateToProps, { logout })(HeaderRowOne);
