@@ -39,6 +39,10 @@ export default function PracticeQuestion() {
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questionArray, setQuestionArray] = useState([]);
+
+  // const onClickQuestionNumber=(event)=>{
+  //   setQuestionNumber(event.target.value)
+  // }
   const isSelected =
     "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
 
@@ -220,6 +224,7 @@ export default function PracticeQuestion() {
               </div>
             </div>
 
+
             <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white">
               <PreviousNextQstn
                 handleOpen={handleOpen}
@@ -231,7 +236,7 @@ export default function PracticeQuestion() {
             </div>
 
             <div className="hidden sm:flex justify-center items-center align-text-bottom mt-5 px-8 pb-40">
-              <Pagination count={questionArray.length} />
+              <Pagination count={questionArray.length} setQuestionNumber={setQuestionNumber}/>
             </div>
           </div>
         </>
