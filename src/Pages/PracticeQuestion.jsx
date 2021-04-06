@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, } from "react";
+import {connect} from "react-redux"
 import Pagination from "../components/AnswerContent/Pagination";
 import { DefaultAnswerBtn } from "../components/Button/AnswerButton";
 import FormControl from "@material-ui/core/FormControl";
@@ -11,10 +12,8 @@ import Fade from "@material-ui/core/Fade";
 import { Button } from "@material-ui/core";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import PreviousNextQstn from "../components/Button/PreviousNextQstn";
-import axios from "axios";
-import { BASE_URL, requestHeaders } from "../redux/actions/config";
-//import { questionArray } from "../DB/dummyQuestion";
-//api/v1/past-question/biology?sort=questionNumber&year=2007
+
+
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -34,10 +33,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PracticeQuestion() {
+ function PracticeQuestion(props) {
+  const{questionArray }=props.practiceQuestionReducer
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [questionArray, setQuestionArray] = useState([]);
+  
 
   const isSelected =
     "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
@@ -46,18 +46,7 @@ export default function PracticeQuestion() {
     console.log(option);
     setValue(option);
   };
-  useEffect(() => {
-    async function fetchQuestions() {
-      const { data } = await axios.get(
-        `${BASE_URL}past-question/biology?sort=questionNumber&year=2007`,
-        requestHeaders
-      );
-      console.log(data);
-
-      setQuestionArray(data.data.questions);
-    }
-    fetchQuestions();
-  }, []);
+  
 
   const increaseQuestionNumber = () => {
     if (questionNumber >= 0 && questionNumber < questionArray.length - 1) {
@@ -243,3 +232,11 @@ export default function PracticeQuestion() {
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps, {})(PracticeQuestion);
+

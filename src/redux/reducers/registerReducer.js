@@ -8,14 +8,8 @@ const initialState = {
 
 export const registerReducer = (state = initialState, actions) => {
     const { type, payload } = actions;
-    console.log('action type', type);
-    console.log('action payload', payload);
 
-    if (
-        type === 'SAVE_REGISTERED_USER_DATA'
-    ) {
-        // localStorage.setItem('token', JSON.stringify(payload.data.accessToken));
-        // localStorage.setItem('user', JSON.stringify(payload.data.user));
+    if (type === 'SAVE_REGISTERED_USER_DATA') {
         return {
             ...state,
             user: payload.data.user,

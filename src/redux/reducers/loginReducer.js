@@ -7,11 +7,7 @@ const initialState = {
 
 export const loginReducer = (state = initialState, actions) => {
     const { type, payload } = actions;
-    console.log('action type', type);
-    console.log('action payload', payload);
-
     if (
-
         type === 'SAVE_LOGGED_IN_USER_DATA' ||
         type === "LOGIN_SUCCESS"
     ) {
