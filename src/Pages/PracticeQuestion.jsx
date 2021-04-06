@@ -4,7 +4,6 @@ import { DefaultAnswerBtn } from "../components/Button/AnswerButton";
 import FormControl from "@material-ui/core/FormControl";
 import PracticeHeader from "../components/Header/PracticeHeader";
 import NumberBadge from "../components/Badge/NumberBadge";
-//import { questionArray } from "../DB/dummyQuestion";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -14,7 +13,7 @@ import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import PreviousNextQstn from "../components/Button/PreviousNextQstn";
 import axios from "axios";
 import { BASE_URL, requestHeaders } from "../redux/actions/config";
-
+//import { questionArray } from "../DB/dummyQuestion";
 //api/v1/past-question/biology?sort=questionNumber&year=2007
 
 const useStyles = makeStyles((theme) => ({
@@ -40,9 +39,6 @@ export default function PracticeQuestion() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questionArray, setQuestionArray] = useState([]);
 
-  // const onClickQuestionNumber=(event)=>{
-  //   setQuestionNumber(event.target.value)
-  // }
   const isSelected =
     "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
 
@@ -128,7 +124,7 @@ export default function PracticeQuestion() {
                       No, Cancel
                     </button>
                   </div>
-                  
+
                 </div>
                 <span>
                   <Button onClick={handleClose}>
