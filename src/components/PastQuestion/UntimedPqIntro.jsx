@@ -13,7 +13,7 @@ import { ReactComponent as QuestionMark } from "../../assets/svgs/QuestionMark.s
           <span>
             <QuestionMark />
           </span>
-          <span className="md:text-2xl pl-3">{questionArray.length} Questions</span>
+          <span className="md:text-2xl pl-3">{questionArray.length? `${questionArray.length} ${subject} Questions for ${year} `:`No ${subject} Questions for ${year}` } </span>
         </div>
         <div>
           <Link to="/pq/practice">
