@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function PracticeHeader({ loginReducer, practiceQuestionReducer, logout }) {
+function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...props }) {
   const classes = useStyles();
   const { width } = useWindowDimensions();
   const [isLoggedIn, setIsLoggedIn] = React.useState(true);
@@ -96,7 +96,10 @@ function PracticeHeader({ loginReducer, practiceQuestionReducer, logout }) {
             </span>
           </Button>
         </div>
-        <button className="sm:hidden block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body font-semibold shadow-primary px-6 py-2 rounded-md text-sm lg:text-base font-medium">
+        <button
+          className="sm:hidden block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body font-semibold shadow-primary px-6 py-2 rounded-md text-sm lg:text-base font-medium"
+          onClick={props.handleOpen}
+        >
           End
         </button>
         <Menu

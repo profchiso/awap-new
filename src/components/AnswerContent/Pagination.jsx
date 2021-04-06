@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 import PaginationItem from "@material-ui/lab/PaginationItem";
 
 export default function PaginationNavLink(props) {
-
   return (
     //Although the Navlink Functionality Was Just Partially Used
 
@@ -19,7 +18,10 @@ export default function PaginationNavLink(props) {
               page={page}
               count={props.count}
               shape="rounded"
-              onChange={props.setQuestionNumber(page-1)}
+              onChange={(event, page) => {
+                props.setQuestionNumber(page - 1);
+                props.setValue("");
+              }}
               renderItem={(item) => (
                 <PaginationItem
                   component={NavLink}
