@@ -88,7 +88,7 @@ function HeaderRowOne({
                 <CircleUserAvatar imgUrl="" />
                 <span className="capitalize font-body font-normal">
                   <span className="px-1 text-primary">
-                    Hi {user.firstName ? user.firstName : ",Welcome"}
+                    Hi {user?.firstName ? user?.firstName : ",Welcome"}
                   </span>
                   <ExpandMoreRoundedIcon color="primary" />
                 </span>

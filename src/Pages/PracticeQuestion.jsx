@@ -85,7 +85,7 @@ export default function PracticeQuestion() {
 
   return (
     <>
-      <PracticeHeader />
+      <PracticeHeader handleOpen={handleOpen}/>
       {questionArray.length ? (
         <>
           <Modal
@@ -124,7 +124,6 @@ export default function PracticeQuestion() {
                       No, Cancel
                     </button>
                   </div>
-
                 </div>
                 <span>
                   <Button onClick={handleClose}>
@@ -140,7 +139,7 @@ export default function PracticeQuestion() {
                 <div className="max-w-3xl mx-auto px-6 sm:px-8">
                   <div className="w-full flex justify-center -mt-2 mb-2 sm:hidden">
                     <NumberBadge>
-                      {questionArray[questionNumber].questionNumber}
+                      {questionArray[questionNumber]?.questionNumber}
                     </NumberBadge>
                   </div>
 
@@ -148,12 +147,12 @@ export default function PracticeQuestion() {
                     <div className="flex items-center">
                       <div className="hidden sm:block">
                         <NumberBadge>
-                          {questionArray[questionNumber].questionNumber}
+                          {questionArray[questionNumber]?.questionNumber}
                         </NumberBadge>
                       </div>
 
                       <span className="text-base font-medium">
-                        {questionArray[questionNumber].question}
+                        {questionArray[questionNumber]?.question}
                       </span>
                     </div>
                   </div>
@@ -171,7 +170,7 @@ export default function PracticeQuestion() {
                       >
                         <span className="pr-6 sm:pr-8">a.</span>
                         <span>
-                          {questionArray[questionNumber].optionA.textOption}
+                          {questionArray[questionNumber]?.optionA.textOption}
                         </span>
                       </DefaultAnswerBtn>
                     </div>
@@ -182,7 +181,7 @@ export default function PracticeQuestion() {
                       >
                         <span className="pr-6 sm:pr-8">b.</span>
                         <span>
-                          {questionArray[questionNumber].optionB.textOption}
+                          {questionArray[questionNumber]?.optionB.textOption}
                         </span>
                       </DefaultAnswerBtn>
                     </div>
@@ -193,7 +192,7 @@ export default function PracticeQuestion() {
                       >
                         <span className="pr-6 sm:pr-8">c.</span>
                         <span>
-                          {questionArray[questionNumber].optionC.textOption}
+                          {questionArray[questionNumber]?.optionC.textOption}
                         </span>
                       </DefaultAnswerBtn>
                     </div>
@@ -204,7 +203,7 @@ export default function PracticeQuestion() {
                       >
                         <span className="pr-6 sm:pr-8">d.</span>
                         <span>
-                          {questionArray[questionNumber].optionD.textOption}
+                          {questionArray[questionNumber]?.optionD.textOption}
                         </span>
                       </DefaultAnswerBtn>
                     </div>
@@ -235,6 +234,7 @@ export default function PracticeQuestion() {
               <Pagination
                 count={questionArray.length}
                 setQuestionNumber={setQuestionNumber}
+                setValue={setValue}
               />
             </div>
           </div>
