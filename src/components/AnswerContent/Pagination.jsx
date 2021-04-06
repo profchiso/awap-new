@@ -7,7 +7,6 @@ import PaginationItem from "@material-ui/lab/PaginationItem";
 export default function PaginationNavLink(props) {
 
   return (
-
     //ALTHOUGH THE NAVLINK FUNCTIONALITY WAS JUST PARTIALLY USED
 
     <MemoryRouter initialEntries={["/answers"]} initialIndex={0}>
