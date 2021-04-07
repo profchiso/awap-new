@@ -34,7 +34,6 @@ class App extends React.Component {
         <PersistGate loading={null} persistor={persistor}>
         <Router>
           <ThemeProvider theme={theme}>
-            {/* <Provider store={store}> */}
             <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route path="/login" component={Login} />
@@ -67,7 +66,6 @@ class App extends React.Component {
               {/* <ProtectedRoute path="/untimed-pq" component={UntimedPQ} />
               <ProtectedRoute path="/choose-year" component={ChooseYear} /> */}
             </Switch>
-            {/* </Provider> */}
           </ThemeProvider>
         </Router>
         </PersistGate>

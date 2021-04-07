@@ -2,7 +2,7 @@ import React from "react";
 
 export default function PreviousNextQstn(props) {
   return (
-    <div className="flex justify-evenly items-center py-6">
+    <div className="flex justify-evenly items-center py-6  lg:max-w-2xl mx-auto">
       <div>
         <button
           onClick={() => props.decreaseQuestionNumber()}

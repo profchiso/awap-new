@@ -85,7 +85,7 @@ export default function PracticeQuestion() {
 
   return (
     <>
-      <PracticeHeader handleOpen={handleOpen}/>
+      <PracticeHeader handleOpen={handleOpen} />
       {questionArray.length ? (
         <>
           <Modal
@@ -209,6 +209,26 @@ export default function PracticeQuestion() {
                     </div>
                   </FormControl>
                 </div>
+
+                <div className="">
+                  <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white">
+                    <PreviousNextQstn
+                      handleOpen={handleOpen}
+                      increaseQuestionNumber={increaseQuestionNumber}
+                      decreaseQuestionNumber={decreaseQuestionNumber}
+                      questionLength={questionArray.length}
+                      questionNumber={questionNumber}
+                    />
+                  </div>
+
+                  <div className="hidden sm:flex justify-center items-center align-text-bottom mt-12 px-8 pb-40">
+                    <Pagination
+                      count={questionArray.length}
+                      setQuestionNumber={setQuestionNumber}
+                      setValue={setValue}
+                    />
+                  </div>
+                </div>
               </div>
               <div className="">
                 <button
@@ -218,24 +238,6 @@ export default function PracticeQuestion() {
                   End
                 </button>
               </div>
-            </div>
-
-            <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white">
-              <PreviousNextQstn
-                handleOpen={handleOpen}
-                increaseQuestionNumber={increaseQuestionNumber}
-                decreaseQuestionNumber={decreaseQuestionNumber}
-                questionLength={questionArray.length}
-                questionNumber={questionNumber}
-              />
-            </div>
-
-            <div className="hidden sm:flex justify-center items-center align-text-bottom mt-5 px-8 pb-40">
-              <Pagination
-                count={questionArray.length}
-                setQuestionNumber={setQuestionNumber}
-                setValue={setValue}
-              />
             </div>
           </div>
         </>
