@@ -11,7 +11,7 @@ import {
   Select,
 } from "@material-ui/core";
 import MobileHeader from "../components/Header/MobileHeader";
-import { selectPastQuestionYear } from "../redux/actions/practiceQuestion";
+import { selectPastQuestionYear, } from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,13 +29,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ChooseYear(props) {
+  //const {subject}=props.practiceQuestionReducer
   const classes = useStyles();
 
   const [itemNumber, setitemNumber] = useState();
 
-  const handleChange = (event) => {
+  const handleChange = async(event) => {
     setitemNumber(event.target.value);
     props.selectPastQuestionYear(event.target.value);
+    //props.fetchPracticeQuestion({subject:subject.toLowerCase(),year:event.target.value})
+    // console.log(props.practiceQuestionReducer)
   };
 
   const range = (start, end) => {
@@ -104,4 +107,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, { selectPastQuestionYear })(ChooseYear);
+export default connect(mapStateToProps, { selectPastQuestionYear, })(ChooseYear);

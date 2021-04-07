@@ -7,11 +7,7 @@ const initialState = {
 
 export const loginReducer = (state = initialState, actions) => {
     const { type, payload } = actions;
-    console.log('action type', type);
-    console.log('action payload', payload);
-
     if (
-
         type === 'SAVE_LOGGED_IN_USER_DATA' ||
         type === "LOGIN_SUCCESS"
     ) {
@@ -36,12 +32,12 @@ export const loginReducer = (state = initialState, actions) => {
     } else if (type === 'LOGOUT') {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        // let user = {}
+        let user = {}
         return {
             ...state,
-            user:null,
+            user,
             isSuccessful: false,
-            token:null,
+            token: null,
         };
     } else if (type === 'CLEAR_LOGIN_RELATED_ERROR') {
         let error = {};

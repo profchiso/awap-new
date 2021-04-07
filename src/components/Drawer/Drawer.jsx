@@ -42,9 +42,11 @@ const useStyles = makeStyles({
 });
 
 function TemporaryDrawer({ loginReducer,logout, blueMenu, ...props }) {
+ 
   const classes = useStyles();
   const { user } = loginReducer;
   // const [isLoggedIn,setIsLoggedIn]= React.useState(true)
+ 
 
   const handleLogout = () => {
     localStorage.removeItem("token");
