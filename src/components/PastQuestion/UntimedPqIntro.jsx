@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {connect} from "react-redux"
-import { ReactComponent as QuestionMark } from "../../assets/svgs/QuestionMark.svg";
+//import { ReactComponent as QuestionMark } from "../../assets/svgs/QuestionMark.svg";
 
  function UntimedPqIntro(props) {
    const{questionArray,year,subject }=props.practiceQuestionReducer
@@ -10,10 +10,8 @@ import { ReactComponent as QuestionMark } from "../../assets/svgs/QuestionMark.s
       <div className="font-body flex flex-col gap-28 text-center mt-24 lg:mt-40">
         <h3 className="text-md sm:text-xl md:text-2xl lg:text-3xl font-body">Untimed {year} {subject} Past Questions</h3>
         <div className="flex items-center justify-center">
-          <span>
-            <QuestionMark />
-          </span>
-          <span className="md:text-2xl pl-3">{questionArray.length? `${questionArray.length} ${subject} Questions for ${year} `:`No ${subject} Questions for ${year}` } </span>
+          
+          <span className="md:text-2xl pl-3">{questionArray.length? `${questionArray.length}  Questions  `:`No  Question` } </span>
         </div>
         <div>
           <Link to="/pq/practice">
