@@ -18,6 +18,7 @@ import SwipeableTextMobileStepper from "../Carousels/SingleCarousel";
 import TextCarousel from "../Carousels/TextCarousel";
 import { Link } from "react-router-dom";
 import useWindowDimensions from "../../Hooks/UseWindowDimension";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -39,7 +40,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function HomeBody() {
+function HomeBody({ loginReducer }) {
+  const { token } = loginReducer;
+
   const [secondaySchoolContent, setsecondaySchoolContent] = React.useState(
     <ExploreContentSenior />
   );
@@ -75,11 +78,19 @@ export default function HomeBody() {
             <p className="text-md sm:text-lg lg:text-xl pb-8">
               Courses for Secondary/High School Students
             </p>
-            <Link to="/sign-up">
-              <button className="bg-white text-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 rounded-md font-body rounded-full">
-                Get Started
-              </button>
-            </Link>
+            {token ? (
+              <Link to="/">
+                <button className="bg-white text-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-16 rounded-md font-body rounded-full">
+                  Invite a Friend
+                </button>
+              </Link>
+            ) : (
+              <Link to="/sign-up">
+                <button className="bg-white text-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 rounded-md font-body rounded-full">
+                  Get Started
+                </button>
+              </Link>
+            )}
           </div>
           <div className="items-center right-5 hidden lg:flex">
             <img src={ERM} alt="erm" className="mt-24" />
@@ -217,3 +228,10 @@ export default function HomeBody() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps)(HomeBody);

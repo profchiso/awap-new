@@ -1,5 +1,5 @@
-import React, { useState, } from "react";
-import {connect} from "react-redux"
+import React, { useState } from "react";
+import { connect } from "react-redux";
 import Pagination from "../components/AnswerContent/Pagination";
 import { DefaultAnswerBtn } from "../components/Button/AnswerButton";
 import FormControl from "@material-ui/core/FormControl";
@@ -12,8 +12,6 @@ import Fade from "@material-ui/core/Fade";
 import { Button } from "@material-ui/core";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import PreviousNextQstn from "../components/Button/PreviousNextQstn";
-
-
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -33,43 +31,47 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- function PracticeQuestion(props) {
-  const{questionArray }=props.practiceQuestionReducer
+function PracticeQuestion(props) {
+  const { questionArray } = props.practiceQuestionReducer;  
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [solution,setSolution] = useState("");
-  let optionA=""
-  let optionB=""
-  let optionC=""
-  let optionD=""
-  
+  const [solution, setSolution] = useState("");
+  let optionA = "";
+  let optionB = "";
+  let optionC = "";
+  let optionD = "";
 
-  const isSelected =
-    "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
-    const isWrong="bg-gradient-to-r from-orange1 to-orange2 text-white"
+  // const [questionAnswer, setquestionAnswer] = useState(
+  //   questionArray[questionNumber].answer
+  // );
 
-  const onSelectedOptionChange = (option,answer) => {
-    
+  const isSelected = "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
+  const isWrong = "bg-gradient-to-r from-orange1 to-orange2 text-white";
+
+  const onSelectedOptionChange = (option, answer) => {
     setValue(option);
-    setSolution(questionArray[questionNumber].solution)
-    if(answer==="optionA"){
-      optionA="bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white"
-    }else if(answer==="optionB"){
-      optionB="bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white"
-    }else if(answer==="optionC"){
-      optionC="bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white"
-    }else if(answer==="optionD"){
-      optionD="bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white"
+    setSolution(questionArray[questionNumber].solution);
+    if (answer === "optionA") {
+      optionA =
+        "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
+    } else if (answer === "optionB") {
+      optionB =
+        "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
+    } else if (answer === "optionC") {
+      optionC =
+        "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
+    } else if (answer === "optionD") {
+      optionD =
+        "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
     }
   };
-  
 
   const increaseQuestionNumber = () => {
     if (questionNumber >= 0 && questionNumber < questionArray.length - 1) {
       setQuestionNumber((prev) => prev + 1);
       setValue("");
     }
-    setSolution("")
+    setSolution("");
   };
 
   const decreaseQuestionNumber = () => {
@@ -171,8 +173,21 @@ const useStyles = makeStyles((theme) => ({
                   >
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={value === "optionA" && questionArray[questionNumber].answer==="optionA" ? `${isSelected} ${optionA}` : value === "optionA" && questionArray[questionNumber].answer!=="optionA" ? `${isWrong} ${optionA}`:""}
-                        onClick={() => onSelectedOptionChange("optionA",questionArray[questionNumber].answer)}
+                        isSelected={
+                          value === "optionA" &&
+                          questionArray[questionNumber].answer === "optionA"
+                            ? `${isSelected} ${optionA}`
+                            : value === "optionA" &&
+                              questionArray[questionNumber].answer !== "optionA"
+                            ? `${isWrong} ${optionA}`
+                            : ""
+                        }
+                        onClick={() =>
+                          onSelectedOptionChange(
+                            "optionA",
+                            questionArray[questionNumber].answer
+                          )
+                        }
                       >
                         <span className="pr-6 sm:pr-8">a.</span>
                         <span>
@@ -182,8 +197,21 @@ const useStyles = makeStyles((theme) => ({
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={value === "optionB" && questionArray[questionNumber].answer==="optionB" ? `${isSelected} ${optionA}` : value === "optionB" && questionArray[questionNumber].answer!=="optionB" ? `${isWrong} ${optionB}`:""}
-                        onClick={() => onSelectedOptionChange("optionB",questionArray[questionNumber].answer)}
+                        isSelected={
+                          value === "optionB" &&
+                          questionArray[questionNumber].answer === "optionB"
+                            ? `${isSelected} ${optionA}`
+                            : value === "optionB" &&
+                              questionArray[questionNumber].answer !== "optionB"
+                            ? `${isWrong} ${optionB}`
+                            : ""
+                        }
+                        onClick={() =>
+                          onSelectedOptionChange(
+                            "optionB",
+                            questionArray[questionNumber].answer
+                          )
+                        }
                       >
                         <span className="pr-6 sm:pr-8">b.</span>
                         <span>
@@ -193,8 +221,21 @@ const useStyles = makeStyles((theme) => ({
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={value === "optionC" && questionArray[questionNumber].answer==="optionC" ? `${isSelected} ${optionC}` : value === "optionC" && questionArray[questionNumber].answer!=="optionC" ? `${isWrong} ${optionC}`:""}
-                        onClick={() => onSelectedOptionChange("optionC",questionArray[questionNumber].answer)}
+                        isSelected={
+                          value === "optionC" &&
+                          questionArray[questionNumber].answer === "optionC"
+                            ? `${isSelected} ${optionC}`
+                            : value === "optionC" &&
+                              questionArray[questionNumber].answer !== "optionC"
+                            ? `${isWrong} ${optionC}`
+                            : ""
+                        }
+                        onClick={() =>
+                          onSelectedOptionChange(
+                            "optionC",
+                            questionArray[questionNumber].answer
+                          )
+                        }
                       >
                         <span className="pr-6 sm:pr-8">c.</span>
                         <span>
@@ -204,8 +245,21 @@ const useStyles = makeStyles((theme) => ({
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={value === "optionD" && questionArray[questionNumber].answer==="optionD" ? `${isSelected} ${optionD}` : value === "optionD" && questionArray[questionNumber].answer!=="optionD" ? `${isWrong} ${optionD}`:""}
-                        onClick={() => onSelectedOptionChange("optionD",questionArray[questionNumber].answer)}
+                        isSelected={
+                          value === "optionD" &&
+                          questionArray[questionNumber].answer === "optionD"
+                            ? `${isSelected} ${optionD}`
+                            : value === "optionD" &&
+                              questionArray[questionNumber].answer !== "optionD"
+                            ? `${isWrong} ${optionD}`
+                            : ""
+                        }
+                        onClick={() =>
+                          onSelectedOptionChange(
+                            "optionD",
+                            questionArray[questionNumber].answer
+                          )
+                        }
                       >
                         <span className="pr-6 sm:pr-8">d.</span>
                         <span>
@@ -216,16 +270,18 @@ const useStyles = makeStyles((theme) => ({
                   </FormControl>
                 </div>
                 <div className="flex justify-center items-center font-body shadow-primary pt-3 pb-40 sm:pb-24 p-8  border-1 mx-56">
-                <FormControl
+                  <FormControl
                     component="fieldset"
                     className="w-full sm:w-6/12 text-center"
                   >
-                    <span className="flex justify-left items-left">Solution</span><br/>
-                
-                  {solution}
+                    <span className="flex justify-left items-left">
+                      Solution
+                    </span>
+                    <br />
+
+                    {solution}
                   </FormControl>
-                  
-                  </div>
+                </div>
 
                 <div className="">
                   <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white">
@@ -246,7 +302,6 @@ const useStyles = makeStyles((theme) => ({
                     />
                   </div>
                 </div>
-               
               </div>
               <div className="">
                 <button
@@ -270,4 +325,3 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, {})(PracticeQuestion);
-
