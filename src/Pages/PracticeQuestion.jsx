@@ -37,14 +37,30 @@ const useStyles = makeStyles((theme) => ({
   const{questionArray }=props.practiceQuestionReducer
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
+  const [solution,setSolution] = useState("");
+  let optionA=""
+  let optionB=""
+  let optionC=""
+  let optionD=""
   
 
   const isSelected =
     "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
+    const isWrong="bg-gradient-to-r from-orange1 to-orange2 text-white"
 
-  const onSelectedOptionChange = (option) => {
-    console.log(option);
+  const onSelectedOptionChange = (option,answer) => {
+    
     setValue(option);
+    setSolution(questionArray[questionNumber].solution)
+    if(answer==="optionA"){
+      optionA="bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white"
+    }else if(answer==="optionB"){
+      optionB="bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white"
+    }else if(answer==="optionC"){
+      optionC="bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white"
+    }else if(answer==="optionD"){
+      optionD="bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white"
+    }
   };
   
 
@@ -53,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
       setQuestionNumber((prev) => prev + 1);
       setValue("");
     }
+    setSolution("")
   };
 
   const decreaseQuestionNumber = () => {
@@ -147,15 +164,15 @@ const useStyles = makeStyles((theme) => ({
                   </div>
                 </div>
 
-                <div className="flex justify-center items-center pt-3 pb-40 sm:pb-24 px-8">
+                <div className="flex justify-center items-center pt-3 pb-12 sm:pb-24 px-8">
                   <FormControl
                     component="fieldset"
                     className="w-full sm:w-6/12 text-center"
                   >
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={value === "optionA" ? `${isSelected}` : ""}
-                        onClick={() => onSelectedOptionChange("optionA")}
+                        isSelected={value === "optionA" && questionArray[questionNumber].answer==="optionA" ? `${isSelected} ${optionA}` : value === "optionA" && questionArray[questionNumber].answer!=="optionA" ? `${isWrong} ${optionA}`:""}
+                        onClick={() => onSelectedOptionChange("optionA",questionArray[questionNumber].answer)}
                       >
                         <span className="pr-6 sm:pr-8">a.</span>
                         <span>
@@ -165,8 +182,8 @@ const useStyles = makeStyles((theme) => ({
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={value === "optionB" ? `${isSelected}` : ""}
-                        onClick={() => onSelectedOptionChange("optionB")}
+                        isSelected={value === "optionB" && questionArray[questionNumber].answer==="optionB" ? `${isSelected} ${optionA}` : value === "optionB" && questionArray[questionNumber].answer!=="optionA" ? `${isWrong} ${optionB}`:""}
+                        onClick={() => onSelectedOptionChange("optionB",questionArray[questionNumber].answer)}
                       >
                         <span className="pr-6 sm:pr-8">b.</span>
                         <span>
@@ -176,8 +193,8 @@ const useStyles = makeStyles((theme) => ({
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={value === "optionC" ? `${isSelected}` : ""}
-                        onClick={() => onSelectedOptionChange("optionC")}
+                        isSelected={value === "optionC" && questionArray[questionNumber].answer==="optionC" ? `${isSelected} ${optionC}` : value === "optionC" && questionArray[questionNumber].answer!=="optionC" ? `${isWrong} ${optionC}`:""}
+                        onClick={() => onSelectedOptionChange("optionC",questionArray[questionNumber].answer)}
                       >
                         <span className="pr-6 sm:pr-8">c.</span>
                         <span>
@@ -187,8 +204,8 @@ const useStyles = makeStyles((theme) => ({
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={value === "optionD" ? `${isSelected}` : ""}
-                        onClick={() => onSelectedOptionChange("optionD")}
+                        isSelected={value === "optionD" && questionArray[questionNumber].answer==="optionD" ? `${isSelected} ${optionD}` : value === "optionD" && questionArray[questionNumber].answer!=="optionD" ? `${isWrong} ${optionD}`:""}
+                        onClick={() => onSelectedOptionChange("optionD",questionArray[questionNumber].answer)}
                       >
                         <span className="pr-6 sm:pr-8">d.</span>
                         <span>
@@ -197,6 +214,7 @@ const useStyles = makeStyles((theme) => ({
                       </DefaultAnswerBtn>
                     </div>
                   </FormControl>
+                  
                 </div>
 
                 <div className="">
@@ -218,6 +236,7 @@ const useStyles = makeStyles((theme) => ({
                     />
                   </div>
                 </div>
+                <div className="flex justify-center items-center font-body shadow-primary pt-3 pb-40 sm:pb-24 px-8 p-8 border-1 mx-56">{solution}</div>
               </div>
               <div className="">
                 <button

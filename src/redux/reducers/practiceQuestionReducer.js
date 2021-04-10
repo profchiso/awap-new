@@ -6,6 +6,7 @@ const initialState = {
     currentQuestion: {},
     selectedAnwser: "",
     correctAnswer: "",
+    userSelectedAnwser: [],
     error: {}
 };
 
