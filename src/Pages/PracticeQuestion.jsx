@@ -214,8 +214,8 @@ const useStyles = makeStyles((theme) => ({
                       </DefaultAnswerBtn>
                     </div>
                   </FormControl>
-                  
                 </div>
+                <div className="flex justify-center items-center font-body shadow-primary pt-3 pb-40 sm:pb-24 p-8  border-1 mx-56">{solution}</div>
 
                 <div className="">
                   <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white">
@@ -236,7 +236,7 @@ const useStyles = makeStyles((theme) => ({
                     />
                   </div>
                 </div>
-                <div className="flex justify-center items-center font-body shadow-primary pt-3 pb-40 sm:pb-24 px-8 p-8 border-1 mx-56">{solution}</div>
+               
               </div>
               <div className="">
                 <button
