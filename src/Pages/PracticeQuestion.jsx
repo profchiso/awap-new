@@ -41,10 +41,10 @@ function PracticeQuestion(props) {
   let optionC = "";
   let optionD = "";
 
-  const [questionAnswer, setquestionAnswer] = useState(
-    questionArray[questionNumber].answer
-  );
-  
+  // const [questionAnswer, setquestionAnswer] = useState(
+  //   questionArray[questionNumber].answer
+  // );
+
   const isSelected = "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
   const isWrong = "bg-gradient-to-r from-orange1 to-orange2 text-white";
 
