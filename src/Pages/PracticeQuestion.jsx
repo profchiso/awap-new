@@ -182,7 +182,7 @@ const useStyles = makeStyles((theme) => ({
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={value === "optionB" && questionArray[questionNumber].answer==="optionB" ? `${isSelected} ${optionA}` : value === "optionB" && questionArray[questionNumber].answer!=="optionA" ? `${isWrong} ${optionB}`:""}
+                        isSelected={value === "optionB" && questionArray[questionNumber].answer==="optionB" ? `${isSelected} ${optionA}` : value === "optionB" && questionArray[questionNumber].answer!=="optionB" ? `${isWrong} ${optionB}`:""}
                         onClick={() => onSelectedOptionChange("optionB",questionArray[questionNumber].answer)}
                       >
                         <span className="pr-6 sm:pr-8">b.</span>
