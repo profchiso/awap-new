@@ -215,7 +215,17 @@ const useStyles = makeStyles((theme) => ({
                     </div>
                   </FormControl>
                 </div>
-                <div className="flex justify-center items-center font-body shadow-primary pt-3 pb-40 sm:pb-24 p-8  border-1 mx-56">{solution}</div>
+                <div className="flex justify-center items-center font-body shadow-primary pt-3 pb-40 sm:pb-24 p-8  border-1 mx-56">
+                <FormControl
+                    component="fieldset"
+                    className="w-full sm:w-6/12 text-center"
+                  >
+                    <span className="flex justify-left items-left">Solution</span><br/>
+                
+                  {solution}
+                  </FormControl>
+                  
+                  </div>
 
                 <div className="">
                   <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white">
