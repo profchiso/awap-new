@@ -75,11 +75,19 @@ export default function HomeBody() {
             <p className="text-md sm:text-lg lg:text-xl pb-8">
               Courses for Secondary/High School Students
             </p>
-            <Link to="/sign-up">
-              <button className="bg-white text-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 rounded-md font-body rounded-full">
-                Get Started
-              </button>
-            </Link>
+            {localStorage?.getItem("token") ? (
+              <Link to="/">
+                <button className="bg-white text-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-16 rounded-md font-body rounded-full">
+                  Invite a Friend
+                </button>
+              </Link>
+            ) : (
+              <Link to="/sign-up">
+                <button className="bg-white text-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 rounded-md font-body rounded-full">
+                  Get Started
+                </button>
+              </Link>
+            )}
           </div>
           <div className="items-center right-5 hidden lg:flex">
             <img src={ERM} alt="erm" className="mt-24" />
