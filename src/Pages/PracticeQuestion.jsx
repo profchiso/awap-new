@@ -32,57 +32,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function PracticeQuestion(props) {
-  const { questionArray } = props.practiceQuestionReducer;  
+  const classes = useStyles();
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [solution, setSolution] = useState("");
-  let optionA = "";
-  let optionB = "";
-  let optionC = "";
-  let optionD = "";
-
-  // const [questionAnswer, setquestionAnswer] = useState(
-  //   questionArray[questionNumber].answer
-  // );
-
-  const isSelected = "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
-  const isWrong = "bg-gradient-to-r from-orange1 to-orange2 text-white";
-
-  const onSelectedOptionChange = (option, answer) => {
-    setValue(option);
-    setSolution(questionArray[questionNumber].solution);
-    if (answer === "optionA") {
-      optionA =
-        "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
-    } else if (answer === "optionB") {
-      optionB =
-        "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
-    } else if (answer === "optionC") {
-      optionC =
-        "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
-    } else if (answer === "optionD") {
-      optionD =
-        "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
-    }
-  };
-
-  const increaseQuestionNumber = () => {
-    if (questionNumber >= 0 && questionNumber < questionArray.length - 1) {
-      setQuestionNumber((prev) => prev + 1);
-      setValue("");
-    }
-    setSolution("");
-  };
-
-  const decreaseQuestionNumber = () => {
-    if (questionNumber < questionArray.length && questionNumber >= 1) {
-      setQuestionNumber((prev) => prev - 1);
-    }
-  };
-
-  const classes = useStyles();
-
+  const [isClicked, setisClicked] = useState(false);
   const [open, setOpen] = useState(false);
+  const { questionArray } = props.practiceQuestionReducer;
+  const answer = questionArray[questionNumber].answer;
+  const isCorrect =
+    "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
+  const isWrong = "bg-gradient-to-r from-orange1 to-orange2 text-white";
 
   const handleOpen = () => {
     setOpen(true);
@@ -90,6 +49,37 @@ function PracticeQuestion(props) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const onSelectedOptionChange = (option) => {
+    setValue(option);
+    setisClicked(true);
+  };
+
+  const setIsCorrectOrWrong = (option) => {
+    if (value === option && answer === option) {
+      return isCorrect;
+    } else if (value === option && answer !== option) {
+      return isWrong;
+    } else if (value !== option && answer === option) {
+      return isCorrect;
+    }
+  };
+  const increaseQuestionNumber = () => {
+    if (questionNumber >= 0 && questionNumber < questionArray.length - 1) {
+      setQuestionNumber((prev) => prev + 1);
+      setValue("");
+    }
+    setisClicked(false);
+  };
+
+  const decreaseQuestionNumber = () => {
+    if (questionNumber < questionArray.length && questionNumber >= 1) {
+      setQuestionNumber((prev) => prev - 1);
+    }
+    setisClicked(false);
+  };
+    console.log(value)
+
 
   return (
     <>
@@ -142,7 +132,7 @@ function PracticeQuestion(props) {
             </Fade>
           </Modal>
           <div>
-            <div className="flex">
+            <div className="flex relative max-w-screen-2xl mx-auto">
               <div className="flex-1">
                 <div className="max-w-3xl mx-auto px-6 sm:px-8">
                   <div className="w-full flex justify-center -mt-2 mb-2 sm:hidden">
@@ -166,28 +156,15 @@ function PracticeQuestion(props) {
                   </div>
                 </div>
 
-                <div className="flex justify-center items-center pt-3 pb-12 sm:pb-24 px-8">
+                <div className="flex justify-center items-center pt-3 pb-12 sm:pb-16 px-8">
                   <FormControl
                     component="fieldset"
                     className="w-full sm:w-6/12 text-center"
                   >
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={
-                          value === "optionA" &&
-                          questionArray[questionNumber].answer === "optionA"
-                            ? `${isSelected} ${optionA}`
-                            : value === "optionA" &&
-                              questionArray[questionNumber].answer !== "optionA"
-                            ? `${isWrong} ${optionA}`
-                            : ""
-                        }
-                        onClick={() =>
-                          onSelectedOptionChange(
-                            "optionA",
-                            questionArray[questionNumber].answer
-                          )
-                        }
+                        isSelected={isClicked && setIsCorrectOrWrong("optionA")}
+                        onClick={() => onSelectedOptionChange("optionA")}
                       >
                         <span className="pr-6 sm:pr-8">a.</span>
                         <span>
@@ -197,21 +174,8 @@ function PracticeQuestion(props) {
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={
-                          value === "optionB" &&
-                          questionArray[questionNumber].answer === "optionB"
-                            ? `${isSelected} ${optionA}`
-                            : value === "optionB" &&
-                              questionArray[questionNumber].answer !== "optionB"
-                            ? `${isWrong} ${optionB}`
-                            : ""
-                        }
-                        onClick={() =>
-                          onSelectedOptionChange(
-                            "optionB",
-                            questionArray[questionNumber].answer
-                          )
-                        }
+                        isSelected={isClicked && setIsCorrectOrWrong("optionB")}
+                        onClick={() => onSelectedOptionChange("optionB")}
                       >
                         <span className="pr-6 sm:pr-8">b.</span>
                         <span>
@@ -221,21 +185,8 @@ function PracticeQuestion(props) {
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={
-                          value === "optionC" &&
-                          questionArray[questionNumber].answer === "optionC"
-                            ? `${isSelected} ${optionC}`
-                            : value === "optionC" &&
-                              questionArray[questionNumber].answer !== "optionC"
-                            ? `${isWrong} ${optionC}`
-                            : ""
-                        }
-                        onClick={() =>
-                          onSelectedOptionChange(
-                            "optionC",
-                            questionArray[questionNumber].answer
-                          )
-                        }
+                        isSelected={isClicked && setIsCorrectOrWrong("optionC")}
+                        onClick={() => onSelectedOptionChange("optionC")}
                       >
                         <span className="pr-6 sm:pr-8">c.</span>
                         <span>
@@ -245,21 +196,8 @@ function PracticeQuestion(props) {
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={
-                          value === "optionD" &&
-                          questionArray[questionNumber].answer === "optionD"
-                            ? `${isSelected} ${optionD}`
-                            : value === "optionD" &&
-                              questionArray[questionNumber].answer !== "optionD"
-                            ? `${isWrong} ${optionD}`
-                            : ""
-                        }
-                        onClick={() =>
-                          onSelectedOptionChange(
-                            "optionD",
-                            questionArray[questionNumber].answer
-                          )
-                        }
+                        isSelected={isClicked && setIsCorrectOrWrong("optionD")}
+                        onClick={() => onSelectedOptionChange("optionD")}
                       >
                         <span className="pr-6 sm:pr-8">d.</span>
                         <span>
@@ -269,19 +207,17 @@ function PracticeQuestion(props) {
                     </div>
                   </FormControl>
                 </div>
-                <div className="flex justify-center items-center font-body shadow-primary pt-3 pb-40 sm:pb-24 p-8  border-1 mx-56">
-                  <FormControl
-                    component="fieldset"
-                    className="w-full sm:w-6/12 text-center"
-                  >
-                    <span className="flex justify-left items-left">
-                      Solution
-                    </span>
+
+                {isClicked ? (
+                  <div className="flex flex-col justify-center items-center font-body w-3/6 mx-auto shadow-primary p-4 pb-10 mb-20 text-center">
+                    <span>Solution</span>
                     <br />
 
-                    {solution}
-                  </FormControl>
-                </div>
+                    {questionArray[questionNumber].solution}
+                  </div>
+                ) : (
+                  ""
+                )}
 
                 <div className="">
                   <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white">
@@ -299,6 +235,7 @@ function PracticeQuestion(props) {
                       count={questionArray.length}
                       setQuestionNumber={setQuestionNumber}
                       setValue={setValue}
+                      setisClicked={setisClicked}
                     />
                   </div>
                 </div>

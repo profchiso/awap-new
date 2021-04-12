@@ -34,6 +34,7 @@ export default function PaginationNavLink(props) {
               onChange={(event, page) => {
                 props.setQuestionNumber(page - 1);
                 props.setValue("");
+                props.setisClicked(false)
               }}
               classes={{
                 root: `${"rounded p-2 shadow-awesumOne flex justify-center lg:min-w-sm"} ${

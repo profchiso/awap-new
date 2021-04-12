@@ -21,25 +21,6 @@ export const CorrectAnswerBtn = (props) => {
   );
 };
 
-export const SelectedBtn = (props) => {
-  return (
-    <div className="flex items-center">
-      <div className="pr-20"></div>
-
-      <div className="w-full">
-        <button
-          type="button"
-          className={`py-5 px-10 text-base font-medium ${props.isSelected}  rounded w-full shadow-awesumOne max-w-md text-white text-left`}
-          onClick={props.onClick}
-        >
-          {props.children}
-        </button>
-      </div>
-    </div>
-  );
-  
-};
-
 
 export const DefaultAnswerBtn = (props) => {
   return (
