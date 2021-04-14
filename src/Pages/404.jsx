@@ -17,7 +17,7 @@ export default function Unavailable() {
         <Header />
       )}
       <div className="flex justify-center">
-        <div className="pb-40">
+        <div className="pb-40 px-8">
           <p className="text-primary text-base md:text-xl py-20">
             Sorry the Page you are looking for is Unavailable or under
             Construction
