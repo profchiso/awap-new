@@ -41,8 +41,9 @@ export default function SimpleBottomNavigation() {
         className="whitespace-nowrap"
       />
       <BottomNavigationAction
-        label="PQs"
+        component={Link}
         to="/pq/biology-choose-type"
+        label="PQs"
         icon={<ImportContactsRoundedIcon />}
         className="whitespace-nowrap"
       />
