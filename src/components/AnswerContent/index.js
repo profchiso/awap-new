@@ -1,10 +1,6 @@
 import React from "react";
 import NumberBadge from "../Badge/NumberBadge";
-import {
-  CorrectAnswerBtn,
-  DefaultAnswerBtn,
-  WrongAnswerBtn,
-} from "../Button/AnswerButton";
+import { DefaultAnswerBtn } from "../Button/AnswerButton";
 import Explanation from "./Explanation";
 import PaginationLink from "./Pagination";
 
@@ -21,20 +17,20 @@ export default function AnswerContent() {
         </div>
 
         <div className="flex flex-col gap-6 mt-16">
-          <CorrectAnswerBtn>
+          <DefaultAnswerBtn>
             <span className="pr-8">a.</span>
             <span>290</span>
-          </CorrectAnswerBtn>
+          </DefaultAnswerBtn>
 
           <DefaultAnswerBtn>
             <span className="pr-8">b.</span>
             <span>288</span>
           </DefaultAnswerBtn>
 
-          <WrongAnswerBtn>
+          <DefaultAnswerBtn>
             <span className="pr-8">c.</span>
             <span>287</span>
-          </WrongAnswerBtn>
+          </DefaultAnswerBtn>
 
           <DefaultAnswerBtn>
             <span className="pr-8">d.</span>

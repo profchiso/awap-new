@@ -41,7 +41,9 @@ function PracticeQuestion(props) {
   const answer = questionArray[questionNumber].answer;
   const isCorrect =
     "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
-  const isWrong = "bg-gradient-to-r from-orange1 to-orange2 text-white";
+  const isWrong =
+    "bg-gradient-to-r from-redOrangeDark to-redOrangeLight text-white";
+  // const isWrong = "bg-gradient-to-r from-orange1 to-orange2 text-white";
 
   const handleOpen = () => {
     setOpen(true);
@@ -57,11 +59,11 @@ function PracticeQuestion(props) {
 
   const setIsCorrectOrWrong = (option) => {
     if (value === option && answer === option) {
-      return isCorrect;
+      return { isCorrectOrWrong: isCorrect, showIcon: "correctIcon" };
     } else if (value === option && answer !== option) {
-      return isWrong;
+      return { isCorrectOrWrong: isWrong, showIcon: "wrongIcon" };
     } else if (value !== option && answer === option) {
-      return isCorrect;
+      return { isCorrectOrWrong: isCorrect, showIcon: "correctIcon" };
     }
   };
   const increaseQuestionNumber = () => {
@@ -78,11 +80,10 @@ function PracticeQuestion(props) {
     }
     setisClicked(false);
   };
-    console.log(value)
-
+  // console.log(value);
 
   return (
-    <>
+    <div className="sm:max-h-screen">
       <PracticeHeader handleOpen={handleOpen} />
       {questionArray.length ? (
         <>
@@ -163,7 +164,12 @@ function PracticeQuestion(props) {
                   >
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={isClicked && setIsCorrectOrWrong("optionA")}
+                        isClicked={isClicked}
+                        showIcon={setIsCorrectOrWrong("optionA")?.showIcon}
+                        isSelected={
+                          isClicked &&
+                          setIsCorrectOrWrong("optionA")?.isCorrectOrWrong
+                        }
                         onClick={() => onSelectedOptionChange("optionA")}
                       >
                         <span className="pr-6 sm:pr-8">a.</span>
@@ -174,7 +180,12 @@ function PracticeQuestion(props) {
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={isClicked && setIsCorrectOrWrong("optionB")}
+                        isClicked={isClicked}
+                        showIcon={setIsCorrectOrWrong("optionB")?.showIcon}
+                        isSelected={
+                          isClicked &&
+                          setIsCorrectOrWrong("optionB")?.isCorrectOrWrong
+                        }
                         onClick={() => onSelectedOptionChange("optionB")}
                       >
                         <span className="pr-6 sm:pr-8">b.</span>
@@ -185,7 +196,12 @@ function PracticeQuestion(props) {
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={isClicked && setIsCorrectOrWrong("optionC")}
+                        isClicked={isClicked}
+                        showIcon={setIsCorrectOrWrong("optionC")?.showIcon}
+                        isSelected={
+                          isClicked &&
+                          setIsCorrectOrWrong("optionC")?.isCorrectOrWrong
+                        }
                         onClick={() => onSelectedOptionChange("optionC")}
                       >
                         <span className="pr-6 sm:pr-8">c.</span>
@@ -196,7 +212,12 @@ function PracticeQuestion(props) {
                     </div>
                     <div className="py-3 ">
                       <DefaultAnswerBtn
-                        isSelected={isClicked && setIsCorrectOrWrong("optionD")}
+                        isClicked={isClicked}
+                        showIcon={setIsCorrectOrWrong("optionD")?.showIcon}
+                        isSelected={
+                          isClicked &&
+                          setIsCorrectOrWrong("optionD")?.isCorrectOrWrong
+                        }
                         onClick={() => onSelectedOptionChange("optionD")}
                       >
                         <span className="pr-6 sm:pr-8">d.</span>
@@ -209,7 +230,7 @@ function PracticeQuestion(props) {
                 </div>
 
                 {isClicked ? (
-                  <div className="flex flex-col justify-center items-center font-body w-3/6 mx-auto shadow-primary p-4 pb-10 mb-20 text-center">
+                  <div className="flex flex-col justify-center items-center font-body  w-8/12 md:w-5/12 mx-auto shadow-primary p-4 pb-10 mb-20 sm:mb-4 text-center">
                     <span>Solution</span>
                     <br />
 
@@ -230,7 +251,7 @@ function PracticeQuestion(props) {
                     />
                   </div>
 
-                  <div className="hidden sm:flex justify-center items-center align-text-bottom mt-12 px-8 pb-40">
+                  <div className="hidden sm:flex justify-center items-center align-text-bottom mt-12 px-8 pb-40 sm:mt-0 sm:pb-20 sm:-mt-8">
                     <Pagination
                       count={questionArray.length}
                       setQuestionNumber={setQuestionNumber}
@@ -245,14 +266,14 @@ function PracticeQuestion(props) {
                   className="hidden sm:block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body shadow-primary px-11 py-2 mr-16 rounded-md text-sm lg:text-base font-medium"
                   onClick={handleOpen}
                 >
-                  End
+                  {questionNumber+1 === questionArray.length ? 'Finish': 'End'}
                 </button>
               </div>
             </div>
           </div>
         </>
       ) : null}
-    </>
+    </div>
   );
 }
 

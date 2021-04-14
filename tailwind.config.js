@@ -81,6 +81,8 @@ module.exports = {
       'ansBlue3': "#064586",
       'orange1': "#F14008",
       'orange2': "#FF8D33",
+      'redOrangeDark': "#D3133C",
+      'redOrangeLight': "#FF875E",
 
      }),
      height: (theme) => ({
@@ -147,6 +149,7 @@ module.exports = {
     minWidth: {
       '0': '0',
       'badge': '2rem',
+      'icon': '3rem',
       'xs1': "18rem",
       'xs': "20rem",
       'md': "30rem",
