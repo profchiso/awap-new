@@ -34,7 +34,7 @@ const useStyles = makeStyles({
     marginBottom: "0.5rem",
   },
   listTwoClass: {
-    marginTop: "1.5rem",
+    marginTop: "1rem",
   },
   avatarClass: {
     marginLeft: "-10px",
