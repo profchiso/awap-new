@@ -134,7 +134,7 @@ function PracticeQuestion(props) {
           </Modal>
           <div>
             <div className="flex relative max-w-screen-2xl mx-auto">
-              <div className="flex-1">
+              <div className="flex-1  pb-40 sm:pb-0">
                 <div className="max-w-3xl mx-auto px-6 sm:px-8">
                   <div className="w-full flex justify-center -mt-2 mb-2 sm:hidden">
                     <NumberBadge>
@@ -230,7 +230,7 @@ function PracticeQuestion(props) {
                 </div>
 
                 {isClicked ? (
-                  <div className="flex flex-col justify-center items-center font-body  w-8/12 md:w-5/12 mx-auto shadow-primary p-4 pb-10 mb-20 sm:mb-4 text-center">
+                  <div className="flex flex-col justify-center items-center font-body  w-9/12 md:w-5/12 mx-auto shadow-primary p-4 pb-10 mb-20 sm:mb-4 text-center">
                     <span>Solution</span>
                     <br />
 

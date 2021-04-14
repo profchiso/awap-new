@@ -57,7 +57,7 @@ function ChooseYear(props) {
       </div>
       <Header />
       <div className="flex justify-center pb-40">
-        <div className="font-body flex flex-col gap-28 text-center mt-40">
+        <div className="font-body flex flex-col gap-28 text-center mt-12 sm:mt-40">
           <h3 className="px-3 text-md sm:text-xl md:text-2xl lg:text-3xl font-body">
             BIOLOGY (SSCE) WAEC Questions
           </h3>

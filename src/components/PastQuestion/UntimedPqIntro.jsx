@@ -6,7 +6,7 @@ import {connect} from "react-redux"
  function UntimedPqIntro(props) {
    const{questionArray,year,subject }=props.practiceQuestionReducer
   return (
-    <div className="flex justify-center mb-24">
+    <div className="flex justify-center mb-24 pb-40 sm:pb-0">
       <div className="font-body flex flex-col gap-28 text-center mt-24 lg:mt-40">
         <h3 className="text-md sm:text-xl md:text-2xl lg:text-3xl font-body">Untimed {year} {subject} Past Questions</h3>
         <div className="flex items-center justify-center">
