@@ -15,7 +15,7 @@ function UntimedPqIntro(props) {
           <span className="md:text-2xl pl-3">
             {questionArray.length
               ? `${questionArray.length}  Questions  `
-              : `No  Question`}{" "}
+              : `No  Question`}
           </span>
         </div>
         <div>
