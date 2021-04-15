@@ -4,7 +4,7 @@ import Search from "../Search/Search";
 import { ReactComponent as AwesumEdgeLogo } from "../../assets/svgs/AwesumEdgeLogo.svg";
 import awesumBook from "../../assets/svgs/AwesumBook.svg";
 import { Link, Redirect } from "react-router-dom";
-import { ReactComponent as AwesumQuiz } from "../../assets/svgs/AwesumQuiz.svg";
+// import { ReactComponent as AwesumQuiz } from "../../assets/svgs/AwesumQuiz.svg";
 import { ReactComponent as Filter } from "../../assets/svgs/FilterIcon.svg";
 import { makeStyles } from "@material-ui/core/styles";
 import { CircleUserAvatar } from "../Avatar/Avatar";
@@ -74,10 +74,10 @@ function HeaderRowOne({
         {localStorage.token ? (
           // {login ? (
           <div className="flex items-center gap-5">
-            <button className="flex items-center  font-body">
+            {/* <button className="flex items-center  font-body">
               <AwesumQuiz />
               <span className="pl-2 text-primary">Awesum Quiz</span>
-            </button>
+            </button> */}
             <div className="flex items-center  font-body">
               <Button
                 aria-owns={anchorEl ? "simple-menu" : undefined}
