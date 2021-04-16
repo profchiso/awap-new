@@ -32,7 +32,7 @@ export default function FooterRowTwo() {
 
             <div className="py-4">
             <p className="text-sm font-normal leading-loose">ADDRESS:</p>
-            <p className="text-sm font-normal leading-loose">445 SW 121st Place, Portland, Oregon 97225, United States</p>
+            <p className="text-sm font-normal leading-loose">P.O Box 243, Beaverton, 0regon, 97075 USA</p>
             </div>
 
           </div>
