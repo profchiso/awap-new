@@ -187,7 +187,7 @@ function HomeBody({ loginReducer }) {
           <h3 className="py-4 text-center pt-8 lg:pt-0">
             <TextCarousel />
           </h3>
-          <Link to="/sign-up">
+          <Link to="/sign-up" className={`${token? "hidden":""}`}>
             <button className="text-white bg-primary shadow-primary px-24 py-2.5 mt-8 rounded-md focus:outline-none text-base font-semibold font-body lg:text-xl">
               Join
             </button>
@@ -218,11 +218,19 @@ function HomeBody({ loginReducer }) {
               </p>
             </div>
           </div>
-          <Link to="/sign-up">
-            <button className="text-white bg-primary shadow-primary px-12 py-4 mt-8 rounded-md focus:outline-none text-base font-medium font-body lg:text-xl">
-              Get Started Now
-            </button>
-          </Link>
+          {token ? (
+              <Link to="/">
+                <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-16 rounded-md font-body rounded-full">
+                  Invite a Friend
+                </button>
+              </Link>
+            ) : (
+              <Link to="/sign-up">
+                <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 rounded-md font-body rounded-full">
+                  Get Started
+                </button>
+              </Link>
+            )}
         </div>
       </div>
     </div>
