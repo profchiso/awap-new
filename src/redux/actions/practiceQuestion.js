@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL, requestHeaders } from './config';
-import { SELECT_SUBJECT, SELECT_YEAR, SAVE_PAST_QUESTION_TO_STATE, API_ERROR, SELECT_PAST_QUESTION_PRACTICE_TYPE } from './types';
+import { SELECT_ANSWER, SELECT_SUBJECT, SELECT_YEAR, SAVE_PAST_QUESTION_TO_STATE, API_ERROR, SELECT_PAST_QUESTION_PRACTICE_TYPE } from './types';
 
 export const fetchPracticeQuestion = (practiceQuestionData) => {
     return async(dispatch) => {
@@ -50,5 +50,12 @@ export const selectPastQuestionPracticeType = (type) => {
     return {
         type: SELECT_PAST_QUESTION_PRACTICE_TYPE,
         payload: type,
+    };
+};
+
+export const addSelectedAnswerToArray = (selectedQstnAnsObject) => {
+    return {
+        type: SELECT_ANSWER,
+        payload: selectedQstnAnsObject,
     };
 };

@@ -13,6 +13,7 @@ import { Button } from "@material-ui/core";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import PreviousNextQstn from "../components/Button/PreviousNextQstn";
 import {Link} from "react-router-dom"
+import {addSelectedAnswerToArray} from "../redux/actions/practiceQuestion"
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -52,9 +53,12 @@ function PracticeQuestion(props) {
     setOpen(false);
   };
 
-  const onSelectedOptionChange = (option) => {
+  const onSelectedOptionChange = (option, questionObj) => {
     setValue(option);
     setisClicked(true);
+    questionObj.userSelectedAnswer = option
+    // console.log('questionObj',questionObj)
+    props.addSelectedAnswerToArray(questionObj)
   };
 
   const setIsCorrectOrWrong = (option) => {
@@ -173,7 +177,7 @@ function PracticeQuestion(props) {
                           isClicked &&
                           setIsCorrectOrWrong("optionA")?.isCorrectOrWrong
                         }
-                        onClick={() => onSelectedOptionChange("optionA")}
+                        onClick={() => onSelectedOptionChange("optionA", questionArray[questionNumber])}
                       >
                         <span className="pr-6 sm:pr-8">a.</span>
                         <span>
@@ -189,7 +193,7 @@ function PracticeQuestion(props) {
                           isClicked &&
                           setIsCorrectOrWrong("optionB")?.isCorrectOrWrong
                         }
-                        onClick={() => onSelectedOptionChange("optionB")}
+                        onClick={() => onSelectedOptionChange("optionB", questionArray[questionNumber])}
                       >
                         <span className="pr-6 sm:pr-8">b.</span>
                         <span>
@@ -205,7 +209,7 @@ function PracticeQuestion(props) {
                           isClicked &&
                           setIsCorrectOrWrong("optionC")?.isCorrectOrWrong
                         }
-                        onClick={() => onSelectedOptionChange("optionC")}
+                        onClick={() => onSelectedOptionChange("optionC", questionArray[questionNumber])}
                       >
                         <span className="pr-6 sm:pr-8">c.</span>
                         <span>
@@ -221,7 +225,7 @@ function PracticeQuestion(props) {
                           isClicked &&
                           setIsCorrectOrWrong("optionD")?.isCorrectOrWrong
                         }
-                        onClick={() => onSelectedOptionChange("optionD")}
+                        onClick={() => onSelectedOptionChange("optionD", questionArray[questionNumber])}
                       >
                         <span className="pr-6 sm:pr-8">d.</span>
                         <span>
@@ -291,4 +295,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, {})(PracticeQuestion);
+export default connect(mapStateToProps, {addSelectedAnswerToArray})(PracticeQuestion);

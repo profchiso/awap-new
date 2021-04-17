@@ -1,53 +1,65 @@
 const initialState = {
-    year: "",
-    subject: "",
-    questionType: "",
-    questionArray: [],
-    currentQuestion: {},
-    selectedAnwser: "",
-    correctAnswer: "",
     userSelectedAnwser: [],
-    error: {}
+  year: "",
+  subject: "",
+  questionType: "",
+  questionArray: [],
+  currentQuestion: {},
+  selectedAnwser: "",
+  correctAnswer: "",
+  error: {},
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
-    const { type, payload } = actions;
-    console.log('action type', type);
-    console.log('action payload', payload);
+  const { type, payload } = actions;
+  console.log("action type", type);
+  // console.log('action payload', payload);
 
-    if (type === 'SAVE_PAST_QUESTION_TO_STATE') {
+  if (type === "SAVE_PAST_QUESTION_TO_STATE") {
+    return {
+      ...state,
+      questionArray: payload.data.questions,
+      userSelectedAnwser: [],
+    };
+  } else if (type === "SELECT_YEAR") {
+    return {
+      ...state,
+      year: payload,
+      userSelectedAnwser: [],
+    };
+  } else if (type === "SELECT_SUBJECT") {
+    return {
+      ...state,
+      subject: payload,
+      userSelectedAnwser: [],
+    };
+  } else if (type === "SELECT_PAST_QUESTION_PRACTICE_TYPE") {
+    return {
+      ...state,
+      questionType: payload,
+      userSelectedAnwser: [],
+    };
+  } else if (type === "API_ERROR") {
+    let error = {};
 
-        return {
-            ...state,
-            questionArray: payload.data.questions,
+    return {
+      ...state,
+      userSelectedAnwser: [],
+      error,
+    };
+  } else if (type === "SELECT_ANSWER") {
+      console.log(payload.questionNumber)
+    let filteredUserSelectedAnwers = state.userSelectedAnwser.filter(
+      (userSelectedAnwser) =>
+        userSelectedAnwser.questionNumber !== payload.questionNumber
+    );
+    let uSA = [...filteredUserSelectedAnwers, payload];
+    // console.log('payload from selectedAnswer', payload)
+    return {
+      ...state,
+      userSelectedAnwser: uSA,
+    };
+  }
 
-        };
-    } else if (type === 'SELECT_YEAR') {
-        return {
-            ...state,
-            year: payload,
-
-        };
-    } else if (type === 'SELECT_SUBJECT') {
-        return {
-            ...state,
-            subject: payload,
-
-        };
-    } else if (type === 'SELECT_PAST_QUESTION_PRACTICE_TYPE') {
-
-        return {
-            ...state,
-            questionType: payload
-        };
-    } else if (type === 'API_ERROR') {
-        let error = {}
-
-        return {
-            ...state,
-            error
-        };
-    }
-
-    return state;
+  return state;
 };
