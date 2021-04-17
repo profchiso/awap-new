@@ -24,7 +24,7 @@ export const loginReducer = (state = initialState, actions) => {
     } else if (type === 'REGISTRATION_ERROR' || type === 'LOGIN_ERROR') {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        console.log('payload',payload)
+        // console.log('payload',payload)
         return {
             ...state,
             error: payload,

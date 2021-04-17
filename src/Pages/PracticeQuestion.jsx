@@ -12,8 +12,8 @@ import Fade from "@material-ui/core/Fade";
 import { Button } from "@material-ui/core";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import PreviousNextQstn from "../components/Button/PreviousNextQstn";
-import {Link} from "react-router-dom"
-import {addSelectedAnswerToArray} from "../redux/actions/practiceQuestion"
+import { Link } from "react-router-dom";
+import { addSelectedAnswerToArray } from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -56,9 +56,9 @@ function PracticeQuestion(props) {
   const onSelectedOptionChange = (option, questionObj) => {
     setValue(option);
     setisClicked(true);
-    questionObj.userSelectedAnswer = option
+    questionObj.userSelectedAnswer = option;
     // console.log('questionObj',questionObj)
-    props.addSelectedAnswerToArray(questionObj)
+    props.addSelectedAnswerToArray(questionObj);
   };
 
   const setIsCorrectOrWrong = (option) => {
@@ -84,10 +84,17 @@ function PracticeQuestion(props) {
     }
     setisClicked(false);
   };
-  // console.log(value);
+
+  const disable = (e) => {
+    e.preventDefault();
+    return false;
+  };
 
   return (
-    <div className="sm:max-h-screen"  onmousedown="return false" onselect="return false" oncontextmenu="return false">
+    <div
+      className="sm:max-h-screen select-none"
+      onContextMenu={disable}
+    >
       <PracticeHeader handleOpen={handleOpen} />
       {questionArray.length ? (
         <>
@@ -114,14 +121,13 @@ function PracticeQuestion(props) {
                   </p>
                   <div className="pt-16 pb-6 flex gap-5 items-center justify-center">
                     <Link to="/stats">
-                    <button
-                      onClick={() => console.log("ok")}
-                      className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-                    >
-                      Yes, Submit
-                    </button>
+                      <button
+                        onClick={() => console.log("ok")}
+                        className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                      >
+                        Yes, Submit
+                      </button>
                     </Link>
-                   
 
                     <button
                       onClick={() => handleClose("ok")}
@@ -177,7 +183,12 @@ function PracticeQuestion(props) {
                           isClicked &&
                           setIsCorrectOrWrong("optionA")?.isCorrectOrWrong
                         }
-                        onClick={() => onSelectedOptionChange("optionA", questionArray[questionNumber])}
+                        onClick={() =>
+                          onSelectedOptionChange(
+                            "optionA",
+                            questionArray[questionNumber]
+                          )
+                        }
                       >
                         <span className="pr-6 sm:pr-8">a.</span>
                         <span>
@@ -193,7 +204,12 @@ function PracticeQuestion(props) {
                           isClicked &&
                           setIsCorrectOrWrong("optionB")?.isCorrectOrWrong
                         }
-                        onClick={() => onSelectedOptionChange("optionB", questionArray[questionNumber])}
+                        onClick={() =>
+                          onSelectedOptionChange(
+                            "optionB",
+                            questionArray[questionNumber]
+                          )
+                        }
                       >
                         <span className="pr-6 sm:pr-8">b.</span>
                         <span>
@@ -209,7 +225,12 @@ function PracticeQuestion(props) {
                           isClicked &&
                           setIsCorrectOrWrong("optionC")?.isCorrectOrWrong
                         }
-                        onClick={() => onSelectedOptionChange("optionC", questionArray[questionNumber])}
+                        onClick={() =>
+                          onSelectedOptionChange(
+                            "optionC",
+                            questionArray[questionNumber]
+                          )
+                        }
                       >
                         <span className="pr-6 sm:pr-8">c.</span>
                         <span>
@@ -225,7 +246,12 @@ function PracticeQuestion(props) {
                           isClicked &&
                           setIsCorrectOrWrong("optionD")?.isCorrectOrWrong
                         }
-                        onClick={() => onSelectedOptionChange("optionD", questionArray[questionNumber])}
+                        onClick={() =>
+                          onSelectedOptionChange(
+                            "optionD",
+                            questionArray[questionNumber]
+                          )
+                        }
                       >
                         <span className="pr-6 sm:pr-8">d.</span>
                         <span>
@@ -295,4 +321,6 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, {addSelectedAnswerToArray})(PracticeQuestion);
+export default connect(mapStateToProps, { addSelectedAnswerToArray })(
+  PracticeQuestion
+);

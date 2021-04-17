@@ -19,8 +19,8 @@ import TextCarousel from "../Carousels/TextCarousel";
 import { Link } from "react-router-dom";
 import useWindowDimensions from "../../Hooks/UseWindowDimension";
 import { connect } from "react-redux";
-import  {clearLoginRelatedErrors} from "../../redux/actions/login"
-import {registrationError} from "../../redux/actions/register";
+// import { clearLoginRelatedErrors } from "../../redux/actions/login";
+// import { registrationError } from "../../redux/actions/register";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -44,13 +44,15 @@ const useStyles = makeStyles((theme) => ({
 
 function HomeBody(props) {
   const { token } = props.loginReducer;
-  console.log('props', props);
+  // console.log('props', props);
 
-  React.useEffect(() => {
-    props.registrationError()
-    props.clearLoginRelatedErrors()
-  })
-  
+  //THIS IS CAUSING FUNCTIONS IN THE WEBSITE TO LOOP FOREVER, WHICH IS BAD!
+
+  // React.useEffect(() => {
+  //   props.registrationError();
+  //   props.clearLoginRelatedErrors();
+  // });
+
   const [secondaySchoolContent, setsecondaySchoolContent] = React.useState(
     <ExploreContentSenior />
   );
@@ -250,4 +252,9 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps,{clearLoginRelatedErrors,registrationError})(HomeBody);
+export default connect(mapStateToProps, 
+//   {
+//   clearLoginRelatedErrors,
+//   registrationError,
+// }
+)(HomeBody);

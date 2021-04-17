@@ -1,5 +1,5 @@
 const initialState = {
-    userSelectedAnwser: [],
+  userSelectedAnwser: [],
   year: "",
   subject: "",
   questionType: "",
@@ -48,7 +48,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       error,
     };
   } else if (type === "SELECT_ANSWER") {
-      console.log(payload.questionNumber)
+    console.log(payload.questionNumber);
     let filteredUserSelectedAnwers = state.userSelectedAnwser.filter(
       (userSelectedAnwser) =>
         userSelectedAnwser.questionNumber !== payload.questionNumber
