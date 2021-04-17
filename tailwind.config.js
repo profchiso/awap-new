@@ -153,6 +153,7 @@ module.exports = {
       'xs1': "18rem",
       'xs': "20rem",
       'md': "30rem",
+      'solution': "31rem",
       '1/4': '25%',
       '1/2': '50%',
       '3/4': '75%',

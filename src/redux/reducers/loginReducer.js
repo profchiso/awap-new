@@ -11,8 +11,8 @@ export const loginReducer = (state = initialState, actions) => {
         type === 'SAVE_LOGGED_IN_USER_DATA' ||
         type === "LOGIN_SUCCESS"
     ) {
-        localStorage.setItem('token', JSON.stringify(payload.data?.accessToken));
-        localStorage.setItem('user', JSON.stringify(payload.data?.user));
+        localStorage.setItem('token', JSON.stringify(payload.data.accessToken));
+        localStorage.setItem('user', JSON.stringify(payload.data.user));
         let error = {}
         return {
             ...state,
@@ -24,6 +24,7 @@ export const loginReducer = (state = initialState, actions) => {
     } else if (type === 'REGISTRATION_ERROR' || type === 'LOGIN_ERROR') {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
+        console.log('payload',payload)
         return {
             ...state,
             error: payload,
@@ -37,7 +38,7 @@ export const loginReducer = (state = initialState, actions) => {
             ...state,
             user,
             isSuccessful: false,
-            token: null,
+            token: '',
         };
     } else if (type === 'CLEAR_LOGIN_RELATED_ERROR') {
         let error = {};

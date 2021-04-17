@@ -11,8 +11,14 @@ export const register = (userData) => {
                 requestHeaders
             );
 
-            if (registeredUser.status === 201)
+            if (registeredUser.success) {
                 dispatch(saveRegisteredUserDataToState(registeredUser.data));
+              } else {
+                dispatch(registrationError(registeredUser.data));
+              }
+
+            // if (registeredUser.status === 201)
+            //     dispatch(saveRegisteredUserDataToState(registeredUser.data));
         } catch (error) {
             console.log('Registration error', error);
             dispatch(registrationError(error.response.data));

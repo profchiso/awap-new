@@ -17,6 +17,7 @@ import { biologyPQYear } from "./DB/BiologyPQ";
 import Unavailable from "./Pages/404";
 import {store,persistor} from "./redux/store/store";
 import MobilePq from "./Pages/MobilePq";
+import Statistics from "./Pages/Statistics";
 
 //const {store,persistor} = storeObject
 
@@ -56,6 +57,7 @@ class App extends React.Component {
               
               <Route path="/pq/biology-untimed" component={BiologyUntimedPQ} />
               <Route path="/pq/mobile-biology-Pq" component={MobilePq} />
+              <Route path="/stats" component={Statistics} />
 
 
               {biologyPQYear.map((item, index) => (

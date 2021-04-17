@@ -11,7 +11,7 @@ export default function AnswerLayout(props) {
     <div>
       <Header showFilter={true} showHeaderTitle={true} headerTitle="2012 Biology  WAEC Past Question"/>
       <div className="flex ">
-        {width < 768 ? <MobileSideNav /> : <WebSideNav />}
+        {width < 768 ? <MobileSideNav /> : <WebSideNav biologyPQYear={props.biologyPQYear}/>}
         {props.children}
       </div>
     </div>

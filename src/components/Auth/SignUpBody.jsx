@@ -9,6 +9,10 @@ import { Checkbox, FormControl, IconButton, Input } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Link } from "react-router-dom";
+import {clearLoginRelatedErrors} from "../../redux/actions/login"
+import {connect} from "react-redux"
+import {registrationError} from "../../redux/actions/register"
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LoginBody(props) {
+function SignUpBody(props) {
   const classes = useStyles();
 
   const [values, setValues] = React.useState({
@@ -43,6 +47,8 @@ export default function LoginBody(props) {
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
+    // props.clearLoginRelatedErrors()
+    // props.registrationError()
   };
 
   const handleClickShowPassword = () => {
@@ -259,3 +265,11 @@ export default function LoginBody(props) {
     </div>
   );
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps,{clearLoginRelatedErrors,registrationError})(SignUpBody);

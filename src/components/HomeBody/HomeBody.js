@@ -19,6 +19,8 @@ import TextCarousel from "../Carousels/TextCarousel";
 import { Link } from "react-router-dom";
 import useWindowDimensions from "../../Hooks/UseWindowDimension";
 import { connect } from "react-redux";
+import  {clearLoginRelatedErrors} from "../../redux/actions/login"
+import {registrationError} from "../../redux/actions/register";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -40,9 +42,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function HomeBody({ loginReducer }) {
-  const { token } = loginReducer;
+function HomeBody(props) {
+  const { token } = props.loginReducer;
+  console.log('props', props);
 
+  React.useEffect(() => {
+    props.registrationError()
+    props.clearLoginRelatedErrors()
+  })
+  
   const [secondaySchoolContent, setsecondaySchoolContent] = React.useState(
     <ExploreContentSenior />
   );
@@ -187,7 +195,7 @@ function HomeBody({ loginReducer }) {
           <h3 className="py-4 text-center pt-8 lg:pt-0">
             <TextCarousel />
           </h3>
-          <Link to="/sign-up" className={`${token? "hidden":""}`}>
+          <Link to="/sign-up" className={`${token ? "hidden" : ""}`}>
             <button className="text-white bg-primary shadow-primary px-24 py-2.5 mt-8 rounded-md focus:outline-none text-base font-semibold font-body lg:text-xl">
               Join
             </button>
@@ -219,18 +227,18 @@ function HomeBody({ loginReducer }) {
             </div>
           </div>
           {token ? (
-              <Link to="/">
-                <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-16 rounded-md font-body rounded-full">
-                  Invite a Friend
-                </button>
-              </Link>
-            ) : (
-              <Link to="/sign-up">
-                <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 rounded-md font-body rounded-full">
-                  Get Started
-                </button>
-              </Link>
-            )}
+            <Link to="/">
+              <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-16 rounded-md font-body rounded-full">
+                Invite a Friend
+              </button>
+            </Link>
+          ) : (
+            <Link to="/sign-up">
+              <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 rounded-md font-body rounded-full">
+                Get Started
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
@@ -242,4 +250,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps)(HomeBody);
+export default connect(mapStateToProps,{clearLoginRelatedErrors,registrationError})(HomeBody);

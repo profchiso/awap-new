@@ -12,6 +12,7 @@ import Fade from "@material-ui/core/Fade";
 import { Button } from "@material-ui/core";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import PreviousNextQstn from "../components/Button/PreviousNextQstn";
+import {Link} from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -38,12 +39,11 @@ function PracticeQuestion(props) {
   const [isClicked, setisClicked] = useState(false);
   const [open, setOpen] = useState(false);
   const { questionArray } = props.practiceQuestionReducer;
-  const answer = questionArray[questionNumber].answer;
+  const answer = questionArray[questionNumber]?.answer;
   const isCorrect =
     "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
   const isWrong =
     "bg-gradient-to-r from-redOrangeDark to-redOrangeLight text-white";
-  // const isWrong = "bg-gradient-to-r from-orange1 to-orange2 text-white";
 
   const handleOpen = () => {
     setOpen(true);
@@ -83,7 +83,7 @@ function PracticeQuestion(props) {
   // console.log(value);
 
   return (
-    <div className="sm:max-h-screen">
+    <div className="sm:max-h-screen"  onmousedown="return false" onselect="return false" oncontextmenu="return false">
       <PracticeHeader handleOpen={handleOpen} />
       {questionArray.length ? (
         <>
@@ -109,12 +109,15 @@ function PracticeQuestion(props) {
                     Are you sure you want to end this past question
                   </p>
                   <div className="pt-16 pb-6 flex gap-5 items-center justify-center">
+                    <Link to="/stats">
                     <button
                       onClick={() => console.log("ok")}
                       className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
                     >
                       Yes, Submit
                     </button>
+                    </Link>
+                   
 
                     <button
                       onClick={() => handleClose("ok")}
@@ -230,11 +233,15 @@ function PracticeQuestion(props) {
                 </div>
 
                 {isClicked ? (
-                  <div className="flex flex-col justify-center items-center font-body  w-9/12 md:w-5/12 mx-auto shadow-primary p-4 pb-10 mb-20 sm:mb-4 text-center">
-                    <span>Solution</span>
-                    <br />
+                  <div className="flex px-7">
+                    <div className="min-w-icon mx-1 hidden sm:block"></div>
 
-                    {questionArray[questionNumber].solution}
+                    <div className="flex flex-col border border-gray-300 rounded font-body text-base max-w-md mx-auto pl-7 pt-5 pr-5 pb-10 mb-20 sm:mb-4 text-left">
+                      <span>Solution</span>
+                      <br />
+
+                      {questionArray[questionNumber].solution}
+                    </div>
                   </div>
                 ) : (
                   ""
@@ -251,7 +258,7 @@ function PracticeQuestion(props) {
                     />
                   </div>
 
-                  <div className="hidden sm:flex justify-center items-center align-text-bottom mt-12 px-8 pb-40 sm:mt-0 sm:pb-20 sm:-mt-8">
+                  <div className="hidden sm:flex justify-center items-center align-text-bottom mt-12 px-8 pb-40 sm:mt-0 sm:pb-20 sm:-mt-8 ml-16">
                     <Pagination
                       count={questionArray.length}
                       setQuestionNumber={setQuestionNumber}
@@ -266,7 +273,9 @@ function PracticeQuestion(props) {
                   className="hidden sm:block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body shadow-primary px-11 py-2 mr-16 rounded-md text-sm lg:text-base font-medium"
                   onClick={handleOpen}
                 >
-                  {questionNumber+1 === questionArray.length ? 'Finish': 'End'}
+                  {questionNumber + 1 === questionArray.length
+                    ? "Finish"
+                    : "End"}
                 </button>
               </div>
             </div>

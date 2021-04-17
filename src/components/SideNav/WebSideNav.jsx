@@ -14,7 +14,7 @@ export default function WebSideNav() {
             <div className="p-4 pl-8">
               <NavLink
                 key={index}
-                to={item.url}
+                to="/stats"
                 className="text-white hover:text-white"
               >
                 {item.year}
