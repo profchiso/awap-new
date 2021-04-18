@@ -34,8 +34,6 @@ function HeaderRowOne({
   ...props
 }) {
   const classes = useStyles();
-  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
-
   const { user, token } = loginReducer;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -52,12 +50,10 @@ function HeaderRowOne({
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     logout();
-    setIsLoggedIn(false);
   };
 
   return (
     <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
-      {isLoggedIn ? null : <Redirect to="/login" />}
       <div className="flex items-center my-5">
         <div className="transform md:scale-80 scale-70 hidden md:block">
           <Link to="/">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
@@ -51,7 +51,6 @@ function ChooseYear(props) {
 
   return (
     <div>
-      {!localStorage.token ? <Redirect to="/login" /> : null}
       <div className="block bg-blueOne pb-8 pl-2 sm:hidden">
         <MobileHeader />
       </div>

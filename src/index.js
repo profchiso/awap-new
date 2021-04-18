@@ -1,16 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './assets/styles/index.css';
-import './assets/styles/extraStyles.scss';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./assets/styles/index.css";
+import "./assets/styles/extraStyles.scss";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { SessionContextProvider } from "./components/AuthRedirection/SessionContext";
+import { BrowserRouter } from "react-router-dom";
+
 // import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <SessionContextProvider>
+        <App />
+      </SessionContextProvider>
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
