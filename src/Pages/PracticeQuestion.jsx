@@ -89,7 +89,7 @@ function PracticeQuestion(props) {
     e.preventDefault();
     return false;
   };
-  const  token  = props?.loginReducer?.token;
+  const token = props?.loginReducer?.token;
 
   if (token) {
     return (
@@ -313,7 +313,8 @@ function PracticeQuestion(props) {
         ) : null}
       </div>
     );
-  } return <Redirect to="/login" />;
+  }
+  return <Redirect to="/login" />;
 }
 
 const mapStateToProps = (state) => {

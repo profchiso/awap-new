@@ -1,8 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
 import { Redirect, Route } from "react-router";
-// import { Route, Redirect } from "react-router-dom";
-
 import { connect } from "react-redux";
 
 function ProtectedRoute(props) {
