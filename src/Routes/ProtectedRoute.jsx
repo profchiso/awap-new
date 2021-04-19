@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { Redirect, Route } from "react-router";
+// import { Route, Redirect } from "react-router-dom";
+
 import { connect } from "react-redux";
 
 function ProtectedRoute(props) {
@@ -20,6 +22,7 @@ function ProtectedRoute(props) {
     } else {
       setValues({ ...values, redirectPath: "", authenticationPath: "/login" });
     }
+    console.log('values from protectedRoute',values)
   }, [
     props?.loginReducer?.token,
     props.path,
@@ -30,7 +33,7 @@ function ProtectedRoute(props) {
 
   if (values.isAuthenticated && values.redirectPath === props.path) {
     if (props.path === "/login" || props.path === "/sign-up") {
-      return <Redirect to="" />;
+      return <Redirect to="/" />;
     } else {
       return (
         <Route {...props} path={props.path}>
@@ -40,13 +43,9 @@ function ProtectedRoute(props) {
     }
   } else {
     return (
-      <Redirect
-        to={{
-          pathname: values.isAuthenticated
-            ? props.path
-            : values.authenticationPath,
-        }}
-      />
+      <Route {...props} path={ values.isAuthenticated? props.path : "/login" }>
+        {props.children}
+      </Route>
     );
   }
 }

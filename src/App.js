@@ -35,16 +35,14 @@ export default function App() {
           <ThemeProvider theme={theme}>
             <Switch>
               <Route exact path="/" component={LandingPage} />
-              <Route path="/login" component={Login} />
-              <Route path="/sign-up" component={SignUP} />
 
-              {/* <ProtectedRoute path="/login">
-                <Login />
+              <ProtectedRoute path="/login">
+                <Login/>
               </ProtectedRoute>
 
               <ProtectedRoute path="/sign-up">
-                <SignUP />
-              </ProtectedRoute> */}
+                <SignUP/>
+              </ProtectedRoute>
 
               <ProtectedRoute path="/pq/biology-choose-year">
                 <BiologyChooseYear />
