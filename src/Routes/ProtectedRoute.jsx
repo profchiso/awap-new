@@ -41,7 +41,7 @@ function ProtectedRoute(props) {
     }
   } else {
     return (
-      <Route {...props} path={ values.isAuthenticated? props.path : "/login" }>
+      <Route {...props} path={ values.isAuthenticated? props.path : "/login" || "/sign-up"}>
         {props.children}
       </Route>
     );
