@@ -14,8 +14,8 @@ function SignUp({ registerReducer, register }) {
       <LoginHeader />
       <SignUpBody
         signUpRequest={register}
-        error={registerReducer.error.message}
-        success={registerReducer.message}
+        error={registerReducer?.error?.message}
+        success={registerReducer?.message}
       />
     </div>
   );
