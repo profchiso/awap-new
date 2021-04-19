@@ -73,7 +73,7 @@ function SignUpBody(props) {
       lastName: values.lastName,
       firstName: values.firstName,
     };
-    console.log(signUpData);
+    // console.log(signUpData);
     await props.signUpRequest(signUpData);
     setValues({
       ...values,

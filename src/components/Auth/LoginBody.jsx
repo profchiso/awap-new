@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function LoginBody(props) {
-  console.log(props);
+  // console.log(props);
   const classes = useStyles();
   const [values, setValues] = React.useState({
     amount: "",
@@ -44,7 +44,7 @@ function LoginBody(props) {
     setValues({ ...values, [prop]: event.target.value });
     props.clearLoginRelatedErrors()
     props.registrationError()
-    console.log(values);
+    // console.log(values);
   };
 
   const handleClickShowPassword = () => {
