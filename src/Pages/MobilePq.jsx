@@ -4,10 +4,14 @@ import HeaderRowOne from "../components/Header/HeaderRowOne";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 import MobileHeader from "../components/Header/MobileHeader";
 import MobilePqList from "../components/Header/MobilePqList";
+import { connect } from "react-redux";
+import { Redirect } from "react-router";
 
-export default function MobilePq() {
+function MobilePq(props) {
   const { width } = useWindowDimensions();
+  const  token  = props?.loginReducer?.token;
 
+  if (token){
   return (
     <div>
       {width < 640 ? (
@@ -23,4 +27,13 @@ export default function MobilePq() {
       <Footer />
     </div>
   );
+}return <Redirect to="/login" />;
 }
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps, 
+
+)(MobilePq);

@@ -42,8 +42,8 @@ function LoginBody(props) {
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
-    // props.clearLoginRelatedErrors()
-    // props.registrationError()
+    props.clearLoginRelatedErrors()
+    props.registrationError()
     console.log(values);
   };
 

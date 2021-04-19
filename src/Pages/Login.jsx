@@ -10,7 +10,7 @@ function Login(props) {
   return (
     <div className="bg-f8 pb-8 2xl:h-screen">
         <LoginHeader />
-        <LoginBody loginRequest={props.login} error={props.loginReducer.error.message} />
+        <LoginBody loginRequest={props.login} error={props.loginReducer?.error?.message} />
     </div>
   );
 }

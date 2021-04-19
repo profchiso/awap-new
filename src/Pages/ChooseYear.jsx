@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 function ChooseYear(props) {
   //const {subject}=props.practiceQuestionReducer
   const classes = useStyles();
+  const  token  = props?.loginReducer?.token;
 
   const [itemNumber, setitemNumber] = useState();
 
@@ -48,7 +49,7 @@ function ChooseYear(props) {
   };
 
   const rangeValue = range(2000, 2020);
-
+if(token){
   return (
     <div>
       <div className="block bg-blueOne pb-8 pl-2 sm:hidden">
@@ -99,6 +100,7 @@ function ChooseYear(props) {
       <Footer />
     </div>
   );
+}return <Redirect to="/login" />;
 }
 
 const mapStateToProps = (state) => {

@@ -9,7 +9,15 @@ import Login from "./Pages/Login";
 import SignUP from "./Pages/SignUp";
 import Unavailable from "./Pages/404";
 import { store, persistor } from "./redux/store/store";
-import AppRoutes from "./Routes/AppRoutes";
+import ProtectedRoute from "./Routes/ProtectedRoute";
+import BiologyChooseYear from "./Pages/ChooseYear";
+import BiologyUntimedPQ from "./Pages/UntimedPQ";
+import BiologyChooseType from "./Pages/ChooseType";
+import Answers from "./Pages/Answers/BiologyAnswers";
+import PracticeQuestion from "./Pages/PracticeQuestion";
+import { biologyPQYear } from "./DB/BiologyPQ";
+import MobilePq from "./Pages/MobilePq";
+import Statistics from "./Pages/Statistics";
 
 const theme = createMuiTheme({
   palette: {
@@ -30,7 +38,43 @@ export default function App() {
               <Route path="/login" component={Login} />
               <Route path="/sign-up" component={SignUP} />
 
-              <AppRoutes />
+              {/* <ProtectedRoute path="/login">
+                <Login />
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/sign-up">
+                <SignUP />
+              </ProtectedRoute> */}
+
+              <ProtectedRoute path="/pq/biology-choose-year">
+                <BiologyChooseYear />
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/pq/practice">
+                <PracticeQuestion />
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/pq/biology-choose-type">
+                <BiologyChooseType />
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/pq/biology-untimed">
+                <BiologyUntimedPQ />
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/pq/mobile-biology-Pq">
+                <MobilePq />
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/stats">
+                <Statistics />
+              </ProtectedRoute>
+
+              {biologyPQYear.map((item, index) => (
+                <ProtectedRoute key={index} path={item.url}>
+                  <Answers />
+                </ProtectedRoute>
+              ))}
 
               <Route path="*" component={Unavailable} />
             </Switch>
