@@ -64,9 +64,11 @@ export default function App() {
                 <MobilePq />
               </ProtectedRoute>
 
-              <ProtectedRoute path="/stats">
+              {/* <ProtectedRoute path="/stats">
                 <Statistics />
-              </ProtectedRoute>
+              </ProtectedRoute> */}
+
+              <Route path="/stats" component={Statistics} />
 
               {biologyPQYear.map((item, index) => (
                 <ProtectedRoute key={index} path={item.url}>
