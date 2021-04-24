@@ -34,10 +34,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function PracticeQuestion(props) {
+  const { userSelectedAnwser } = props.practiceQuestionReducer;
   const classes = useStyles();
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
   const [isClicked, setisClicked] = useState(false);
+  const [prevButtonClicked, setprevButtonClicked] = useState(false)
+  const [nextButtonClicked, setnextButtonClicked] = useState(false)
+
   const [open, setOpen] = useState(false);
   const { questionArray } = props.practiceQuestionReducer;
   const answer = questionArray[questionNumber]?.answer;
@@ -70,26 +74,79 @@ function PracticeQuestion(props) {
       return { isCorrectOrWrong: isCorrect, showIcon: "correctIcon" };
     }
   };
+
   const increaseQuestionNumber = () => {
-    if (questionNumber >= 0 && questionNumber < questionArray.length - 1) {
+    if (questionNumber >= 0 && questionNumber < questionArray.length) {
       setQuestionNumber((prev) => prev + 1);
-      setValue("");
+      setnextButtonClicked(true)
+      if (userSelectedAnwser.length > 0) {
+        let item = userSelectedAnwser.filter(
+          (e) => e.questionNumber === questionNumber + 2
+        );
+        // console.log('item from increaseQuestionNumber', item, '\n', 'questionNumber',questionNumber+2)
+
+        if (item.length) {
+          onSelectedOptionChange(item[0].userSelectedAnswer, item[0]);
+          // setisClicked(true);
+        } else {
+          setisClicked(false);
+        }
+      }
     }
-    setisClicked(false);
   };
 
   const decreaseQuestionNumber = () => {
     if (questionNumber < questionArray.length && questionNumber >= 1) {
       setQuestionNumber((prev) => prev - 1);
+      setprevButtonClicked(true)
+
+      if (userSelectedAnwser.length > 0) {
+        let item = userSelectedAnwser.filter(
+          (e) => e.questionNumber === questionNumber
+        );
+        // console.log('item from decreaseQuestionNumber', item, '\n', 'questionNumber',questionNumber)
+
+        if (item.length) {
+          onSelectedOptionChange(item[0].userSelectedAnswer, item[0]);
+          // setisClicked(true);
+        } else {
+          setisClicked(false);
+        }
+      }
     }
-    setisClicked(false);
+  };
+
+  const goToQuestion = (currentPage) => {
+    // const questionNumbr= questionArray[questionNumber]?.questionNumber
+    if (currentPage >= 0 && currentPage < questionArray.length) {
+      if (userSelectedAnwser.length > 0) {
+        let item = userSelectedAnwser.filter(
+          (e) => e.questionNumber === currentPage
+        );
+        // console.log('item from goToQuestion', item, '\n', 'currentPage',currentPage)
+
+        if (item.length) {
+          onSelectedOptionChange(item[0].userSelectedAnswer, item[0]);
+          // setisClicked(true);
+        } else {
+          setisClicked(false);
+        }
+      }
+    }
+  };
+
+  const increasePaginationNumber = (paginationNumber) => {
+    return paginationNumber++;
+  };
+  const decreasePaginationNumber = (paginationNumber) => {
+    return paginationNumber--;
   };
 
   const disable = (e) => {
     e.preventDefault();
     return false;
   };
-  
+
   const token = props?.loginReducer?.token;
 
   if (token) {
@@ -292,8 +349,12 @@ function PracticeQuestion(props) {
                       <Pagination
                         count={questionArray.length}
                         setQuestionNumber={setQuestionNumber}
-                        setValue={setValue}
-                        setisClicked={setisClicked}
+                        goToQuestion={goToQuestion}
+                        increasePaginationNumber={increasePaginationNumber}
+                        decreasePaginationNumber={decreasePaginationNumber}
+                        prevButtonClicked={prevButtonClicked}
+                        nextButtonClicked={nextButtonClicked}
+                        // setisClicked={setisClicked}
                       />
                     </div>
                   </div>
