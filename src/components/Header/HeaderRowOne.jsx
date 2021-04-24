@@ -4,7 +4,6 @@ import Search from "../Search/Search";
 import { ReactComponent as AwesumEdgeLogo } from "../../assets/svgs/AwesumEdgeLogo.svg";
 import awesumBook from "../../assets/svgs/AwesumBook.svg";
 import { Link, Redirect } from "react-router-dom";
-// import { ReactComponent as AwesumQuiz } from "../../assets/svgs/AwesumQuiz.svg";
 import { ReactComponent as Filter } from "../../assets/svgs/FilterIcon.svg";
 import { makeStyles } from "@material-ui/core/styles";
 import { CircleUserAvatar } from "../Avatar/Avatar";
@@ -35,9 +34,7 @@ function HeaderRowOne({
   ...props
 }) {
   const classes = useStyles();
-  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
-
-  const { user } = loginReducer;
+  const { user, token } = loginReducer;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -53,12 +50,10 @@ function HeaderRowOne({
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     logout();
-    setIsLoggedIn(false);
   };
 
   return (
     <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
-      {isLoggedIn ? null : <Redirect to="/login" />}
       <div className="flex items-center my-5">
         <div className="transform md:scale-80 scale-70 hidden md:block">
           <Link to="/">
@@ -69,21 +64,21 @@ function HeaderRowOne({
           <img src={awesumBook} alt="" />
         </div>
 
-        {showHeaderTitle ? <div className="flex-1 text-center text-base md:text-md lg:text-lg font-medium">{props.headerTitle}</div> : <Search />}
+        {showHeaderTitle ? (
+          <div className="flex-1 text-center text-base md:text-md lg:text-lg font-medium">
+            {props.headerTitle}
+          </div>
+        ) : (
+          <Search />
+        )}
 
-        {localStorage.token ? (
-          // {login ? (
+        {token ? (
           <div className="flex items-center gap-5">
-            {/* <button className="flex items-center  font-body">
-              <AwesumQuiz />
-              <span className="pl-2 text-primary">Awesum Quiz</span>
-            </button> */}
             <div className="flex items-center  font-body">
               <Button
                 aria-owns={anchorEl ? "simple-menu" : undefined}
                 aria-haspopup="true"
                 onClick={handleClick}
-                // onMouseOver={handleClick}
               >
                 <CircleUserAvatar imgUrl="" />
                 <span className="capitalize font-body font-normal">
@@ -137,15 +132,10 @@ function HeaderRowOne({
         ) : (
           <div className="flex justify-center">
             <Link to="/login">
-            <button className="text-primary font-body font-medium shadow-primary px-8 py-2 rounded-md mr-4 md:mr-8 focus:outline-none text-sm lg:text-base">
-              Log In
-            </button>
-            </Link>
-            {/* <Link to="/login">
-              <button className="text-white bg-primary  font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-base">
-                Get Started
+              <button className="text-primary font-body font-medium shadow-primary px-8 py-2 rounded-md mr-4 md:mr-8 focus:outline-none text-sm lg:text-base">
+                Log In
               </button>
-            </Link> */}
+            </Link>
             <Link to="/sign-up">
               <button className="text-white bg-primary  font-body shadow-primary px-8 py-2 rounded-md focus:outline-none text-sm lg:text-base">
                 Sign Up

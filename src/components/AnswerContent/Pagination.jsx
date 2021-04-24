@@ -23,8 +23,7 @@ export default function PaginationNavLink(props) {
             shape="rounded"
             onChange={(event, page) => {
               props.setQuestionNumber(page - 1);
-              props.setValue("");
-              props.setisClicked(false)
+              props.goToQuestion(page);
             }}
             classes={{
               root: `${"rounded p-2 shadow-awesumOne flex justify-center lg:min-w-sm"} ${
@@ -39,3 +38,11 @@ export default function PaginationNavLink(props) {
           />
   );
 }
+
+//THIS IS FOR THE PAGINATION ITEM, SOMEHOW
+// props.prevButtonClicked && props.nextButtonClicked === false
+// ? page - 1
+// : props.nextButtonClicked
+// ? props.increasePaginationNumber(page - 1) 
+// : props.decreasePaginationNumber(page - 1)
+// );

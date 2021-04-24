@@ -1,25 +1,23 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { PersistGate } from 'redux-persist/integration/react'
+import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import LandingPage from "./Pages/LandingPage";
 import "react-multi-carousel/lib/styles.css";
-import BiologyUntimedPQ from "./Pages/UntimedPQ";
-import BiologyChooseYear from "./Pages/ChooseYear";
-import BiologyChooseType from "./Pages/ChooseType";
 import Login from "./Pages/Login";
 import SignUP from "./Pages/SignUp";
-import Answers from "./Pages/Answers/BiologyAnswers";
-import PracticeQuestion from "./Pages/PracticeQuestion"
-// import ProtectedRoute from "./Pages/ProtectedRoute";
-import { biologyPQYear } from "./DB/BiologyPQ";
 import Unavailable from "./Pages/404";
-import {store,persistor} from "./redux/store/store";
+import { store, persistor } from "./redux/store/store";
+import ProtectedRoute from "./Routes/ProtectedRoute";
+import BiologyChooseYear from "./Pages/ChooseYear";
+import BiologyUntimedPQ from "./Pages/UntimedPQ";
+import BiologyChooseType from "./Pages/ChooseType";
+import Answers from "./Pages/Answers/BiologyAnswers";
+import PracticeQuestion from "./Pages/PracticeQuestion";
+import { biologyPQYear } from "./DB/BiologyPQ";
 import MobilePq from "./Pages/MobilePq";
 import Statistics from "./Pages/Statistics";
-
-//const {store,persistor} = storeObject
 
 const theme = createMuiTheme({
   palette: {
@@ -29,54 +27,60 @@ const theme = createMuiTheme({
   },
 });
 
-class App extends React.Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
+export default function App() {
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
         <Router>
           <ThemeProvider theme={theme}>
             <Switch>
               <Route exact path="/" component={LandingPage} />
-              <Route path="/login" component={Login} />
-              <Route exact path="/sign-up" component={SignUP} />
 
-              {/* BIOLOGY PQ */}
-              <Route
-                path="/pq/biology-choose-year"
-                component={BiologyChooseYear}
-              />
-              <Route
-                path="/pq/practice"
-                component={PracticeQuestion}
-              />
-              <Route
-                path="/pq/biology-choose-type"
-                component={BiologyChooseType}
-              />
-              
-              <Route path="/pq/biology-untimed" component={BiologyUntimedPQ} />
-              <Route path="/pq/mobile-biology-Pq" component={MobilePq} />
+              <ProtectedRoute path="/login">
+                <Login/>
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/sign-up">
+                <SignUP/>
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/pq/biology-choose-year">
+                <BiologyChooseYear />
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/pq/practice">
+                <PracticeQuestion />
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/pq/biology-choose-type">
+                <BiologyChooseType />
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/pq/biology-untimed">
+                <BiologyUntimedPQ />
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/pq/mobile-biology-Pq">
+                <MobilePq />
+              </ProtectedRoute>
+
+              {/* <ProtectedRoute path="/stats">
+                <Statistics />
+              </ProtectedRoute> */}
+
               <Route path="/stats" component={Statistics} />
 
-
               {biologyPQYear.map((item, index) => (
-                <Route key={index} path={item.url} component={Answers} />
+                <ProtectedRoute key={index} path={item.url}>
+                  <Answers />
+                </ProtectedRoute>
               ))}
-                {/* <Route path="/pq/answers" component={Answers} /> */}
 
               <Route path="*" component={Unavailable} />
-
-              {/* FOR LATER USE */}
-              {/* <ProtectedRoute path="/untimed-pq" component={UntimedPQ} />
-              <ProtectedRoute path="/choose-year" component={ChooseYear} /> */}
             </Switch>
           </ThemeProvider>
         </Router>
-        </PersistGate>
-      </Provider>
-    );
-  }
+      </PersistGate>
+    </Provider>
+  );
 }
-
-export default App;

@@ -8,11 +8,10 @@ import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import { Checkbox, FormControl, IconButton, Input } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import { Link } from "react-router-dom";
-import {clearLoginRelatedErrors} from "../../redux/actions/login"
-import {connect} from "react-redux"
-import {registrationError} from "../../redux/actions/register"
-
+import { Link, useHistory } from "react-router-dom";
+import { clearLoginRelatedErrors } from "../../redux/actions/login";
+import { connect } from "react-redux";
+import { registrationError } from "../../redux/actions/register";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 function SignUpBody(props) {
   const classes = useStyles();
-
+  const history = useHistory();
   const [values, setValues] = React.useState({
     amount: "",
     password: "",
@@ -74,7 +73,7 @@ function SignUpBody(props) {
       lastName: values.lastName,
       firstName: values.firstName,
     };
-    console.log(signUpData);
+    // console.log(signUpData);
     await props.signUpRequest(signUpData);
     setValues({
       ...values,
@@ -84,6 +83,9 @@ function SignUpBody(props) {
       password: "",
       confirmPassword: "",
     });
+    if (!!props?.success) {
+      history.push("/");
+    }
   };
 
   return (
@@ -205,9 +207,9 @@ function SignUpBody(props) {
                   />
                 </FormControl>
               </div>
-             
+
               {/* TO BE FIXED: SINCE IT PREVIOUSLY ALWAYS SHOW, EVEN IN AN EMPTY FORM */}
-              {values.confirmPassword? (
+              {values.confirmPassword ? (
                 <div>
                   <span style={{ color: "red" }}>{props.error}</span>
                 </div>
@@ -266,10 +268,12 @@ function SignUpBody(props) {
   );
 }
 
-
 const mapStateToProps = (state) => {
   return {
     ...state,
   };
 };
-export default connect(mapStateToProps,{clearLoginRelatedErrors,registrationError})(SignUpBody);
+export default connect(mapStateToProps, {
+  clearLoginRelatedErrors,
+  registrationError,
+})(SignUpBody);

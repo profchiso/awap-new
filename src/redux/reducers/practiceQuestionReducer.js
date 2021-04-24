@@ -1,5 +1,5 @@
 const initialState = {
-    userSelectedAnwser: [],
+  userSelectedAnwser: [],
   year: "",
   subject: "",
   questionType: "",
@@ -12,7 +12,7 @@ const initialState = {
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
   const { type, payload } = actions;
-  console.log("action type", type);
+  // console.log("action type", type);
   // console.log('action payload', payload);
 
   if (type === "SAVE_PAST_QUESTION_TO_STATE") {
@@ -48,7 +48,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       error,
     };
   } else if (type === "SELECT_ANSWER") {
-      console.log(payload.questionNumber)
+    // console.log(payload.questionNumber);
     let filteredUserSelectedAnwers = state.userSelectedAnwser.filter(
       (userSelectedAnwser) =>
         userSelectedAnwser.questionNumber !== payload.questionNumber

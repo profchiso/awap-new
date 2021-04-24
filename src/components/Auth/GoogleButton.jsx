@@ -1,10 +1,12 @@
 import React from "react";
 import { GoogleLogin } from "react-google-login";
 import {connect} from "react-redux"
+import { useHistory } from "react-router";
 import { ReactComponent as GoogleIcon } from "../../assets/svgs/GoogleIcon.svg";
 import {saveLoginUserDataToState} from "../../redux/actions/login"
 
  function GoogleButton({saveLoginUserDataToState, ...props}) {
+   const history = useHistory()
   const handleLogin = async (googleData) => {
     console.log(googleData);
     const res = await fetch(
@@ -21,6 +23,7 @@ import {saveLoginUserDataToState} from "../../redux/actions/login"
     );
     const data = await res.json();
     saveLoginUserDataToState(data)
+    history.push("/")
   };
 
   

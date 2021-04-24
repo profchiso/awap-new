@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 function ChooseYear(props) {
   //const {subject}=props.practiceQuestionReducer
   const classes = useStyles();
+  const  token  = props?.loginReducer?.token;
 
 
   const [itemNumber, setitemNumber] = useState();
@@ -53,11 +54,9 @@ function ChooseYear(props) {
   };
 
   const rangeValue = range(2000, 2020);
-  let latexString = "\[5_{2}-\frac{3}{4}\binom{4}{7}\]";
-
+if(token){
   return (
     <div>
-      {!localStorage.token ? <Redirect to="/login" /> : null}
       <div className="block bg-blueOne pb-8 pl-2 sm:hidden">
         <MobileHeader />
       </div>
@@ -106,6 +105,7 @@ function ChooseYear(props) {
       <Footer />
     </div>
   );
+}return <Redirect to="/login" />;
 }
 
 const mapStateToProps = (state) => {
@@ -113,4 +113,5 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
+
 export default connect(mapStateToProps, { selectPastQuestionYear, })(ChooseYear);
