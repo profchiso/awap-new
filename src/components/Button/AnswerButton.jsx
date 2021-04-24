@@ -14,7 +14,7 @@ export const DefaultAnswerBtn = (props) => {
   };
   return (
     <div className="flex justify-center items-center">
-      <div className="ml-auto min-w-icon transform scale-50 sm:scale-75 lg:scale-90 sm:mr-3 xl:mr-0">
+      <div className="hidden sm:block ml-auto min-w-icon transform scale-50 sm:scale-75 lg:scale-90 sm:mr-3 xl:mr-0">
         {props.isClicked && showAnIcon()}
       </div>
 
