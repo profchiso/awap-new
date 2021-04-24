@@ -39,8 +39,8 @@ function PracticeQuestion(props) {
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
   const [isClicked, setisClicked] = useState(false);
-  const [prevButtonClicked, setprevButtonClicked] = useState(false)
-  const [nextButtonClicked, setnextButtonClicked] = useState(false)
+  const [prevButtonClicked, setprevButtonClicked] = useState(false);
+  const [nextButtonClicked, setnextButtonClicked] = useState(false);
 
   const [open, setOpen] = useState(false);
   const { questionArray } = props.practiceQuestionReducer;
@@ -78,7 +78,7 @@ function PracticeQuestion(props) {
   const increaseQuestionNumber = () => {
     if (questionNumber >= 0 && questionNumber < questionArray.length) {
       setQuestionNumber((prev) => prev + 1);
-      setnextButtonClicked(true)
+      setnextButtonClicked(true);
       if (userSelectedAnwser.length > 0) {
         let item = userSelectedAnwser.filter(
           (e) => e.questionNumber === questionNumber + 2
@@ -98,7 +98,7 @@ function PracticeQuestion(props) {
   const decreaseQuestionNumber = () => {
     if (questionNumber < questionArray.length && questionNumber >= 1) {
       setQuestionNumber((prev) => prev - 1);
-      setprevButtonClicked(true)
+      setprevButtonClicked(true);
 
       if (userSelectedAnwser.length > 0) {
         let item = userSelectedAnwser.filter(
@@ -212,7 +212,7 @@ function PracticeQuestion(props) {
                       </NumberBadge>
                     </div>
 
-                    <div className="flex justify-between items-center py-3 sm:py-6 max-w-xl mx-auto md:max-w-4xl">
+                    <div className="flex flex-col justify-between items-center py-3 sm:py-6 max-w-xl mx-auto md:max-w-4xl">
                       <div className="flex items-center">
                         <div className="hidden sm:block">
                           <NumberBadge>
@@ -224,6 +224,19 @@ function PracticeQuestion(props) {
                           {questionArray[questionNumber]?.question}
                         </span>
                       </div>
+                      {questionArray[questionNumber]?.questionImageUrl ? (
+                        <div className=" max-w-sm pt-4 lg:ml-28">
+                          <img
+                            src={
+                              questionArray[questionNumber]?.questionImageUrl
+                            }
+                            alt=""
+                            className="w-full"
+                          />
+                        </div>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
 
