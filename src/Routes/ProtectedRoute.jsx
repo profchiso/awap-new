@@ -2,13 +2,16 @@ import React from "react";
 import { useEffect } from "react";
 import { Redirect, Route } from "react-router";
 import { connect } from "react-redux";
+import {saveLoginUserDataToState} from "../redux/actions/login"
 
 function ProtectedRoute(props) {
+  
   const [values, setValues] = React.useState({
-    isAuthenticated: !!props?.loginReducer?.token,
+    isAuthenticated: props.loginReducer.token!==""? true:false,
     authenticationPath: "/login",
     redirectPath: "",
   });
+  
 
   useEffect(() => {
     if (values.isAuthenticated === true) {
@@ -28,6 +31,9 @@ function ProtectedRoute(props) {
     values.authenticationPath,
     values.redirectPath,
   ]);
+  if(props.loginReducer.token!==""){
+    return <Redirect to="/" />;
+  }
 
   if (values.isAuthenticated && values.redirectPath === props.path) {
     if (props.path === "/login" || props.path === "/sign-up") {
@@ -53,4 +59,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps)(ProtectedRoute);
+export default connect(mapStateToProps,{saveLoginUserDataToState})(ProtectedRoute);
