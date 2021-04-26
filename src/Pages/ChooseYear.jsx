@@ -3,6 +3,8 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import 'katex/dist/katex.min.css';
+import Latex from 'react-latex-next'
 import {
   FormControl,
   InputLabel,
@@ -12,6 +14,8 @@ import {
 } from "@material-ui/core";
 import MobileHeader from "../components/Header/MobileHeader";
 import { selectPastQuestionYear, } from "../redux/actions/practiceQuestion";
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +36,7 @@ function ChooseYear(props) {
   //const {subject}=props.practiceQuestionReducer
   const classes = useStyles();
   const  token  = props?.loginReducer?.token;
+
 
   const [itemNumber, setitemNumber] = useState();
 
@@ -59,7 +64,7 @@ if(token){
       <div className="flex justify-center pb-40">
         <div className="font-body flex flex-col gap-28 text-center mt-12 sm:mt-40">
           <h3 className="px-3 text-md sm:text-xl md:text-2xl lg:text-3xl font-body">
-            BIOLOGY (SSCE) WAEC Questions
+            BIOLOGY (SSCE) WAEC Questions <Latex>$5_{2}-\frac{3}{4}\binom{4}{7}$ </Latex>
           </h3>
           <div className="flex items-center justify-center">
             <div className="text-center">

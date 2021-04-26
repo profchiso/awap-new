@@ -3869,7 +3869,7 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@^2.20.0:
+commander@^2.19.0, commander@^2.20.0:
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
@@ -7700,6 +7700,27 @@ jss@10.6.0, jss@^10.5.1:
     array-includes "^3.1.2"
     object.assign "^4.1.2"
 
+katex@0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.12.0.tgz#2fb1c665dbd2b043edcf8a1f5c555f46beaa0cb9"
+  integrity sha512-y+8btoc/CK70XqcHqjxiGWBOeIL8upbS0peTPXTvgrh21n1RiWWcIpSWM+4uXq+IAgNh9YYQWdc7LVDPDAEEAg==
+  dependencies:
+    commander "^2.19.0"
+
+katex@^0.10.2:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.10.2.tgz#39973edbb65eda5b6f9e7f41648781e557dd4932"
+  integrity sha512-cQOmyIRoMloCoSIOZ1+gEwsksdJZ1EW4SWm3QzxSza/QsnZr6D4U1V9S4q+B/OLm2OQ8TCBecQ8MaIfnScI7cw==
+  dependencies:
+    commander "^2.19.0"
+
+katex@^0.13.0:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.13.2.tgz#4075b9144e6af992ec9a4b772fa3754763be5f26"
+  integrity sha512-u/KhjFDhyPr+70aiBn9SL/9w/QlLagIXBi2NZSbNnBUp2tR8dCjQplyEMkEzniem5gOeSCBjlBUg4VaiWs1JJg==
+  dependencies:
+    commander "^6.0.0"
+
 keyboard-key@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/keyboard-key/-/keyboard-key-1.1.0.tgz#6f2e8e37fa11475bb1f1d65d5174f1b35653f5b7"
@@ -7815,6 +7836,11 @@ load-json-file@^2.0.0:
     parse-json "^2.2.0"
     pify "^2.0.0"
     strip-bom "^3.0.0"
+
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+  integrity sha1-BJGTngvuVkPuSUp+PaPSuscMbKQ=
 
 loader-runner@^2.4.0:
   version "2.4.0"
@@ -10200,6 +10226,16 @@ react-dev-utils@^11.0.2:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
+react-dom@16.14.0:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
+  integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.19.1"
+
 react-dom@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
@@ -10266,10 +10302,33 @@ react-is@^16.13.1, react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0, react-i
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-latex-next@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-latex-next/-/react-latex-next-2.0.0.tgz#c33b26b7ec18006207c544a0183dbf3cb68e3cf4"
+  integrity sha512-FbabI8S5k6sUodeo1Bu3mobF77c7l8HQLptfha9IEbam7iEUwycgdS6GexlBtKy6Cg9kyr8ZFHdozEaRly514w==
+  dependencies:
+    katex "^0.13.0"
+
+react-latex@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-latex/-/react-latex-2.0.0.tgz#b040e9e2232bcca80c4632fb76a67e1f16eaec2d"
+  integrity sha512-x17uDCfqBgR+5ZF/zplRCuHdEbX22CJlVipOqMUinRMoiOwh5fr3jbjD4zqVQ8pIs4AnF0BWPDR2S7Fyd8Snxw==
+  dependencies:
+    katex "^0.10.2"
+
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-mathjax2@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-mathjax2/-/react-mathjax2-0.0.2.tgz#31a8478d0eb45601d26a66c90682360be062724d"
+  integrity sha512-m63PiOej2OTpcgvT4+VAxTr0zxQVfRmmkSD66QSEcQgSh8ryU/oInlnBCpBJRH6Za5GW8N3/pevTuzI+FG6OkA==
+  dependencies:
+    load-script "^1.0.0"
+    prop-types "^15.6.0"
+    react "^16.0.0"
 
 react-multi-carousel@^2.6.1:
   version "2.6.2"
@@ -10458,6 +10517,15 @@ react-swipeable-views@^0.13.9:
     react-swipeable-views-utils "^0.13.9"
     warning "^4.0.1"
 
+react-tex@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-tex/-/react-tex-1.5.0.tgz#4c391fecb02ba8edcf3826115fb78304611ee96f"
+  integrity sha512-wt9CzCE7bjdNAAftVquY5uWWd8FUgJozRydT9fPte8yc7TG5lkwBJTaJesrWhKfm22WfMYZHCK78NFZcWQ6m0Q==
+  dependencies:
+    katex "0.12.0"
+    react "16.14.0"
+    react-dom "16.14.0"
+
 react-transition-group@2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.9.0.tgz#df9cdb025796211151a436c69a8f3b97b5b07c8d"
@@ -10484,6 +10552,15 @@ react-visibility-sensor@^5.1.1:
   integrity sha512-cTUHqIK+zDYpeK19rzW6zF9YfT4486TIgizZW53wEZ+/GPBbK7cNS0EHyJVyHYacwFEvvHLEKfgJndbemWhB/w==
   dependencies:
     prop-types "^15.7.2"
+
+react@16.14.0, react@^16.0.0:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
 
 react@^17.0.1:
   version "17.0.2"
@@ -11127,6 +11204,14 @@ saxes@^5.0.1:
   integrity sha512-5LBh1Tls8c9xgGjw3QrMwETmTMVk0oFgvrFSvWx62llR2hcEInrKNZ2GZCCuuy2lvWrdl5jhbpeqc5hRYKFOcw==
   dependencies:
     xmlchars "^2.2.0"
+
+scheduler@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.19.1.tgz#4f3e2ed2c1a7d65681f4c854fa8c5a1ccb40f196"
+  integrity sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
 
 scheduler@^0.20.2:
   version "0.20.2"
