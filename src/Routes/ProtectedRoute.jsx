@@ -7,7 +7,7 @@ import {saveLoginUserDataToState} from "../redux/actions/login"
 function ProtectedRoute(props) {
   
   const [values, setValues] = React.useState({
-    isAuthenticated: props.loginReducer.token!==""? true:false,
+    isAuthenticated: !!props?.loginReducer?.token,
     authenticationPath: "/login",
     redirectPath: "",
   });
@@ -31,9 +31,9 @@ function ProtectedRoute(props) {
     values.authenticationPath,
     values.redirectPath,
   ]);
-  if(props.loginReducer.token!==""){
-    return <Redirect to="/" />;
-  }
+  // if(props.loginReducer.token!==""){
+  //   return <Redirect to="/" />;
+  // }
 
   if (values.isAuthenticated && values.redirectPath === props.path) {
     if (props.path === "/login" || props.path === "/sign-up") {

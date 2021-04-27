@@ -17,9 +17,9 @@ export const login = (userData) => {
             );
             console.log(loggedInUser)
             if (loggedInUser.data.success) {
-                dispatch(saveLoginUserDataToState(loggedInUser.data.data));
+                dispatch(saveLoginUserDataToState(loggedInUser.data));
             } else {
-                dispatch(loginError(loggedInUser.data.data));
+                dispatch(loginError(loggedInUser.data));
 
             }
             //   loggedInUser.status === 200 &&
