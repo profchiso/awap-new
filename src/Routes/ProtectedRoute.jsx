@@ -31,6 +31,13 @@ function ProtectedRoute(props) {
     values.redirectPath,
   ]);
   
+  if(props.loginReducer.token!==""){
+    props.path==="/login" || props.path === "/sign-up"?  <Redirect to="/" />: (
+      <Route {...props} path={props.path}>
+        {props.children}
+      </Route>
+    );
+  }
 
   if (values.isAuthenticated && values.redirectPath === props.path) {
     if (props.path === "/login" || props.path === "/sign-up") {
