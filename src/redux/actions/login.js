@@ -15,15 +15,15 @@ export const login = (userData) => {
                 userData,
                 requestHeaders
             );
-            console.log(loggedInUser)
-            if (loggedInUser.data.success) {
-                dispatch(saveLoginUserDataToState(loggedInUser.data.data));
-            } else {
-                dispatch(loginError(loggedInUser.data.data));
-
-            }
-            //   loggedInUser.status === 200 &&
+            // console.log(loggedInUser.data)
+            // if (loggedInUser.success) {
             //     dispatch(saveLoginUserDataToState(loggedInUser.data));
+            // } else {
+            //     dispatch(loginError(loggedInUser.data));
+
+            // }
+            loggedInUser.status === 200 &&
+                dispatch(saveLoginUserDataToState(loggedInUser.data));
         } catch (error) {
             console.log("login error", error);
             dispatch(loginError(error.response.data));
