@@ -12,7 +12,6 @@ function ProtectedRoute(props) {
     redirectPath: "",
   });
   
-
   useEffect(() => {
     if (values.isAuthenticated === true) {
       setValues({
@@ -31,9 +30,7 @@ function ProtectedRoute(props) {
     values.authenticationPath,
     values.redirectPath,
   ]);
-  // if(props.loginReducer.token!==""){
-  //   return <Redirect to="/" />;
-  // }
+  
 
   if (values.isAuthenticated && values.redirectPath === props.path) {
     if (props.path === "/login" || props.path === "/sign-up") {
