@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 function SignUpBody(props) {
   const classes = useStyles();
   const history = useHistory();
-  const [values, setValues] = React.useState({
+  const [values, setValues] = useState({
     amount: "",
     password: "",
     weight: "",
@@ -43,6 +43,7 @@ function SignUpBody(props) {
     firstName: "",
     lastName: "",
   });
+  const [isButtonClicked, setisButtonClicked] = useState(false);
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -58,7 +59,7 @@ function SignUpBody(props) {
     event.preventDefault();
   };
 
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
 
   const handleCheckChange = (event) => {
     setChecked(event.target.checked);
@@ -86,7 +87,15 @@ function SignUpBody(props) {
     if (!!props?.success) {
       history.push("/");
     }
+
+    setisButtonClicked(true);
   };
+
+  React.useEffect(() => {
+    if (!props?.success) {
+      setisButtonClicked(false);
+    }
+  }, [props.error]);
 
   return (
     <div className="flex justify-center mt-4">
@@ -239,9 +248,36 @@ function SignUpBody(props) {
               <div className="flex justify-center py-3 px-20">
                 <button
                   onClick={(e) => handleSignUp(e)}
-                  className="text-white bg-primary shadow-primary px-14 py-2 rounded-md focus:outline-none text-sm lg:text-base"
+                  className="flex gap-5 text-white bg-primary shadow-primary px-14 py-2 rounded-md focus:outline-none text-sm lg:text-base"
                 >
                   Continue
+                  {isButtonClicked &&
+                    values.email &&
+                    values.firstName &&
+                    values.lastName &&
+                    values.password &&
+                    values.confirmPassword && (
+                      <svg
+                        class="animate-spin h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          class="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          stroke-width="4"
+                        ></circle>
+                        <path
+                          class="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                    )}
                 </button>
               </div>
             </form>

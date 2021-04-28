@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function LoginBody(props) {
- 
   const classes = useStyles();
   const [values, setValues] = React.useState({
     amount: "",
@@ -39,11 +38,12 @@ function LoginBody(props) {
     email: "",
     showPassword: false,
   });
+  const [isButtonClicked, setisButtonClicked] = useState(false);
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
-    props.clearLoginRelatedErrors()
-    props.registrationError()
+    props.clearLoginRelatedErrors();
+    props.registrationError();
   };
 
   const handleClickShowPassword = () => {
@@ -64,7 +64,15 @@ function LoginBody(props) {
   const handleLogin = (e) => {
     e.preventDefault();
     props.loginRequest({ email, password });
+      setisButtonClicked(true);
   };
+
+  React.useEffect(() => {
+    if (props.error){
+      setisButtonClicked(false);
+    }
+  }, [props.error])
+
 
   return (
     <div className="flex justify-center mt-4">
@@ -118,12 +126,15 @@ function LoginBody(props) {
                   />
                 </FormControl>
               </div>
-              
-             { values.password?
-              <div>
-                <span style={{ color: "red" }}>{props.error}</span>
-              </div>: ""}
-              
+
+              {values.password ? (
+                <div>
+                  <span style={{ color: "red" }}>{props.error}</span>
+                </div>
+              ) : (
+                ""
+              )}
+
               <div className="pb-12 mt-3 flex flex-col justify-start items-start sm:flex-row sm:justify-center sm:items-center">
                 <div className="flex items-center">
                   <Checkbox
@@ -143,10 +154,34 @@ function LoginBody(props) {
               </div>
               <div className="flex justify-center py-3 px-20">
                 <button
+                  type="button"
                   onClick={(e) => handleLogin(e)}
-                  className="text-white bg-primary shadow-primary px-14 py-2 rounded-md focus:outline-none text-sm lg:text-base"
+                  className="text-white flex gap-5 bg-primary shadow-primary px-12 py-2 rounded-md focus:outline-none text-sm lg:text-base"
                 >
-                  Continue
+                  <span className="">Continue</span>
+
+                  {isButtonClicked && values.email && values.password && (
+                    <svg
+                      class="animate-spin h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        class="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        stroke-width="4"
+                      ></circle>
+                      <path
+                        class="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                  )}
                 </button>
               </div>
             </form>
