@@ -3,6 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+
 import {
   FormControl,
   InputLabel,
@@ -12,6 +13,8 @@ import {
 } from "@material-ui/core";
 import MobileHeader from "../components/Header/MobileHeader";
 import { selectPastQuestionYear, } from "../redux/actions/practiceQuestion";
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,17 +32,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ChooseYear(props) {
-  //const {subject}=props.practiceQuestionReducer
+  console.log(props)
   const classes = useStyles();
   const  token  = props?.loginReducer?.token;
+
 
   const [itemNumber, setitemNumber] = useState();
 
   const handleChange = async(event) => {
     setitemNumber(event.target.value);
     props.selectPastQuestionYear(event.target.value);
-    //props.fetchPracticeQuestion({subject:subject.toLowerCase(),year:event.target.value})
-    // console.log(props.practiceQuestionReducer)
   };
 
   const range = (start, end) => {
@@ -59,7 +61,7 @@ if(token){
       <div className="flex justify-center pb-40">
         <div className="font-body flex flex-col gap-28 text-center mt-12 sm:mt-40">
           <h3 className="px-3 text-md sm:text-xl md:text-2xl lg:text-3xl font-body">
-            BIOLOGY (SSCE) WAEC Questions
+            BIOLOGY (SSCE) WAEC Questions 
           </h3>
           <div className="flex items-center justify-center">
             <div className="text-center">
