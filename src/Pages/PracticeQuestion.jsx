@@ -108,7 +108,6 @@ function PracticeQuestion(props) {
 
         if (item.length) {
           onSelectedOptionChange(item[0].userSelectedAnswer, item[0]);
-          // setisClicked(true);
         } else {
           setisClicked(false);
         }
@@ -127,7 +126,6 @@ function PracticeQuestion(props) {
 
         if (item.length) {
           onSelectedOptionChange(item[0].userSelectedAnswer, item[0]);
-          // setisClicked(true);
         } else {
           setisClicked(false);
         }
