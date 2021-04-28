@@ -1,8 +1,14 @@
-/* The styles in this css file is added because the css names here are not supported in
- TAILWIND 2.0 at the time of writing (22nd February 2021), & installing another 
- package(e.g tailwind-filter-utilities) is unneccesary for just one image styling. */
+/* The styles in this css file is added because:
 
-.MuiInputBase-input,.MuiTypography-root {
+  1. The css names here are not supported in
+     TAILWIND 2.0 at the time of writing (22nd February 2021), & installing another 
+     package(e.g tailwind-filter-utilities) is unneccesary for just one image styling.
+
+  2. Some Material-UI styling had to be overidden
+ */
+
+.MuiInputBase-input,
+.MuiTypography-root {
   font-family: "Google Sans", "Segoe UI", sans-serif !important;
 }
 
@@ -47,27 +53,27 @@
     background: white !important;
     border-radius: 20px;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
     background: white;
   }
 }
 
-.py-005{
-padding-top: 0.5px;
-padding-bottom: 0.5px;
+.py-005 {
+  padding-top: 0.5px;
+  padding-bottom: 0.5px;
 }
 
-.MuiPagination-ul{
-  a.MuiButtonBase-root:hover{
-   color: #0D065F;
+.MuiPagination-ul {
+  a.MuiButtonBase-root:hover {
+    color: #0d065f;
   }
 }
 
-li.recharts-legend-item{
- line-height: 1.6rem;
+li.recharts-legend-item {
+  line-height: 1.6rem;
 }
 
 .MuiPaginationItem-page.Mui-selected {
-   background-color: rgba(0, 0, 0, 0) !important; 
+  background-color: rgba(0, 0, 0, 0) !important;
 }

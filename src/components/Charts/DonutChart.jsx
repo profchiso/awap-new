@@ -51,7 +51,7 @@ function DonutChart(props) {
 
   return (
     <div>
-      <div className="flex flex-col relative top-40 left-32 text-3xl font-medium text-primary">
+      <div className="flex flex-col relative top-40 left-32 text-3xl font-medium">
         {/* <p>Percent Score</p> */}
         <p>{`${roundedPercentScore}%`}</p>
       </div>
