@@ -193,7 +193,7 @@ function HomeBody(props) {
             <TextCarousel />
           </h3>
           <Link to="/sign-up" className={`${token ? "hidden" : ""}`}>
-            <button className="text-white bg-primary shadow-primary px-24 py-2.5 mt-8 rounded-md focus:outline-none text-base font-semibold font-body lg:text-xl">
+            <button className="text-white bg-primary shadow-primary px-24 py-2.5 mt-8 rounded-full focus:outline-none text-base font-semibold font-body lg:text-xl">
               Join
             </button>
           </Link>
@@ -234,13 +234,13 @@ function HomeBody(props) {
           </div>
           {token ? (
             <Link to="/">
-              <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-16 rounded-md font-body rounded-full">
+              <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-16 font-body rounded-full">
                 Invite a Friend
               </button>
             </Link>
           ) : (
             <Link to="/sign-up">
-              <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 rounded-md font-body rounded-full">
+              <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 font-body rounded-full">
                 Get Started
               </button>
             </Link>
