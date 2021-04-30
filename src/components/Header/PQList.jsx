@@ -79,7 +79,7 @@ function SimpleMenu(props) {
         PaperProps={{
           style: {
             left: '50%',
-            transform: 'translateX(-10%) translateY(55%)',
+            transform: 'translateX(-10%) translateY(51%)',
           }
         }}
       >
