@@ -4,7 +4,7 @@ import aplusIcon from "../../assets/svgs/AplusIcon.svg";
 import selfPacedLearning from "../../assets/svgs/SelfPacedLearning.svg";
 import testTimer from "../../assets/svgs/TestTimer.svg";
 import ERM from "../../assets/svgs/ERM.svg";
-import someb from "../../assets/images/somebody.jpeg";
+import someb from "../../assets/images/somebody3.jpeg";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -19,8 +19,6 @@ import TextCarousel from "../Carousels/TextCarousel";
 import { Link } from "react-router-dom";
 import useWindowDimensions from "../../Hooks/UseWindowDimension";
 import { connect } from "react-redux";
-// import { clearLoginRelatedErrors } from "../../redux/actions/login";
-// import { registrationError } from "../../redux/actions/register";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -40,18 +38,15 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(10),
     height: theme.spacing(10),
   },
+  xlarge: {
+    width: theme.spacing(14),
+    height: theme.spacing(14),
+  },
 }));
 
 function HomeBody(props) {
   const { token } = props.loginReducer;
   // console.log('props', props);
-
-  //THIS IS CAUSING FUNCTIONS IN THE WEBSITE TO LOOP FOREVER, WHICH IS BAD!
-
-  // React.useEffect(() => {
-  //   props.registrationError();
-  //   props.clearLoginRelatedErrors();
-  // });
 
   const [secondaySchoolContent, setsecondaySchoolContent] = React.useState(
     <ExploreContentSenior />
@@ -213,11 +208,20 @@ function HomeBody(props) {
         <div className="bg-bodyLightBlue bg-cover bg-center bg-no-repeat py-48 lg:py-64 w-full">
           <div className="bg-card bg-cover bg-center bg-no-repeat sm:py-30 lg:pt-36 lg:pb-60 pt-12 pb-24 max-w-5/6 md:max-w-3/4 mx-auto text-primary text-center">
             <div className=" pb-4">
-              <Avatar
-                alt="Remy Sharp"
-                src={someb}
-                className={`${classes.large} mx-auto sm:w-auto`}
-              />
+              {width < 1024 ? (
+                <Avatar
+                  alt="Remy Sharp"
+                  src={someb}
+                  className={`${classes.large} mx-auto sm:w-auto`}
+                />
+              ) : (
+                <Avatar
+                  alt="Remy Sharp"
+                  src={someb}
+                  className={`${classes.xlarge} mx-auto sm:w-auto`}
+                />
+              )}
+              <p className="py-2  text-sm md:text-lg sm:py-4 opacity-75">Remy Sharp</p>
             </div>
             <div className="opacity-50 text-sm md:text-lg top-0 ">
               <p className="sm:whitespace-nowrap">
@@ -252,9 +256,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, 
-//   {
-//   clearLoginRelatedErrors,
-//   registrationError,
-// }
-)(HomeBody);
+export default connect(mapStateToProps)(HomeBody);
