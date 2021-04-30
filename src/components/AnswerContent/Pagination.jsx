@@ -17,10 +17,12 @@ export default function PaginationNavLink(props) {
   const classes = useStyles();
 
   return (
+    <>
           <Pagination
             count={props.count}
             boundaryCount={2}
             shape="rounded"
+            //Take all the functions in this onchange to the PraticeQuestion Page, and link it with prevNext Question!
             onChange={(event, page) => {
               props.setQuestionNumber(page - 1);
               props.goToQuestion(page);
@@ -36,6 +38,8 @@ export default function PaginationNavLink(props) {
               />
             )}
           />
+          {console.log()}
+           </>
   );
 }
 

@@ -346,7 +346,7 @@ function PracticeQuestion(props) {
                   )}
 
                   <div className="">
-                    <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white">
+                    <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white prevNextSpecial">
                       <PreviousNextQstn
                         handleOpen={handleOpen}
                         increaseQuestionNumber={increaseQuestionNumber}
