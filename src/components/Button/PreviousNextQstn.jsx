@@ -12,7 +12,7 @@ export default function PreviousNextQstn(props) {
       <div>
         <button
           onClick={() => props.decreaseQuestionNumber()}
-          className="absolute rounded-full left-16 top-1/3 shadow-primary focus:outline-none transform scale-75"
+          className="fixed rounded-full left-16 top-1/3 shadow-primary focus:outline-none transform scale-75"
         >
           <PreviousIcon />
         </button>
@@ -21,14 +21,14 @@ export default function PreviousNextQstn(props) {
         {props.questionNumber + 1 === props.questionLength ? (
           <button
             onClick={() => props.handleOpen()}
-            className="absolute right-16 top-1/3 shadow-primary rounded-full focus:outline-none  transform scale-75"
+            className="fixed right-16 top-1/3 shadow-primary rounded-full focus:outline-none  transform scale-75"
           >
             <NextBtn />
           </button>
         ) : (
           <button
             onClick={() => props.increaseQuestionNumber()}
-            className="absolute right-16 top-1/3 shadow-primary rounded-full focus:outline-none  transform scale-75"
+            className="fixed right-16 top-1/3 shadow-primary rounded-full focus:outline-none  transform scale-75"
           >
             <NextBtn />
           </button>
