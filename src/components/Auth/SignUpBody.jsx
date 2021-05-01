@@ -281,8 +281,9 @@ function SignUpBody(props) {
                 </button>
               </div>
             </form>
-            <div className="flex justify-center py-3 px-20">or</div>
-            <GoogleButton textName="Sign Up" />
+            {/* <div className="flex justify-center py-3 px-20">or</div>
+            <GoogleButton textName="Sign Up" /> */}
+            <div className="my-4"></div>
           </div>
 
           <div className="justify-center w-full bg-gray-50 h-full py-6">

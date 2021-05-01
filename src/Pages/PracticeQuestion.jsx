@@ -143,7 +143,7 @@ function PracticeQuestion(props) {
   if (token) {
     return (
       <div className="sm:max-h-screen select-none" onContextMenu={disable}>
-        <PracticeHeader handleOpen={handleOpen} />
+        <PracticeHeader handleOpen={handleOpen} showFilter={true}/>
         {questionArray.length ? (
           <>
             <Modal
@@ -165,7 +165,7 @@ function PracticeQuestion(props) {
                   <div className="py-12 flex-1 -mr-12">
                     <h3>Finish Past Question?</h3>
                     <p className="pt-8 font-medium">
-                      Are you sure you want to end this past question
+                      Are you sure you want to end this past question?
                     </p>
                     <div className="pt-16 pb-6 flex gap-5 items-center justify-center">
                       <Link to="/stats">

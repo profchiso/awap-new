@@ -64,15 +64,14 @@ function LoginBody(props) {
   const handleLogin = (e) => {
     e.preventDefault();
     props.loginRequest({ email, password });
-      setisButtonClicked(true);
+    setisButtonClicked(true);
   };
 
   React.useEffect(() => {
-    if (props.error){
+    if (props.error) {
       setisButtonClicked(false);
     }
-  }, [props.error])
-
+  }, [props.error]);
 
   return (
     <div className="flex justify-center mt-4">
@@ -185,8 +184,9 @@ function LoginBody(props) {
                 </button>
               </div>
             </form>
-            <div className="flex justify-center py-3 px-20">or</div>
-            <GoogleButton textName="Log In" />
+            {/* <div className="flex justify-center py-3 px-20">or</div>
+            <GoogleButton textName="Log In" /> */}
+            <div className="my-12"></div>
           </div>
 
           <div className="justify-center w-full bg-gray-50 h-full py-6">
