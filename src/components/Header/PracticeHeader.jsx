@@ -51,7 +51,7 @@ function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...prop
   };
 
   return (
-    <div className=" px-6 lg:px-16 shadow-primary py-3 mb-8">
+    <div className=" px-6 lg:px-16 shadow-primary py-3">
       {isLoggedIn ? null : <Redirect to="/login" />}
 
       <div className="flex items-center max-w-screen-2xl mx-auto">

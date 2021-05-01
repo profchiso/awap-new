@@ -11,9 +11,11 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { Button } from "@material-ui/core";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
-import PreviousNextQstn from "../components/Button/PreviousNextQstn";
 import { Link, Redirect } from "react-router-dom";
 import { addSelectedAnswerToArray } from "../redux/actions/practiceQuestion";
+import useWindowDimensions from "../Hooks/UseWindowDimension";
+// import { ReactComponent as PreviousIcon } from "../assets/svgs/PreviousIcon.svg";
+import { ReactComponent as NextBtn } from "../assets/svgs/NextBtn.svg";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -36,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 function PracticeQuestion(props) {
   const { userSelectedAnwser } = props.practiceQuestionReducer;
   const classes = useStyles();
+  const { width } = useWindowDimensions();
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
   const [isClicked, setisClicked] = useState(false);
@@ -61,7 +64,6 @@ function PracticeQuestion(props) {
     setValue(option);
     setisClicked(true);
     questionObj.userSelectedAnswer = option;
-    // console.log('questionObj',questionObj)
     props.addSelectedAnswerToArray(questionObj);
   };
 
@@ -83,11 +85,8 @@ function PracticeQuestion(props) {
         let item = userSelectedAnwser.filter(
           (e) => e.questionNumber === questionNumber + 2
         );
-        // console.log('item from increaseQuestionNumber', item, '\n', 'questionNumber',questionNumber+2)
-
         if (item.length) {
           onSelectedOptionChange(item[0].userSelectedAnswer, item[0]);
-          // setisClicked(true);
         } else {
           setisClicked(false);
         }
@@ -104,7 +103,6 @@ function PracticeQuestion(props) {
         let item = userSelectedAnwser.filter(
           (e) => e.questionNumber === questionNumber
         );
-        // console.log('item from decreaseQuestionNumber', item, '\n', 'questionNumber',questionNumber)
 
         if (item.length) {
           onSelectedOptionChange(item[0].userSelectedAnswer, item[0]);
@@ -116,14 +114,11 @@ function PracticeQuestion(props) {
   };
 
   const goToQuestion = (currentPage) => {
-    // const questionNumbr= questionArray[questionNumber]?.questionNumber
     if (currentPage >= 0 && currentPage < questionArray.length) {
       if (userSelectedAnwser.length > 0) {
         let item = userSelectedAnwser.filter(
           (e) => e.questionNumber === currentPage
         );
-        // console.log('item from goToQuestion', item, '\n', 'currentPage',currentPage)
-
         if (item.length) {
           onSelectedOptionChange(item[0].userSelectedAnswer, item[0]);
         } else {
@@ -133,11 +128,9 @@ function PracticeQuestion(props) {
     }
   };
 
-  const increasePaginationNumber = (paginationNumber) => {
-    return paginationNumber++;
-  };
-  const decreasePaginationNumber = (paginationNumber) => {
-    return paginationNumber--;
+  const handlePaginationChange = (page) => {
+    setQuestionNumber(page - 1);
+    goToQuestion(page);
   };
 
   const disable = (e) => {
@@ -201,7 +194,7 @@ function PracticeQuestion(props) {
               </Fade>
             </Modal>
             <div>
-              <div className="flex relative max-w-screen-2xl mx-auto">
+              <div className="flex relative max-w-screen-2xl mx-auto  mt-8">
                 <div className="flex-1  pb-40 sm:pb-0">
                   <div className="max-w-3xl mx-auto px-6 sm:px-8">
                     <div className="w-full flex justify-center -mt-2 mb-2 sm:hidden">
@@ -346,26 +339,59 @@ function PracticeQuestion(props) {
                   )}
 
                   <div className="">
-                    <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white prevNextSpecial">
-                      <PreviousNextQstn
-                        handleOpen={handleOpen}
-                        increaseQuestionNumber={increaseQuestionNumber}
-                        decreaseQuestionNumber={decreaseQuestionNumber}
-                        questionLength={questionArray.length}
-                        questionNumber={questionNumber}
-                      />
+                    <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white">
+                      {width > 640 ? (
+                        ""
+                      ) : (
+                        <div className="flex justify-evenly items-center py-6  lg:max-w-2xl mx-auto">
+                          <div>
+                            <button
+                              onClick={() => decreaseQuestionNumber()}
+                              className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                            >
+                              PREVIOUS
+                            </button>
+                          </div>
+                          <div>
+                            {questionNumber + 1 === questionArray.length ? (
+                              <button
+                                onClick={() => handleOpen()}
+                                className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                              >
+                                FINISH
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => increaseQuestionNumber()}
+                                className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                              >
+                                NEXT
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      )}
                     </div>
 
-                    <div className="hidden sm:flex justify-center items-center align-text-bottom mt-12 px-8 pb-40 sm:mt-0 sm:pb-20 sm:-mt-8 ml-16">
+                    {width > 640 &&
+                    questionNumber + 1 === questionArray.length ? (
+                      <button
+                        onClick={() => handleOpen()}
+                        className="fixed openModalNextBtn z-10 shadow-primary rounded-full focus:outline-none transform md:scale-125"
+                      >
+                        <NextBtn />
+                      </button>
+                    ) : (
+                      ""
+                    )}
+
+                    <div className="hidden sm:flex justify-center items-center align-text-bottom mt-12 px-8 pb-40 sm:pb-20 md:mt-4 ml-16 uniqueBtn">
                       <Pagination
                         count={questionArray.length}
                         setQuestionNumber={setQuestionNumber}
-                        goToQuestion={goToQuestion}
-                        increasePaginationNumber={increasePaginationNumber}
-                        decreasePaginationNumber={decreasePaginationNumber}
                         prevButtonClicked={prevButtonClicked}
                         nextButtonClicked={nextButtonClicked}
-                        // setisClicked={setisClicked}
+                        handlePaginationChange={handlePaginationChange}
                       />
                     </div>
                   </div>
