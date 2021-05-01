@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { PieChart, Pie, Cell, Legend, Label, Tooltip } from "recharts";
+import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { connect } from "react-redux";
 
 const colors = [
@@ -27,7 +26,7 @@ function DonutChart(props) {
   let totalQuestionsCount = questionArray.length;
 
   const data = [
-    { name: "Questions unanswered", value: unAnwseredQuestionsCount },
+    { name: "Unanswered Questions", value: unAnwseredQuestionsCount },
     { name: "Questions answered correctly", value: correctAnswersCount },
     { name: "Questions answered incorrectly", value: wrongAnswersCount },
   ];
@@ -51,35 +50,57 @@ function DonutChart(props) {
 
   return (
     <div>
-      <div className="flex flex-col relative top-40 left-32 text-3xl font-medium">
-        {/* <p>Percent Score</p> */}
+      <div className="flex flex-col relative top-52 left-28 text-3xl font-medium">
         <p>{`${roundedPercentScore}%`}</p>
       </div>
-      <PieChart height={297} width={540}>
-        <Pie
-          data={data}
-          cx="50%"
-          cy="50%"
-          innerRadius={80}
-          outerRadius={130}
-          dataKey="value"
-          nameKey="name"
-          fill="gray"
-        >
-          {data.map((entry, index) => (
-            <Cell key={index} fill={colors[index % colors.length]} />
-          ))}
-        </Pie>
-        <Tooltip />
-        <Legend
-          align="right"
-          layout="vertical"
-          verticalAlign="middle"
-          iconSize={12}
-          iconType="circle"
-          wrapperStyle={{ fontSize: "14px", paddingLeft: "10px" }}
-        />
-      </PieChart>
+      <div className="flex flex-col lg:flex-row items-center gap-14">
+        <div className=" flex flex-col items-center">
+          <div className="mb-4">
+            <p className="text-lg font-medium">Percent Score</p>
+          </div>
+          <PieChart height={297} width={270}>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              innerRadius={80}
+              outerRadius={130}
+              dataKey="value"
+              nameKey="name"
+              fill="gray"
+            >
+              {data.map((entry, index) => (
+                <Cell key={index} fill={colors[index % colors.length]} />
+              ))}
+            </Pie>
+            <Tooltip />
+       
+          </PieChart>
+        </div>
+
+        <div>
+          <div className="flex items-center mt-4">
+            <div className="flex flex-col gap-1">
+              <div className="bg-blueEllipse text-white  text-center font-semibold p-3.5  bg-center bg-no-repeat">
+                {unAnwseredQuestionsCount}
+              </div>
+
+              <div className="bg-greenEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
+                {correctAnswersCount}
+              </div>
+
+              <div className="bg-orangeEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
+                {wrongAnswersCount}
+              </div>
+            </div>
+            <div className="flex flex-col gap-9">
+              <div className="ml-3">Questions answered correctly</div>
+              <div className="ml-3">Questions answered incorrectly</div>
+              <div className="ml-3">Unanswered Questions</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

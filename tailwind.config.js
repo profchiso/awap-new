@@ -9,6 +9,9 @@ module.exports = {
         footer: "url('../images/MainFooter.svg')",
         bodyLightBlue: "url('../images/GradientWithDots.svg')",
         card: "url('../images/bgCard.svg')",
+        orangeEllipse: "url('../images/orangeEllipse.svg')",
+        blueEllipse: "url('../images/blueEllipse.svg')",
+        greenEllipse: "url('../images/greenEllipse.svg')",
       }),
       width: {
         '1/7': '14.2857143%',

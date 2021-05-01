@@ -14,7 +14,7 @@ export const fetchPracticeQuestion = (practiceQuestionData) => {
                 dispatch(saveFetchedPraticeQuestionToState(fetchedPracticeQuestion.data));
         } catch (error) {
             console.log('Error', error);
-            dispatch(APIError(error.response.data));
+            dispatch(APIError(error.response?.data));
         }
     };
 };
