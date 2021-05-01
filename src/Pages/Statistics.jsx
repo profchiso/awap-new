@@ -11,7 +11,7 @@ function Statistics(props) {
   return (
     <AnswerLayout>
       <div className="max-w-screen-2xl mx-auto p-6 sm:px-16 w-full">
-        <h2>Statistics</h2>
+        <h2 className="text-2xl">Statistics</h2>
 
         <div>
           <div className="flex mt-8">
