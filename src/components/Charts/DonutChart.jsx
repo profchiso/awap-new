@@ -2,9 +2,10 @@ import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { connect } from "react-redux";
 
 const colors = [
-  "#F14008", // lightOrange
   "#0D005F", // blue
   "#A8EC01", // lightGreen
+  "#F14008", // lightOrange
+
 ];
 
 function DonutChart(props) {
