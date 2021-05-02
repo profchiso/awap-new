@@ -94,9 +94,9 @@ function DonutChart(props) {
               </div>
             </div>
             <div className="flex flex-col gap-9">
+              <div className="ml-3">Unanswered Questions</div>
               <div className="ml-3">Questions answered correctly</div>
               <div className="ml-3">Questions answered incorrectly</div>
-              <div className="ml-3">Unanswered Questions</div>
             </div>
           </div>
         </div>
