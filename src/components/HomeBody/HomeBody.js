@@ -228,7 +228,7 @@ function HomeBody(props) {
                 I love the past questions, and how they were solved.
               </p>
               <p className="whitespace-nowrap">
-                They helped me prepare well for my WAEC !
+                They helped me prepare well for my exams !
               </p>
             </div>
           </div>
