@@ -1,11 +1,12 @@
-import React from "react";
+import { Link } from 'react-router-dom';
 
 export default function FooterRowThree() {
   return (
     <div className="max-w-screen-2xl mx-auto">
-      <div className="text-center text-xs pb-3 flex flex-wrap justify-center">
-        <div className="py-2 pr-1">Ⓒ AWESUMEDGE 2020 - TERMS {`&`}</div>
-        <div className="py-2">CONDITIONS PRIVACY POLICY</div>
+      <div className="text-center text-xs pb-3 flex flex-wrap gap-4 justify-center">
+        <div className="py-2 pr-1">Ⓒ AWESUMEDGE 2021 </div>
+        <div className="py-2"><Link to="/" className="text-white hover:text-white hover:underline"> TERMS {`&`} CONDITIONS</Link> </div>
+        <div className="py-2"><Link to="/privacy" className="text-white hover:text-white hover:underline"> PRIVACY POLICY</Link></div>
       </div>
     </div>
   );

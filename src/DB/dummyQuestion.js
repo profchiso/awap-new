@@ -5,7 +5,6 @@ export const questionArray = [{
         "optionB": "1B",
         "optionC": "1C",
         "optionD": "1D",
-
     },
     {
         "questionNumber": 2,

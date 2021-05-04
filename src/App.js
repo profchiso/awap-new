@@ -18,6 +18,7 @@ import PracticeQuestion from "./Pages/PracticeQuestion";
 import { biologyPQYear } from "./DB/BiologyPQ";
 import MobilePq from "./Pages/MobilePq";
 import Statistics from "./Pages/Statistics";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 
 const theme = createMuiTheme({
   palette: {
@@ -67,6 +68,8 @@ export default function App() {
               {/* <ProtectedRoute path="/stats">
                 <Statistics />
               </ProtectedRoute> */}
+
+              <Route path="/privacy" component={PrivacyPolicy} />
 
               <Route path="/stats" component={Statistics} />
 
