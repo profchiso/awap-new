@@ -4,7 +4,7 @@ import { biologyPQYear } from "../../DB/BiologyPQ";
 
 export default function WebSideNav() {
   return (
-    <div className="bg-primary h-screen min-w-xs1 scrollSection">
+    <div className="bg-primary h-full fixed min-w-xs1 scrollSection -mt-2">
       <div className="text-white pb-24">
         <div className="pt-10 pl-8 mb-8">
           <h4 >Year</h4>
