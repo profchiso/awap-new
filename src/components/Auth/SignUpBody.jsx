@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function SignUpBody(props) {
+  
   const classes = useStyles();
   const history = useHistory();
   const [values, setValues] = useState({
