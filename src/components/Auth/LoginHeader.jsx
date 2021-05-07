@@ -1,9 +1,13 @@
 import React from 'react';
+import {connect} from "react-redux"
 import { ReactComponent as AwesumEdgeLogo } from '../../assets/svgs/AwesumEdgeLogo.svg';
 import awesumBook from '../../assets/svgs/AwesumBook.svg';
 import { Link } from 'react-router-dom';
+import { registrationError,clearRegisterRelatedErrors } from "../../redux/actions/register";
+import { clearLoginRelatedErrors } from "../../redux/actions/login";
 
-export default function LoginHeader() {
+ function LoginHeader(props) {
+   
   return (
     <div className="shadow-awesumOne bg-white">
       <div className="max-w-screen-2xl mx-auto flex justify-between items-center py-4 px-10 ">
@@ -23,6 +27,10 @@ export default function LoginHeader() {
         <div>
           <div className="flex ">
             <Link
+            onClick={()=>{
+               props.clearRegisterRelatedErrors();
+               props.clearLoginRelatedErrors();
+            }}
               to={
                 window.location.pathname.includes('login')
                   ? '/sign-up'
@@ -38,3 +46,14 @@ export default function LoginHeader() {
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps, {
+  clearLoginRelatedErrors,
+  registrationError,
+  clearRegisterRelatedErrors
+})(LoginHeader);
+
