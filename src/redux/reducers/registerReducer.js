@@ -1,5 +1,4 @@
 const initialState = {
-
     user: {},
     isSuccessful: false,
     error: {},
@@ -17,8 +16,8 @@ export const registerReducer = (state = initialState, actions) => {
             error: {},
             message: payload.data.message
         };
-    } else if (type === 'REGISTRATION_ERROR' || type === 'LOGIN_ERROR') {
-        localStorage.removeItem('token');
+    } else if (type === 'REGISTRATION_ERROR' || type === 'REGISTRATION_ERROR') {
+
         localStorage.removeItem('user');
         return {
             ...state,
@@ -33,6 +32,15 @@ export const registerReducer = (state = initialState, actions) => {
             user: {},
             isSuccessful: false,
             token: '',
+        };
+    } else if (type === 'CLEAR_REGISTER_RELATED_ERROR') {
+        let error = {};
+        let message = "";
+
+        return {
+            ...state,
+            error,
+            message
         };
     }
 

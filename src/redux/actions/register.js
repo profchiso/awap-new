@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL, requestHeaders } from './config';
-import { SAVE_REGISTERED_USER_DATA, REGISTRATION_ERROR } from './types';
+import { SAVE_REGISTERED_USER_DATA, REGISTRATION_ERROR, CLEAR_REGISTER_RELATED_ERROR } from './types';
 
 export const register = (userData) => {
     return async(dispatch) => {
@@ -11,14 +11,14 @@ export const register = (userData) => {
                 requestHeaders
             );
 
-            if (registeredUser.success) {
-                dispatch(saveRegisteredUserDataToState(registeredUser.data));
-              } else {
-                dispatch(registrationError(registeredUser.data));
-              }
-
-            // if (registeredUser.status === 201)
+            // if (registeredUser.success) {
             //     dispatch(saveRegisteredUserDataToState(registeredUser.data));
+            // } else {
+            //     dispatch(registrationError(registeredUser.data));
+            // }
+
+            if (registeredUser.status === 201)
+                dispatch(saveRegisteredUserDataToState(registeredUser.data));
         } catch (error) {
             console.log('Registration error', error);
             dispatch(registrationError(error.response.data));
@@ -36,5 +36,10 @@ export const registrationError = (err) => {
     return {
         type: REGISTRATION_ERROR,
         payload: err,
+    };
+};
+export const clearRegisterRelatedErrors = () => {
+    return {
+        type: CLEAR_REGISTER_RELATED_ERROR,
     };
 };

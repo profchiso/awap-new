@@ -15,7 +15,6 @@ export default function Privacy() {
           </div>
           <br />
           <div>
-            Awesumedge operating as{" "}
             <Link
               to="/"
               className="text-primary hover:text-primary hover:underline"
@@ -311,10 +310,10 @@ export default function Privacy() {
                 <li className="pl-2">
                   to outside auditors who have agreed to keep the information
                   confidential;
-                </li>{" "}
+                </li>
                 <li className="pl-2">
                   as necessary to enforce the Terms of Service;
-                </li>{" "}
+                </li>
                 <li className="pl-2">
                   as necessary to maintain, safeguard and preserve all the
                   rights and property of AwesumEdge LLC;

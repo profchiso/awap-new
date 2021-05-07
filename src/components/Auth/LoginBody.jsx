@@ -10,7 +10,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Link } from "react-router-dom";
 import { clearLoginRelatedErrors } from "../../redux/actions/login";
 import { connect } from "react-redux";
-import { registrationError } from "../../redux/actions/register";
+import { registrationError,clearRegisterRelatedErrors } from "../../redux/actions/register";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,6 +65,7 @@ function LoginBody(props) {
     e.preventDefault();
     props.loginRequest({ email, password });
     setisButtonClicked(true);
+    
   };
 
   React.useEffect(() => {
@@ -216,4 +217,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   clearLoginRelatedErrors,
   registrationError,
+  clearRegisterRelatedErrors
 })(LoginBody);
