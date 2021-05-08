@@ -2,16 +2,14 @@ import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { connect } from "react-redux";
 
 const colors = [
-  "#0D005F", // blue
-  "#A8EC01", // lightGreen
-  "#F14008", // lightOrange
+  "#9ca3af", // ash  unanswered
+  "#0D005F", //  blue correctly
+  "#F14008", // lightOrange incorrectly
 
 ];
 
 function DonutChart(props) {
   const { questionArray } = props.practiceQuestionReducer;
-
-  console.log(questionArray);
 
   let correctAnswers = questionArray.filter(
     (item) => item.userSelectedAnswer === item.answer
@@ -35,19 +33,6 @@ function DonutChart(props) {
   let percentScore = (correctAnswersCount / totalQuestionsCount) * 100;
   let roundedPercentScore = Math.round(percentScore * 10) / 10;
 
-  console.log(
-    "correctAnswersCount:",
-    correctAnswersCount,
-    "\n",
-    "wrongAnswersCount:",
-    wrongAnswersCount,
-    "\n",
-    "unAnwseredQuestionsCount:",
-    unAnwseredQuestionsCount,
-    "\n",
-    "roundedPercentScore:",
-    `${roundedPercentScore}%`
-  );
 
   return (
     <div>
@@ -82,11 +67,11 @@ function DonutChart(props) {
         <div>
           <div className="flex items-center mt-4">
             <div className="flex flex-col gap-1">
-              <div className="bg-blueEllipse text-white  text-center font-semibold p-3.5  bg-center bg-no-repeat">
+              <div className="bg-gray-400 rounded-3xl text-white  text-center font-semibold p-2  bg-center bg-no-repeat">
                 {unAnwseredQuestionsCount}
               </div>
 
-              <div className="bg-greenEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
+              <div className=" bg-blueEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
                 {correctAnswersCount}
               </div>
 

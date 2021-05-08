@@ -4,7 +4,13 @@ import { connect } from "react-redux";
 //import { ReactComponent as QuestionMark } from "../../assets/svgs/QuestionMark.svg";
 
 function UntimedPqIntro(props) {
-  const { questionArray, year, subject } = props.practiceQuestionReducer;
+  const {
+    questionArray,
+    year,
+    subject,
+    isQuestionFetched,
+  } = props.practiceQuestionReducer;
+
   return (
     <div className="flex justify-center mb-24 pb-40 sm:pb-0">
       <div className="font-body flex flex-col gap-28 text-center mt-24 lg:mt-40">
@@ -13,9 +19,12 @@ function UntimedPqIntro(props) {
         </h3>
         <div className="flex items-center justify-center">
           <span className="md:text-2xl pl-3">
-            {questionArray.length
+            {!isQuestionFetched
+              ? "Loading..."
+              : isQuestionFetched && questionArray.length
               ? `${questionArray.length}  Questions  `
-              : `No  Question`}
+              : "No  Question"}
+
           </span>
         </div>
         <div>

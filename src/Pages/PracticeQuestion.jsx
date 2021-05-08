@@ -12,7 +12,10 @@ import Fade from "@material-ui/core/Fade";
 import { Button } from "@material-ui/core";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import { Link, Redirect } from "react-router-dom";
-import { addSelectedAnswerToArray } from "../redux/actions/practiceQuestion";
+import {
+  addSelectedAnswerToArray,
+  submitUserAnswers,
+} from "../redux/actions/practiceQuestion";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 // import { ReactComponent as PreviousIcon } from "../assets/svgs/PreviousIcon.svg";
 import { ReactComponent as NextBtn } from "../assets/svgs/NextBtn.svg";
@@ -36,7 +39,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function PracticeQuestion(props) {
-  const { userSelectedAnwser } = props.practiceQuestionReducer;
+  const {
+    userSelectedAnwser,
+    year,
+    subject,
+    questionType,
+  } = props.practiceQuestionReducer;
+  const submissionData = {
+    submittedQuestionsAndAnswers: userSelectedAnwser,
+    year,
+    subject,
+    pastQuestionType: questionType,
+  };
   const classes = useStyles();
   const { width } = useWindowDimensions();
   const [value, setValue] = useState("");
@@ -143,7 +157,7 @@ function PracticeQuestion(props) {
   if (token) {
     return (
       <div className="sm:max-h-screen select-none" onContextMenu={disable}>
-        <PracticeHeader handleOpen={handleOpen} showFilter={true}/>
+        <PracticeHeader handleOpen={handleOpen} showFilter={true} />
         {questionArray.length ? (
           <>
             <Modal
@@ -170,7 +184,9 @@ function PracticeQuestion(props) {
                     <div className="pt-16 pb-6 flex gap-5 items-center justify-center">
                       <Link to="/stats">
                         <button
-                          onClick={() => console.log("ok")}
+                          onClick={() => {
+                            props.submitUserAnswers(submissionData, token);
+                          }}
                           className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
                         >
                           Yes, Submit
@@ -421,6 +437,7 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, { addSelectedAnswerToArray })(
-  PracticeQuestion
-);
+export default connect(mapStateToProps, {
+  addSelectedAnswerToArray,
+  submitUserAnswers,
+})(PracticeQuestion);

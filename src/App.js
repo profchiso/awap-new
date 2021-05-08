@@ -74,6 +74,8 @@ export default function App() {
 
               <Route path="/stats" component={Statistics} />
 
+              <Route path="/stats" component={Statistics} />
+
               <Route path="/terms" component={TermsPage} />
 
               {biologyPQYear.map((item, index) => (

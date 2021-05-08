@@ -13,7 +13,6 @@ export const loginReducer = (state = initialState, actions) => {
         type === 'SAVE_LOGGED_IN_USER_DATA' ||
         type === "LOGIN_SUCCESS"
     ) {
-        console.log(payload)
         localStorage.setItem('token', JSON.stringify(payload.data.accessToken));
         localStorage.setItem('user', JSON.stringify(payload.data.user));
         let error = {}

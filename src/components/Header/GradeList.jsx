@@ -4,7 +4,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
 import Menu from "@material-ui/core/Menu";
 import { FiChevronRight } from "react-icons/fi";
-
+import {Link} from "react-router-dom"
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -64,12 +64,14 @@ export default function GradeList() {
               onClick={handleClose}
               className={`${classes.menuItem} font-body font-normal flex`}
             >
+              {/* <Link to="404"> */}
               <span className="font-body font-normal flex-1 pr-8">
                 SS1-3 (Grade 9-12)
               </span>
               <span className="justify-self-end">
                 <FiChevronRight />
               </span>
+              {/* </Link> */}
             </MenuItem>
             <MenuItem
               onClick={handleClose}
