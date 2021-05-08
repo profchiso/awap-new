@@ -745,6 +745,575 @@ export default function Terms() {
               The termination of your account with www.awesumedge.com shall
               include any and/or all of the following:
             </div>
+            <div>
+              <ol class="list-lowerAlpha pt-2 list-outside  flex flex-col gap-5 ml-5">
+                <li className="pl-2">
+                  the removal of any access to all or part of the Services
+                  offered within www.awesumedge.com;
+                </li>
+                <li className="pl-2">
+                  the deletion of your password and any and all related
+                  information, files, and any such content that may be
+                  associated with or inside your account, or any part thereof;
+                  and
+                </li>
+                <li className="pl-2">
+                  the barring of any further use of all or part of our Services.
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">SECTION 10 - LINKS</div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              Either AwesumEdge LLC or any third parties may provide links to
+              other websites and/or resources. Thus, you acknowledge and agree
+              that we are not responsible for the availability of any such
+              external sites or resources, and as such, we do not endorse nor
+              are we responsible or liable for any content, products,
+              advertising or any other materials, on or available from such
+              third-party sites or resources. Furthermore, you acknowledge and
+              agree that AwesumEdge LLC shall not be responsible or liable,
+              directly or indirectly, for any such damage or loss which may be a
+              result of, caused or allegedly to be caused by or in connection
+              with the use of or the reliance on any such content, goods or
+              Services made available on or through any such site or resource.
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 11 - PROPRIETARY RIGHTS
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              You do hereby acknowledge and agree that AwesumEdge LLC's Services
+              and any essential software that may be used in connection with our
+              Services ("Software") shall contain proprietary and confidential
+              material that is protected by applicable intellectual property
+              rights and other laws. Furthermore, you herein acknowledge and
+              agree that any Content which may be contained in any
+              advertisements or information presented by and through our
+              Services or by advertisers is protected by copyrights, trademarks,
+              patents or other proprietary rights and laws. Therefore, except
+              for that which is expressly permitted by applicable law or as
+              authorized by AwesumEdge LLC or such applicable licensor, you
+              agree not to alter, modify, lease, rent, loan, sell, distribute,
+              transmit, broadcast, publicly perform and/or created any
+              plagiaristic works which are based on AwesumEdge LLC Services
+              (e.g. Content or Software), in whole or part.
+            </div>
+            <br />
+            <div>
+              AwesumEdge LLC hereby grants you a personal, non-transferable and
+              non-exclusive right and/or license to make use of the object code
+              or our Software on a single computer, as long as you do not, and
+              shall not, allow any third party to duplicate, alter, modify,
+              create or plagiarize work from, reverse engineer, reverse assemble
+              or otherwise make an attempt to locate or discern any source code,
+              sell, assign, sublicense, grant a security interest in and/or
+              otherwise transfer any such right in the Software. Furthermore,
+              you do herein agree not to alter or change the Software in any
+              manner, nature or form, and as such, not to use any modified
+              versions of the Software, including and without limitation, for
+              the purpose of obtaining unauthorized access to our Services.
+              Lastly, you also agree not to access or attempt to access our
+              Services through any means other than through the interface which
+              is provided by AwesumEdge LLC for use in accessing our Services.
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 12 - WARRANTY DISCLAIMERS
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>YOU HEREIN EXPRESSLY ACKNOWLEDGE AND AGREE THAT:</div>
+            <br />
+            <div className="ml-5">
+              <ol class="list-lowerAlpha pt-2 list-outside  flex flex-col gap-5 ml-5">
+                <li className="pl-2">
+                  THE USE OF AWESUMEDGE LLC SERVICES AND SOFTWARE ARE AT THE
+                  SOLE RISK BY YOU. OUR SERVICES AND SOFTWARE SHALL BE PROVIDED
+                  ON AN "AS IS" AND/OR "AS AVAILABLE" BASIS. AWESUMEDGE LLC AND
+                  OUR SUBSIDIARIES, AFFILIATES, OFFICERS, EMPLOYEES, AGENTS,
+                  PARTNERS AND LICENSORS EXPRESSLY DISCLAIM ANY AND ALL
+                  WARRANTIES OF ANY KIND WHETHER EXPRESSED OR IMPLIED,
+                  INCLUDING, BUT NOT LIMITED TO ANY IMPLIED WARRANTIES OF TITLE,
+                  MERCHANT ABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+                  NON-INFRINGEMENT.
+                </li>
+                <li className="pl-2">
+                  AWESUMEDGE LLC AND OUR SUBSIDIARIES, OFFICERS, EMPLOYEES,
+                  AGENTS, PARTNERS AND LICENSORS MAKE NO SUCH WARRANTIES THAT:
+                  <div>
+                    {" "}
+                    (i) AWESUMEDGE LLC SERVICES OR SOFTWARE WILL MEET YOUR
+                    REQUIREMENTS;{" "}
+                  </div>
+                  <div>
+                    (ii) AWESUMEDGE LLC SERVICES OR SOFTWARE SHALL BE
+                    UNINTERRUPTED, TIMELY, SECURE OR ERROR-FREE;
+                  </div>
+                  <div>
+                    (iii) THAT SUCH RESULTS WHICH MAY BE OBTAINED FROM THE USE
+                    OF THE AWESUMEDGE LLC SERVICES OR SOFTWARE WILL BE ACCURATE
+                    OR RELIABLE;
+                  </div>
+                  <div>
+                    {" "}
+                    (iv) QUALITY OF ANY PRODUCTS, SERVICES, ANY INFORMATION OR
+                    OTHER MATERIAL WHICH MAY BE PURCHASED OR OBTAINED BY YOU
+                    THROUGH OUR SERVICES OR SOFTWARE WILL MEET YOUR
+                    EXPECTATIONS; AND{" "}
+                  </div>
+                  <div>
+                    {" "}
+                    (v) THAT ANY SUCH ERRORS CONTAINED IN THE SOFTWARE SHALL BE
+                    CORRECTED.
+                  </div>
+                </li>
+                <li className="pl-2">
+                  ANY INFORMATION OR MATERIAL DOWNLOADED OR OTHERWISE OBTAINED
+                  BY WAY OF AWESUMEDGE LLC SERVICES OR SOFTWARE SHALL BE
+                  ACCESSED BY YOUR SOLE DISCRETION AND SOLE RISK, AND AS SUCH
+                  YOU SHALL BE SOLELY RESPONSIBLE FOR AND HEREBY WAIVE ANY AND
+                  ALL CLAIMS AND CAUSES OF ACTION WITH RESPECT TO ANY DAMAGE TO
+                  YOUR COMPUTER AND/OR INTERNET ACCESS, DOWNLOADING AND/OR
+                  DISPLAYING, OR FOR ANY LOSS OF DATA THAT COULD RESULT FROM THE
+                  DOWNLOAD OF ANY SUCH INFORMATION OR MATERIAL.
+                </li>
+                <li className="pl-2">
+                  NO ADVICE AND/OR INFORMATION, DESPITE WHETHER WRITTEN OR ORAL,
+                  THAT MAY BE OBTAINED BY YOU FROM AWESUMEDGE LLC OR BY WAY OF
+                  OR FROM OUR SERVICES OR SOFTWARE SHALL CREATE ANY WARRANTY NOT
+                  EXPRESSLY STATED IN THE TERMS.
+                </li>
+                <li className="pl-2">
+                  A SMALL PERCENTAGE OF SOME USERS MAY EXPERIENCE SOME DEGREE OF
+                  EPILEPTIC SEIZURE WHEN EXPOSED TO CERTAIN LIGHT PATTERNS OR
+                  BACKGROUNDS THAT MAY BE CONTAINED ON A COMPUTER SCREEN OR
+                  WHILE USING OUR SERVICES. CERTAIN CONDITIONS MAY INDUCE A
+                  PREVIOUSLY UNKNOWN CONDITION OR UNDETECTED EPILEPTIC SYMPTOM
+                  IN USERS WHO HAVE SHOWN NO HISTORY OF ANY PRIOR SEIZURE OR
+                  EPILEPSY. SHOULD YOU, ANYONE YOU KNOW OR ANYONE IN YOUR FAMILY
+                  HAVE AN EPILEPTIC CONDITION, PLEASE CONSULT A PHYSICIAN IF YOU
+                  EXPERIENCE ANY OF THE FOLLOWING SYMPTOMS WHILE USING OUR
+                  SERVICES: DIZZINESS, ALTERED VISION, EYE OR MUSCLE TWITCHES,
+                  LOSS OF AWARENESS, DISORIENTATION, ANY INVOLUNTARY MOVEMENT,
+                  OR CONVULSIONS.
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 13 - LIMITATION OF LIABILITY
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              YOU EXPLICITLY ACKNOWLEDGE, UNDERSTAND AND AGREE THAT AWESUMEDGE
+              LLC AND OUR SUBSIDIARIES, AFFILIATES, OFFICERS, EMPLOYEES, AGENTS,
+              PARTNERS AND LICENSORS SHALL NOT BE LIABLE TO YOU FOR ANY
+              PUNITIVE, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR
+              EXEMPLARY DAMAGES, INCLUDING, BUT NOT LIMITED TO, DAMAGES WHICH
+              MAY BE RELATED TO THE LOSS OF ANY PROFITS, GOODWILL, USE, DATA
+              AND/OR OTHER INTANGIBLE LOSSES, EVEN THOUGH WE MAY HAVE BEEN
+              ADVISED OF SUCH POSSIBILITY THAT SAID DAMAGES MAY OCCUR, AND
+              RESULT FROM:
+            </div>
+            <br />
+            <div className="ml-5">
+              <ol class="list-lowerAlpha pt-2 list-outside  flex flex-col gap-5 ml-5">
+                <li className="pl-2">
+                  THE USE OR INABILITY TO USE OUR SERVICE;
+                </li>
+                <li className="pl-2">
+                  THE COST OF PROCURING SUBSTITUTE GOODS AND SERVICES;
+                </li>
+                <li className="pl-2">
+                  UNAUTHORIZED ACCESS TO OR THE ALTERATION OF YOUR TRANSMISSIONS
+                  AND/OR DATA;
+                </li>
+                <li className="pl-2">
+                  STATEMENTS OR CONDUCT OF ANY SUCH THIRD PARTY ON OUR SERVICE;
+                </li>
+                <li className="pl-2">
+                  AND ANY OTHER MATTER WHICH MAY BE RELATED TO OUR SERVICE.
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">SECTION 14 - RELEASE</div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              In the event you have a dispute, you agree to release AwesumEdge
+              LLC(and its officers, directors, employees, agents, parent
+              subsidiaries, affiliates, co-branders, partners and any other
+              third parties) from claims, demands and damages (actual and
+              consequential) of every kind and nature, known and unknown,
+              suspected or unsuspected, disclosed and undisclosed, arising out
+              of or in any way connected to such dispute.
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">SECTION 15 - NOTICE</div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              AwesumEdge LLC may furnish you with notices, including those with
+              regards to any changes to the Terms, including but not limited to
+              email, regular mail, MMS or SMS, text messaging, postings on our
+              website Services, or other reasonable means currently known or any
+              which may be herein after developed. Any such notices may not be
+              received if you violate any aspects of the Terms by accessing our
+              Services in an unauthorized manner. Your acceptance of this
+              Agreement constitutes your agreement that you are deemed to have
+              received any and all notices that would have been delivered had
+              you accessed our Services in an authorized manner.
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 16 - INTELLECTUAL PROPERTY RIGHTS
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              You herein acknowledge, understand and agree that all of the
+              AwesumEdge LLC trademarks, copyright, trade name, service marks,
+              and other AwesumEdge LLC logos and any brand features, and/or
+              product and service names are trademarks and as such, are and
+              shall remain the property of AwesumEdge LLC. You herein agree not
+              to display and/or use in any manner the AwesumEdge LLC logo or
+              marks without obtaining AwesumEdge LLC's prior written consent.
+            </div>
+            <br />
+            <div>
+              AwesumEdge LLC will always respect the intellectual property of
+              others, and we ask that all of our users do the same. With regards
+              to appropriate circumstances and at its sole discretion,
+              AwesumEdge LLC may disable and/or terminate the accounts of any
+              user who violates our Terms and/or infringes the rights of others.
+              If you feel that your work has been duplicated in such a way that
+              would constitute copyright infringement, or if you believe your
+              intellectual property rights have been otherwise violated, you
+              should provide to us the following information:
+            </div>
+
+            <div className="ml-5">
+              <ol class="list-lowerAlpha pt-2 list-outside  flex flex-col gap-5 ml-5">
+                <li className="pl-2">
+                  The electronic or the physical signature of the individual
+                  that is authorized on behalf of the owner of the copyright or
+                  other intellectual property interest;{" "}
+                </li>
+                <li className="pl-2">
+                  A description of the copyrighted work or other intellectual
+                  property that you believe has been infringed upon;{" "}
+                </li>
+                <li className="pl-2">
+                  A description of the location of the site which you allege has
+                  been infringing upon your work;
+                </li>
+                <li className="pl-2">
+                  Your physical address, telephone number, and email address;
+                </li>
+                <li className="pl-2">
+                  A statement, in which you state that the alleged and disputed
+                  use of your work is not authorized by the copyright owner, its
+                  agents or the law;
+                </li>
+                <li className="pl-2">
+                  And finally, a statement, made under penalty of perjury, that
+                  the aforementioned information in your notice is truthful and
+                  accurate, and that you are the copyright or intellectual
+                  property owner, representative or agent authorized to act on
+                  the copyright or intellectual property owner's behalf.
+                </li>
+              </ol>
+            </div>
+            <br />
+            <div className="">
+              The AwesumEdge LLC agent for notice of claims of copyright or
+              other intellectual property infringement can be contacted as
+              follows:
+            </div>
+            <div className="pt-3">
+              <div>Mailing Address:</div>
+              <div>AwesumEdge LLC</div>
+              <div>Attn: Copyright Agent</div>
+              <div>PO Box 243</div>
+              <div>Beaverton, Oregon 97075</div>
+              <div>Telephone: +18326141954</div>
+              <div> Email: info@awesumedge.com</div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 17 - ENTIRE AGREEMENT{" "}
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              This Agreement constitutes the entire agreement between you and
+              AwesumEdge LLC and shall govern the use of our Services,
+              superseding any prior version of this Agreement between you and us
+              with respect to AwesumEdge LLC Services. You may also be subject
+              to additional terms and conditions that may apply when you use or
+              purchase certain other AwesumEdge LLC Services, affiliate
+              Services, third-party content or third-party software.
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 18 - CHOICE OF LAW AND FORUM
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              It is at the mutual agreement of both you and AwesumEdge LLC with
+              regard to the Agreement that the relationship between the parties
+              shall be governed by the laws of the state of Oregon without
+              regard to its conflict of law provisions and that any and all
+              claims, causes of action and/or disputes, arising out of or
+              relating to the Agreement, or the relationship between you and
+              AwesumEdge LLC, shall be filed within the courts having
+              jurisdiction within the County of Washington, Oregon or the U.S.
+              District Court located in said state. You and AwesumEdge LLC agree
+              to submit to the jurisdiction of the courts as previously
+              mentioned, and agree to waive any and all objections to the
+              exercise of jurisdiction over the parties by such courts and to
+              venue in such courts.
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 19 - WAIVER AND SEVERABILITY OF TERMS
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              At any time, should AwesumEdge LLC fail to exercise or enforce any
+              right or provision of the Agreement, such failure shall not
+              constitute a waiver of such right or provision. If any provision
+              of this Agreement is found by a court of competent jurisdiction to
+              be invalid, the parties nevertheless agree that the court should
+              endeavor to give effect to the parties' intentions as reflected in
+              the provision, and the other provisions of the Agreement remain in
+              full force and effect.
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 20 - NO RIGHT OF SURVIVORSHIP NON-TRANSFERABILITY
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              You acknowledge, understand and agree that your account is
+              non-transferable and any rights to your ID and/or contents within
+              your account shall terminate upon your death. Upon receipt of a
+              copy of a death certificate, your account may be terminated and
+              all contents therein permanently deleted.
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 21 - STATUTE OF LIMITATIONS
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              You acknowledge, understand and agree that regardless of any
+              statute or law to the contrary, any claim or action arising out of
+              or related to the use of our Services or the Agreement must be
+              filed within 2 year(s) after said claim or cause of action arose
+              or shall be forever barred.
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">SECTION 22 - VIOLATIONS</div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              Please report any and all violations of this Agreement to
+              AwesumEdge LLC as follows:
+            </div>
+            <br />
+            <div>
+              <div>Mailing Address:</div>
+              <div>AwesumEdge LLC</div>
+              <div>PO Box 243</div>
+              <div>Beaverton, Oregon 97075</div>
+              <div>Telephone: +18326141954</div>
+              <div>Email: info@awesumedge.com</div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 23 - GOVERNMENT REQUESTS
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              In order to cooperate with governmental requests, subpoenas or
+              court orders, to protect our systems, or to ensure the integrity
+              and operation of our business and systems, we may access and
+              disclose any information we consider necessary or appropriate,
+              including and without limitation, your information, IP address,
+              and usage history. Our right to disclose any such information is
+              governed by the terms of our Privacy Policy.
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 24 - FOREIGN ACCESS OF SITE
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              The Site is controlled, operated and administered by AwesumEdge
+              from our offices within the USA. If you access the Site from a
+              location outside the USA, you are responsible for compliance with
+              all local laws. You agree that you will not use AwesumEdge's
+              content accessed through the Site in any country or in any manner
+              prohibited by any applicable laws, restrictions or regulations.
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 25 - ERRORS, INACCURACIES AND OMISSIONS
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              Occasionally there may be information on our Site that contains
+              typographical errors, inaccuracies or omissions that may relate to
+              product descriptions, contents, answers to questions, pricing,
+              promotions, offers, product shipping charges, transit times and
+              availability. We reserve the right to correct any errors,
+              inaccuracies or omissions, and to change or update information or
+              cancel orders if any information on the Site or on any related
+              Site is inaccurate at any time without prior notice (including
+              after you have submitted your order).
+            </div>
+            <br />
+            <div>
+              We undertake no obligation to update, amend or clarify information
+              on the Site or on any related Site, including without limitation,
+              pricing information, except as required by law. No specified
+              update or refresh date applied on the Site or on any related Site,
+              should be taken to indicate that all information on the Site or on
+              any related Site has been modified or updated.
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <div className="text-primary text-xl">
+            SECTION 26 - PRIVACY POLICY
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+              Every member's registration data and various other personal
+              information are strictly protected by the AwesumEdge LLC Online
+              Privacy Policy (see the full Privacy Policy at
+              www.awesumedge.com/privacy). As a member, you herein consent to
+              the collection and use of the information provided, including the
+              transfer of information within the United States and/or other
+              countries for storage, processing or use by AwesumEdge LLC and/or
+              our subsidiaries and affiliates.
+            </div>
           </div>
         </div>
         <br />
