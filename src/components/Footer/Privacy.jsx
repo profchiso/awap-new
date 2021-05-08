@@ -5,8 +5,8 @@ export default function Privacy() {
     const {width} = useWindowDimensions()
   return (
     <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
-      <h3 className="text-base text-primary sm:text-lg lg:text-2xl text-center py-12 pb-20">
-        PRIVACY POLICY AGREEMENT
+      <h3 className="text-base text-primary sm:text-lg lg:text-2xl text-center py-10  sm:py-16 ">
+        PRIVACY POLICY 
       </h3>
       <div className="text-base  max-w-3xl mx-auto font-medium leading-7">
         <div className="opacity-75 ">

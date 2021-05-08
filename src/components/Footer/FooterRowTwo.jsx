@@ -1,9 +1,7 @@
-import React from 'react'
 import { Grid } from '@material-ui/core'
 
 export default function FooterRowTwo() {
     return (
-         
         <Grid container className="flex pb-12">
         <Grid item xs={12} sm={4}>
             <div className="flex sm:justify-center items-center">

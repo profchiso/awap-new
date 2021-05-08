@@ -210,18 +210,18 @@ function HomeBody(props) {
             <div className=" pb-4">
               {width < 1024 ? (
                 <Avatar
-                  alt="Remy Sharp"
+                  alt="user"
                   src={someb}
                   className={`${classes.large} mx-auto sm:w-auto`}
                 />
               ) : (
                 <Avatar
-                  alt="Remy Sharp"
+                  alt="user"
                   src={someb}
                   className={`${classes.xlarge} mx-auto sm:w-auto`}
                 />
               )}
-              <p className="py-2  text-sm md:text-lg sm:py-4 opacity-75">Remy Sharp</p>
+              <p className="py-2  text-sm md:text-lg sm:py-4 opacity-75">Ayo</p>
             </div>
             <div className="opacity-50 text-sm md:text-lg top-0 ">
               <p className="sm:whitespace-nowrap">
