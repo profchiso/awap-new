@@ -21,9 +21,9 @@ export default function FooterRowOne() {
               </Link>
             </div>
             <div className="p-2">
-              <Link to="facebook.com" target="_blank">
+              <a href="https://www.facebook.com/AwesumEdge" target="_blank">
                 <FacebookIcon />
-              </Link>
+              </a>
             </div>
             <div className="p-2">
               <Link to="youtube.com" target="_blank">

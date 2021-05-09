@@ -8,7 +8,9 @@ const initialState = {
     selectedAnwser: "",
     correctAnswer: "",
     error: {},
-
+    isQuestionFetched: false,
+    isAnswerSubmissionSuccessful: false,
+    submittedAnswers: {},
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
@@ -21,6 +23,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
             ...state,
             questionArray: payload.data.questions,
             userSelectedAnwser: [],
+            isQuestionFetched: true,
 
         };
     } else if (type === "SELECT_YEAR") {
@@ -28,6 +31,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
             ...state,
             year: payload,
             userSelectedAnwser: [],
+            questionArray: [],
+            isQuestionFetched: false,
 
         };
     } else if (type === "SELECT_SUBJECT") {
@@ -35,6 +40,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
             ...state,
             subject: payload,
             userSelectedAnwser: [],
+            questionArray: [],
+            isQuestionFetched: false,
 
         };
     } else if (type === "SELECT_PAST_QUESTION_PRACTICE_TYPE") {
@@ -42,6 +49,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
             ...state,
             questionType: payload,
             userSelectedAnwser: [],
+            isQuestionFetched: false,
 
         };
     } else if (type === "API_ERROR") {
@@ -59,13 +67,20 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
             (userSelectedAnwser) =>
             userSelectedAnwser.questionNumber !== payload.questionNumber
         );
-        let uSA = [...filteredUserSelectedAnwers, payload];
+        // let uSA = [...filteredUserSelectedAnwers, payload];
 
         return {
             ...state,
-            userSelectedAnwser: uSA,
+            userSelectedAnwser:  [...filteredUserSelectedAnwers, payload],
 
         };
+    }else if (type=== "SUBMIT_USER_ANSWERS"){
+        return {
+            ...state,
+            isAnswerSubmissionSuccessful: true,
+            submittedAnswers : payload,
+        }
+
     }
 
     return state;

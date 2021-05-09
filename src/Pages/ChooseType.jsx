@@ -38,7 +38,7 @@ function ChooseType(props) {
   const handleChange = async (event) => {
     setValue(event.target.value);
     props.selectPastQuestionPracticeType(event.target.value);
-    props.fetchPracticeQuestion({ subject: subject.toLowerCase(), year });
+    props.fetchPracticeQuestion({ subject: subject.toLowerCase(), year }, token);
   };
   if (token) {
     if (value === null) {

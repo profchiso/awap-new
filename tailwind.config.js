@@ -23,6 +23,14 @@ module.exports = {
         '9/20': '45%',
       }
     },
+    listStyleType: {
+      none: 'none',
+     disc: 'disc',
+     decimal: 'decimal',
+     square: 'square',
+     roman: 'upper-roman',
+     lowerAlpha: 'lower-alpha',
+    },
     fontFamily: {
       'sans': ['ui-sans-serif', 'system-ui'],
       'serif': ['ui-serif', 'Georgia'],

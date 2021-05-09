@@ -19,6 +19,7 @@ import { biologyPQYear } from "./DB/BiologyPQ";
 import MobilePq from "./Pages/MobilePq";
 import Statistics from "./Pages/Statistics";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import TermsPage from "./Pages/TermsPage";
 
 const theme = createMuiTheme({
   palette: {
@@ -72,6 +73,10 @@ export default function App() {
               <Route path="/privacy" component={PrivacyPolicy} />
 
               <Route path="/stats" component={Statistics} />
+
+              <Route path="/stats" component={Statistics} />
+
+              <Route path="/terms" component={TermsPage} />
 
               {biologyPQYear.map((item, index) => (
                 <ProtectedRoute key={index} path={item.url}>

@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ChooseYear(props) {
-  console.log(props)
   const classes = useStyles();
   const  token  = props?.loginReducer?.token;
 

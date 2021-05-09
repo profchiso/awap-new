@@ -15,13 +15,7 @@ export const login = (userData) => {
                 userData,
                 requestHeaders
             );
-            // console.log(loggedInUser.data)
-            // if (loggedInUser.success) {
-            //     dispatch(saveLoginUserDataToState(loggedInUser.data));
-            // } else {
-            //     dispatch(loginError(loggedInUser.data));
-
-            // }
+           
             loggedInUser.status === 200 &&
                 dispatch(saveLoginUserDataToState(loggedInUser.data));
         } catch (error) {
@@ -32,7 +26,7 @@ export const login = (userData) => {
 };
 
 export const saveLoginUserDataToState = (loggedInUserData) => {
-    console.log(loggedInUserData);
+
     return {
         type: SAVE_LOGGED_IN_USER_DATA,
         payload: loggedInUserData,
@@ -47,7 +41,7 @@ export const loginError = (err) => {
 };
 
 export const logout = () => {
-    console.log("logout function");
+
     return {
         type: LOGOUT,
     };
@@ -66,7 +60,6 @@ export const socialLogin = (userData) => {
                 userData,
                 requestHeaders
             );
-            console.log(loggedInUser);
 
             loggedInUser.success &&
                 dispatch(saveLoginUserDataToState(loggedInUser.data));
@@ -77,25 +70,3 @@ export const socialLogin = (userData) => {
     };
 };
 
-// export const socialLogin = (payload, history) => async(dispatch) => {
-//     try {
-//         const response = await fetch(`${BASE_URL}users/oauth/google`, {
-//             method: 'POST',
-//             body: JSON.stringify(payload),
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//         });
-//         const data = await response.json();
-//         console.log(data)
-
-//         if (data.success) {
-//             dispatch(saveLoginUserDataToState(data.data))
-
-//         }
-
-//     } catch (error) {
-//         console.log(error);
-//         dispatch(loginError(error))
-//     }
-// };
