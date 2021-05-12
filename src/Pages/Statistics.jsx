@@ -3,11 +3,12 @@ import React from "react";
 import AnswerLayout from "../components/AnswerContent/AnswerLayout";
 import { connect } from "react-redux";
 import DonutChart from "../components/Charts/DonutChart";
+import {Link,useHistory} from "react-router-dom";
 
 function Statistics(props) {
   // const token = props?.loginReducer?.token;
   const { questionArray } = props.practiceQuestionReducer;
-
+ const history = useHistory()
   // if (token) {
   return (
     <AnswerLayout>
@@ -22,20 +23,34 @@ function Statistics(props) {
               <div className="flex"></div>
             </div>
 
-            <div className="text-base font-semibold text-primary mt-12 py-3">
-              Your Answers
-            </div>
-            <div className="ml-5">
-              {questionArray.map((item, index) => (
-                <div className="flex gap-3 text-base leading-10" key={index}>
-                  <div>{index + 1}.</div>
-                  <div className="pl-2">
-                    {item.userSelectedAnswer
-                      ? item.userSelectedAnswer
-                      : "unanswered"}
+            <div className="mt-12">
+              <div className="flex justify-between lg:mr-24">
+                <div>
+                  <div className="text-base font-semibold text-primary py-3">
+                    Your Answers
+                  </div>
+                  <div className="ml-5">
+                    {questionArray.map((item, index) => (
+                      <div
+                        className="flex gap-3 text-base leading-10"
+                        key={index}
+                      >
+                        <div>{index + 1}.</div>
+                        <div className="pl-2">
+                          {item.userSelectedAnswer
+                            ? item.userSelectedAnswer?.slice(-1) //where to take the last letter
+                            : "unanswered"}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
+                <div>
+                  <button onClick={()=>history.goBack()} className="py-3 px-8 text-base font-body font-medium bg-primary rounded-md text-white">
+                    View Solutions
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

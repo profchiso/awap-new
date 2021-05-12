@@ -5,7 +5,6 @@ const colors = [
   "#9ca3af", // ash  unanswered
   "#0D005F", //  blue correctly
   "#F14008", // lightOrange incorrectly
-
 ];
 
 function DonutChart(props) {

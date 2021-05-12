@@ -20,6 +20,7 @@ import MobilePq from "./Pages/MobilePq";
 import Statistics from "./Pages/Statistics";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsPage from "./Pages/TermsPage";
+import UnderConstruction from "./Pages/UnderConstruction";
 
 const theme = createMuiTheme({
   palette: {
@@ -83,6 +84,7 @@ export default function App() {
                   <Answers />
                 </ProtectedRoute>
               ))}
+              <Route path="/under-construction" component={UnderConstruction} />
 
               <Route path="*" component={Unavailable} />
             </Switch>
