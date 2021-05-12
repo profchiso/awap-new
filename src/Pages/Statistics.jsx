@@ -27,7 +27,7 @@ function Statistics(props) {
               <div className="flex justify-between lg:mr-24">
                 <div>
                   <div className="text-base font-semibold text-primary py-3">
-                    Your Answers
+                    Your Chosen Answers
                   </div>
                   <div className="ml-5">
                     {questionArray.map((item, index) => (
