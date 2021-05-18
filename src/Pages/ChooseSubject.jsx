@@ -80,18 +80,17 @@ function ChooseSubject(props) {
                     <MenuItem value={20}>Mathematics</MenuItem>
                     <MenuItem value={30}>Physics</MenuItem>
                     <MenuItem value={40}>Chemistry</MenuItem>
-
                   </Select>
                 </FormControl>
               </div>
             </div>
             <div>
               {itemNumber ? (
-                // <Link to="/pq/biology-choose-type">
+                <Link to="/stats">
                   <button className="text-white bg-primary font-body shadow-primary px-16 md:px-20 py-2 rounded-md focus:outline-none text-sm lg:text-base">
                     Next
                   </button>
-                // </Link>
+               </Link>
               ) : null}
             </div>
           </div>

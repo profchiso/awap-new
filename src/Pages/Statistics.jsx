@@ -49,6 +49,13 @@ function Statistics(props) {
                   <button onClick={()=>history.goBack()} className="py-3 px-8 text-base font-body font-medium bg-primary rounded-md text-white">
                     View Solutions
                   </button>
+                  
+                  <br />
+                  <br />
+
+                  <button onClick={()=>history.goBack()} className="py-3 whitespace-nowrap w-full text-center text-primary shadow-md px-8 text-base font-body font-medium bg-white rounded-md text-white">
+                    Test Again
+                  </button>
                 </div>
               </div>
             </div>
