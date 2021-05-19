@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ReactComponent as NextIcon } from "../../assets/svgs/NextIcon.svg";
 import aplusIcon from "../../assets/svgs/AplusIcon.svg";
 import selfPacedLearning from "../../assets/svgs/SelfPacedLearning.svg";
@@ -19,6 +19,14 @@ import TextCarousel from "../Carousels/TextCarousel";
 import { Link } from "react-router-dom";
 import useWindowDimensions from "../../Hooks/UseWindowDimension";
 import { connect } from "react-redux";
+import { Button, Modal } from "@material-ui/core";
+import Fade from "@material-ui/core/Fade";
+import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
+import Backdrop from "@material-ui/core/Backdrop";
+import { ReactComponent as Gmail } from "../../assets/svgs/Gmail.svg";
+import { ReactComponent as Facebook } from "../../assets/svgs/FaceBook.svg";
+import { ReactComponent as Twitter } from "../../assets/svgs/Twitter.svg";
+import { ReactComponent as Whatsapp } from "../../assets/svgs/Whatsapp.svg";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -42,11 +50,28 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(14),
     height: theme.spacing(14),
   },
+
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    backgroundColor: "#fff",
+    borderRadius: 4,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+  bottomNav: {
+    width: "100%",
+    height: "60px",
+  },
 }));
 
 function HomeBody(props) {
   const { token } = props.loginReducer;
   // console.log('props', props);
+  const [open, setOpen] = useState(false);
 
   const [secondaySchoolContent, setsecondaySchoolContent] = React.useState(
     <ExploreContentSenior />
@@ -68,8 +93,69 @@ function HomeBody(props) {
   };
   const { width } = useWindowDimensions();
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="max-w-screen-2xl mx-auto">
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div
+            className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+          >
+            <div className="py-12 flex-1 -mr-12">
+              <h3>Share On</h3>
+              <div className="flex  font-medium justify-content-center">
+                <div className="flex gap-24 pt-8 font-medium justify-content-center mx-auto text-left">
+                  <div>
+                    <a href="mailto:">
+                    <Button className="flex gap-4 ">
+                      <Gmail /> <span className="font-body capitalize text-base pl-3">Gmail</span>
+                    </Button>
+                    </a>
+                    <br/> <br/>
+                    <Button className="flex gap-4">
+                      <Whatsapp /> <span className="font-body capitalize text-base pl-3">Whatsapp</span>
+                    </Button>
+                  </div>
+
+                  <div>
+                    <Button className="flex gap-4 ">
+                      <Facebook /> <span className="font-body capitalize text-base pl-3">Facebook</span>
+                    </Button>
+                    <br/> <br/>
+                    <Button className="flex gap-4">
+                      <Twitter /> <span className="font-body capitalize text-base pl-3">Twitter</span>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <span>
+              <Button onClick={handleClose}>
+                <CloseRoundedIcon />
+              </Button>
+            </span>
+          </div>
+        </Fade>
+      </Modal>
+
       <div className="bg-mobileAwesum sm:bg-awesum bg-cover bg-center bg-no-repeat text-white  px-6 sm:px-16 pb-40 sm:pb-96">
         <div className="block sm:hidden">
           <MobileHeader />
@@ -84,8 +170,12 @@ function HomeBody(props) {
               Courses for Secondary/High School Students
             </p>
             {token ? (
+              // INSERT A SHARE MODAL
               <Link to="/">
-                <button className="bg-white text-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-16 rounded-md font-body rounded-full">
+                <button
+                  className="bg-white text-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-16 rounded-md font-body rounded-full"
+                  onClick={handleOpen}
+                >
                   Invite a Friend
                 </button>
               </Link>

@@ -6,7 +6,10 @@ export default function WebSideNav() {
   return (
     <div className="bg-primary h-full fixed min-w-xs1 scrollSection -mt-2">
       <div className="text-white pb-24">
-        <div className="pt-10 pl-8 mb-8">
+
+      <h2 className="text-2xl pt-10 pl-8">Statistics</h2>
+
+        <div className="pt-8 pl-8 mb-8">
           <h4 >Year</h4>
         </div>
         <div className="h-128 bg-local overflow-y-scroll mr-2">

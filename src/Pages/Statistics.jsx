@@ -3,26 +3,78 @@ import React from "react";
 import AnswerLayout from "../components/AnswerContent/AnswerLayout";
 import { connect } from "react-redux";
 import DonutChart from "../components/Charts/DonutChart";
-import {Link,useHistory} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 280,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
 
 function Statistics(props) {
+  const classes = useStyles();
   // const token = props?.loginReducer?.token;
   const { questionArray } = props.practiceQuestionReducer;
- const history = useHistory()
+  const history = useHistory();
   // if (token) {
+
+  const [subject, setsubject] = React.useState("");
+
+  const handleChange = (event) => {
+    setsubject(event.target.value);
+  };
   return (
     <AnswerLayout>
       <div className="max-w-screen-2xl mx-auto p-6 sm:px-16 w-full">
         <div className="ml-80">
-          <h2 className="text-2xl">Statistics</h2>
+          {/* <h2 className="text-2xl">Statistics</h2> */}
+          <div className="flex justify-between items-center">
+            <div className="flex gap-6 pt-4 text-base font-medium">
+              <div className="pb-2 border-b px-2">Untimed</div>
+              <div className="">Timed</div>
+            </div>
+            <div>
+              <FormControl variant="outlined" className={`${classes.formControl} w-full font-sm`}>
+                <InputLabel id="demo-simple-select-outlined-label" className=" font-sm">
+                  Choose Past Question Subject
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-outlined-label"
+                  id="demo-simple-select-outlined"
+                  value={subject}
+                  onChange={handleChange}
+                  label="Choose Past Question Subject"
+                  className=" font-sm"
+                >
+                  {/* <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem> */}
+                  <MenuItem value={10}>Mathematics</MenuItem>
+                  <MenuItem value={20}>Physics</MenuItem>
+                  <MenuItem value={30}>Chemistry</MenuItem>
+                  <MenuItem value={40}>Biology</MenuItem>
+
+                </Select>
+              </FormControl>
+            </div>
+          </div>
 
           <div>
             <div className="flex mt-8">
               <DonutChart name="Donut" />
-
               <div className="flex"></div>
             </div>
 
+            {/* UPDATE UI */}
             <div className="mt-12">
               <div className="flex justify-between lg:mr-24">
                 <div>
@@ -46,14 +98,20 @@ function Statistics(props) {
                   </div>
                 </div>
                 <div>
-                  <button onClick={()=>history.goBack()} className="py-3 px-8 text-base font-body font-medium bg-primary rounded-md text-white">
+                  <button
+                    onClick={() => history.goBack()}
+                    className="py-3 px-8 text-base font-body font-medium bg-primary rounded-md text-white"
+                  >
                     View Solutions
                   </button>
-                  
+
                   <br />
                   <br />
 
-                  <button onClick={()=>history.goBack()} className="py-3 whitespace-nowrap w-full text-center text-primary shadow-md px-8 text-base font-body font-medium bg-white rounded-md text-white">
+                  <button
+                    onClick={() => history.goBack()}
+                    className="py-3 whitespace-nowrap w-full text-center text-primary shadow-md px-8 text-base font-body font-medium bg-white rounded-md text-white"
+                  >
                     Test Again
                   </button>
                 </div>

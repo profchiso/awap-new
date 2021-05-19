@@ -209,6 +209,7 @@ function PracticeQuestion(props) {
                 </div>
               </Fade>
             </Modal>
+            
             <div>
               <div className="flex relative max-w-screen-2xl mx-auto  mt-8">
                 <div className="flex-1  pb-40 sm:pb-0">
