@@ -21,6 +21,7 @@ import Statistics from "./Pages/Statistics";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsPage from "./Pages/TermsPage";
 import UnderConstruction from "./Pages/UnderConstruction";
+import ChooseSubject from "./Pages/ChooseSubject";
 
 const theme = createMuiTheme({
   palette: {
@@ -75,9 +76,10 @@ export default function App() {
 
               <Route path="/stats" component={Statistics} />
 
-              <Route path="/stats" component={Statistics} />
-
               <Route path="/terms" component={TermsPage} />
+
+              <Route path="/choose-subject" component={ChooseSubject} />
+
 
               {biologyPQYear.map((item, index) => (
                 <ProtectedRoute key={index} path={item.url}>

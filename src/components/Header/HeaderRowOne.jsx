@@ -12,6 +12,8 @@ import { Button, Menu, MenuItem } from "@material-ui/core";
 import { FiLogOut } from "react-icons/fi";
 import FilterModal from "./FilterModal";
 import { logout } from "../../redux/actions/login";
+import {BiUser} from "react-icons/bi"
+import * as Io from "react-icons/io";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
   menuItem: {
     marginTop: 4,
     marginBottom: 4,
+    paddingTop: 9,
+    paddingBottom: 9,
   },
   paper: {
     marginRight: theme.spacing(2),
@@ -94,30 +98,61 @@ function HeaderRowOne({
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
               onClose={handleClose}
-              MenuListProps={{ onMouseLeave: handleClose }}
+              MenuListProps={{ onMouseLeave: handleClose}}
               PaperProps={{
                 style: {
                   left: "50%",
-                  transform: "translateX(10%) translateY(75%)",
+                  transform: "translateX(10%) translateY(40%)",
                 },
               }}
             >
+
               <div>
                 <MenuItem
                   onClick={handleClose}
                   className={`${classes.menuItem} font-body font-normal flex`}
                 >
                   <span className="justify-self-start px-2">
-                    <FiLogOut />
+                    <BiUser className="text-primary"/>
                   </span>
                   <span
-                    className="font-body font-normal flex-1 pr-8"
+                    className="font-body font-normal flex-1 pr-8 text-primary text-sm"
+                  >
+                    Profile
+                  </span>
+                </MenuItem>
+                <Link to="/choose-subject">
+                <MenuItem
+                  onClick={handleClose}
+                  className={`${classes.menuItem} font-body font-normal flex`}
+                >
+                  <span className="justify-self-start px-2">
+                    <Io.IoIosStats  className="text-primary"/>
+                  </span>
+                  <span
+                    className="font-body font-normal flex-1 pr-8 text-primary text-sm"
+                  >
+                    Statistics
+                  </span>
+                </MenuItem>
+                </Link>
+           
+                <MenuItem
+                  onClick={handleClose}
+                  className={`${classes.menuItem} font-body font-normal flex`}
+                >
+                  <span className="justify-self-start px-2">
+                    <FiLogOut  className="text-primary"/>
+                  </span>
+                  <span
+                    className="font-body font-normal flex-1 pr-8 text-primary text-sm"
                     onClick={() => handleLogout()}
                   >
                     Log Out
                   </span>
                 </MenuItem>
               </div>
+           
             </Menu>
 
             {showFilter ? (

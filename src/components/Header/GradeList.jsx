@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Menu from "@material-ui/core/Menu";
 import { FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -43,7 +44,7 @@ export default function GradeList() {
           onMouseOver={handleClick}
         >
           <span className="capitalize font-body font-normal">
-            Secondary School (Grade 7-12)
+            Video Classes (Grade 7-12)
           </span>
         </Button>
         <Menu

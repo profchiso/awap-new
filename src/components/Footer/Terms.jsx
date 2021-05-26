@@ -675,13 +675,13 @@ export default function Terms() {
           <div className="opacity-75 ">
             <div>
               As a member of{" "}
-              <a
-                href="www.awesumedge.com"
+              <Link
+                to=""
                 className="text-primary hover:text-primary hover:underline"
               >
                 {" "}
                 www.awesumedge.com
-              </a>
+              </Link>
               , you may cancel or terminate your account, associated email
               address and/or access to our Services by submitting a cancellation
               or termination request to{" "}
