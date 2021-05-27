@@ -27,6 +27,16 @@ import { ReactComponent as Gmail } from "../../assets/svgs/Gmail.svg";
 import { ReactComponent as Facebook } from "../../assets/svgs/FaceBook.svg";
 import { ReactComponent as Twitter } from "../../assets/svgs/Twitter.svg";
 import { ReactComponent as Whatsapp } from "../../assets/svgs/Whatsapp.svg";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  EmailIcon,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from "react-share";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -124,23 +134,43 @@ function HomeBody(props) {
                 <div className="flex gap-24 pt-8 font-medium justify-content-center mx-auto text-left">
                   <div>
                     <a href="mailto:">
-                    <Button className="flex gap-4 ">
-                      <Gmail /> <span className="font-body capitalize text-base pl-3">Gmail</span>
-                    </Button>
+                      <Button className="flex gap-4 ">
+                        <EmailShareButton url="https://awesumedge.com/" subject="Join AwesumEdge" body="Join AwesumeEdge: We Teach to Create Impact and Enrich Lives https://awesumedge.com/sign-up" title="Join AwesumeEdge: We Teach to Create Impact and Enrich Lives" >
+                          <EmailIcon  size={48} round={true} />
+                        </EmailShareButton>
+                        <span className="font-body capitalize text-base pl-3">
+                          Gmail
+                        </span>
+                      </Button>
                     </a>
-                    <br/> <br/>
+                    <br /> <br />
                     <Button className="flex gap-4">
-                      <Whatsapp /> <span className="font-body capitalize text-base pl-3">Whatsapp</span>
+                      <WhatsappShareButton url="https://awesumedge.com/" title="Join AwesumeEdge: We Teach to Create Impact and Enrich Lives" >
+                        <WhatsappIcon  size={48} round={true} />
+                      </WhatsappShareButton>
+                      <span className="font-body capitalize text-base pl-3">
+                        Whatsapp
+                      </span>
                     </Button>
                   </div>
 
                   <div>
                     <Button className="flex gap-4 ">
-                      <Facebook /> <span className="font-body capitalize text-base pl-3">Facebook</span>
+                      <FacebookShareButton url="https://awesumedge.com/" title="Join AwesumeEdge: We Teach to Create Impact and Enrich Lives" hashtag="Awesumedge">
+                        <FacebookIcon size={48} round={true} />
+                      </FacebookShareButton>
+                      <span className="font-body capitalize text-base pl-3">
+                        Facebook
+                      </span>
                     </Button>
-                    <br/> <br/>
+                    <br /> <br />
                     <Button className="flex gap-4">
-                      <Twitter /> <span className="font-body capitalize text-base pl-3">Twitter</span>
+                      <TwitterShareButton url="https://awesumedge.com/" title="Join AwesumeEdge: We Teach to Create Impact and Enrich Lives" hashtag="Awesumedge">
+                        <TwitterIcon  size={48} round={true} />
+                      </TwitterShareButton>
+                      <span className="font-body capitalize text-base pl-3">
+                        Twitter
+                      </span>
                     </Button>
                   </div>
                 </div>
