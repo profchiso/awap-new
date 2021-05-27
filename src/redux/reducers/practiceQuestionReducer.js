@@ -11,6 +11,7 @@ const initialState = {
     isQuestionFetched: false,
     isAnswerSubmissionSuccessful: false,
     submittedAnswers: {},
+    untimedPracticeQuestions:[],
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
@@ -78,7 +79,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
         return {
             ...state,
             isAnswerSubmissionSuccessful: true,
-            submittedAnswers : payload,
+            submittedAnswers : payload.data.submitedPracticeQuestion,
+            untimedPracticeQuestions: payload.data.untimedPracticeQuestions
         }
 
     }
