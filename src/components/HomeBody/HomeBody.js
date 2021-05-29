@@ -135,7 +135,7 @@ function HomeBody(props) {
                   <div>
                     <a href="mailto:">
                       <Button className="flex gap-4 ">
-                        <EmailShareButton url="https://awesumedge.com/" subject="Join AwesumEdge" body="Join AwesumeEdge: We Teach to Create Impact and Enrich Lives https://awesumedge.com/sign-up" title="Join AwesumeEdge: We Teach to Create Impact and Enrich Lives" >
+                        <EmailShareButton url="https://awesumedge.com/" subject="Join AwesumEdge" body="We Teach to Create Impact and Enrich Lives. Sign up today!" title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!" >
                           <EmailIcon  size={48} round={true} />
                         </EmailShareButton>
                         <span className="font-body capitalize text-base pl-3">
@@ -145,7 +145,7 @@ function HomeBody(props) {
                     </a>
                     <br /> <br />
                     <Button className="flex gap-4">
-                      <WhatsappShareButton url="https://awesumedge.com/" title="Join AwesumeEdge: We Teach to Create Impact and Enrich Lives" >
+                      <WhatsappShareButton url="https://awesumedge.com/" title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!" >
                         <WhatsappIcon  size={48} round={true} />
                       </WhatsappShareButton>
                       <span className="font-body capitalize text-base pl-3">
@@ -156,7 +156,7 @@ function HomeBody(props) {
 
                   <div>
                     <Button className="flex gap-4 ">
-                      <FacebookShareButton url="https://awesumedge.com/" title="Join AwesumeEdge: We Teach to Create Impact and Enrich Lives" hashtag="Awesumedge">
+                      <FacebookShareButton url="https://awesumedge.com/" title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!" hashtag="AwesumEdge">
                         <FacebookIcon size={48} round={true} />
                       </FacebookShareButton>
                       <span className="font-body capitalize text-base pl-3">
@@ -165,7 +165,7 @@ function HomeBody(props) {
                     </Button>
                     <br /> <br />
                     <Button className="flex gap-4">
-                      <TwitterShareButton url="https://awesumedge.com/" title="Join AwesumeEdge: We Teach to Create Impact and Enrich Lives" hashtag="Awesumedge">
+                      <TwitterShareButton url="https://awesumedge.com/" title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!" hashtag="AwesumEdge">
                         <TwitterIcon  size={48} round={true} />
                       </TwitterShareButton>
                       <span className="font-body capitalize text-base pl-3">
