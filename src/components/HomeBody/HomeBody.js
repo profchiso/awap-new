@@ -23,10 +23,6 @@ import { Button, Modal } from "@material-ui/core";
 import Fade from "@material-ui/core/Fade";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import Backdrop from "@material-ui/core/Backdrop";
-import { ReactComponent as Gmail } from "../../assets/svgs/Gmail.svg";
-import { ReactComponent as Facebook } from "../../assets/svgs/FaceBook.svg";
-import { ReactComponent as Twitter } from "../../assets/svgs/Twitter.svg";
-import { ReactComponent as Whatsapp } from "../../assets/svgs/Whatsapp.svg";
 import {
   EmailShareButton,
   FacebookShareButton,
