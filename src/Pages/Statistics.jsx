@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import { Redirect } from "react-router";
 import AnswerLayout from "../components/AnswerContent/AnswerLayout";
 import { connect } from "react-redux";
@@ -25,9 +25,9 @@ function Statistics(props) {
   // const token = props?.loginReducer?.token;
   const { questionArray } = props.practiceQuestionReducer;
   const history = useHistory();
-  // if (token) {
 
-  const [subject, setsubject] = React.useState("");
+  const [timedBoolean, setTimedBoolean] = useState(false);
+  const [subject, setsubject] = useState("");
 
   const handleChange = (event) => {
     setsubject(event.target.value);
@@ -39,12 +39,32 @@ function Statistics(props) {
           {/* <h2 className="text-2xl">Statistics</h2> */}
           <div className="flex justify-between items-center">
             <div className="flex gap-6 pt-4 text-base font-medium">
-              <div className="pb-2 border-b px-2">Untimed</div>
-              <div className="">Timed</div>
+              <div
+                className={`cursor-pointer  ${
+                  !timedBoolean ? "pb-2 border-b px-2" : ""
+                }`}
+                onClick={() => setTimedBoolean(false)}
+              >
+                Untimed
+              </div>
+              <div
+                className={`cursor-pointer  ${
+                  timedBoolean ? "pb-2 border-b px-2" : ""
+                }`}
+                onClick={() => setTimedBoolean(true)}
+              >
+                Timed
+              </div>
             </div>
             <div>
-              <FormControl variant="outlined" className={`${classes.formControl} w-full font-sm`}>
-                <InputLabel id="demo-simple-select-outlined-label" className=" font-sm">
+              <FormControl
+                variant="outlined"
+                className={`${classes.formControl} w-full font-sm`}
+              >
+                <InputLabel
+                  id="demo-simple-select-outlined-label"
+                  className=" font-sm"
+                >
                   Choose Past Question Subject
                 </InputLabel>
                 <Select
@@ -62,62 +82,67 @@ function Statistics(props) {
                   <MenuItem value={20}>Physics</MenuItem>
                   <MenuItem value={30}>Chemistry</MenuItem>
                   <MenuItem value={40}>Biology</MenuItem>
-
                 </Select>
               </FormControl>
             </div>
           </div>
 
-          <div>
-            <div className="flex mt-8">
-              <DonutChart name="Donut" />
-              <div className="flex"></div>
-            </div>
+          {!timedBoolean ? (
+            <div>
+              <div className="flex mt-8">
+                <DonutChart name="Donut" />
+                <div className="flex"></div>
+              </div>
 
-            {/* UPDATE UI */}
-            <div className="mt-12">
-              <div className="flex justify-between lg:mr-24">
-                <div>
-                  <div className="text-base font-semibold text-primary py-3">
-                    Your Chosen Answers
-                  </div>
-                  <div className="ml-5">
-                    {questionArray.map((item, index) => (
-                      <div
-                        className="flex gap-3 text-base leading-10"
-                        key={index}
-                      >
-                        <div>{index + 1}.</div>
-                        <div className="pl-2">
-                          {item.userSelectedAnswer
-                            ? item.userSelectedAnswer?.slice(-1) //where to take the last letter
-                            : "unanswered"}
+              {/* UPDATE UI */}
+              <div className="mt-12">
+                <div className="flex justify-between lg:mr-24">
+                  <div>
+                    <div className="text-base font-semibold text-primary py-3">
+                      Your Chosen Answers
+                    </div>
+                    <div className="ml-5">
+                      {questionArray.map((item, index) => (
+                        <div
+                          className="flex gap-3 text-base leading-10"
+                          key={index}
+                        >
+                          <div>{index + 1}.</div>
+                          <div className="pl-2">
+                            {item.userSelectedAnswer
+                              ? item.userSelectedAnswer?.slice(-1) //where to take the last letter
+                              : "unanswered"}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <button
-                    onClick={() => history.goBack()}
-                    className="py-3 px-8 text-base font-body font-medium bg-primary rounded-md text-white"
-                  >
-                    View Solutions
-                  </button>
+                  <div>
+                    <button
+                      onClick={() => history.goBack()}
+                      className="py-3 px-8 text-base font-body font-medium bg-primary rounded-md text-white"
+                    >
+                      View Solutions
+                    </button>
 
-                  <br />
-                  <br />
+                    <br />
+                    <br />
 
-                  <button
-                    onClick={() => history.goBack()}
-                    className="py-3 whitespace-nowrap w-full text-center text-primary shadow-md px-8 text-base font-body font-medium bg-white rounded-md text-white"
-                  >
-                    Test Again
-                  </button>
+                    <button
+                      onClick={() => history.goBack()}
+                      className="py-3 whitespace-nowrap w-full text-center text-primary shadow-md px-8 text-base font-body font-medium bg-white rounded-md text-white"
+                    >
+                      Test Again
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div className="h-full">
+              <p className="py-24 text-xl">Currently Unavailable</p>
+            </div>
+          )}
         </div>
       </div>
     </AnswerLayout>

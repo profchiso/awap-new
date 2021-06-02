@@ -74,6 +74,7 @@ module.exports = {
       orangeLight: "",
       orangeDark: "",
       blueOne: "#0F0957",
+      blueSelector: "#2E268F",
       footerRowThree: "#090729",
       danger: "#e3342f",
       f8: "#F8F8FA",
