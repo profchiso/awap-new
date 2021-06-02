@@ -11,7 +11,7 @@ const initialState = {
     isQuestionFetched: false,
     isAnswerSubmissionSuccessful: false,
     submittedAnswers: {},
-    untimedPracticeQuestions:[],
+    untimedPracticeQuestions: [],
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
@@ -25,7 +25,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
             questionArray: payload.data.questions,
             userSelectedAnwser: [],
             isQuestionFetched: true,
-
         };
     } else if (type === "SELECT_YEAR") {
         return {
@@ -34,7 +33,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
             userSelectedAnwser: [],
             questionArray: [],
             isQuestionFetched: false,
-
         };
     } else if (type === "SELECT_SUBJECT") {
         return {
@@ -43,7 +41,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
             userSelectedAnwser: [],
             questionArray: [],
             isQuestionFetched: false,
-
         };
     } else if (type === "SELECT_PAST_QUESTION_PRACTICE_TYPE") {
         return {
@@ -51,7 +48,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
             questionType: payload,
             userSelectedAnwser: [],
             isQuestionFetched: false,
-
         };
     } else if (type === "API_ERROR") {
         let error = {};
@@ -60,10 +56,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
             ...state,
             userSelectedAnwser: [],
             error,
-
         };
     } else if (type === "SELECT_ANSWER") {
-
         let filteredUserSelectedAnwers = state.userSelectedAnwser.filter(
             (userSelectedAnwser) =>
             userSelectedAnwser.questionNumber !== payload.questionNumber
@@ -72,14 +66,13 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
 
         return {
             ...state,
-            userSelectedAnwser:  [...filteredUserSelectedAnwers, payload],
-
+            userSelectedAnwser: [...filteredUserSelectedAnwers, payload],
         };
-    }else if (type=== "SUBMIT_USER_ANSWERS"){
+    } else if (type === "SUBMIT_USER_ANSWERS") {
         return {
             ...state,
             isAnswerSubmissionSuccessful: true,
-            submittedAnswers : payload.data.submitedPracticeQuestion,
+            submittedAnswers: payload.data.submitedPracticeQuestion,
             untimedPracticeQuestions: payload.data.untimedPracticeQuestions
         }
 
