@@ -24,6 +24,18 @@ function Statistics(props) {
   const classes = useStyles();
   // const token = props?.loginReducer?.token;
   const { questionArray } = props.practiceQuestionReducer;
+
+  const untimedPracticeQuestions =
+    props.practiceQuestionReducer.untimedPracticeQuestions;
+
+  const yearOfBiologyUntimedQuestionArray = untimedPracticeQuestions.filter(
+    (item) => item.subject === "Biology" && item.year == props.practiceQuestionReducer.year
+  );
+
+  // const submittedQuestionArray = yearOfBiologyUntimedQuestionArray[0].submittedQuestionsAndAnswers;
+
+  // console.log("year & biology", yearOfBiologyUntimedQuestionArray[0].submittedQuestionsAndAnswers);
+
   const history = useHistory();
 
   const [timedBoolean, setTimedBoolean] = useState(false);

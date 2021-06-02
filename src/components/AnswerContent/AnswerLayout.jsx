@@ -10,12 +10,15 @@ export default function AnswerLayout(props) {
   return (
     <div>
       <div className="fixed w-full z-50 bg-white">
-      <PracticeHeader showFilter={true} showHeaderTitle={true} />
-
+        <PracticeHeader showFilter={true} showHeaderTitle={true} />
       </div>
 
       <div className="flex pt-20">
-        {width < 768 ? <MobileSideNav /> : <WebSideNav biologyPQYear={props.biologyPQYear}/>}
+        {width < 768 ? (
+          <MobileSideNav />
+        ) : (
+          <WebSideNav/>
+        )}
         {props.children}
       </div>
     </div>
