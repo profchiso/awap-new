@@ -9,6 +9,10 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import {
+  selectPastQuestionSubject,
+  selectPastQuestionPracticeType,
+} from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -22,28 +26,43 @@ const useStyles = makeStyles((theme) => ({
 
 function Statistics(props) {
   const classes = useStyles();
-  // const token = props?.loginReducer?.token;
+  const token = props?.loginReducer?.token;
   const { questionArray } = props.practiceQuestionReducer;
+  const { subject, year } = props.practiceQuestionReducer;
 
-  // const untimedPracticeQuestions =
-  //   props.practiceQuestionReducer.untimedPracticeQuestions;
+  const untimedPracticeQuestions =
+    props?.practiceQuestionReducer?.untimedPracticeQuestions;
 
-  // const yearOfBiologyUntimedQuestionArray = untimedPracticeQuestions.filter(
-  //   (item) => item.subject === "Biology" && item.year == props.practiceQuestionReducer.year
-  // );
+  const yearOfBiologyUntimedQuestionArray = untimedPracticeQuestions?.filter(
+    (item) =>
+      item?.subject === subject &&
+      item?.year == props?.practiceQuestionReducer?.year
+  );
 
-  // const submittedQuestionArray = yearOfBiologyUntimedQuestionArray[0].submittedQuestionsAndAnswers;
+  const submittedQuestionArray =
+    yearOfBiologyUntimedQuestionArray[0]?.submittedQuestionsAndAnswers;
 
-  // console.log("year & biology", yearOfBiologyUntimedQuestionArray[0].submittedQuestionsAndAnswers);
+  console.log("year & biology", submittedQuestionArray);
 
   const history = useHistory();
 
   const [timedBoolean, setTimedBoolean] = useState(false);
-  const [subject, setsubject] = useState("");
 
-  const handleChange = (event) => {
-    setsubject(event.target.value);
+  const handleSubject = (event) => {
+    props.selectPastQuestionSubject(event.target.value);
   };
+
+  // const [value, setValue] = useState(null);
+
+  // const handleChange = async (event) => {
+  //   setValue(event.target.value);
+  //   props.selectPastQuestionPracticeType(event.target.value);
+  //   props.fetchPracticeQuestion(
+  //     { subject: subject.toLowerCase(), year },
+  //     token
+  //   );
+  // };
+
   return (
     <AnswerLayout>
       <div className="max-w-screen-2xl mx-auto p-6 sm:px-16 w-full">
@@ -55,7 +74,10 @@ function Statistics(props) {
                 className={`cursor-pointer  ${
                   !timedBoolean ? "pb-2 border-b px-2" : ""
                 }`}
-                onClick={() => setTimedBoolean(false)}
+                onClick={() => {
+                  setTimedBoolean(false);
+                  props.selectPastQuestionPracticeType("Untimed Questions");
+                }}
               >
                 Untimed
               </div>
@@ -82,18 +104,19 @@ function Statistics(props) {
                 <Select
                   labelId="demo-simple-select-outlined-label"
                   id="demo-simple-select-outlined"
+                  defaultValue={subject}
                   value={subject}
-                  onChange={handleChange}
+                  onChange={handleSubject}
                   label="Choose Past Question Subject"
                   className=" font-sm"
                 >
                   {/* <MenuItem value="">
                     <em>None</em>
                   </MenuItem> */}
-                  <MenuItem value={10}>Mathematics</MenuItem>
-                  <MenuItem value={20}>Physics</MenuItem>
-                  <MenuItem value={30}>Chemistry</MenuItem>
-                  <MenuItem value={40}>Biology</MenuItem>
+                  <MenuItem value="Mathematics">Mathematics</MenuItem>
+                  <MenuItem value="Physics">Physics</MenuItem>
+                  <MenuItem value="Chemistry">Chemistry</MenuItem>
+                  <MenuItem value="Biology">Biology</MenuItem>
                 </Select>
               </FormControl>
             </div>
@@ -167,4 +190,7 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps)(Statistics);
+export default connect(mapStateToProps, {
+  selectPastQuestionSubject,
+  selectPastQuestionPracticeType,
+})(Statistics);

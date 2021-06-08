@@ -11,7 +11,11 @@ import {
   Select,
 } from "@material-ui/core";
 import MobileHeader from "../components/Header/MobileHeader";
-import { selectPastQuestionYear } from "../redux/actions/practiceQuestion";
+import {
+  selectPastQuestionPracticeType,
+  selectPastQuestionSubject,
+  selectPastQuestionYear,
+} from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,21 +35,16 @@ const useStyles = makeStyles((theme) => ({
 function ChooseSubject(props) {
   const classes = useStyles();
   const token = props?.loginReducer?.token;
+  const { year } = props.practiceQuestionReducer;
 
-  const [itemNumber, setitemNumber] = useState("");
+  const [subject, setsubject] = useState("");
 
   const handleChange = async (event) => {
-    setitemNumber(event.target.value);
-    props.selectPastQuestionYear(event.target.value);
+    setsubject(event.target.value);
+    props.selectPastQuestionSubject(event.target.value);
+    props.selectPastQuestionPracticeType("Untimed Questions"); //the default
+    props.selectPastQuestionYear(year) //default
   };
-
-  //   const range = (start, end) => {
-  //     return Array(end - start + 1)
-  //       .fill()
-  //       .map((_, idx) => start + idx);
-  //   };
-
-  //   const rangeValue = range(2000, 2020);
 
   if (token) {
     return (
@@ -69,28 +68,27 @@ function ChooseSubject(props) {
                     label="Choose Subject"
                     labelId="demo-simple-select-placeholder-label-label"
                     id="demo-simple-select-placeholder-label"
-                    value={itemNumber}
+                    value={subject}
                     onChange={handleChange}
                     displayEmpty
                     className={classes.numberSelect}
                     MenuProps={{ classes: { paper: classes.menuPaper } }}
                   >
-                   
-                    <MenuItem value={10}>Biology</MenuItem>
-                    <MenuItem value={20}>Mathematics</MenuItem>
-                    <MenuItem value={30}>Physics</MenuItem>
-                    <MenuItem value={40}>Chemistry</MenuItem>
+                    <MenuItem value="Biology">Biology</MenuItem>
+                    <MenuItem value="Mathematics">Mathematics</MenuItem>
+                    <MenuItem value="Physics">Physics</MenuItem>
+                    <MenuItem value="Chemistry">Chemistry</MenuItem>
                   </Select>
                 </FormControl>
               </div>
             </div>
             <div>
-              {itemNumber ? (
+              {subject ? (
                 <Link to="/stats">
                   <button className="text-white bg-primary font-body shadow-primary px-16 md:px-20 py-2 rounded-md focus:outline-none text-sm lg:text-base">
                     Next
                   </button>
-               </Link>
+                </Link>
               ) : null}
             </div>
           </div>
@@ -108,6 +106,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { selectPastQuestionYear })(
-  ChooseSubject
-);
+export default connect(mapStateToProps, {
+  selectPastQuestionSubject,
+  selectPastQuestionPracticeType,
+  selectPastQuestionYear,
+})(ChooseSubject);

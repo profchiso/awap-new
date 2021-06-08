@@ -1,5 +1,9 @@
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { connect } from "react-redux";
+// import React, {useState, useEffect } from "react";
+// import {
+//   selectPastQuestionYear,
+// } from "../../redux/actions/practiceQuestion";
 
 const colors = [
   "#9ca3af", // ash  unanswered
@@ -10,18 +14,41 @@ const colors = [
 function DonutChart(props) {
   const { questionArray } = props.practiceQuestionReducer;
 
-  let correctAnswers = questionArray.filter(
+  //Beninging
+  const { subject, year } = props.practiceQuestionReducer;
+  
+  // useEffect(() => {
+  //   props.selectPastQuestionYear(year)
+  // }, [])
+
+
+  const untimedPracticeQuestions =
+    props?.practiceQuestionReducer?.untimedPracticeQuestions;
+
+  const yearOfBiologyUntimedQuestionArray = untimedPracticeQuestions?.filter(
+    (item) =>
+      item?.subject === subject &&
+      item?.year == props?.practiceQuestionReducer?.year
+  );
+
+  const submittedQuestionArray =
+    yearOfBiologyUntimedQuestionArray[0]?.submittedQuestionsAndAnswers;
+
+  //Endinging
+
+  let correctAnswers = submittedQuestionArray?.filter(
     (item) => item.userSelectedAnswer === item.answer
   );
-  let wrongAnswers = questionArray.filter(
-    (item) => item.userSelectedAnswer && item.userSelectedAnswer !== item.answer
+  let wrongAnswers = submittedQuestionArray?.filter(
+    (item) => item.userSelectedAnswer !== item.answer
   );
-  let unAnswered = questionArray.filter((item) => !item.userSelectedAnswer);
+  // let unAnswered = questionArray?.filter((item) => !item.userSelectedAnswer);
+  let unAnswered = questionArray?.filter((item) => !item.userSelectedAnswer);
 
-  let correctAnswersCount = correctAnswers.length;
-  let wrongAnswersCount = wrongAnswers.length;
-  let unAnwseredQuestionsCount = unAnswered.length;
-  let totalQuestionsCount = questionArray.length;
+  let correctAnswersCount = correctAnswers?.length;
+  let wrongAnswersCount = wrongAnswers?.length;
+  let unAnwseredQuestionsCount = unAnswered?.length;
+  let totalQuestionsCount = questionArray?.length;
 
   const data = [
     { name: "Unanswered Questions", value: unAnwseredQuestionsCount },
@@ -32,11 +59,43 @@ function DonutChart(props) {
   let percentScore = (correctAnswersCount / totalQuestionsCount) * 100;
   let roundedPercentScore = Math.round(percentScore * 10) / 10;
 
+  let valueOfroundedPercentScore = Boolean(roundedPercentScore);
 
   return (
     <div>
       <div className="flex flex-col relative top-52 left-28 text-3xl font-medium">
-        <p>{`${roundedPercentScore}%`}</p>
+        <div>
+          {valueOfroundedPercentScore ? (
+            roundedPercentScore !== Infinity ? (
+              roundedPercentScore + "%"
+            ) : (
+              <span className="text-center">
+                <svg
+                  class="animate-spin ml-3 mb-1 h-5 w-5 text-primary"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    class="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  ></circle>
+                  <path
+                    class="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+              </span>
+            )
+          ) : (
+            "0%"
+          )}
+        </div>
       </div>
       <div className="flex flex-col lg:flex-row items-center gap-14">
         <div className=" flex flex-col items-center">
@@ -55,11 +114,10 @@ function DonutChart(props) {
               fill="gray"
             >
               {data.map((entry, index) => (
-                <Cell key={index} fill={colors[index % colors.length]} />
+                <Cell key={index} fill={colors[index % colors?.length]} />
               ))}
             </Pie>
             <Tooltip />
-       
           </PieChart>
         </div>
 
@@ -95,4 +153,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps)(DonutChart);
+export default connect(mapStateToProps )(DonutChart);

@@ -3,13 +3,16 @@ import { NavLink } from "react-router-dom";
 // import { biologyPQYear } from "../../DB/BiologyPQ";
 import { connect } from "react-redux";
 import {
+  fetchPracticeQuestion,
   selectPastQuestionYear,
   selectPastQuestionPracticeType,
   selectPastQuestionSubject,
 } from "../../redux/actions/practiceQuestion";
 
 function WebSideNav(props) {
-  const { untimedPracticeQuestions, subject } = props.practiceQuestionReducer;
+  const token = props?.loginReducer?.token;
+
+  const { untimedPracticeQuestions, subject, year } = props.practiceQuestionReducer;
 
   const [yearNav, setYearNav] = useState(props.practiceQuestionReducer.year);
 
@@ -28,7 +31,10 @@ function WebSideNav(props) {
     setYearNav(item);
     props.selectPastQuestionYear(item);
     props.selectPastQuestionPracticeType("Untimed Questions");
-    props.selectPastQuestionSubject("Biology");
+    props.fetchPracticeQuestion(
+      { subject: subject.toLowerCase(), year },
+      token
+    );
   };
 
   // console.log(years);
@@ -77,6 +83,7 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, {
+  fetchPracticeQuestion,
   selectPastQuestionYear,
   selectPastQuestionPracticeType,
   selectPastQuestionSubject,
