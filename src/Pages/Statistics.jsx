@@ -25,12 +25,12 @@ function Statistics(props) {
   // const token = props?.loginReducer?.token;
   const { questionArray } = props.practiceQuestionReducer;
 
-  const untimedPracticeQuestions =
-    props.practiceQuestionReducer.untimedPracticeQuestions;
+  // const untimedPracticeQuestions =
+  //   props.practiceQuestionReducer.untimedPracticeQuestions;
 
-  const yearOfBiologyUntimedQuestionArray = untimedPracticeQuestions.filter(
-    (item) => item.subject === "Biology" && item.year == props.practiceQuestionReducer.year
-  );
+  // const yearOfBiologyUntimedQuestionArray = untimedPracticeQuestions.filter(
+  //   (item) => item.subject === "Biology" && item.year == props.practiceQuestionReducer.year
+  // );
 
   // const submittedQuestionArray = yearOfBiologyUntimedQuestionArray[0].submittedQuestionsAndAnswers;
 

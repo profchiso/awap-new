@@ -16,11 +16,14 @@ function WebSideNav(props) {
   // const [anotherYearClicked, setAnotherYearClicked] = useState(false)
 
   let years = [];
-  for (let items of untimedPracticeQuestions) {
-    if (items.subject === subject) {
-      years.push(Number(items.year));
+  if (untimedPracticeQuestions){
+    for (let items of untimedPracticeQuestions) {
+      if (items.subject === subject) {
+        years.push(Number(items.year));
+      }
     }
   }
+ 
   const handleAnotherYear = (item) => {
     setYearNav(item);
     props.selectPastQuestionYear(item);
