@@ -13,6 +13,8 @@ import useWindowDimensions from "../../Hooks/UseWindowDimension";
 import { logout } from "../../redux/actions/login";
 import {BiUser} from "react-icons/bi"
 import * as Io from "react-icons/io";
+import FilterModal from "./FilterModal";
+import { ReactComponent as Filter } from "../../assets/svgs/FilterIcon.svg";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -98,6 +100,15 @@ function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...prop
               <ExpandMoreRoundedIcon color="primary" />
             </span>
           </Button>
+        
+          {props.showFilter ? (
+              <FilterModal>
+                <Filter />
+                <span className="pl-2 text-primary capitalize font-body font-normal">
+                  Filter
+                </span>
+              </FilterModal>
+            ) : null}
         </div>
         <button
           className="sm:hidden block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body font-semibold shadow-primary px-6 py-2 rounded-md text-sm lg:text-base font-medium"

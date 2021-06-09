@@ -12,6 +12,7 @@ import Select from "@material-ui/core/Select";
 import {
   selectPastQuestionSubject,
   selectPastQuestionPracticeType,
+  onSideNavYearChange,
 } from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
@@ -26,23 +27,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Statistics(props) {
   const classes = useStyles();
-  const token = props?.loginReducer?.token;
   const { questionArray } = props.practiceQuestionReducer;
-  const { subject, year } = props.practiceQuestionReducer;
-
-  const untimedPracticeQuestions =
-    props?.practiceQuestionReducer?.untimedPracticeQuestions;
-
-  const yearOfBiologyUntimedQuestionArray = untimedPracticeQuestions?.filter(
-    (item) =>
-      item?.subject === subject &&
-      item?.year == props?.practiceQuestionReducer?.year
-  );
-
-  const submittedQuestionArray =
-    yearOfBiologyUntimedQuestionArray[0]?.submittedQuestionsAndAnswers;
-
-  console.log("year & biology", submittedQuestionArray);
+  const { year, subject } = props.practiceQuestionReducer;
 
   const history = useHistory();
 
@@ -52,16 +38,10 @@ function Statistics(props) {
     props.selectPastQuestionSubject(event.target.value);
   };
 
-  // const [value, setValue] = useState(null);
-
-  // const handleChange = async (event) => {
-  //   setValue(event.target.value);
-  //   props.selectPastQuestionPracticeType(event.target.value);
-  //   props.fetchPracticeQuestion(
-  //     { subject: subject.toLowerCase(), year },
-  //     token
-  //   );
-  // };
+  const viewSolution = () => {
+    props.onSideNavYearChange(year, subject)
+    history.goBack();
+  };
 
   return (
     <AnswerLayout>
@@ -154,7 +134,7 @@ function Statistics(props) {
                   </div>
                   <div>
                     <button
-                      onClick={() => history.goBack()}
+                      onClick={viewSolution}
                       className="py-3 px-8 text-base font-body font-medium bg-primary rounded-md text-white"
                     >
                       View Solutions
@@ -164,7 +144,7 @@ function Statistics(props) {
                     <br />
 
                     <button
-                      onClick={() => history.goBack()}
+                      // onClick={() => history.goBack()}
                       className="py-3 whitespace-nowrap w-full text-center text-primary shadow-md px-8 text-base font-body font-medium bg-white rounded-md text-white"
                     >
                       Test Again
@@ -193,4 +173,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   selectPastQuestionSubject,
   selectPastQuestionPracticeType,
+  onSideNavYearChange,
 })(Statistics);

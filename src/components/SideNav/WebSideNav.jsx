@@ -7,6 +7,7 @@ import {
   selectPastQuestionYear,
   selectPastQuestionPracticeType,
   selectPastQuestionSubject,
+  onSideNavYearChange,
 } from "../../redux/actions/practiceQuestion";
 
 function WebSideNav(props) {
@@ -27,14 +28,15 @@ function WebSideNav(props) {
     }
   }
  
-  const handleAnotherYear = (item) => {
+  const handleAnotherYear = (item, subject) => {
     setYearNav(item);
     props.selectPastQuestionYear(item);
     props.selectPastQuestionPracticeType("Untimed Questions");
-    props.fetchPracticeQuestion(
-      { subject: subject.toLowerCase(), year },
-      token
-    );
+    props.onSideNavYearChange(item, subject)
+    // props.fetchPracticeQuestion(
+    //   { subject: subject.toLowerCase(), year },
+    //   token
+    // );
   };
 
   // console.log(years);
@@ -65,7 +67,7 @@ function WebSideNav(props) {
                 key={index}
                 to="/stats"
                 className="text-white hover:text-white relative z-10"
-                onClick={() => handleAnotherYear(item)}
+                onClick={() => handleAnotherYear(item, subject)}
               >
                 {item}
               </NavLink>
@@ -87,6 +89,7 @@ export default connect(mapStateToProps, {
   selectPastQuestionYear,
   selectPastQuestionPracticeType,
   selectPastQuestionSubject,
+  onSideNavYearChange,
 })(WebSideNav);
 
 // const mapStateToProps = (state) => {

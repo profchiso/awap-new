@@ -8,6 +8,7 @@ import {
   API_ERROR,
   SELECT_PAST_QUESTION_PRACTICE_TYPE,
   SUBMIT_USER_ANSWERS,
+  ON_SIDENAV_YEAR_CHANGE,
 } from "./types";
 
 export const fetchPracticeQuestion = (practiceQuestionData, token) => {
@@ -106,4 +107,11 @@ export const submittedUserAnswers =(answers)=>{
         type: SUBMIT_USER_ANSWERS,
         payload: answers,
       };
+}
+
+export const onSideNavYearChange = (year, subject)=>{
+   return {
+     type: ON_SIDENAV_YEAR_CHANGE,
+     payload: {year, subject},
+   }
 }

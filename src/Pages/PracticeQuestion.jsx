@@ -39,12 +39,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function PracticeQuestion(props) {
-  const {
-    userSelectedAnwser,
-    year,
-    subject,
-    questionType,
-  } = props.practiceQuestionReducer;
+  const { userSelectedAnwser, year, subject, questionType } =
+    props.practiceQuestionReducer;
   const submissionData = {
     submittedQuestionsAndAnswers: userSelectedAnwser,
     year,
@@ -152,12 +148,31 @@ function PracticeQuestion(props) {
     return false;
   };
 
+  const handleSubmit = () => {
+    const { submittedQuestionsAndAnswers } = submissionData;
+    let mergedData = [...submittedQuestionsAndAnswers, ...questionArray];
+
+    console.log(mergedData);
+
+    const seen = new Set();
+
+    const filteredArr = mergedData.filter((element) => {
+      const duplicate = seen.has(element.questionNumber);
+      seen.add(element.questionNumber);
+      return !duplicate;
+    });
+
+    submissionData.submittedQuestionsAndAnswers = filteredArr;
+
+    props.submitUserAnswers(submissionData, token);
+  };
+
   const token = props?.loginReducer?.token;
 
   if (token) {
     return (
       <div className="sm:max-h-screen select-none" onContextMenu={disable}>
-        <PracticeHeader handleOpen={handleOpen} showFilter={true} />
+        <PracticeHeader handleOpen={handleOpen} />
         {questionArray.length ? (
           <>
             <Modal
@@ -184,9 +199,7 @@ function PracticeQuestion(props) {
                     <div className="pt-16 pb-6 flex gap-5 items-center justify-center">
                       <Link to="/stats">
                         <button
-                          onClick={() => {
-                            props.submitUserAnswers(submissionData, token);
-                          }}
+                          onClick={handleSubmit}
                           className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
                         >
                           Yes, Submit
@@ -209,7 +222,7 @@ function PracticeQuestion(props) {
                 </div>
               </Fade>
             </Modal>
-            
+
             <div>
               <div className="flex relative max-w-screen-2xl mx-auto  mt-8">
                 <div className="flex-1  pb-40 sm:pb-0">
