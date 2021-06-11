@@ -433,7 +433,7 @@ function PracticeQuestion(props) {
                   <button
                     className="hidden sm:block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body shadow-primary px-11 py-2 mr-16 rounded-md text-sm lg:text-base font-medium"
                     onClick={handleOpen}
-                    disabled={`${isViewSolution ? true : false}`}
+                  //disabled={`${isViewSolution ? true : false}`}
                   >
                     {questionNumber + 1 === questionArray.length && !isViewSolution
                       ? "Finish"
