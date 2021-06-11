@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import Pagination from "../components/AnswerContent/Pagination";
-import  DefaultAnswerBtn  from "../components/Button/AnswerButton";
+import DefaultAnswerBtn from "../components/Button/AnswerButton";
 import FormControl from "@material-ui/core/FormControl";
 import PracticeHeader from "../components/Header/PracticeHeader";
 import NumberBadge from "../components/Badge/NumberBadge";
@@ -57,7 +57,7 @@ function PracticeQuestion(props) {
   const [nextButtonClicked, setnextButtonClicked] = useState(false);
 
   const [open, setOpen] = useState(false);
-  const { questionArray,  isViewSolution } = props.practiceQuestionReducer;
+  const { questionArray, isViewSolution } = props.practiceQuestionReducer;
   const answer = questionArray[questionNumber]?.answer;
   const isCorrect =
     "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
@@ -174,8 +174,8 @@ function PracticeQuestion(props) {
     return (
       <div className="sm:max-h-screen select-none" onContextMenu={disable}>
         <PracticeHeader handleOpen={handleOpen} showFilter={
-            window.location.pathname.includes("/stats")||isViewSolution ? true : false
-          }/>
+          window.location.pathname.includes("/stats") || isViewSolution ? true : false
+        } />
         {questionArray.length ? (
           <>
             <Modal
@@ -407,7 +407,7 @@ function PracticeQuestion(props) {
                     </div>
 
                     {width > 640 &&
-                    questionNumber + 1 === questionArray.length ? (
+                      questionNumber + 1 === questionArray.length ? (
                       <button
                         onClick={() => handleOpen()}
                         className="fixed openModalNextBtn z-10 shadow-primary rounded-full focus:outline-none transform md:scale-125"
@@ -433,10 +433,11 @@ function PracticeQuestion(props) {
                   <button
                     className="hidden sm:block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body shadow-primary px-11 py-2 mr-16 rounded-md text-sm lg:text-base font-medium"
                     onClick={handleOpen}
+                    disabled={`${isViewSolution ? true : false}`}
                   >
-                    {questionNumber + 1 === questionArray.length
+                    {questionNumber + 1 === questionArray.length && !isViewSolution
                       ? "Finish"
-                      : "End"}
+                      : isViewSolution ? "Statistics" : "End"}
                   </button>
                 </div>
               </div>
