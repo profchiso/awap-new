@@ -12,6 +12,7 @@ const initialState = {
   isAnswerSubmissionSuccessful: false,
   submittedAnswers: {},
   untimedPracticeQuestions: [],
+  isViewSolution: false,
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
@@ -25,6 +26,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: payload.data.questions,
       userSelectedAnwser: [],
       isQuestionFetched: true,
+      isViewSolution: false,
+
     };
   } else if (type === "SELECT_YEAR") {
     return {
@@ -33,6 +36,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       userSelectedAnwser: [],
       questionArray: [],
       isQuestionFetched: false,
+      isViewSolution: false,
+
     };
   } else if (type === "SELECT_SUBJECT") {
     return {
@@ -41,6 +46,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       userSelectedAnwser: [],
       questionArray: [],
       isQuestionFetched: false,
+      isViewSolution: false,
+
     };
   } else if (type === "SELECT_PAST_QUESTION_PRACTICE_TYPE") {
     return {
@@ -48,6 +55,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionType: payload,
       userSelectedAnwser: [],
       isQuestionFetched: false,
+      isViewSolution: false,
+
     };
   } else if (type === "API_ERROR") {
     let error = {};
@@ -56,6 +65,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       ...state,
       userSelectedAnwser: [],
       error,
+      isViewSolution: false,
+
     };
   } else if (type === "SELECT_ANSWER") {
     let filteredUserSelectedAnwers = state.userSelectedAnwser.filter(
@@ -67,6 +78,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     return {
       ...state,
       userSelectedAnwser: [...filteredUserSelectedAnwers, payload],
+
     };
   } else if (type === "SUBMIT_USER_ANSWERS") {
     return {
@@ -74,6 +86,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       isAnswerSubmissionSuccessful: true,
       submittedAnswers: payload.data.submitedPracticeQuestion,
       untimedPracticeQuestions: payload.data.untimedPracticeQuestions,
+      isViewSolution: false,
+
     };
   } else if (type === "ON_SIDENAV_YEAR_CHANGE") {
     let updatedQuestionAndArray = state.untimedPracticeQuestions.filter(
@@ -81,12 +95,17 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
         Number(practiceQuestion.year) === Number(payload.year) &&
         practiceQuestion.subject === payload.subject
     );
-    console.log("updatedQuestionAndArray",updatedQuestionAndArray)
+    console.log("updatedQuestionAndArray", updatedQuestionAndArray);
     return {
       ...state,
-      questionArray:updatedQuestionAndArray[0].submittedQuestionsAndAnswers,
+      questionArray: updatedQuestionAndArray[0].submittedQuestionsAndAnswers,
+      isViewSolution: false,
+    };
+  } else if (type === "IS_VIEW_SOLUTION") {
+    return {
+      ...state,
+      isViewSolution: true,
     };
   }
-
   return state;
 };

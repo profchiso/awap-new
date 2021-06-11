@@ -16,7 +16,7 @@ export const registerReducer = (state = initialState, actions) => {
             error: {},
             message: payload.data.message
         };
-    } else if (type === 'REGISTRATION_ERROR' || type === 'REGISTRATION_ERROR') {
+    } else if (type === 'REGISTRATION_ERROR') {
 
         localStorage.removeItem('user');
         return {

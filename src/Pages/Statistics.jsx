@@ -13,6 +13,7 @@ import {
   selectPastQuestionSubject,
   selectPastQuestionPracticeType,
   onSideNavYearChange,
+  isViewSolution,
 } from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,6 +41,8 @@ function Statistics(props) {
 
   const viewSolution = () => {
     props.onSideNavYearChange(year, subject)
+    props.isViewSolution()
+
     history.goBack();
   };
 
@@ -174,4 +177,5 @@ export default connect(mapStateToProps, {
   selectPastQuestionSubject,
   selectPastQuestionPracticeType,
   onSideNavYearChange,
+  isViewSolution,
 })(Statistics);

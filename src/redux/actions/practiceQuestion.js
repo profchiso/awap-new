@@ -9,6 +9,7 @@ import {
   SELECT_PAST_QUESTION_PRACTICE_TYPE,
   SUBMIT_USER_ANSWERS,
   ON_SIDENAV_YEAR_CHANGE,
+  IS_VIEW_SOLUTION,
 } from "./types";
 
 export const fetchPracticeQuestion = (practiceQuestionData, token) => {
@@ -114,4 +115,10 @@ export const onSideNavYearChange = (year, subject)=>{
      type: ON_SIDENAV_YEAR_CHANGE,
      payload: {year, subject},
    }
+}
+
+export const isViewSolution=()=>{
+  return {
+    type: IS_VIEW_SOLUTION,
+  }
 }

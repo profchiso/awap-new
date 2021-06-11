@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import Pagination from "../components/AnswerContent/Pagination";
-import { DefaultAnswerBtn } from "../components/Button/AnswerButton";
+import  DefaultAnswerBtn  from "../components/Button/AnswerButton";
 import FormControl from "@material-ui/core/FormControl";
 import PracticeHeader from "../components/Header/PracticeHeader";
 import NumberBadge from "../components/Badge/NumberBadge";
@@ -15,6 +15,7 @@ import { Link, Redirect } from "react-router-dom";
 import {
   addSelectedAnswerToArray,
   submitUserAnswers,
+  isViewSolution,
 } from "../redux/actions/practiceQuestion";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 // import { ReactComponent as PreviousIcon } from "../assets/svgs/PreviousIcon.svg";
@@ -56,7 +57,7 @@ function PracticeQuestion(props) {
   const [nextButtonClicked, setnextButtonClicked] = useState(false);
 
   const [open, setOpen] = useState(false);
-  const { questionArray } = props.practiceQuestionReducer;
+  const { questionArray,  isViewSolution } = props.practiceQuestionReducer;
   const answer = questionArray[questionNumber]?.answer;
   const isCorrect =
     "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
@@ -172,7 +173,9 @@ function PracticeQuestion(props) {
   if (token) {
     return (
       <div className="sm:max-h-screen select-none" onContextMenu={disable}>
-        <PracticeHeader handleOpen={handleOpen} />
+        <PracticeHeader handleOpen={handleOpen} showFilter={
+            window.location.pathname.includes("/stats")||isViewSolution ? true : false
+          }/>
         {questionArray.length ? (
           <>
             <Modal
@@ -454,4 +457,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   addSelectedAnswerToArray,
   submitUserAnswers,
+  isViewSolution,
 })(PracticeQuestion);
