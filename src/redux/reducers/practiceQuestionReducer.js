@@ -13,6 +13,7 @@ const initialState = {
   submittedAnswers: {},
   untimedPracticeQuestions: [],
   isViewSolution: false,
+  filterValue: "All"
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
@@ -106,6 +107,54 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       ...state,
       isViewSolution: true,
     };
+  } else if (type === "FILTER_SOLUTION") {
+    const { subject, year, untimedPracticeQuestions } = state
+    let allQuestions = untimedPracticeQuestions.filter(q => Number(q.year) === Number(year) && q.subject === subject)
+    let allQuestionArray = allQuestions[0].submittedQuestionsAndAnswers
+
+    if (payload === "showAll") {
+      return {
+        ...state,
+        isViewSolution: true,
+        questionArray: allQuestionArray,
+        filterValue: "All"
+
+      }
+    } else if (payload === "Correct") {
+      let correct = allQuestionArray.filter(q => q.answer === q.userSelectedAnswer && q.hasOwnProperty("userSelectedAnswer"))
+      console.log(payload, correct)
+      return {
+        ...state,
+        isViewSolution: true,
+        questionArray: correct,
+        filterValue: payload
+
+      }
+
+    } else if (payload === "Incorrect") {
+      let inCorrect = allQuestionArray.filter(q => q.answer !== q.userSelectedAnswer && q.hasOwnProperty("userSelectedAnswer"))
+      console.log(payload, inCorrect)
+      return {
+        ...state,
+        isViewSolution: true,
+        questionArray: inCorrect,
+        filterValue: payload
+
+      }
+
+    } else if (payload === "Unanswered") {
+      let unAnswered = allQuestionArray.filter(q => !q.hasOwnProperty("userSelectedAnswer"))
+      console.log(payload, unAnswered)
+      return {
+        ...state,
+        isViewSolution: true,
+        questionArray: unAnswered,
+        filterValue: payload
+
+      }
+
+    }
+
   }
   return state;
 };

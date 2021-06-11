@@ -14,8 +14,8 @@ function DefaultAnswerBtn(props) {
       return "";
     }
   };
-  const {isViewSolution}= props.practiceQuestionReducer
-  console.log("props from default btn", props);
+  const { isViewSolution } = props.practiceQuestionReducer
+
 
   return (
     <div className="flex justify-center items-center">
@@ -42,4 +42,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps )(DefaultAnswerBtn);
+export default connect(mapStateToProps)(DefaultAnswerBtn);
