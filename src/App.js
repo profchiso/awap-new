@@ -12,6 +12,7 @@ import { store, persistor } from "./redux/store/store";
 import ProtectedRoute from "./Routes/ProtectedRoute";
 import BiologyChooseYear from "./Pages/ChooseYear";
 import BiologyUntimedPQ from "./Pages/UntimedPQ";
+import BiologyTimedPQ from "./Pages/TimedPQ";
 import BiologyChooseType from "./Pages/ChooseType";
 import Answers from "./Pages/Answers/BiologyAnswers";
 import PracticeQuestion from "./Pages/PracticeQuestion";
@@ -41,11 +42,11 @@ export default function App() {
               <Route exact path="/" component={LandingPage} />
 
               <ProtectedRoute path="/login">
-                <Login/>
+                <Login />
               </ProtectedRoute>
 
               <ProtectedRoute path="/sign-up">
-                <SignUP/>
+                <SignUP />
               </ProtectedRoute>
 
               <ProtectedRoute path="/pq/biology-choose-year">
@@ -62,6 +63,10 @@ export default function App() {
 
               <ProtectedRoute path="/pq/biology-untimed">
                 <BiologyUntimedPQ />
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/pq/biology-timed">
+                <BiologyTimedPQ />
               </ProtectedRoute>
 
               <ProtectedRoute path="/pq/mobile-biology-Pq">
