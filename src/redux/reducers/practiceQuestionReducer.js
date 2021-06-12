@@ -38,7 +38,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: [],
       isQuestionFetched: false,
       isViewSolution: false,
-      filterValue: "All"
 
     };
   } else if (type === "SELECT_SUBJECT") {
@@ -49,7 +48,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: [],
       isQuestionFetched: false,
       isViewSolution: false,
-      filterValue: "All"
     };
   } else if (type === "SELECT_PAST_QUESTION_PRACTICE_TYPE") {
     return {
@@ -106,6 +104,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     return {
       ...state,
       isViewSolution: true,
+      filterValue: "All",
     };
   } else if (type === "FILTER_SOLUTION") {
     const { subject, year, untimedPracticeQuestions } = state

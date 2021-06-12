@@ -22,6 +22,7 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsPage from "./Pages/TermsPage";
 import UnderConstruction from "./Pages/UnderConstruction";
 import ChooseSubject from "./Pages/ChooseSubject";
+import PracticeMoreQuestions from "./Pages/PracticeMoreQuestions";
 
 const theme = createMuiTheme({
   palette: {
@@ -79,6 +80,7 @@ export default function App() {
               <Route path="/terms" component={TermsPage} />
 
               <Route path="/choose-subject" component={ChooseSubject} />
+              <Route path="/practice-more" component={PracticeMoreQuestions} />
 
 
               {biologyPQYear.map((item, index) => (

@@ -201,7 +201,7 @@ function PracticeQuestion(props) {
                     className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
                   >
                     <div className="py-12 flex-1 -mr-12">
-                      <h3>Done Viewing Solution?</h3>
+                      <h3>Done viewing solutions?</h3>
 
                       <div className="pt-10 pb-6 flex flex-col gap-5 items-center justify-center">
                         <Link
@@ -211,10 +211,10 @@ function PracticeQuestion(props) {
                           Go back to Statistics
                         </Link>
                         <Link
-                          to="/"
+                          to="/practice-more"
                           className="font-medium text-primary hover:text-primary text-base"
                         >
-                          Practice more Questions
+                          Practice more questions
                         </Link>
                         <Link
                           to="/"
@@ -225,7 +225,7 @@ function PracticeQuestion(props) {
                         <button
                           onClick={() => handleClose("ok")}
                           className="text-base  px-12 font-body px-5 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-                        style={{color:"#F1420A"}}
+                          style={{ color: "#F1420A" }}
                         >
                           No, Cancel
                         </button>
