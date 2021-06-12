@@ -48,7 +48,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: [],
       isQuestionFetched: false,
       isViewSolution: false,
-
     };
   } else if (type === "SELECT_PAST_QUESTION_PRACTICE_TYPE") {
     return {
@@ -74,7 +73,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       (userSelectedAnwser) =>
         userSelectedAnwser.questionNumber !== payload.questionNumber
     );
-    // let uSA = [...filteredUserSelectedAnwers, payload];
 
     return {
       ...state,
@@ -106,6 +104,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     return {
       ...state,
       isViewSolution: true,
+      filterValue: "All",
     };
   } else if (type === "FILTER_SOLUTION") {
     const { subject, year, untimedPracticeQuestions } = state

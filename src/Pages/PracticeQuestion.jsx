@@ -173,58 +173,121 @@ function PracticeQuestion(props) {
   if (token) {
     return (
       <div className="sm:max-h-screen select-none" onContextMenu={disable}>
-        <PracticeHeader handleOpen={handleOpen} showFilter={
-          window.location.pathname.includes("/stats") || isViewSolution ? true : false
-        } />
+        <PracticeHeader
+          handleOpen={handleOpen}
+          showFilter={
+            window.location.pathname.includes("/stats") || isViewSolution
+              ? true
+              : false
+          }
+        />
         {questionArray.length ? (
           <>
-            <Modal
-              aria-labelledby="transition-modal-title"
-              aria-describedby="transition-modal-description"
-              className={classes.modal}
-              open={open}
-              onClose={handleClose}
-              closeAfterTransition
-              BackdropComponent={Backdrop}
-              BackdropProps={{
-                timeout: 500,
-              }}
-            >
-              <Fade in={open}>
-                <div
-                  className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
-                >
-                  <div className="py-12 flex-1 -mr-12">
-                    <h3>Finish Past Question?</h3>
-                    <p className="pt-8 font-medium">
-                      Are you sure you want to end this past question?
-                    </p>
-                    <div className="pt-16 pb-6 flex gap-5 items-center justify-center">
-                      <Link to="/stats">
-                        <button
-                          onClick={handleSubmit}
-                          className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-                        >
-                          Yes, Submit
-                        </button>
-                      </Link>
+            {isViewSolution ? (
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
+              >
+                <Fade in={open}>
+                  <div
+                    className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+                  >
+                    <div className="py-12 flex-1 -mr-12">
+                      <h3>Done viewing solutions?</h3>
 
-                      <button
-                        onClick={() => handleClose("ok")}
-                        className="text-primary  px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-                      >
-                        No, Cancel
-                      </button>
+                      <div className="pt-10 pb-6 flex flex-col gap-5 items-center justify-center">
+                        <Link
+                          to="/stats"
+                          className="font-medium text-primary hover:text-primary text-base"
+                        >
+                          Go back to Statistics
+                        </Link>
+                        <Link
+                          to="/practice-more"
+                          className="font-medium text-primary hover:text-primary text-base"
+                        >
+                          Practice more questions
+                        </Link>
+                        <Link
+                          to="/"
+                          className="font-medium text-primary hover:text-primary text-base"
+                        >
+                          Go to Home
+                        </Link>
+                        <button
+                          onClick={() => handleClose("ok")}
+                          className="text-base  px-12 font-body px-5 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                          style={{ color: "#F1420A" }}
+                        >
+                          No, Cancel
+                        </button>
+                      </div>
                     </div>
+                    <span>
+                      <Button onClick={handleClose}>
+                        <CloseRoundedIcon />
+                      </Button>
+                    </span>
                   </div>
-                  <span>
-                    <Button onClick={handleClose}>
-                      <CloseRoundedIcon />
-                    </Button>
-                  </span>
-                </div>
-              </Fade>
-            </Modal>
+                </Fade>
+              </Modal>
+            ) : (
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
+              >
+                <Fade in={open}>
+                  <div
+                    className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+                  >
+                    <div className="py-12 flex-1 -mr-12">
+                      <h3>Finish Past Question?</h3>
+                      <p className="pt-8 font-medium">
+                        Are you sure you want to end this past question?
+                      </p>
+                      <div className="pt-16 pb-6 flex gap-5 items-center justify-center">
+                        <Link to="/stats">
+                          <button
+                            onClick={handleSubmit}
+                            className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                          >
+                            Yes, Submit
+                          </button>
+                        </Link>
+
+                        <button
+                          onClick={() => handleClose("ok")}
+                          className="text-primary  px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                        >
+                          No, Cancel
+                        </button>
+                      </div>
+                    </div>
+                    <span>
+                      <Button onClick={handleClose}>
+                        <CloseRoundedIcon />
+                      </Button>
+                    </span>
+                  </div>
+                </Fade>
+              </Modal>
+            )}
 
             <div>
               <div className="flex relative max-w-screen-2xl mx-auto  mt-8">
@@ -364,7 +427,7 @@ function PracticeQuestion(props) {
                         <span>Solution</span>
                         <br />
 
-                        {questionArray[questionNumber].solution}
+                        {questionArray[questionNumber]?.solution}
                       </div>
                     </div>
                   ) : (
@@ -407,7 +470,7 @@ function PracticeQuestion(props) {
                     </div>
 
                     {width > 640 &&
-                      questionNumber + 1 === questionArray.length ? (
+                    questionNumber + 1 === questionArray.length ? (
                       <button
                         onClick={() => handleOpen()}
                         className="fixed openModalNextBtn z-10 shadow-primary rounded-full focus:outline-none transform md:scale-125"
@@ -433,11 +496,14 @@ function PracticeQuestion(props) {
                   <button
                     className="hidden sm:block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body shadow-primary px-11 py-2 mr-16 rounded-md text-sm lg:text-base font-medium"
                     onClick={handleOpen}
-                  //disabled={`${isViewSolution ? true : false}`}
+                    //disabled={`${isViewSolution ? true : false}`}
                   >
-                    {questionNumber + 1 === questionArray.length && !isViewSolution
+                    {questionNumber + 1 === questionArray.length &&
+                    !isViewSolution
                       ? "Finish"
-                      : isViewSolution ? "Statistics" : "End"}
+                      : isViewSolution
+                      ? "Done"
+                      : "End"}
                   </button>
                 </div>
               </div>
