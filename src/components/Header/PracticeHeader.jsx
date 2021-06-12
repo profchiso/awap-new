@@ -11,11 +11,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import TemporaryDrawer from "../Drawer/Drawer";
 import useWindowDimensions from "../../Hooks/UseWindowDimension";
 import { logout } from "../../redux/actions/login";
-import { BiUser } from "react-icons/bi"
+import { BiUser } from "react-icons/bi";
 import * as Io from "react-icons/io";
 import FilterModal from "./FilterModal";
 import { ReactComponent as Filter } from "../../assets/svgs/FilterIcon.svg";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +29,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...props }) {
+function PracticeHeader({
+  loginReducer,
+  practiceQuestionReducer,
+  logout,
+  ...props
+}) {
   const classes = useStyles();
   const { width } = useWindowDimensions();
   const [isLoggedIn, setIsLoggedIn] = React.useState(true);
@@ -90,7 +94,7 @@ function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...prop
             aria-owns={anchorEl ? "simple-menu" : undefined}
             aria-haspopup="true"
             onClick={handleClick}
-          // onMouseOver={handleClick}
+            // onMouseOver={handleClick}
           >
             <CircleUserAvatar imgUrl="" />
             <span className="capitalize font-body font-normal whitespace-nowrap">
@@ -105,7 +109,7 @@ function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...prop
             <FilterModal>
               <Filter />
               <span className="pl-2 text-primary capitalize font-body font-normal">
-                {filterValue}
+                {width > 1024 ? "Filter":""} {" ",filterValue}
               </span>
             </FilterModal>
           ) : null}
@@ -129,7 +133,6 @@ function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...prop
             },
           }}
         >
-
           <div>
             <MenuItem
               onClick={handleClose}
@@ -138,9 +141,7 @@ function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...prop
               <span className="justify-self-start px-2">
                 <BiUser className="text-primary" />
               </span>
-              <span
-                className="font-body font-normal flex-1 pr-8 text-primary text-sm"
-              >
+              <span className="font-body font-normal flex-1 pr-8 text-primary text-sm">
                 Profile
               </span>
             </MenuItem>
@@ -152,9 +153,7 @@ function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...prop
                 <span className="justify-self-start px-2">
                   <Io.IoIosStats className="text-primary" />
                 </span>
-                <span
-                  className="font-body font-normal flex-1 pr-8 text-primary text-sm"
-                >
+                <span className="font-body font-normal flex-1 pr-8 text-primary text-sm">
                   Statistics
                 </span>
               </MenuItem>
@@ -175,7 +174,6 @@ function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...prop
               </span>
             </MenuItem>
           </div>
-
         </Menu>
       </div>
     </div>
