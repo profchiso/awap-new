@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import MobileHeader from "../components/Header/MobileHeader";
-import TimedPqIntro from "../components/PastQuestion/timedPqIntro";
+import TimedPqIntro from "../components/PastQuestion/TimedPqIntro";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";

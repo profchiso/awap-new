@@ -50,7 +50,7 @@ function TimedPqIntro(props) {
                 </div> */}
                 <div>
                     {questionArray?.length ? (
-                        <Link to="/pq/practice">
+                        <Link to="/pq/practice-timed">
                             <button className="text-white bg-primary  font-body shadow-primary px-16  md:px-20 py-2 rounded-md focus:outline-none text-sm lg:text-base">
                                 Start
                             </button>

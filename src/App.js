@@ -10,12 +10,13 @@ import SignUP from "./Pages/SignUp";
 import Unavailable from "./Pages/404";
 import { store, persistor } from "./redux/store/store";
 import ProtectedRoute from "./Routes/ProtectedRoute";
-import BiologyChooseYear from "./Pages/ChooseYear";
-import BiologyUntimedPQ from "./Pages/UntimedPQ";
-import BiologyTimedPQ from "./Pages/TimedPQ";
-import BiologyChooseType from "./Pages/ChooseType";
+import ChooseYear from "./Pages/ChooseYear";
+import UntimedPQ from "./Pages/UntimedPQ";
+import TimedPQ from "./Pages/TimedPQ";
+import ChooseType from "./Pages/ChooseType";
 import Answers from "./Pages/Answers/BiologyAnswers";
-import PracticeQuestion from "./Pages/PracticeQuestion";
+import UntimedPracticeQuestion from "./Pages/UnTimedPracticeQuestion";
+import TimedPracticeQuestion from "./Pages/TimedPracticeQuestion";
 import { biologyPQYear } from "./DB/BiologyPQ";
 import MobilePq from "./Pages/MobilePq";
 import Statistics from "./Pages/Statistics";
@@ -50,27 +51,31 @@ export default function App() {
                 <SignUP />
               </ProtectedRoute>
 
-              <ProtectedRoute path="/pq/biology-choose-year">
-                <BiologyChooseYear />
+              <ProtectedRoute path="/pq/subject-choose-year">
+                <ChooseYear />
               </ProtectedRoute>
 
-              <ProtectedRoute path="/pq/practice">
-                <PracticeQuestion />
+              <ProtectedRoute path="/pq/practice-untimed">
+                <UntimedPracticeQuestion />
               </ProtectedRoute>
 
-              <ProtectedRoute path="/pq/biology-choose-type">
-                <BiologyChooseType />
+              <ProtectedRoute path="/pq/practice-timed">
+                <TimedPracticeQuestion />
               </ProtectedRoute>
 
-              <ProtectedRoute path="/pq/biology-untimed">
-                <BiologyUntimedPQ />
+              <ProtectedRoute path="/pq/subject-choose-type">
+                <ChooseType />
               </ProtectedRoute>
 
-              <ProtectedRoute path="/pq/biology-timed">
-                <BiologyTimedPQ />
+              <ProtectedRoute path="/pq/subject-untimed">
+                <UntimedPQ />
               </ProtectedRoute>
 
-              <ProtectedRoute path="/pq/mobile-biology-Pq">
+              <ProtectedRoute path="/pq/subject-timed">
+                <TimedPQ />
+              </ProtectedRoute>
+
+              <ProtectedRoute path="/pq/mobile-subject-Pq">
                 <MobilePq />
               </ProtectedRoute>
 

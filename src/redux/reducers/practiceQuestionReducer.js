@@ -1,3 +1,5 @@
+import { logout } from "../actions/login";
+
 const initialState = {
   userSelectedAnwser: [],
   year: "",
@@ -13,7 +15,7 @@ const initialState = {
   submittedAnswers: {},
   untimedPracticeQuestions: [],
   isViewSolution: false,
-  filterValue: "All"
+  filterValue: "All",
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
@@ -28,7 +30,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       userSelectedAnwser: [],
       isQuestionFetched: true,
       isViewSolution: false,
-
     };
   } else if (type === "SELECT_YEAR") {
     return {
@@ -38,7 +39,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: [],
       isQuestionFetched: false,
       isViewSolution: false,
-
     };
   } else if (type === "SELECT_SUBJECT") {
     return {
@@ -56,17 +56,17 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       userSelectedAnwser: [],
       isQuestionFetched: false,
       isViewSolution: false,
-
     };
   } else if (type === "API_ERROR") {
     let error = {};
-
+    if (payload.message.includes("jwt expired")) {
+      logout();
+    }
     return {
       ...state,
       userSelectedAnwser: [],
       error,
       isViewSolution: false,
-
     };
   } else if (type === "SELECT_ANSWER") {
     let filteredUserSelectedAnwers = state.userSelectedAnwser.filter(
@@ -77,7 +77,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     return {
       ...state,
       userSelectedAnwser: [...filteredUserSelectedAnwers, payload],
-
     };
   } else if (type === "SUBMIT_USER_ANSWERS") {
     return {
@@ -85,8 +84,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       isAnswerSubmissionSuccessful: true,
       submittedAnswers: payload.data.submitedPracticeQuestion,
       untimedPracticeQuestions: payload.data.untimedPracticeQuestions,
-      isViewSolution: false,
-
     };
   } else if (type === "ON_SIDENAV_YEAR_CHANGE") {
     let updatedQuestionAndArray = state.untimedPracticeQuestions.filter(
@@ -97,7 +94,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     console.log("updatedQuestionAndArray", updatedQuestionAndArray);
     return {
       ...state,
-      questionArray: updatedQuestionAndArray[0].submittedQuestionsAndAnswers,
+      questionArray: updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers,
       isViewSolution: false,
     };
   } else if (type === "IS_VIEW_SOLUTION") {
@@ -107,53 +104,75 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       filterValue: "All",
     };
   } else if (type === "FILTER_SOLUTION") {
-    const { subject, year, untimedPracticeQuestions } = state
-    let allQuestions = untimedPracticeQuestions.filter(q => Number(q.year) === Number(year) && q.subject === subject)
-    let allQuestionArray = allQuestions[0].submittedQuestionsAndAnswers
+    const { subject, year, untimedPracticeQuestions } = state;
+    let allQuestions = untimedPracticeQuestions.filter(
+      (q) => Number(q.year) === Number(year) && q.subject === subject
+    );
+    let allQuestionArray = allQuestions[0].submittedQuestionsAndAnswers;
 
     if (payload === "showAll") {
       return {
         ...state,
         isViewSolution: true,
         questionArray: allQuestionArray,
-        filterValue: "All"
-
-      }
+        filterValue: "All",
+      };
     } else if (payload === "Correct") {
-      let correct = allQuestionArray.filter(q => q.answer === q.userSelectedAnswer && q.hasOwnProperty("userSelectedAnswer"))
-      console.log(payload, correct)
+      let correct = allQuestionArray.filter(
+        (q) =>
+          q.answer === q.userSelectedAnswer &&
+          q.hasOwnProperty("userSelectedAnswer")
+      );
+      console.log(payload, correct);
       return {
         ...state,
         isViewSolution: true,
         questionArray: correct,
-        filterValue: payload
-
-      }
-
+        filterValue: payload,
+      };
     } else if (payload === "Incorrect") {
-      let inCorrect = allQuestionArray.filter(q => q.answer !== q.userSelectedAnswer && q.hasOwnProperty("userSelectedAnswer"))
-      console.log(payload, inCorrect)
+      let inCorrect = allQuestionArray.filter(
+        (q) =>
+          q.answer !== q.userSelectedAnswer &&
+          q.hasOwnProperty("userSelectedAnswer")
+      );
+      console.log(payload, inCorrect);
       return {
         ...state,
         isViewSolution: true,
         questionArray: inCorrect,
-        filterValue: payload
-
-      }
-
+        filterValue: payload,
+      };
     } else if (payload === "Unanswered") {
-      let unAnswered = allQuestionArray.filter(q => !q.hasOwnProperty("userSelectedAnswer"))
-      console.log(payload, unAnswered)
+      let unAnswered = allQuestionArray.filter(
+        (q) => !q.hasOwnProperty("userSelectedAnswer")
+      );
+      console.log(payload, unAnswered);
       return {
         ...state,
         isViewSolution: true,
         questionArray: unAnswered,
-        filterValue: payload
-
-      }
-
+        filterValue: payload,
+      };
     }
+  } else if (type === "TEST_AGAIN") {
+    const { subject, year, untimedPracticeQuestions } = state;
+    let allQuestions = untimedPracticeQuestions.filter(
+      (q) => Number(q.year) === Number(year) && q.subject === subject
+    );
+    let allQuestionArray = allQuestions[0].submittedQuestionsAndAnswers;
 
+    let questionWithoutAnswers = allQuestionArray.map((element) => {
+      delete element.userSelectedAnswer;
+      return element;
+    });
+    console.log("questionWithoutAnswers", questionWithoutAnswers)
+    return {
+      ...state,
+      isViewSolution: false,
+      questionArray: questionWithoutAnswers,
+    };
   }
+
   return state;
 };

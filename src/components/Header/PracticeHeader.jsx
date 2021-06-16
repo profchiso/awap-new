@@ -80,7 +80,7 @@ function PracticeHeader({
         <div className="flex flex-1 justify-center pr-3 sm:px-5 sm:px-0 -ml-1 lg:-ml-28 font-medium text-base md:text-lg">
           <span className="whitespace-nowrap">
             <span>
-              {year > 2000 ? year : ""}&nbsp;{subject} WAEC
+              {year >= 2000 ? year : ""}&nbsp;{subject} WAEC
             </span>
             &nbsp;
             <span className="hidden sm:inline-block">Practice Questions</span>

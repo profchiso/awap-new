@@ -57,7 +57,7 @@ function ChooseType(props) {
           <div className="text-center sm:pl-20 px-10 pb-40 flex flex-col max-w-3xl mx-auto">
             <div className="mt-16 sm:mt-32 mb-20">
               <h3 className="text-3xl font-body flex items-center">
-                <Link to="/pq/biology-choose-year">
+                <Link to="/pq/subject-choose-year">
                   <RoundBackIcon className="" />
                 </Link>
                 <span className="pl-16">Choose type</span>
@@ -93,9 +93,9 @@ function ChooseType(props) {
         </div>
       );
     } else if (value === "Untimed Questions") {
-      return <Redirect to="/pq/biology-untimed" />;
+      return <Redirect to="/pq/subject-untimed" />;
     } else if (value === "Timed Questions") {
-      return <Redirect to="/pq/biology-timed" />;
+      return <Redirect to="/pq/subject-timed" />;
     }
   }
   return <Redirect to="/login" />;

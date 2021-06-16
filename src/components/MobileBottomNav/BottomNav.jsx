@@ -42,7 +42,7 @@ export default function SimpleBottomNavigation() {
       />
       <BottomNavigationAction
         component={Link}
-        to="/pq/mobile-biology-Pq"
+        to="/pq/mobile-subject-Pq"
         label="PQs"
         icon={<ImportContactsRoundedIcon />}
         className="whitespace-nowrap"

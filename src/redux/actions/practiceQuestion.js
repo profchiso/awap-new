@@ -10,8 +10,11 @@ import {
   SUBMIT_USER_ANSWERS,
   ON_SIDENAV_YEAR_CHANGE,
   IS_VIEW_SOLUTION,
-  FILTER_SOLUTION
+  FILTER_SOLUTION,
+  TEST_AGAIN,
 } from "./types";
+// import * as actionTypes from "./types";
+
 
 export const fetchPracticeQuestion = (practiceQuestionData, token) => {
   return async (dispatch) => {
@@ -81,7 +84,6 @@ export const addSelectedAnswerToArray = (selectedQstnAnsObject) => {
 export const submitUserAnswers = (submissionData, token) => {
   return async (dispatch) => {
     try {
-
       const submittedAnswers = await axios.post(
         `${BASE_URL}past-question/${submissionData.subject}/submit-practice-questions`,
         submissionData,
@@ -90,43 +92,46 @@ export const submitUserAnswers = (submissionData, token) => {
             "content-type": "application/json",
             authorization: `Bearer ${token}`,
           },
-
         }
       );
       submittedAnswers.status &&
-        dispatch(
-          submittedUserAnswers(submittedAnswers.data)
-        );
+        dispatch(submittedUserAnswers(submittedAnswers.data));
     } catch (error) {
       console.log("Error", error);
       dispatch(APIError(error.response?.data));
     }
   };
-}
+};
 
 export const submittedUserAnswers = (answers) => {
   return {
     type: SUBMIT_USER_ANSWERS,
     payload: answers,
   };
-}
+};
 
 export const onSideNavYearChange = (year, subject) => {
   return {
     type: ON_SIDENAV_YEAR_CHANGE,
     payload: { year, subject },
-  }
-}
+  };
+};
 
 export const isViewSolution = () => {
   return {
     type: IS_VIEW_SOLUTION,
-  }
-}
+  };
+};
 export const filterSolution = (option) => {
   return {
     type: FILTER_SOLUTION,
-    payload: option
-  }
+    payload: option,
+  };
+};
 
-}
+export const testAgain = (option) => {
+  return {
+    type: TEST_AGAIN,
+    payload: option,
+  };
+};
