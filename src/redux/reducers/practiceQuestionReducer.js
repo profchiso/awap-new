@@ -173,6 +173,18 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: questionWithoutAnswers,
     };
   }
+ 
+  else if (type === "ANSWERED_QUESTION_FROM_STH") {
+    const { untimedPracticeQuestions } = state;
+    let allQuestions = untimedPracticeQuestions.filter(
+      (q) => Number(q.year) === Number(payload.year) && q.subject === payload.subject
+    );
+    let allQuestionArray = allQuestions[0].submittedQuestionsAndAnswers;
 
+    return {
+      ...state,
+      questionArray: allQuestionArray,
+    }
+  }
   return state;
 };

@@ -12,6 +12,7 @@ import {
   IS_VIEW_SOLUTION,
   FILTER_SOLUTION,
   TEST_AGAIN,
+  ANSWERED_QUESTION_FROM_STH
 } from "./types";
 // import * as actionTypes from "./types";
 
@@ -135,3 +136,11 @@ export const testAgain = (option) => {
     payload: option,
   };
 };
+
+
+export const answeredQuestionFromSth = (option)=>{
+  return {
+    type: ANSWERED_QUESTION_FROM_STH,
+    payload : option
+  }
+}

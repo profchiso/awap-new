@@ -15,6 +15,7 @@ import {
   selectPastQuestionPracticeType,
   selectPastQuestionSubject,
   selectPastQuestionYear,
+  answeredQuestionFromSth
 } from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
@@ -44,6 +45,7 @@ function ChooseSubject(props) {
     props.selectPastQuestionSubject(event.target.value);
     props.selectPastQuestionPracticeType("Untimed Questions"); //the default
     props.selectPastQuestionYear(year) //default
+    props.answeredQuestionFromSth({year, subject:event.target.value})
   };
 
   if (token) {
@@ -110,4 +112,5 @@ export default connect(mapStateToProps, {
   selectPastQuestionSubject,
   selectPastQuestionPracticeType,
   selectPastQuestionYear,
+  answeredQuestionFromSth
 })(ChooseSubject);

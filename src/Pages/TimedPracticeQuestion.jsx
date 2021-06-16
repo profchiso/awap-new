@@ -419,21 +419,6 @@ function PracticeQuestion(props) {
                     </FormControl>
                   </div>
 
-                  {isClicked ? (
-                    <div className="flex px-7">
-                      <div className="min-w-icon mx-1 hidden sm:block"></div>
-
-                      <div className="flex flex-col border border-gray-300 rounded font-body text-base max-w-md mx-auto pl-7 pt-5 pr-5 pb-10 mb-20 sm:mb-4 text-left">
-                        <span>Solution</span>
-                        <br />
-
-                        {questionArray[questionNumber]?.solution}
-                      </div>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-
                   <div className="">
                     <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white">
                       {width > 640 ? (
