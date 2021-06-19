@@ -350,6 +350,7 @@ function PracticeQuestion(props) {
                           <span className="pr-6 sm:pr-8">a.</span>
                           <span>
                             {questionArray[questionNumber]?.optionA.textOption}
+                            {/* <img src={optionA.imgOption} alt="" /> */}
                           </span>
                         </DefaultAnswerBtn>
                       </div>
