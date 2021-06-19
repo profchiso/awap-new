@@ -24,7 +24,7 @@ import useWindowDimensions from "../Hooks/UseWindowDimension";
 import { ReactComponent as NextBtn } from "../assets/svgs/NextBtn.svg";
 import AccessTimeRoundedIcon from "@material-ui/icons/AccessTimeRounded";
 import Countdown from "react-countdown";
-// import CountDownTimer from "../components/Timer/CountDownTimer";
+import CountDownTimer from "../components/Timer/CountDownTimer";
 import { ReactComponent as AlarmClock } from "../assets/svgs/AlarmClock.svg";
 
 const useStyles = makeStyles((theme) => ({
@@ -175,7 +175,7 @@ function PracticeQuestion(props) {
   };
 
   const token = props?.loginReducer?.token;
-  const isTimeUp = false;
+  const [isTimeUp, setisTimeUp] = useState(false)
 
   if (token) {
     return (
@@ -521,15 +521,15 @@ function PracticeQuestion(props) {
                 <div className="flex flex-col gap-8">
                   <div className="flex items-center -ml-5">
                     <AccessTimeRoundedIcon color="primary" className="mr-2" />
-                    <Countdown
+                    {/* <Countdown
                       date={Date.now() + 1000 * 90 * 60}
                       renderer={({ hours, minutes, seconds }) => (
                         <span className="text-sm sm:text-base font-medium text-primary">
                           {hours}hr: {minutes}min: {seconds}sec
                         </span>
                       )}
-                    />
-                    {/* <CountDownTimer/> */}
+                    /> */}
+                    <CountDownTimer setisTimeUp={setisTimeUp} isTimeUp={isTimeUp}/>
                   </div>
 
                   <button
