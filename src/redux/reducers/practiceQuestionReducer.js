@@ -166,25 +166,29 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       delete element.userSelectedAnswer;
       return element;
     });
-    console.log("questionWithoutAnswers", questionWithoutAnswers)
+    console.log("questionWithoutAnswers", questionWithoutAnswers);
     return {
       ...state,
       isViewSolution: false,
       questionArray: questionWithoutAnswers,
     };
-  }
- 
-  else if (type === "ANSWERED_QUESTION_FROM_STH") {
+  } else if (type === "ANSWERED_QUESTION_FROM_STH") {
     const { untimedPracticeQuestions } = state;
     let allQuestions = untimedPracticeQuestions.filter(
-      (q) => Number(q.year) === Number(payload.year) && q.subject === payload.subject
+      (q) =>
+        Number(q.year) === Number(payload.year) && q.subject === payload.subject
     );
     let allQuestionArray = allQuestions[0].submittedQuestionsAndAnswers;
 
     return {
       ...state,
       questionArray: allQuestionArray,
-    }
+    };
+  } else if (type === "TIME_REMAINING") {
+        return {
+      ...state,
+      timeRemaining: payload,
+    };
   }
   return state;
 };

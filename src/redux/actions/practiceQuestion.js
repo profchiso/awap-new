@@ -1,6 +1,7 @@
 import axios from "axios";
 import { BASE_URL, requestHeaders } from "./config";
 import {
+  TIME_REMAINING,
   SELECT_ANSWER,
   SELECT_SUBJECT,
   SELECT_YEAR,
@@ -144,3 +145,11 @@ export const answeredQuestionFromSth = (option)=>{
     payload : option
   }
 }
+
+
+export const timeRemaining = (timeObject) => {
+  return {
+    type: TIME_REMAINING,
+    payload: timeObject,
+  };
+};

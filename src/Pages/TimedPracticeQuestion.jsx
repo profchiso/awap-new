@@ -16,10 +16,16 @@ import {
   addSelectedAnswerToArray,
   submitUserAnswers,
   isViewSolution,
+  timeRemaining,
 } from "../redux/actions/practiceQuestion";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 // import { ReactComponent as PreviousIcon } from "../assets/svgs/PreviousIcon.svg";
+// import { ReactComponent as TimeIcon } from "../assets/svgs/TimeIcon.svg";
 import { ReactComponent as NextBtn } from "../assets/svgs/NextBtn.svg";
+import AccessTimeRoundedIcon from "@material-ui/icons/AccessTimeRounded";
+import Countdown from "react-countdown";
+// import CountDownTimer from "../components/Timer/CountDownTimer";
+import { ReactComponent as AlarmClock } from "../assets/svgs/AlarmClock.svg";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -169,6 +175,7 @@ function PracticeQuestion(props) {
   };
 
   const token = props?.loginReducer?.token;
+  const isTimeUp = false;
 
   if (token) {
     return (
@@ -233,6 +240,40 @@ function PracticeQuestion(props) {
                     </div>
                     <span>
                       <Button onClick={handleClose}>
+                        <CloseRoundedIcon />
+                      </Button>
+                    </span>
+                  </div>
+                </Fade>
+              </Modal>
+            ) : isTimeUp ? (
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                // onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
+              >
+                <Fade in={open}>
+                  <div
+                    className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+                  >
+                    <div className="py-12 flex-1 -mr-12">
+                      <h3>Time’s Up !</h3>
+                      <div>
+                        <AlarmClock  className="mx-auto"/>
+                      </div>
+                      <p className="pt-8 font-medium">
+                        Redirecting in 3secs...
+                      </p>
+                    </div>
+                    <span>
+                      <Button onClick={handleClose} disabled>
                         <CloseRoundedIcon />
                       </Button>
                     </span>
@@ -455,7 +496,7 @@ function PracticeQuestion(props) {
                     </div>
 
                     {width > 640 &&
-                      questionNumber + 1 === questionArray.length ? (
+                    questionNumber + 1 === questionArray.length ? (
                       <button
                         onClick={() => handleOpen()}
                         className="fixed openModalNextBtn z-10 shadow-primary rounded-full focus:outline-none transform md:scale-125"
@@ -477,18 +518,31 @@ function PracticeQuestion(props) {
                     </div>
                   </div>
                 </div>
-                <div className="">
+                <div className="flex flex-col gap-8">
+                  <div className="flex items-center -ml-5">
+                    <AccessTimeRoundedIcon color="primary" className="mr-2" />
+                    <Countdown
+                      date={Date.now() + 1000 * 90 * 60}
+                      renderer={({ hours, minutes, seconds }) => (
+                        <span className="text-sm sm:text-base font-medium text-primary">
+                          {hours}hr: {minutes}min: {seconds}sec
+                        </span>
+                      )}
+                    />
+                    {/* <CountDownTimer/> */}
+                  </div>
+
                   <button
                     className="hidden sm:block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body shadow-primary px-11 py-2 mr-16 rounded-md text-sm lg:text-base font-medium"
                     onClick={handleOpen}
-                  //disabled={`${isViewSolution ? true : false}`}
+                    //disabled={`${isViewSolution ? true : false}`}
                   >
                     {questionNumber + 1 === questionArray.length &&
-                      !isViewSolution
+                    !isViewSolution
                       ? "Finish"
                       : isViewSolution
-                        ? "Done"
-                        : "End"}
+                      ? "Done"
+                      : "End"}
                   </button>
                 </div>
               </div>
@@ -510,4 +564,5 @@ export default connect(mapStateToProps, {
   addSelectedAnswerToArray,
   submitUserAnswers,
   isViewSolution,
+  timeRemaining,
 })(PracticeQuestion);
