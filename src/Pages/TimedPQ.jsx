@@ -5,7 +5,7 @@ import MobileHeader from "../components/Header/MobileHeader";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
-import TimedPqIntro from "../components/PastQuestion/TimedPqIntro";
+import TimedPqIntro from "../components/PastQuestion/TimedPqIntrod";
 
 function TimedPQ(props) {
   const { width } = useWindowDimensions();

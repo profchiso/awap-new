@@ -48,11 +48,6 @@ function TimedPqIntro(props) {
         </div>
 
         {/* <div className="flex items-center justify-center">
-
-
-
-
-
                     <span className="md:text-2xl pl-3">
                         {!isQuestionFetched
                             ? "Loading..."

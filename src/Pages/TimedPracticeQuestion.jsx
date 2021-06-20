@@ -65,10 +65,12 @@ function PracticeQuestion(props) {
   const [open, setOpen] = useState(false);
   const { questionArray, isViewSolution } = props.practiceQuestionReducer;
   const answer = questionArray[questionNumber]?.answer;
-  const isCorrect =
-    "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
-  const isWrong =
-    "bg-gradient-to-r from-redOrangeDark to-redOrangeLight text-white";
+  // const isBlueColor =
+  //   "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
+  const isBlueColor =
+    "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue2 text-white";
+  // const isRedColor =
+  //   "bg-gradient-to-r from-redOrangeDark to-redOrangeLight text-white";
 
   const handleOpen = () => {
     setOpen(true);
@@ -84,13 +86,11 @@ function PracticeQuestion(props) {
     props.addSelectedAnswerToArray(questionObj);
   };
 
-  const setIsCorrectOrWrong = (option) => {
-    if (value === option && answer === option) {
-      return { isCorrectOrWrong: isCorrect, showIcon: "correctIcon" };
-    } else if (value === option && answer !== option) {
-      return { isCorrectOrWrong: isWrong, showIcon: "wrongIcon" };
-    } else if (value !== option && answer === option) {
-      return { isCorrectOrWrong: isCorrect, showIcon: "correctIcon" };
+  const setisBlueOrRedSelectionColor = (option) => {
+    if (value === option) {
+      return { isBlueOrRedSelectionColor: isBlueColor };
+    } else {
+      return { isBlueOrRedSelectionColor: "" };
     }
   };
 
@@ -175,7 +175,7 @@ function PracticeQuestion(props) {
   };
 
   const token = props?.loginReducer?.token;
-  const [isTimeUp, setisTimeUp] = useState(true)
+  const [isTimeUp, setisTimeUp] = useState(false);
 
   if (token) {
     return (
@@ -247,39 +247,39 @@ function PracticeQuestion(props) {
                 </Fade>
               </Modal>
             ) : isTimeUp ? (
-              <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                className={classes.modal}
-                open={open}
-                // onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                  timeout: 500,
-                }}
-              >
-                <Fade in={open}>
-                  <div
-                    className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
-                  >
-                    <div className="py-12 flex-1 -mr-12">
-                      <h3>Time’s Up !</h3>
-                      <div>
-                        <AlarmClock  className="mx-auto"/>
+              <>
+                <Modal
+                  aria-labelledby="transition-modal-title"
+                  aria-describedby="transition-modal-description"
+                  className={classes.modal}
+                  open={open}
+                  // onClose={handleClose}
+                  closeAfterTransition
+                  BackdropComponent={Backdrop}
+                  BackdropProps={{
+                    timeout: 500,
+                  }}
+                >
+                  <Fade in={open}>
+                    <div
+                      className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+                    >
+                      <div className="py-12 flex-1 -mr-12">
+                        <h3>Time’s Up !</h3>
+                        <div>
+                          <AlarmClock className="mx-auto" />
+                        </div>
+                        <p className="pt-8 font-medium">Submitting...</p>
                       </div>
-                      <p className="pt-8 font-medium">
-                        Submitting...
-                      </p>
+                      <span>
+                        <Button onClick={handleClose} disabled>
+                          <CloseRoundedIcon />
+                        </Button>
+                      </span>
                     </div>
-                    <span>
-                      <Button onClick={handleClose} disabled>
-                        <CloseRoundedIcon />
-                      </Button>
-                    </span>
-                  </div>
-                </Fade>
-              </Modal>
+                  </Fade>
+                </Modal>
+              </>
             ) : (
               <Modal
                 aria-labelledby="transition-modal-title"
@@ -376,10 +376,10 @@ function PracticeQuestion(props) {
                       <div className="py-3 ">
                         <DefaultAnswerBtn
                           isClicked={isClicked}
-                          showIcon={setIsCorrectOrWrong("optionA")?.showIcon}
                           isSelected={
                             isClicked &&
-                            setIsCorrectOrWrong("optionA")?.isCorrectOrWrong
+                            setisBlueOrRedSelectionColor("optionA")
+                              ?.isBlueOrRedSelectionColor
                           }
                           onClick={() =>
                             onSelectedOptionChange(
@@ -397,10 +397,10 @@ function PracticeQuestion(props) {
                       <div className="py-3 ">
                         <DefaultAnswerBtn
                           isClicked={isClicked}
-                          showIcon={setIsCorrectOrWrong("optionB")?.showIcon}
                           isSelected={
                             isClicked &&
-                            setIsCorrectOrWrong("optionB")?.isCorrectOrWrong
+                            setisBlueOrRedSelectionColor("optionB")
+                              ?.isBlueOrRedSelectionColor
                           }
                           onClick={() =>
                             onSelectedOptionChange(
@@ -418,10 +418,10 @@ function PracticeQuestion(props) {
                       <div className="py-3 ">
                         <DefaultAnswerBtn
                           isClicked={isClicked}
-                          showIcon={setIsCorrectOrWrong("optionC")?.showIcon}
                           isSelected={
                             isClicked &&
-                            setIsCorrectOrWrong("optionC")?.isCorrectOrWrong
+                            setisBlueOrRedSelectionColor("optionC")
+                              ?.isBlueOrRedSelectionColor
                           }
                           onClick={() =>
                             onSelectedOptionChange(
@@ -439,10 +439,10 @@ function PracticeQuestion(props) {
                       <div className="py-3 ">
                         <DefaultAnswerBtn
                           isClicked={isClicked}
-                          showIcon={setIsCorrectOrWrong("optionD")?.showIcon}
                           isSelected={
                             isClicked &&
-                            setIsCorrectOrWrong("optionD")?.isCorrectOrWrong
+                            setisBlueOrRedSelectionColor("optionD")
+                              ?.isBlueOrRedSelectionColor
                           }
                           onClick={() =>
                             onSelectedOptionChange(
@@ -529,7 +529,11 @@ function PracticeQuestion(props) {
                         </span>
                       )}
                     /> */}
-                    <CountDownTimer setisTimeUp={setisTimeUp} isTimeUp={isTimeUp}/>
+                    <CountDownTimer
+                      setisTimeUp={setisTimeUp}
+                      isTimeUp={isTimeUp}
+                      setOpen={setOpen}
+                    />
                   </div>
 
                   <button

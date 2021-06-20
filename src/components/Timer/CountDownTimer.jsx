@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 
 export default function CountDownTimer(props) {
-  const [Seconds, setSeconds] = useState(90);
+  const [Seconds, setSeconds] = useState(10);
   const [pause, setPause] = useState(false);
 
   let intervalRef = useRef();
@@ -25,25 +25,33 @@ export default function CountDownTimer(props) {
   // };
 
   const handlePause = () => {
-    intervalRef.current = 0;
-    setPause(true);
-    // props.setisTimeUp(true)
+    if (!pause) {
+      clearInterval(intervalRef.current);
+    } else {
+      intervalRef.current = setInterval(decreaseSeconds, 1000);
+    }
+    setPause(false);
   };
 
-  // console.log("isTimeUp",props.isTimeUp)
-  // console.log("pause",pause)
-  //Still runs in background, and its bad
+ 
+
+  useEffect(() => {
+    if (Number(Seconds) <= 0) {
+      props.setisTimeUp(true);
+      props.setOpen(true);
+      handlePause();
+    }
+  }, [props, Seconds]);
+
+  console.log("isTimeUp", props.isTimeUp);
 
   return (
     <div>
       <div className="text-primary text-base">
-        <span className="pr-1">
-          {Number(Seconds) <= 0 ? ()=>handlePause() : Seconds}
-          {Number(Seconds) <= 0 ? "0" : ""} 
-        </span>
+        <span className="pr-1">{Number(Seconds) <= 0 ? "0" : Seconds}</span>
         <span>seconds</span>
       </div>
-      {/* <button onClick={handleClick}>{pause ? "Run" : "Pause"}</button> */}
+      {/* <button onClick={handleClick}>{pause ? "Run" : "Pause"}</button>     */}
     </div>
   );
 }
