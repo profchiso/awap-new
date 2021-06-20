@@ -175,7 +175,7 @@ function PracticeQuestion(props) {
   };
 
   const token = props?.loginReducer?.token;
-  const [isTimeUp, setisTimeUp] = useState(false)
+  const [isTimeUp, setisTimeUp] = useState(true)
 
   if (token) {
     return (
@@ -269,7 +269,7 @@ function PracticeQuestion(props) {
                         <AlarmClock  className="mx-auto"/>
                       </div>
                       <p className="pt-8 font-medium">
-                        Redirecting in 3secs...
+                        Submitting...
                       </p>
                     </div>
                     <span>

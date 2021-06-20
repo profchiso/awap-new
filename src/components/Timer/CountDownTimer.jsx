@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 
 export default function CountDownTimer(props) {
-  const [Seconds, setSeconds] = useState(11);
+  const [Seconds, setSeconds] = useState(90);
   const [pause, setPause] = useState(false);
 
   let intervalRef = useRef();
