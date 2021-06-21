@@ -333,6 +333,16 @@ function PracticeQuestion(props) {
             <div>
               <div className="flex relative max-w-screen-2xl mx-auto  mt-8">
                 <div className="flex-1  pb-40 sm:pb-0">
+                {width <= 640 && (
+                    <div className="flex items-center justify-center mb-8 -mt-2">
+                      <AccessTimeRoundedIcon color="primary" className="mr-2" />
+                      <CountDownTimer
+                        setisTimeUp={setisTimeUp}
+                        isTimeUp={isTimeUp}
+                        setOpen={setOpen}
+                      />
+                    </div>
+                  )}
                   <div className="max-w-3xl mx-auto px-6 sm:px-8">
                     <div className="w-full flex justify-center -mt-2 mb-2 sm:hidden">
                       <NumberBadge>
@@ -519,22 +529,16 @@ function PracticeQuestion(props) {
                   </div>
                 </div>
                 <div className="flex flex-col gap-8">
-                  <div className="flex items-center -ml-5">
-                    <AccessTimeRoundedIcon color="primary" className="mr-2" />
-                    {/* <Countdown
-                      date={Date.now() + 1000 * 90 * 60}
-                      renderer={({ hours, minutes, seconds }) => (
-                        <span className="text-sm sm:text-base font-medium text-primary">
-                          {hours}hr: {minutes}min: {seconds}sec
-                        </span>
-                      )}
-                    /> */}
-                    <CountDownTimer
-                      setisTimeUp={setisTimeUp}
-                      isTimeUp={isTimeUp}
-                      setOpen={setOpen}
-                    />
-                  </div>
+                  {width > 640 && (
+                    <div className="flex items-center -ml-5">
+                      <AccessTimeRoundedIcon color="primary" className="mr-2" />
+                      <CountDownTimer
+                        setisTimeUp={setisTimeUp}
+                        isTimeUp={isTimeUp}
+                        setOpen={setOpen}
+                      />
+                    </div>
+                  )}
 
                   <button
                     className="hidden sm:block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body shadow-primary px-11 py-2 mr-16 rounded-md text-sm lg:text-base font-medium"
