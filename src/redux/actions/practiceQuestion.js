@@ -42,10 +42,11 @@ export const fetchPracticeQuestion = (practiceQuestionData, token) => {
 };
 
 export const fetchPracticeQuestionTimed = (practiceQuestionData, token) => {
+  console.log(practiceQuestionData)
   return async (dispatch) => {
     try {
       const fetchedPracticeQuestion = await axios.get(
-        `${BASE_URL}past-question/${practiceQuestionData.subject}?sort=questionNumber&year=${practiceQuestionData.year}&pastQuestionBody=${practiceQuestionData.pqBody}&practiceQuestionType=Timed`,
+        `${BASE_URL}past-question/${practiceQuestionData.subject.toLowerCase()}?sort=questionNumber&year=${practiceQuestionData.year}&pastQuestionBody=${practiceQuestionData.pastQuestionBody}&practiceQuestionType=Timed&subject=${practiceQuestionData.subject}`,
         {
           headers: {
             "content-type": "application/json",
