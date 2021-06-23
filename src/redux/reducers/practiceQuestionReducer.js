@@ -60,7 +60,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     };
   } else if (type === "API_ERROR") {
     let error = {};
-    if (payload.message.includes("jwt expired")) {
+    if (payload?.message?.includes("jwt expired")) {
       logout();
     }
     return {
