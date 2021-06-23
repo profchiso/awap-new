@@ -42,7 +42,7 @@ function ChooseType(props) {
 
     if (event.target.value === "Timed Questions") {
       props.fetchPracticeQuestionTimed(
-        { subject: subject.toLowerCase(), year, pqBody: "WAEC" },
+        { subject: subject, year, pastQuestionBody: "WAEC" ,practiceQuestionType:"Timed" },
         token
       );
     } else {
