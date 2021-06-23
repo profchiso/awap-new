@@ -14,6 +14,7 @@ import MobileHeader from "../components/Header/MobileHeader";
 import {
   selectPastQuestionPracticeType,
   fetchPracticeQuestion,
+  fetchPracticeQuestionTimed,
 } from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +39,18 @@ function ChooseType(props) {
   const handleChange = async (event) => {
     setValue(event.target.value);
     props.selectPastQuestionPracticeType(event.target.value);
-    props.fetchPracticeQuestion({ subject: subject.toLowerCase(), year }, token);
+
+    if (event.target.value === "Timed Questions") {
+      props.fetchPracticeQuestionTimed(
+        { subject: subject.toLowerCase(), year, pqBody: "WAEC" },
+        token
+      );
+    } else {
+      props.fetchPracticeQuestion(
+        { subject: subject.toLowerCase(), year },
+        token
+      );
+    }
   };
   if (token) {
     if (value === null) {
@@ -109,4 +121,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   selectPastQuestionPracticeType,
   fetchPracticeQuestion,
+  fetchPracticeQuestionTimed,
 })(ChooseType);

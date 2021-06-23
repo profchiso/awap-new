@@ -27,6 +27,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     return {
       ...state,
       questionArray: payload.data.questions,
+      duration: payload.data?.duration,
       userSelectedAnwser: [],
       isQuestionFetched: true,
       isViewSolution: false,

@@ -11,7 +11,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { Button } from "@material-ui/core";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import {
   addSelectedAnswerToArray,
   submitUserAnswers,
@@ -177,6 +177,13 @@ function PracticeQuestion(props) {
   const token = props?.loginReducer?.token;
   const [isTimeUp, setisTimeUp] = useState(false);
 
+  const history = useHistory();
+
+  const delayAndGo = () => {
+    handleSubmit();
+    setTimeout(() => history.push("/stats"), 1000);
+  };
+
   if (token) {
     return (
       <div className="sm:max-h-screen select-none" onContextMenu={disable}>
@@ -279,6 +286,7 @@ function PracticeQuestion(props) {
                     </div>
                   </Fade>
                 </Modal>
+                {delayAndGo()}
               </>
             ) : (
               <Modal
@@ -333,7 +341,7 @@ function PracticeQuestion(props) {
             <div>
               <div className="flex relative max-w-screen-2xl mx-auto  mt-8">
                 <div className="flex-1  pb-40 sm:pb-0">
-                {width <= 640 && (
+                  {width <= 640 && (
                     <div className="flex items-center justify-center mb-8 -mt-2">
                       <AccessTimeRoundedIcon color="primary" className="mr-2" />
                       <CountDownTimer

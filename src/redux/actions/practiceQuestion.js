@@ -13,10 +13,9 @@ import {
   IS_VIEW_SOLUTION,
   FILTER_SOLUTION,
   TEST_AGAIN,
-  ANSWERED_QUESTION_FROM_STH
+  ANSWERED_QUESTION_FROM_STH,
 } from "./types";
 // import * as actionTypes from "./types";
-
 
 export const fetchPracticeQuestion = (practiceQuestionData, token) => {
   return async (dispatch) => {
@@ -31,6 +30,30 @@ export const fetchPracticeQuestion = (practiceQuestionData, token) => {
         }
       );
 
+      fetchedPracticeQuestion.status &&
+        dispatch(
+          saveFetchedPraticeQuestionToState(fetchedPracticeQuestion.data)
+        );
+    } catch (error) {
+      console.log("Error", error);
+      dispatch(APIError(error.response?.data));
+    }
+  };
+};
+
+export const fetchPracticeQuestionTimed = (practiceQuestionData, token) => {
+  return async (dispatch) => {
+    try {
+      const fetchedPracticeQuestion = await axios.get(
+        `${BASE_URL}past-question/${practiceQuestionData.subject}?sort=questionNumber&year=${practiceQuestionData.year}&pastQuestionBody=${practiceQuestionData.pqBody}&practiceQuestionType=Timed`,
+        {
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+        console.log(fetchedPracticeQuestion)
       fetchedPracticeQuestion.status &&
         dispatch(
           saveFetchedPraticeQuestionToState(fetchedPracticeQuestion.data)
@@ -138,14 +161,12 @@ export const testAgain = (option) => {
   };
 };
 
-
-export const answeredQuestionFromSth = (option)=>{
+export const answeredQuestionFromSth = (option) => {
   return {
     type: ANSWERED_QUESTION_FROM_STH,
-    payload : option
-  }
-}
-
+    payload: option,
+  };
+};
 
 export const timeRemaining = (timeObject) => {
   return {

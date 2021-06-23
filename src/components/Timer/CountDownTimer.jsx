@@ -3,10 +3,11 @@ import { useRef, useEffect, useState } from "react";
 export default function CountDownTimer(props) {
   let duration = {
     hour: 0,
-    minutes: 7,
+    minutes: 0,
+    seconds: 20,
   };
 
-  let timeToSeconds = duration.hour * 60 * 60 + duration.minutes * 60;
+  let timeToSeconds = duration.hour * 60 * 60 + duration.minutes * 60 + duration.seconds;
 
   const [Seconds, setSeconds] = useState(timeToSeconds);
 
