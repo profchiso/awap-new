@@ -181,7 +181,7 @@ function PracticeQuestion(props) {
 
   const delayAndGo = () => {
     handleSubmit();
-    setTimeout(() => history.push("/stats"), 1000);
+    setTimeout(() => history.push("/stats"), 4000);
   };
 
   if (token) {

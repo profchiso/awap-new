@@ -4,7 +4,7 @@ export default function CountDownTimer(props) {
   let duration = {
     hour: 0,
     minutes: 0,
-    seconds: 20,
+    seconds: 30,
   };
 
   let timeToSeconds = duration.hour * 60 * 60 + duration.minutes * 60 + duration.seconds;
