@@ -14,6 +14,7 @@ const initialState = {
   isAnswerSubmissionSuccessful: false,
   submittedAnswers: {},
   untimedPracticeQuestions: [],
+  timedPracticeQuestions: [],
   isViewSolution: false,
   filterValue: "All",
 };
@@ -85,6 +86,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       isAnswerSubmissionSuccessful: true,
       submittedAnswers: payload.data.submitedPracticeQuestion,
       untimedPracticeQuestions: payload.data.untimedPracticeQuestions,
+      timedPracticeQuestions:payload.data.timedPracticeQuestions
     };
   } else if (type === "ON_SIDENAV_YEAR_CHANGE") {
     let updatedQuestionAndArray = state.untimedPracticeQuestions.filter(
@@ -92,7 +94,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
         Number(practiceQuestion.year) === Number(payload.year) &&
         practiceQuestion.subject === payload.subject
     );
-    console.log("updatedQuestionAndArray", updatedQuestionAndArray);
     return {
       ...state,
       questionArray: updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers,
