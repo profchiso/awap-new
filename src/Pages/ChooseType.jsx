@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { connect } from "react-redux";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
@@ -30,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 function ChooseType(props) {
   const token = props?.loginReducer?.token;
+  const {user}=props.loginReducer;
 
   const { subject, year } = props.practiceQuestionReducer;
   const classes = useStyles();
@@ -39,17 +41,38 @@ function ChooseType(props) {
   const handleChange = async (event) => {
     setValue(event.target.value);
     props.selectPastQuestionPracticeType(event.target.value);
+    const {untimedPracticeQuestions,timedPracticeQuestions}=user
+   
 
     if (event.target.value === "Timed Questions") {
-      props.fetchPracticeQuestionTimed(
-        { subject: subject, year, pastQuestionBody: "WAEC" ,practiceQuestionType:"Timed" },
-        token
-      );
+      
+      let hasAnsweredBefore= timedPracticeQuestions.filter(practiceQuestions=>Number(practiceQuestions.year)===Number(year) && practiceQuestions.subject.toLowerCase()===subject.toLowerCase() )
+if(hasAnsweredBefore.length){
+  return <Redirect to="/answered" />
+
+}else{
+  props.fetchPracticeQuestionTimed(
+    { subject: subject, year, pastQuestionBody: "WAEC" ,practiceQuestionType:"Timed" },
+    token
+  );
+
+}
+      
     } else {
-      props.fetchPracticeQuestion(
-        { subject: subject.toLowerCase(), year },
-        token
-      );
+      let hasAnsweredBefore= untimedPracticeQuestions.filter(practiceQuestions=>Number(practiceQuestions.year)===Number(year) && practiceQuestions.subject.toLowerCase()===subject.toLowerCase())
+     
+      if(hasAnsweredBefore.length){
+        console.log(hasAnsweredBefore)
+        return <Redirect to="/answered" />
+
+      }else{
+        props.fetchPracticeQuestion(
+          { subject: subject.toLowerCase(), year },
+          token
+        );
+
+      }
+      
     }
   };
   if (token) {

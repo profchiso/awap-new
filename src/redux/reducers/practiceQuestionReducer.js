@@ -21,8 +21,6 @@ const initialState = {
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
   const { type, payload } = actions;
-  // console.log("action type", type);
-  // console.log('action payload', payload);
 
   if (type === "SAVE_PAST_QUESTION_TO_STATE") {
     return {
