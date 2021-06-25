@@ -5,7 +5,6 @@ import { ReactComponent as QuestionMark } from "../../assets/svgs/QuestionMark.s
 import { ReactComponent as TimeLogo } from "../../assets/svgs/TimeLogo.svg";
 
 function TimedPqIntro(props) {
-
   const { questionArray, year, subject, isQuestionFetched } =
     props.practiceQuestionReducer;
 
@@ -42,14 +41,18 @@ function TimedPqIntro(props) {
               <div className="flex gap-3">
                 <span>3.</span>
                 <span>Do not let someone else do the work for you</span>
-              </div> <div className="flex gap-3">
+              </div>{" "}
+              <div className="flex gap-3">
                 <span>4.</span>
-                <span>Please DO NOT refresh your browser when exam has started</span>
-              </div> <div className="flex gap-3">
+                <span>
+                  Please DO NOT refresh your browser when exam has started
+                </span>
+              </div>{" "}
+              <div className="flex gap-3">
                 <span>5.</span>
                 <span>If refreshed, the exam will be submitted.</span>
               </div>
-{/* 
+              {/* 
               <div className="flex gap-3">
                 <span>4. </span>
                 <div className="flex flex-col">

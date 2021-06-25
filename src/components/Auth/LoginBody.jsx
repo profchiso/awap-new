@@ -147,7 +147,7 @@ function LoginBody(props) {
                 </div>
                 <div className="flex flex-1"></div>
                 <div className="font-sm flex pt-8 pl-10 sm:p-0">
-                  <Link to="/" className="font-sm text-primary">
+                  <Link to="/" className="font-sm text-primary hover:text-primary">
                     Forgot Password?
                   </Link>
                 </div>

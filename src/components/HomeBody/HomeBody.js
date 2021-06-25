@@ -78,7 +78,6 @@ function HomeBody(props) {
   const { token } = props.loginReducer;
   // console.log('props', props);
   const [open, setOpen] = useState(false);
-
   const [secondaySchoolContent, setsecondaySchoolContent] = React.useState(
     <ExploreContentSenior />
   );
