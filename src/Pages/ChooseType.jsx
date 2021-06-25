@@ -50,8 +50,6 @@ function ChooseType(props) {
       let hasAnsweredBefore= timedPracticeQuestions.filter(practiceQuestions=>Number(practiceQuestions.year)===Number(year) && practiceQuestions.subject.toLowerCase()===subject.toLowerCase() )
 if(hasAnsweredBefore.length){
   setHasTakenBefore(true)
- 
-
 }else{
   props.fetchPracticeQuestionTimed(
     { subject: subject, year, pastQuestionBody: "WAEC" ,practiceQuestionType:"Timed" },
@@ -65,8 +63,6 @@ if(hasAnsweredBefore.length){
      
       if(hasAnsweredBefore.length){
         setHasTakenBefore(true)
-        
-
       }else{
         props.fetchPracticeQuestion(
           { subject: subject.toLowerCase(), year },
@@ -132,14 +128,12 @@ if(hasAnsweredBefore.length){
     } else if (value === "Untimed Questions") {
       if(hasTakenBefore){
        return <Redirect to="/answered" />
-
       }
       return <Redirect to="/pq/subject-untimed" />
       
     } else if (value === "Timed Questions") {
       if(hasTakenBefore){
         return <Redirect to="/answered" />
- 
        }
        return <Redirect to="/pq/subject-timed" />
 
