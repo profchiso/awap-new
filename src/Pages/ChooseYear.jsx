@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 function ChooseYear(props) {
   const classes = useStyles();
   const  token  = props?.loginReducer?.token;
-
+  const { subject } = props.practiceQuestionReducer;
 
   const [itemNumber, setitemNumber] = useState();
 
@@ -60,7 +60,7 @@ if(token){
       <div className="flex justify-center pb-40">
         <div className="font-body flex flex-col gap-28 text-center mt-12 sm:mt-40">
           <h3 className="px-3 text-md sm:text-xl md:text-2xl lg:text-3xl font-body">
-            BIOLOGY (SSCE) WAEC Questions 
+            {subject} (SSCE) WAEC Questions 
           </h3>
           <div className="flex items-center justify-center">
             <div className="text-center">
@@ -89,7 +89,7 @@ if(token){
           </div>
           <div>
             {itemNumber ? (
-              <Link to="/pq/biology-choose-type">
+              <Link to="/pq/subject-choose-type">
                 <button className="text-white bg-primary font-body shadow-primary px-16 md:px-20 py-2 rounded-md focus:outline-none text-sm lg:text-base">
                   Next
                 </button>

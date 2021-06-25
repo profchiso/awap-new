@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import GoogleButton from "./GoogleButton";
+// import GoogleButton from "./GoogleButton";
 import { ReactComponent as Person } from "../../assets/svgs/person.svg";
 import { Checkbox, FormControl, IconButton, Input } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
@@ -147,7 +147,7 @@ function LoginBody(props) {
                 </div>
                 <div className="flex flex-1"></div>
                 <div className="font-sm flex pt-8 pl-10 sm:p-0">
-                  <Link to="/" className="font-sm text-primary">
+                  <Link to="/" className="font-sm text-primary hover:text-primary">
                     Forgot Password?
                   </Link>
                 </div>

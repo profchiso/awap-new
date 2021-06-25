@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import Pagination from "../components/AnswerContent/Pagination";
-import { DefaultAnswerBtn } from "../components/Button/AnswerButton";
+import DefaultAnswerBtn from "../components/Button/AnswerButton";
 import FormControl from "@material-ui/core/FormControl";
 import PracticeHeader from "../components/Header/PracticeHeader";
 import NumberBadge from "../components/Badge/NumberBadge";
@@ -11,14 +11,21 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { Button } from "@material-ui/core";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import {
   addSelectedAnswerToArray,
   submitUserAnswers,
+  isViewSolution,
+  timeRemaining,
 } from "../redux/actions/practiceQuestion";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 // import { ReactComponent as PreviousIcon } from "../assets/svgs/PreviousIcon.svg";
+// import { ReactComponent as TimeIcon } from "../assets/svgs/TimeIcon.svg";
 import { ReactComponent as NextBtn } from "../assets/svgs/NextBtn.svg";
+import AccessTimeRoundedIcon from "@material-ui/icons/AccessTimeRounded";
+import Countdown from "react-countdown";
+import CountDownTimer from "../components/Timer/CountDownTimer";
+import { ReactComponent as AlarmClock } from "../assets/svgs/AlarmClock.svg";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -56,12 +63,14 @@ function PracticeQuestion(props) {
   const [nextButtonClicked, setnextButtonClicked] = useState(false);
 
   const [open, setOpen] = useState(false);
-  const { questionArray } = props.practiceQuestionReducer;
+  const { questionArray, isViewSolution } = props.practiceQuestionReducer;
   const answer = questionArray[questionNumber]?.answer;
-  const isCorrect =
-    "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
-  const isWrong =
-    "bg-gradient-to-r from-redOrangeDark to-redOrangeLight text-white";
+  // const isBlueColor =
+  //   "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
+  const isBlueColor =
+    "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue2 text-white";
+  // const isRedColor =
+  //   "bg-gradient-to-r from-redOrangeDark to-redOrangeLight text-white";
 
   const handleOpen = () => {
     setOpen(true);
@@ -77,13 +86,11 @@ function PracticeQuestion(props) {
     props.addSelectedAnswerToArray(questionObj);
   };
 
-  const setIsCorrectOrWrong = (option) => {
-    if (value === option && answer === option) {
-      return { isCorrectOrWrong: isCorrect, showIcon: "correctIcon" };
-    } else if (value === option && answer !== option) {
-      return { isCorrectOrWrong: isWrong, showIcon: "wrongIcon" };
-    } else if (value !== option && answer === option) {
-      return { isCorrectOrWrong: isCorrect, showIcon: "correctIcon" };
+  const setisBlueOrRedSelectionColor = (option) => {
+    if (value === option) {
+      return { isBlueOrRedSelectionColor: isBlueColor };
+    } else {
+      return { isBlueOrRedSelectionColor: "" };
     }
   };
 
@@ -168,64 +175,182 @@ function PracticeQuestion(props) {
   };
 
   const token = props?.loginReducer?.token;
+  const [isTimeUp, setisTimeUp] = useState(false);
+
+  const history = useHistory();
+
+  const delayAndGo = () => {
+    handleSubmit();
+    setTimeout(() => history.push("/stats"), 4000);
+  };
 
   if (token) {
     return (
       <div className="sm:max-h-screen select-none" onContextMenu={disable}>
-        <PracticeHeader handleOpen={handleOpen} />
+        <PracticeHeader
+          handleOpen={handleOpen}
+          showFilter={
+            window.location.pathname.includes("/stats") || isViewSolution
+              ? true
+              : false
+          }
+        />
         {questionArray.length ? (
           <>
-            <Modal
-              aria-labelledby="transition-modal-title"
-              aria-describedby="transition-modal-description"
-              className={classes.modal}
-              open={open}
-              onClose={handleClose}
-              closeAfterTransition
-              BackdropComponent={Backdrop}
-              BackdropProps={{
-                timeout: 500,
-              }}
-            >
-              <Fade in={open}>
-                <div
-                  className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
-                >
-                  <div className="py-12 flex-1 -mr-12">
-                    <h3>Finish Past Question?</h3>
-                    <p className="pt-8 font-medium">
-                      Are you sure you want to end this past question?
-                    </p>
-                    <div className="pt-16 pb-6 flex gap-5 items-center justify-center">
-                      <Link to="/stats">
-                        <button
-                          onClick={handleSubmit}
-                          className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-                        >
-                          Yes, Submit
-                        </button>
-                      </Link>
+            {isViewSolution ? (
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
+              >
+                <Fade in={open}>
+                  <div
+                    className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+                  >
+                    <div className="py-12 flex-1 -mr-12">
+                      <h3>Done viewing solutions?</h3>
 
-                      <button
-                        onClick={() => handleClose("ok")}
-                        className="text-primary  px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-                      >
-                        No, Cancel
-                      </button>
+                      <div className="pt-10 pb-6 flex flex-col gap-5 items-center justify-center">
+                        <Link
+                          to="/stats"
+                          className="font-medium text-primary hover:text-primary text-base"
+                        >
+                          Go back to Statistics
+                        </Link>
+                        <Link
+                          to="/practice-more"
+                          className="font-medium text-primary hover:text-primary text-base"
+                        >
+                          Practice more questions
+                        </Link>
+                        <Link
+                          to="/"
+                          className="font-medium text-primary hover:text-primary text-base"
+                        >
+                          Go to Home
+                        </Link>
+                        <button
+                          onClick={() => handleClose("ok")}
+                          className="text-base  px-12 font-body px-5 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                          style={{ color: "#F1420A" }}
+                        >
+                          No, Cancel
+                        </button>
+                      </div>
                     </div>
+                    <span>
+                      <Button onClick={handleClose}>
+                        <CloseRoundedIcon />
+                      </Button>
+                    </span>
                   </div>
-                  <span>
-                    <Button onClick={handleClose}>
-                      <CloseRoundedIcon />
-                    </Button>
-                  </span>
-                </div>
-              </Fade>
-            </Modal>
+                </Fade>
+              </Modal>
+            ) : isTimeUp ? (
+              <>
+                <Modal
+                  aria-labelledby="transition-modal-title"
+                  aria-describedby="transition-modal-description"
+                  className={classes.modal}
+                  open={open}
+                  // onClose={handleClose}
+                  closeAfterTransition
+                  BackdropComponent={Backdrop}
+                  BackdropProps={{
+                    timeout: 500,
+                  }}
+                >
+                  <Fade in={open}>
+                    <div
+                      className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+                    >
+                      <div className="py-12 flex-1 -mr-12">
+                        <h3>Time’s Up !</h3>
+                        <div>
+                          <AlarmClock className="mx-auto" />
+                        </div>
+                        <p className="pt-8 font-medium">Submitting...</p>
+                      </div>
+                      <span>
+                        <Button onClick={handleClose} disabled>
+                          <CloseRoundedIcon />
+                        </Button>
+                      </span>
+                    </div>
+                  </Fade>
+                </Modal>
+                {delayAndGo()}
+              </>
+            ) : (
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
+              >
+                <Fade in={open}>
+                  <div
+                    className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+                  >
+                    <div className="py-12 flex-1 -mr-12">
+                      <h3>Finish Past Question?</h3>
+                      <p className="pt-8 font-medium">
+                        Are you sure you want to end this past question?
+                      </p>
+                      <div className="pt-16 pb-6 flex gap-5 items-center justify-center">
+                        <Link to="/stats">
+                          <button
+                            onClick={handleSubmit}
+                            className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                          >
+                            Yes, Submit
+                          </button>
+                        </Link>
+
+                        <button
+                          onClick={() => handleClose("ok")}
+                          className="text-primary  px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                        >
+                          No, Cancel
+                        </button>
+                      </div>
+                    </div>
+                    <span>
+                      <Button onClick={handleClose}>
+                        <CloseRoundedIcon />
+                      </Button>
+                    </span>
+                  </div>
+                </Fade>
+              </Modal>
+            )}
 
             <div>
               <div className="flex relative max-w-screen-2xl mx-auto  mt-8">
                 <div className="flex-1  pb-40 sm:pb-0">
+                  {width <= 640 && (
+                    <div className="flex items-center justify-center mb-8 -mt-2">
+                      <AccessTimeRoundedIcon color="primary" className="mr-2" />
+                      <CountDownTimer
+                        setisTimeUp={setisTimeUp}
+                        isTimeUp={isTimeUp}
+                        setOpen={setOpen}
+                      />
+                    </div>
+                  )}
                   <div className="max-w-3xl mx-auto px-6 sm:px-8">
                     <div className="w-full flex justify-center -mt-2 mb-2 sm:hidden">
                       <NumberBadge>
@@ -269,10 +394,10 @@ function PracticeQuestion(props) {
                       <div className="py-3 ">
                         <DefaultAnswerBtn
                           isClicked={isClicked}
-                          showIcon={setIsCorrectOrWrong("optionA")?.showIcon}
                           isSelected={
                             isClicked &&
-                            setIsCorrectOrWrong("optionA")?.isCorrectOrWrong
+                            setisBlueOrRedSelectionColor("optionA")
+                              ?.isBlueOrRedSelectionColor
                           }
                           onClick={() =>
                             onSelectedOptionChange(
@@ -290,10 +415,10 @@ function PracticeQuestion(props) {
                       <div className="py-3 ">
                         <DefaultAnswerBtn
                           isClicked={isClicked}
-                          showIcon={setIsCorrectOrWrong("optionB")?.showIcon}
                           isSelected={
                             isClicked &&
-                            setIsCorrectOrWrong("optionB")?.isCorrectOrWrong
+                            setisBlueOrRedSelectionColor("optionB")
+                              ?.isBlueOrRedSelectionColor
                           }
                           onClick={() =>
                             onSelectedOptionChange(
@@ -311,10 +436,10 @@ function PracticeQuestion(props) {
                       <div className="py-3 ">
                         <DefaultAnswerBtn
                           isClicked={isClicked}
-                          showIcon={setIsCorrectOrWrong("optionC")?.showIcon}
                           isSelected={
                             isClicked &&
-                            setIsCorrectOrWrong("optionC")?.isCorrectOrWrong
+                            setisBlueOrRedSelectionColor("optionC")
+                              ?.isBlueOrRedSelectionColor
                           }
                           onClick={() =>
                             onSelectedOptionChange(
@@ -332,10 +457,10 @@ function PracticeQuestion(props) {
                       <div className="py-3 ">
                         <DefaultAnswerBtn
                           isClicked={isClicked}
-                          showIcon={setIsCorrectOrWrong("optionD")?.showIcon}
                           isSelected={
                             isClicked &&
-                            setIsCorrectOrWrong("optionD")?.isCorrectOrWrong
+                            setisBlueOrRedSelectionColor("optionD")
+                              ?.isBlueOrRedSelectionColor
                           }
                           onClick={() =>
                             onSelectedOptionChange(
@@ -352,21 +477,6 @@ function PracticeQuestion(props) {
                       </div>
                     </FormControl>
                   </div>
-
-                  {isClicked ? (
-                    <div className="flex px-7">
-                      <div className="min-w-icon mx-1 hidden sm:block"></div>
-
-                      <div className="flex flex-col border border-gray-300 rounded font-body text-base max-w-md mx-auto pl-7 pt-5 pr-5 pb-10 mb-20 sm:mb-4 text-left">
-                        <span>Solution</span>
-                        <br />
-
-                        {questionArray[questionNumber].solution}
-                      </div>
-                    </div>
-                  ) : (
-                    ""
-                  )}
 
                   <div className="">
                     <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white">
@@ -426,13 +536,28 @@ function PracticeQuestion(props) {
                     </div>
                   </div>
                 </div>
-                <div className="">
+                <div className="flex flex-col gap-8">
+                  {width > 640 && (
+                    <div className="flex items-center -ml-5">
+                      <AccessTimeRoundedIcon color="primary" className="mr-2" />
+                      <CountDownTimer
+                        setisTimeUp={setisTimeUp}
+                        isTimeUp={isTimeUp}
+                        setOpen={setOpen}
+                      />
+                    </div>
+                  )}
+
                   <button
                     className="hidden sm:block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body shadow-primary px-11 py-2 mr-16 rounded-md text-sm lg:text-base font-medium"
                     onClick={handleOpen}
+                    //disabled={`${isViewSolution ? true : false}`}
                   >
-                    {questionNumber + 1 === questionArray.length
+                    {questionNumber + 1 === questionArray.length &&
+                    !isViewSolution
                       ? "Finish"
+                      : isViewSolution
+                      ? "Done"
                       : "End"}
                   </button>
                 </div>
@@ -454,4 +579,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   addSelectedAnswerToArray,
   submitUserAnswers,
+  isViewSolution,
+  timeRemaining,
 })(PracticeQuestion);

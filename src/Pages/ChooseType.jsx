@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { connect } from "react-redux";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
@@ -14,6 +15,7 @@ import MobileHeader from "../components/Header/MobileHeader";
 import {
   selectPastQuestionPracticeType,
   fetchPracticeQuestion,
+  fetchPracticeQuestionTimed,
 } from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
@@ -29,16 +31,47 @@ const useStyles = makeStyles((theme) => ({
 
 function ChooseType(props) {
   const token = props?.loginReducer?.token;
+  const {user}=props.loginReducer;
 
   const { subject, year } = props.practiceQuestionReducer;
   const classes = useStyles();
   const { width } = useWindowDimensions();
 
   const [value, setValue] = useState(null);
+  const [hasTakenBefore, setHasTakenBefore] = useState(false);
   const handleChange = async (event) => {
     setValue(event.target.value);
     props.selectPastQuestionPracticeType(event.target.value);
-    props.fetchPracticeQuestion({ subject: subject.toLowerCase(), year }, token);
+    const {untimedPracticeQuestions,timedPracticeQuestions}=user
+   
+
+    if (event.target.value === "Timed Questions") {
+      
+      let hasAnsweredBefore= timedPracticeQuestions.filter(practiceQuestions=>Number(practiceQuestions.year)===Number(year) && practiceQuestions.subject.toLowerCase()===subject.toLowerCase() )
+if(hasAnsweredBefore.length){
+  setHasTakenBefore(true)
+}else{
+  props.fetchPracticeQuestionTimed(
+    { subject: subject, year, pastQuestionBody: "WAEC" ,practiceQuestionType:"Timed" },
+    token
+  );
+
+}
+      
+    } else {
+      let hasAnsweredBefore= untimedPracticeQuestions.filter(practiceQuestions=>Number(practiceQuestions.year)===Number(year) && practiceQuestions.subject.toLowerCase()===subject.toLowerCase())
+     
+      if(hasAnsweredBefore.length){
+        setHasTakenBefore(true)
+      }else{
+        props.fetchPracticeQuestion(
+          { subject: subject.toLowerCase(), year },
+          token
+        );
+
+      }
+      
+    }
   };
   if (token) {
     if (value === null) {
@@ -57,7 +90,7 @@ function ChooseType(props) {
           <div className="text-center sm:pl-20 px-10 pb-40 flex flex-col max-w-3xl mx-auto">
             <div className="mt-16 sm:mt-32 mb-20">
               <h3 className="text-3xl font-body flex items-center">
-                <Link to="/pq/biology-choose-year">
+                <Link to="/pq/subject-choose-year">
                   <RoundBackIcon className="" />
                 </Link>
                 <span className="pl-16">Choose type</span>
@@ -93,9 +126,17 @@ function ChooseType(props) {
         </div>
       );
     } else if (value === "Untimed Questions") {
-      return <Redirect to="/pq/biology-untimed" />;
+      if(hasTakenBefore){
+       return <Redirect to="/answered" />
+      }
+      return <Redirect to="/pq/subject-untimed" />
+      
     } else if (value === "Timed Questions") {
-      return <Redirect to="/pq/biology-timed" />;
+      if(hasTakenBefore){
+        return <Redirect to="/answered" />
+       }
+       return <Redirect to="/pq/subject-timed" />
+
     }
   }
   return <Redirect to="/login" />;
@@ -109,4 +150,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   selectPastQuestionPracticeType,
   fetchPracticeQuestion,
+  fetchPracticeQuestionTimed,
 })(ChooseType);

@@ -15,7 +15,6 @@ import {
   selectPastQuestionPracticeType,
   selectPastQuestionSubject,
   selectPastQuestionYear,
-  answeredQuestionFromSth
 } from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ChooseSubject(props) {
+function PracticeMoreChooseSubject(props) {
   const classes = useStyles();
   const token = props?.loginReducer?.token;
   const { year } = props.practiceQuestionReducer;
@@ -45,7 +44,6 @@ function ChooseSubject(props) {
     props.selectPastQuestionSubject(event.target.value);
     props.selectPastQuestionPracticeType("Untimed Questions"); //the default
     props.selectPastQuestionYear(year) //default
-    props.answeredQuestionFromSth({year, subject:event.target.value})
   };
 
   if (token) {
@@ -58,7 +56,7 @@ function ChooseSubject(props) {
         <div className="flex justify-center pb-40">
           <div className="font-body flex flex-col gap-28 text-center mt-12 sm:mt-40">
             <h3 className="px-3 text-md sm:text-xl md:text-2xl lg:text-3xl font-body">
-              Statistics for which Subject?
+              Practice More Questions
             </h3>
             <div className="flex items-center justify-center">
               <div className="text-center">
@@ -86,7 +84,7 @@ function ChooseSubject(props) {
             </div>
             <div>
               {subject ? (
-                <Link to="/stats">
+                <Link to="/pq/biology-choose-type">
                   <button className="text-white bg-primary font-body shadow-primary px-16 md:px-20 py-2 rounded-md focus:outline-none text-sm lg:text-base">
                     Next
                   </button>
@@ -112,5 +110,4 @@ export default connect(mapStateToProps, {
   selectPastQuestionSubject,
   selectPastQuestionPracticeType,
   selectPastQuestionYear,
-  answeredQuestionFromSth
-})(ChooseSubject);
+})(PracticeMoreChooseSubject);

@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux"
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
@@ -9,6 +10,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
+import { filterSolution } from "../../redux/actions/practiceQuestion"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,13 +34,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FilterModal(props) {
+function FilterModal(props) {
   const classes = useStyles();
 
   //
   const [value, setValue] = React.useState("showAll");
   const handleCheckChange = (event) => {
     setValue(event.target.value);
+    props.filterSolution(event.target.value)
   };
 
   //
@@ -80,7 +83,7 @@ export default function FilterModal(props) {
         <Fade in={openModal}>
           <div className={`${classes.paperTwo} flex outline-none text-center`}>
             <FormControl component="fieldset" className="w-full">
-            <h3 className="font-normal pt-1">Filter</h3>
+              <h3 className="font-normal pt-1">Filter</h3>
 
               <RadioGroup
                 aria-label="gender"
@@ -139,3 +142,10 @@ export default function FilterModal(props) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps, { filterSolution })(FilterModal);

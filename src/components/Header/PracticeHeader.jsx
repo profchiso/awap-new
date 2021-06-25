@@ -11,11 +11,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import TemporaryDrawer from "../Drawer/Drawer";
 import useWindowDimensions from "../../Hooks/UseWindowDimension";
 import { logout } from "../../redux/actions/login";
-import {BiUser} from "react-icons/bi"
+import { BiUser } from "react-icons/bi";
 import * as Io from "react-icons/io";
 import FilterModal from "./FilterModal";
 import { ReactComponent as Filter } from "../../assets/svgs/FilterIcon.svg";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,13 +29,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...props }) {
+function PracticeHeader({
+  loginReducer,
+  practiceQuestionReducer,
+  logout,
+  ...props
+}) {
   const classes = useStyles();
   const { width } = useWindowDimensions();
   const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
   const { user } = loginReducer;
-  const { year, subject } = practiceQuestionReducer;
+  const { year, subject, filterValue } = practiceQuestionReducer;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -76,7 +80,7 @@ function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...prop
         <div className="flex flex-1 justify-center pr-3 sm:px-5 sm:px-0 -ml-1 lg:-ml-28 font-medium text-base md:text-lg">
           <span className="whitespace-nowrap">
             <span>
-              {year>2000?year:""}&nbsp;{subject} WAEC
+              {year >= 2000 ? year : ""}&nbsp;{subject} WAEC
             </span>
             &nbsp;
             <span className="hidden sm:inline-block">Practice Questions</span>
@@ -100,15 +104,15 @@ function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...prop
               <ExpandMoreRoundedIcon color="primary" />
             </span>
           </Button>
-        
+
           {props.showFilter ? (
-              <FilterModal>
-                <Filter />
-                <span className="pl-2 text-primary capitalize font-body font-normal">
-                  Filter
-                </span>
-              </FilterModal>
-            ) : null}
+            <FilterModal>
+              <Filter />
+              <span className="pl-2 text-primary capitalize font-body font-normal">
+                {width > 1024 ? "Filter":""} {" ",filterValue}
+              </span>
+            </FilterModal>
+          ) : null}
         </div>
         <button
           className="sm:hidden block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body font-semibold shadow-primary px-6 py-2 rounded-md text-sm lg:text-base font-medium"
@@ -129,53 +133,47 @@ function PracticeHeader({ loginReducer, practiceQuestionReducer, logout, ...prop
             },
           }}
         >
-             
-             <div>
-                <MenuItem
-                  onClick={handleClose}
-                  className={`${classes.menuItem} font-body font-normal flex`}
-                >
-                  <span className="justify-self-start px-2">
-                    <BiUser className="text-primary"/>
-                  </span>
-                  <span
-                    className="font-body font-normal flex-1 pr-8 text-primary text-sm"
-                  >
-                    Profile
-                  </span>
-                </MenuItem>
-                <Link to="/choose-subject">
-                <MenuItem
-                  onClick={handleClose}
-                  className={`${classes.menuItem} font-body font-normal flex`}
-                >
-                  <span className="justify-self-start px-2">
-                    <Io.IoIosStats  className="text-primary"/>
-                  </span>
-                  <span
-                    className="font-body font-normal flex-1 pr-8 text-primary text-sm"
-                  >
-                    Statistics
-                  </span>
-                </MenuItem>
-                </Link>
-           
-                <MenuItem
-                  onClick={handleClose}
-                  className={`${classes.menuItem} font-body font-normal flex`}
-                >
-                  <span className="justify-self-start px-2">
-                    <FiLogOut  className="text-primary"/>
-                  </span>
-                  <span
-                    className="font-body font-normal flex-1 pr-8 text-primary text-sm"
-                    onClick={() => handleLogout()}
-                  >
-                    Log Out
-                  </span>
-                </MenuItem>
-              </div>
-           
+          <div>
+            <MenuItem
+              onClick={handleClose}
+              className={`${classes.menuItem} font-body font-normal flex`}
+            >
+              <span className="justify-self-start px-2">
+                <BiUser className="text-primary" />
+              </span>
+              <span className="font-body font-normal flex-1 pr-8 text-primary text-sm">
+                Profile
+              </span>
+            </MenuItem>
+            <Link to="/choose-subject">
+              <MenuItem
+                onClick={handleClose}
+                className={`${classes.menuItem} font-body font-normal flex`}
+              >
+                <span className="justify-self-start px-2">
+                  <Io.IoIosStats className="text-primary" />
+                </span>
+                <span className="font-body font-normal flex-1 pr-8 text-primary text-sm">
+                  Statistics
+                </span>
+              </MenuItem>
+            </Link>
+
+            <MenuItem
+              onClick={handleClose}
+              className={`${classes.menuItem} font-body font-normal flex`}
+            >
+              <span className="justify-self-start px-2">
+                <FiLogOut className="text-primary" />
+              </span>
+              <span
+                className="font-body font-normal flex-1 pr-8 text-primary text-sm"
+                onClick={() => handleLogout()}
+              >
+                Log Out
+              </span>
+            </MenuItem>
+          </div>
         </Menu>
       </div>
     </div>

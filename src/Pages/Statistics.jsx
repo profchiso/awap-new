@@ -13,6 +13,8 @@ import {
   selectPastQuestionSubject,
   selectPastQuestionPracticeType,
   onSideNavYearChange,
+  isViewSolution,
+  testAgain,
 } from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +41,14 @@ function Statistics(props) {
   };
 
   const viewSolution = () => {
-    props.onSideNavYearChange(year, subject)
+    props.onSideNavYearChange(year, subject);
+    props.isViewSolution();
+
+    history.goBack();
+  };
+
+  const handleTestAgain = () => {
+    props.testAgain({year, subject })
     history.goBack();
   };
 
@@ -117,7 +126,7 @@ function Statistics(props) {
                       Your Chosen Answers
                     </div>
                     <div className="ml-5">
-                      {questionArray.map((item, index) => (
+                      {questionArray?.map((item, index) => (
                         <div
                           className="flex gap-3 text-base leading-10"
                           key={index}
@@ -144,7 +153,7 @@ function Statistics(props) {
                     <br />
 
                     <button
-                      // onClick={() => history.goBack()}
+                      onClick={handleTestAgain}
                       className="py-3 whitespace-nowrap w-full text-center text-primary shadow-md px-8 text-base font-body font-medium bg-white rounded-md text-white"
                     >
                       Test Again
@@ -174,4 +183,6 @@ export default connect(mapStateToProps, {
   selectPastQuestionSubject,
   selectPastQuestionPracticeType,
   onSideNavYearChange,
+  isViewSolution,
+  testAgain,
 })(Statistics);
