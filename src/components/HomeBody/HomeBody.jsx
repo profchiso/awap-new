@@ -76,9 +76,9 @@ const useStyles = makeStyles((theme) => ({
 
 function HomeBody(props) {
   const { token } = props.loginReducer;
-  // console.log('props', props);
+  const { width } = useWindowDimensions();
   const [open, setOpen] = useState(false);
-  const [secondaySchoolContent, setsecondaySchoolContent] = React.useState(
+  const [secondaySchoolContent, setsecondaySchoolContent] = useState(
     <ExploreContentSenior />
   );
 
@@ -91,12 +91,11 @@ function HomeBody(props) {
   };
   const classes = useStyles();
 
-  const [studentClass, setstudentClass] = React.useState("SS1-3 (Grade 9-12)");
+  const [studentClass, setstudentClass] = useState("SS1-3 (Grade 9-12)");
 
   const handleChange = (event) => {
     setstudentClass(event.target.value);
   };
-  const { width } = useWindowDimensions();
 
   const handleOpen = () => {
     setOpen(true);
@@ -121,51 +120,81 @@ function HomeBody(props) {
       >
         <Fade in={open}>
           <div
-            className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+            className={`${classes.paper} flex outline-none text-center w-full max-w-sm md:max-w-xl mx-3`}
           >
-            <div className="py-12 flex-1 -mr-12">
+            <div className="sm:py-12 flex-1 -mr-12">
               <h3>Share On</h3>
               <div className="flex  font-medium justify-content-center">
                 <div className="flex gap-24 pt-8 font-medium justify-content-center mx-auto text-left">
                   <div>
                     <a href="mailto:">
                       <Button className="flex gap-4 ">
-                        <EmailShareButton url="https://awesumedge.com/" subject="Join AwesumEdge" body="We Teach to Create Impact and Enrich Lives. Sign up today!" title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!" >
-                          <EmailIcon  size={48} round={true} />
-                        </EmailShareButton>
-                        <span className="font-body capitalize text-base pl-3">
-                          Gmail
+                        <EmailShareButton
+                          url="https://awesumedge.com/"
+                          subject="Join AwesumEdge"
+                          body="We Teach to Create Impact and Enrich Lives. Sign up today!"
+                          title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!"
+                          className="flex items-center"
+                        >
+                          <EmailIcon size={width>480?48:40} round={true} />
+                          <span className="font-body capitalize text-base px-3">
+                          {width<480?"":"Gmail"}
                         </span>
+                        </EmailShareButton>
+                      
                       </Button>
                     </a>
                     <br /> <br />
                     <Button className="flex gap-4">
-                      <WhatsappShareButton url="https://awesumedge.com/" title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!" >
-                        <WhatsappIcon  size={48} round={true} />
-                      </WhatsappShareButton>
-                      <span className="font-body capitalize text-base pl-3">
-                        Whatsapp
+                      <WhatsappShareButton
+                        url="https://awesumedge.com/"
+                        title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!"
+                        className="flex items-center"
+                      >
+                        <WhatsappIcon size={width>480?48:40} round={true} />
+                          <span className="font-body capitalize text-base px-3">
+                        
+                        {width<480?"":"Whatsapp"}
+
                       </span>
+                      </WhatsappShareButton>
+                    
                     </Button>
                   </div>
 
                   <div>
                     <Button className="flex gap-4 ">
-                      <FacebookShareButton url="https://awesumedge.com/" title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!" hashtag="AwesumEdge">
-                        <FacebookIcon size={48} round={true} />
-                      </FacebookShareButton>
-                      <span className="font-body capitalize text-base pl-3">
-                        Facebook
+                      <FacebookShareButton
+                        url="https://awesumedge.com/"
+                        title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!"
+                        hashtag="AwesumEdge"
+                        className="flex items-center"
+                      >
+                        <FacebookIcon size={width>480?48:40} round={true} />
+                         <span className="font-body capitalize text-base px-3">
+                        
+                        {width<480?"":"Facebook"}
+
                       </span>
+                      </FacebookShareButton>
+                     
                     </Button>
                     <br /> <br />
                     <Button className="flex gap-4">
-                      <TwitterShareButton url="https://awesumedge.com/" title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!" hashtag="AwesumEdge">
-                        <TwitterIcon  size={48} round={true} />
-                      </TwitterShareButton>
-                      <span className="font-body capitalize text-base pl-3">
-                        Twitter
+                      <TwitterShareButton
+                        url="https://awesumedge.com/"
+                        title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!"
+                        hashtag="AwesumEdge"
+                        className="flex items-center"
+                      >
+                        <TwitterIcon size={width>480?48:40} round={true} />  
+                        <span className="font-body capitalize text-base px-3">
+                        
+                        {width<480?"":"Twitter"}
+
                       </span>
+                      </TwitterShareButton>
+                     
                     </Button>
                   </div>
                 </div>
