@@ -38,6 +38,7 @@ function ChooseType(props) {
   const { width } = useWindowDimensions();
 
   const [value, setValue] = useState(null);
+  const [hasTakenBefore, setHasTakenBefore] = useState(false);
   const handleChange = async (event) => {
     setValue(event.target.value);
     props.selectPastQuestionPracticeType(event.target.value);
@@ -48,7 +49,8 @@ function ChooseType(props) {
       
       let hasAnsweredBefore= timedPracticeQuestions.filter(practiceQuestions=>Number(practiceQuestions.year)===Number(year) && practiceQuestions.subject.toLowerCase()===subject.toLowerCase() )
 if(hasAnsweredBefore.length){
-  return <Redirect to="/answered" />
+  setHasTakenBefore(true)
+ 
 
 }else{
   props.fetchPracticeQuestionTimed(
@@ -62,8 +64,8 @@ if(hasAnsweredBefore.length){
       let hasAnsweredBefore= untimedPracticeQuestions.filter(practiceQuestions=>Number(practiceQuestions.year)===Number(year) && practiceQuestions.subject.toLowerCase()===subject.toLowerCase())
      
       if(hasAnsweredBefore.length){
-        console.log(hasAnsweredBefore)
-        return <Redirect to="/answered" />
+        setHasTakenBefore(true)
+        
 
       }else{
         props.fetchPracticeQuestion(
@@ -128,9 +130,19 @@ if(hasAnsweredBefore.length){
         </div>
       );
     } else if (value === "Untimed Questions") {
-      return <Redirect to="/pq/subject-untimed" />;
+      if(hasTakenBefore){
+       return <Redirect to="/answered" />
+
+      }
+      return <Redirect to="/pq/subject-untimed" />
+      
     } else if (value === "Timed Questions") {
-      return <Redirect to="/pq/subject-timed" />;
+      if(hasTakenBefore){
+        return <Redirect to="/answered" />
+ 
+       }
+       return <Redirect to="/pq/subject-timed" />
+
     }
   }
   return <Redirect to="/login" />;
