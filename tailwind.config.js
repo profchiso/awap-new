@@ -12,6 +12,7 @@ module.exports = {
         orangeEllipse: "url('../images/orangeEllipse.svg')",
         blueEllipse: "url('../images/blueEllipse.svg')",
         greenEllipse: "url('../images/greenEllipse.svg')",
+        grayEllipse: "url('../images/grayEllipse.svg')",        
       }),
       width: {
         '1/7': '14.2857143%',
@@ -123,6 +124,7 @@ module.exports = {
      maxWidth: (theme, { breakpoints }) => ({
       none: "none",
       0: "0rem",
+      ts3 : "9rem",
       ts2 : "14rem",
       ts1: "17rem",
       xs: "20rem",

@@ -11,7 +11,7 @@ export default function AnswerLayout(props) {
     <div>
       <div className="fixed w-full z-50 bg-white">
         <PracticeHeader
-          
+          pathName = {props.pathName}
           showHeaderTitle={true}
         />
       </div>

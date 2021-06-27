@@ -93,6 +93,7 @@ export const selectPastQuestionSubject = (subject) => {
     payload: subject,
   };
 };
+
 export const selectPastQuestionPracticeType = (type) => {
   return {
     type: SELECT_PAST_QUESTION_PRACTICE_TYPE,

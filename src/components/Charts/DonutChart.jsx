@@ -1,5 +1,6 @@
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { connect } from "react-redux";
+import useWindowDimensions from "../../Hooks/UseWindowDimension";
 // import React, {useState, useEffect } from "react";
 // import {
 //   selectPastQuestionYear,
@@ -13,14 +14,13 @@ const colors = [
 
 function DonutChart(props) {
   const { questionArray } = props.practiceQuestionReducer;
-
+  const { width } = useWindowDimensions();
   //Beninging
   const { subject, year } = props.practiceQuestionReducer;
-  
+
   // useEffect(() => {
   //   props.selectPastQuestionYear(year)
   // }, [])
-
 
   const untimedPracticeQuestions =
     props?.practiceQuestionReducer?.untimedPracticeQuestions;
@@ -63,7 +63,7 @@ function DonutChart(props) {
 
   return (
     <div>
-      <div className="flex flex-col relative top-52 left-28 text-3xl font-medium">
+      <div className="flex flex-col relative top-52 left-16 sm:left-28 text-2xl sm:text-3xl font-medium ">
         <div>
           {valueOfroundedPercentScore ? (
             roundedPercentScore !== Infinity ? (
@@ -97,49 +97,55 @@ function DonutChart(props) {
           )}
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row items-center gap-14">
-        <div className=" flex flex-col items-center">
-          <div className="mb-4">
-            <p className="text-lg font-medium">Percent Score</p>
+      <div
+        className={`flex flex-row items-center sm:gap-14`}
+      >
+        <div className="flex flex-col items-center transform scale-50 sm:scale-100 -ml-20 sm:ml-0">
+          <div className="sm:mb-4">
+            <p className="sm:text-lg font-medium text-3xl">Percent Score</p>
           </div>
-          <PieChart height={297} width={270}>
-            <Pie
-              data={data}
-              cx="50%"
-              cy="50%"
-              innerRadius={80}
-              outerRadius={130}
-              dataKey="value"
-              nameKey="name"
-              fill="gray"
-            >
-              {data.map((entry, index) => (
-                <Cell key={index} fill={colors[index % colors?.length]} />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
+          <div className="">
+            <PieChart height={297} width={270}>
+              <Pie
+                data={data}
+                cx="50%"
+                cy="50%"
+                innerRadius={80}
+                outerRadius={130}
+                dataKey="value"
+                nameKey="name"
+                fill="gray"
+              >
+                {data.map((entry, index) => (
+                  <Cell key={index} fill={colors[index % colors?.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </div>
         </div>
 
-        <div>
-          <div className="flex items-center mt-4">
-            <div className="flex flex-col gap-1">
-              <div className="bg-gray-400 rounded-3xl text-white  text-center font-semibold p-2  bg-center bg-no-repeat">
-                {unAnwseredQuestionsCount}
-              </div>
-
-              <div className=" bg-blueEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
-                {correctAnswersCount}
-              </div>
-
-              <div className="bg-orangeEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
-                {wrongAnswersCount}
-              </div>
+        <div className="flex items-center mt-4 -ml-12 sm:ml-0">
+          <div className="flex flex-col gap-1">
+            <div className="bg-grayEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
+              {unAnwseredQuestionsCount}
             </div>
-            <div className="flex flex-col gap-9">
-              <div className="ml-3">Unanswered Questions</div>
-              <div className="ml-3">Questions answered correctly</div>
-              <div className="ml-3">Questions answered incorrectly</div>
+
+            <div className=" bg-blueEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
+              {correctAnswersCount}
+            </div>
+
+            <div className="bg-orangeEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
+              {wrongAnswersCount}
+            </div>
+          </div>
+          <div className="flex flex-col gap-9">
+            <div className="ml-3 whitespace-nowrap"> Unanswered {width > 640 && "Questions"}</div>
+            <div className="ml-3 whitespace-nowrap">
+              {width > 640 ? "Questions answered correctly" : "Correct"} 
+            </div>
+            <div className="ml-3 whitespace-nowrap">
+              {width > 640 ? "Questions answered incorrectly" : "Incorrect"}
             </div>
           </div>
         </div>
@@ -153,4 +159,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps )(DonutChart);
+export default connect(mapStateToProps)(DonutChart);
