@@ -32,6 +32,7 @@
     "react-icons": "^4.2.0",
     "react-latex": "^2.0.0",
     "react-latex-next": "^2.0.0",
+    "react-material-ui-form-validator": "^2.1.4",
     "react-mathjax2": "^0.0.2",
     "react-multi-carousel": "^2.6.1",
     "react-redux": "^7.2.2",

@@ -26,6 +26,9 @@ import UnderConstruction from "./Pages/UnderConstruction";
 import ChooseSubject from "./Pages/ChooseSubject";
 import PracticeMoreQuestions from "./Pages/PracticeMoreQuestions";
 import AnsweredBefore from "./Pages/AnsweredBefore";
+import ForgotPassword from "./Pages/ForgotPassword";
+import VerifyEmail from "./Pages/VerifyEmail";
+import ChangePassword from "./Pages/ChangePasswordPage";
 
 
 const theme = createMuiTheme({
@@ -95,6 +98,10 @@ export default function App() {
               <Route path="/practice-more" component={PracticeMoreQuestions} />
 
               <Route path="/answered" component={AnsweredBefore} />
+
+              <Route path="/reset-password" component={ForgotPassword} />
+              <Route path="/verify" component={VerifyEmail} />
+              <Route path="/change-password" component={ChangePassword} />
 
 
               {biologyPQYear.map((item, index) => (

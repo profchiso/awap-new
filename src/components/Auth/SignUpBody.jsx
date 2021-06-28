@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function SignUpBody(props) {
-  
   const classes = useStyles();
   const history = useHistory();
   const [values, setValues] = useState({
@@ -239,11 +238,6 @@ function SignUpBody(props) {
                   <span className="font-sm">Keep me logged in</span>
                 </div>
                 <div className="flex flex-1"></div>
-                <div className="font-sm flex pt-8 pl-10 sm:p-0">
-                  <Link to="/" className="font-sm text-primary">
-                    Forgot Password?
-                  </Link>
-                </div>
               </div>
 
               <div className="flex justify-center py-3 px-20">

@@ -64,7 +64,7 @@ function DonutChart(props) {
   return (
     <div>
       {/* <div className="flex flex-col relative top-52 left-16 sm:left-28 text-2xl sm:text-3xl font-medium "> */}
-        <div className="flex flex-col absolute top-44 left-12 sm:left-28 text-2xl sm:text-3xl font-medium ">
+        <div className="flex flex-col absolute top-44 left-16 sm:left-28 text-2xl sm:text-3xl font-medium ">
           {valueOfroundedPercentScore ? (
             roundedPercentScore !== Infinity ? (
               roundedPercentScore + "%"
