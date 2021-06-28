@@ -149,7 +149,7 @@ function Statistics(props) {
           </div>
 
           <div>
-            <div className="flex -mt-16 -mb-10  sm:mt-8 sm:mb-0">
+            <div className="flex -mt-16 -mb-10  sm:mt-8 sm:mb-0 -z-10 relative">
               <DonutChart name="Donut" />
               <div className="flex"></div>
             </div>
