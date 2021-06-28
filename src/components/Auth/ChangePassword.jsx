@@ -98,7 +98,7 @@ function ChangePassword(props) {
               </p>
             </div>
 
-            <div className="flex flex-col gap-5 max-w-md pb-4">
+            <div className="max-w-md pb-4">
               <ValidatorForm
                 className="flex flex-col gap-5 max-w-md pb-4"
                 validate="true"
@@ -189,16 +189,16 @@ function ChangePassword(props) {
                   />
                 </div>
               </ValidatorForm>
-            </div>
 
-            <div className="flex justify-center pt-16 pb-16 px-20">
-              <button
-                type="button"
-                // onClick={(e) => handleLogin(e)}
-                className="text-white flex gap-5 bg-primary shadow-primary px-12 py-2 rounded-md focus:outline-none text-sm lg:text-base"
-              >
-                <span className="">Update</span>
-              </button>
+              <div className="flex justify-center pt-16 pb-16 px-20">
+                <button
+                  type="submit"
+                  // onClick={(e) => handleLogin(e)}
+                  className="text-white flex gap-5 bg-primary shadow-primary px-12 py-2 rounded-md focus:outline-none text-sm lg:text-base"
+                >
+                  <span className="">Update</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

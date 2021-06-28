@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {Redirect} from "react-router-dom"
 import LoginHeader from "../components/Auth/LoginHeader";
 import { login, saveLoginUserDataToState,clearLoginRelatedErrors } from "../redux/actions/login";
-import ResetPassword from "../components/Auth/ResetPassword";
+import EnterEmail from "../components/Auth/EnterEmail";
 
 
 function ForgotPassword(props) {
@@ -13,7 +13,7 @@ function ForgotPassword(props) {
     <div className="bg-f8 pb-8 2xl:h-screen">
       {props.loginReducer.token !== "" && <Redirect to="/"/> }
         <LoginHeader />
-        <ResetPassword 
+        <EnterEmail 
         loginRequest={props.login} error={props.loginReducer?.error?.message}
          />
     </div>

@@ -10,7 +10,7 @@ import {
 } from "../../redux/actions/register";
 import { Link } from "react-router-dom";
 
-function ResetPassword(props) {
+function EnterEmail(props) {
   const [values, setValues] = React.useState({
     email: "",
   });
@@ -92,4 +92,4 @@ export default connect(mapStateToProps, {
   clearLoginRelatedErrors,
   registrationError,
   clearRegisterRelatedErrors,
-})(ResetPassword);
+})(EnterEmail);
