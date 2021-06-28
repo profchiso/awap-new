@@ -108,7 +108,7 @@ function ChangePassword(props) {
                 onError={(errors) => console.log(errors)}
               >
                 <div>
-                  <p className="font-medium text-gray-500 mb-3">Password</p>
+                  <p className="font-medium text-gray-500 mb-3">New Password</p>
                   <TextValidator
                     id="outlined-adornment-password"
                     variant="outlined"
@@ -146,7 +146,7 @@ function ChangePassword(props) {
                 </div>
                 <div>
                   <p className="font-medium text-gray-500 mb-3">
-                    Confirm Password
+                    Confirm New Password
                   </p>
                   <TextValidator
                     id="outlined-adornment-password"

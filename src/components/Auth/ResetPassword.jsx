@@ -45,7 +45,7 @@ function ResetPassword(props) {
               </div>
               <p className="text-center text-base mt-4">
                 {" "}
-                A code will be sent to your email to reset your password
+                A link will be sent to your email to reset your password
               </p>
             </div>
 
@@ -68,11 +68,11 @@ function ResetPassword(props) {
 
               <div className="flex justify-center pt-16 pb-16 px-20">
                 <Link
-                  to="/verify"
+                  to="/change-password"
                   // onClick={(e) => handleLogin(e)}
                   className="text-white hover:text-white flex gap-5 bg-primary shadow-primary px-12 py-2 rounded-md focus:outline-none text-sm lg:text-base"
                 >
-                  <span className="">Next</span>
+                  <span className="">Get Link</span>
                 </Link>
               </div>
             </form>
