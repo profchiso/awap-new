@@ -57,7 +57,7 @@ function PracticeQuestion(props) {
   const [nextButtonClicked, setnextButtonClicked] = useState(false);
 
   const [open, setOpen] = useState(false);
-  const { questionArray, isViewSolution } = props.practiceQuestionReducer; 
+  const { questionArray, isViewSolution } = props.practiceQuestionReducer;
   const answer = questionArray[questionNumber]?.answer;
   const isCorrect =
     "bg-gradient-to-r from-ansBlue1 via-ansBlue2 to-ansBlue3 text-white";
@@ -348,10 +348,24 @@ function PracticeQuestion(props) {
                           }
                         >
                           <span className="pr-6 sm:pr-8">a.</span>
-                          <span>
-                            {questionArray[questionNumber]?.optionA.textOption}
-                            {/* <img src={optionA.imgOption} alt="" /> */}
-                          </span>
+
+                          {questionArray[questionNumber]?.optionA
+                            .imageOption ? (
+                            <img
+                              src={
+                                questionArray[questionNumber]?.optionA
+                                  .imageOption
+                              }
+                              alt=""
+                            />
+                          ) : (
+                            <span>
+                              {
+                                questionArray[questionNumber]?.optionA
+                                  .textOption
+                              }
+                            </span>
+                          )}
                         </DefaultAnswerBtn>
                       </div>
                       <div className="py-3 ">
@@ -371,7 +385,23 @@ function PracticeQuestion(props) {
                         >
                           <span className="pr-6 sm:pr-8">b.</span>
                           <span>
-                            {questionArray[questionNumber]?.optionB.textOption}
+                            {questionArray[questionNumber]?.optionB
+                              .imageOption ? (
+                              <img
+                                src={
+                                  questionArray[questionNumber]?.optionB
+                                    .imageOption
+                                }
+                                alt=""
+                              />
+                            ) : (
+                              <span>
+                                {
+                                  questionArray[questionNumber]?.optionB
+                                    .textOption
+                                }
+                              </span>
+                            )}
                           </span>
                         </DefaultAnswerBtn>
                       </div>
@@ -392,7 +422,23 @@ function PracticeQuestion(props) {
                         >
                           <span className="pr-6 sm:pr-8">c.</span>
                           <span>
-                            {questionArray[questionNumber]?.optionC.textOption}
+                            {questionArray[questionNumber]?.optionC
+                              .imageOption ? (
+                              <img
+                                src={
+                                  questionArray[questionNumber]?.optionC
+                                    .imageOption
+                                }
+                                alt=""
+                              />
+                            ) : (
+                              <span>
+                                {
+                                  questionArray[questionNumber]?.optionC
+                                    .textOption
+                                }
+                              </span>
+                            )}
                           </span>
                         </DefaultAnswerBtn>
                       </div>
@@ -413,7 +459,23 @@ function PracticeQuestion(props) {
                         >
                           <span className="pr-6 sm:pr-8">d.</span>
                           <span>
-                            {questionArray[questionNumber]?.optionD.textOption}
+                            {questionArray[questionNumber]?.optionD
+                              .imageOption ? (
+                              <img
+                                src={
+                                  questionArray[questionNumber]?.optionD
+                                    .imageOption
+                                }
+                                alt=""
+                              />
+                            ) : (
+                              <span>
+                                {
+                                  questionArray[questionNumber]?.optionD
+                                    .textOption
+                                }
+                              </span>
+                            )}
                           </span>
                         </DefaultAnswerBtn>
                       </div>
@@ -428,7 +490,16 @@ function PracticeQuestion(props) {
                         <span>Solution</span>
                         <br />
 
-                        {questionArray[questionNumber]?.solution}
+                        {questionArray[questionNumber]?.solutionImageUrl ? (
+                          <img
+                            src={
+                              questionArray[questionNumber]?.solutionImageUrl
+                            }
+                            alt=""
+                          />
+                        ) : (
+                          <span>{questionArray[questionNumber]?.solution}</span>
+                        )}
                       </div>
                     </div>
                   ) : (
@@ -471,7 +542,7 @@ function PracticeQuestion(props) {
                     </div>
 
                     {width > 640 &&
-                      questionNumber + 1 === questionArray.length ? (
+                    questionNumber + 1 === questionArray.length ? (
                       <button
                         onClick={() => handleOpen()}
                         className="fixed openModalNextBtn z-10 shadow-primary rounded-full focus:outline-none transform md:scale-125"
@@ -497,14 +568,14 @@ function PracticeQuestion(props) {
                   <button
                     className="hidden sm:block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body shadow-primary px-11 py-2 mr-16 rounded-md text-sm lg:text-base font-medium"
                     onClick={handleOpen}
-                  //disabled={`${isViewSolution ? true : false}`}
+                    //disabled={`${isViewSolution ? true : false}`}
                   >
                     {questionNumber + 1 === questionArray.length &&
-                      !isViewSolution
+                    !isViewSolution
                       ? "Finish"
                       : isViewSolution
-                        ? "Done"
-                        : "End"}
+                      ? "Done"
+                      : "End"}
                   </button>
                 </div>
               </div>

@@ -106,14 +106,14 @@ if(hasAnsweredBefore.length){
                   onChange={handleChange}
                 >
                   <FormControlLabel
-                    value="Timed Questions"
+                    value="Timed"
                     control={<Radio color="primary" />}
                     label="Timed Questions"
                     className={`pb-3 pl-4 font-body text-primary ${classes.spacing}`}
                   />
                   <hr className="w-full my-3 text-gray-300" />
                   <FormControlLabel
-                    value="Untimed Questions"
+                    value="Untimed"
                     control={<Radio color="primary" />}
                     label="Untimed Questions"
                     className={`pt-3 pl-4 font-body text-primary ${classes.spacing}`}
@@ -125,13 +125,13 @@ if(hasAnsweredBefore.length){
           <Footer />
         </div>
       );
-    } else if (value === "Untimed Questions") {
+    } else if (value === "Untimed") {
       if(hasTakenBefore){
        return <Redirect to="/answered" />
       }
       return <Redirect to="/pq/subject-untimed" />
       
-    } else if (value === "Timed Questions") {
+    } else if (value === "Timed") {
       if(hasTakenBefore){
         return <Redirect to="/answered" />
        }

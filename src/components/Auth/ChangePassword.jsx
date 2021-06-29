@@ -99,6 +99,7 @@ function ChangePassword(props) {
             </div>
 
             <div className="max-w-md pb-4">
+              
               <ValidatorForm
                 className="flex flex-col gap-5 max-w-md pb-4"
                 validate="true"

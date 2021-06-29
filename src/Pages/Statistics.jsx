@@ -44,8 +44,7 @@ function Statistics(props) {
   const { width } = useWindowDimensions();
   const pathName = props.match?.path?.substring(1);
   console.log("pathName", pathName);
-  const { questionArray } = props.practiceQuestionReducer;
-  const { year, subject } = props.practiceQuestionReducer;
+  const { year, subject, questionArray, questionType } = props.practiceQuestionReducer;
 
   const history = useHistory();
 

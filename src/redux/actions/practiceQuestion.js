@@ -109,10 +109,13 @@ export const addSelectedAnswerToArray = (selectedQstnAnsObject) => {
 };
 
 export const submitUserAnswers = (submissionData, token) => {
+  // submissionData.practiceQuestionType = "Timed"
+  // submissionData.pastQuestionType = "Timed"
+
   return async (dispatch) => {
     try {
       const submittedAnswers = await axios.post(
-        `${BASE_URL}past-question/${submissionData.subject}/submit-practice-questions`,
+        `${BASE_URL}past-question/${submissionData.subject.toLowerCase()}/submit-practice-questions`,
         submissionData,
         {
           headers: {
