@@ -14,6 +14,7 @@ import {
   FILTER_SOLUTION,
   TEST_AGAIN,
   ANSWERED_QUESTION_FROM_STH,
+  ANSWERED_SAME_PQ_BEFORE,
 } from "./types";
 // import * as actionTypes from "./types";
 
@@ -179,3 +180,10 @@ export const timeRemaining = (timeObject) => {
     payload: timeObject,
   };
 };
+
+export const setHasTakenPqBefore =(bool)=>{
+  return {
+    type: ANSWERED_SAME_PQ_BEFORE,
+    payload: bool,
+  }
+}

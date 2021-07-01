@@ -17,6 +17,7 @@ const initialState = {
   timedPracticeQuestions: [],
   isViewSolution: false,
   filterValue: "All",
+  hasTakenPqBefore: false,
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
@@ -189,6 +190,11 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       ...state,
       timeRemaining: payload,
     };
+  } else if (type === "ANSWERED_SAME_PQ_BEFORE"){
+    return{
+      ...state,
+      hasTakenPqBefore:payload,
+    }
   }
   return state;
 };

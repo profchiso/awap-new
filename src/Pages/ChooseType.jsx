@@ -16,6 +16,7 @@ import {
   selectPastQuestionPracticeType,
   fetchPracticeQuestion,
   fetchPracticeQuestionTimed,
+  setHasTakenPqBefore,
 } from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
@@ -30,47 +31,53 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ChooseType(props) {
-  const token = props?.loginReducer?.token;
-  const {user}=props.loginReducer;
+  const {token, user } = props.loginReducer;
 
-  const { subject, year } = props.practiceQuestionReducer;
+  const { subject, year, hasTakenPqBefore } = props.practiceQuestionReducer;
   const classes = useStyles();
   const { width } = useWindowDimensions();
 
   const [value, setValue] = useState(null);
-  const [hasTakenBefore, setHasTakenBefore] = useState(false);
+  // const [hasTakenPqBefore, props.setHasTakenPqBefore] = useState(false);
   const handleChange = async (event) => {
     setValue(event.target.value);
     props.selectPastQuestionPracticeType(event.target.value);
-    const {untimedPracticeQuestions,timedPracticeQuestions}=user
-   
+    const { untimedPracticeQuestions, timedPracticeQuestions } = user;
 
     if (event.target.value === "Timed Questions") {
-      
-      let hasAnsweredBefore= timedPracticeQuestions.filter(practiceQuestions=>Number(practiceQuestions.year)===Number(year) && practiceQuestions.subject.toLowerCase()===subject.toLowerCase() )
-if(hasAnsweredBefore.length){
-  setHasTakenBefore(true)
-}else{
-  props.fetchPracticeQuestionTimed(
-    { subject: subject, year, pastQuestionBody: "WAEC" ,practiceQuestionType:"Timed" },
-    token
-  );
-
-}
-      
+      let hasAnsweredBefore = timedPracticeQuestions.filter(
+        (practiceQuestions) =>
+          Number(practiceQuestions.year) === Number(year) &&
+          practiceQuestions.subject.toLowerCase() === subject.toLowerCase()
+      );
+      if (hasAnsweredBefore.length) {
+        props.setHasTakenPqBefore(true);
+      } else {
+        props.fetchPracticeQuestionTimed(
+          {
+            subject: subject,
+            year,
+            pastQuestionBody: "WAEC",
+            practiceQuestionType: "Timed",
+          },
+          token
+        );
+      }
     } else {
-      let hasAnsweredBefore= untimedPracticeQuestions.filter(practiceQuestions=>Number(practiceQuestions.year)===Number(year) && practiceQuestions.subject.toLowerCase()===subject.toLowerCase())
-     
-      if(hasAnsweredBefore.length){
-        setHasTakenBefore(true)
-      }else{
+      let hasAnsweredBefore = untimedPracticeQuestions.filter(
+        (practiceQuestions) =>
+          Number(practiceQuestions.year) === Number(year) &&
+          practiceQuestions.subject.toLowerCase() === subject.toLowerCase()
+      );
+
+      if (hasAnsweredBefore.length) {
+        props.setHasTakenPqBefore(true);
+      } else {
         props.fetchPracticeQuestion(
           { subject: subject.toLowerCase(), year },
           token
         );
-
       }
-      
     }
   };
   if (token) {
@@ -126,17 +133,15 @@ if(hasAnsweredBefore.length){
         </div>
       );
     } else if (value === "Untimed") {
-      if(hasTakenBefore){
-       return <Redirect to="/answered" />
+      if (hasTakenPqBefore) {
+        return <Redirect to="/answered" />;
       }
-      return <Redirect to="/pq/subject-untimed" />
-      
+      return <Redirect to="/pq/subject-untimed" />;
     } else if (value === "Timed") {
-      if(hasTakenBefore){
-        return <Redirect to="/answered" />
-       }
-       return <Redirect to="/pq/subject-timed" />
-
+      if (hasTakenPqBefore) {
+        return <Redirect to="/answered" />;
+      }
+      return <Redirect to="/pq/subject-timed" />;
     }
   }
   return <Redirect to="/login" />;
@@ -151,4 +156,5 @@ export default connect(mapStateToProps, {
   selectPastQuestionPracticeType,
   fetchPracticeQuestion,
   fetchPracticeQuestionTimed,
+  setHasTakenPqBefore,
 })(ChooseType);
