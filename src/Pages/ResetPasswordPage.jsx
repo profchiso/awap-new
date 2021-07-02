@@ -3,17 +3,20 @@ import { connect } from "react-redux";
 import {Redirect} from "react-router-dom"
 import LoginHeader from "../components/Auth/LoginHeader";
 import { login, saveLoginUserDataToState,clearLoginRelatedErrors } from "../redux/actions/login";
-import ChangePassword from "../components/Auth/ChangePassword";
+import ResetPassword from "../components/Auth/ResetPassword";
 
 
-function ChangePasswordPage(props) {
+function ResetPasswordPage(props) {
   clearLoginRelatedErrors()
-  
+  const {token} = props.match.params
+  console.log({token})
+
   return (
     <div className="bg-f8 pb-8 2xl:h-screen">
       {props.loginReducer.token !== "" && <Redirect to="/"/> }
         <LoginHeader />
-        <ChangePassword
+        <ResetPassword
+        token={token}
         loginRequest={props.login} error={props.loginReducer?.error?.message}
          />
     </div>
@@ -30,4 +33,4 @@ export default connect(mapStateToProps, {
   login,
   saveLoginUserDataToState,
   clearLoginRelatedErrors
-})(ChangePasswordPage);
+})(ResetPasswordPage);

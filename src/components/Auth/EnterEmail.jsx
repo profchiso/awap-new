@@ -1,26 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import { ReactComponent as Person } from "../../assets/svgs/person.svg";
-import { clearLoginRelatedErrors } from "../../redux/actions/login";
+import {
+  clearLoginRelatedErrors,
+  forgotPassword,
+  resetPassword,
+} from "../../redux/actions/login";
 import { connect } from "react-redux";
 import {
   registrationError,
   clearRegisterRelatedErrors,
 } from "../../redux/actions/register";
-import { Link } from "react-router-dom";
+import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 
 function EnterEmail(props) {
   const [values, setValues] = React.useState({
     email: "",
   });
-  const [isButtonClicked, setisButtonClicked] = useState(false);
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
-    props.clearLoginRelatedErrors();
-    props.registrationError();
+    // props.clearLoginRelatedErrors();
+    // props.registrationError();
   };
+
+  console.log(values);
+
+  const handleSubmit = (event) => {
+    props.forgotPassword(values);
+  };
+
+  // const [isButtonClicked, setisButtonClicked] = useState(false);
 
   // const handleLogin = (e) => {
   //   e.preventDefault();
@@ -28,11 +38,11 @@ function EnterEmail(props) {
   //   setisButtonClicked(true);
   // };
 
-  React.useEffect(() => {
-    if (props.error) {
-      setisButtonClicked(false);
-    }
-  }, [props.error]);
+  // React.useEffect(() => {
+  //   if (props.error) {
+  //     setisButtonClicked(false);
+  //   }
+  // }, [props.error]);
 
   return (
     <div className="flex justify-center mt-8 sm:mt-12 h-screen">
@@ -41,25 +51,25 @@ function EnterEmail(props) {
           <div className="px-6 sm:px-10 md:px-0 md:w-4/6 mx-auto">
             <div className=" py-16 ">
               <div className="flex justify-center text-xl text-primary">
-                Reset Password.
+                Forgot Password.
               </div>
               <p className="text-center text-base mt-4">
-                {" "}
                 A link will be sent to your email to reset your password
               </p>
             </div>
 
-            <form className="sm:pt-12 ">
+            <div className="sm:pt-12">
               <div className="flex justify-center sm:pb-16 font-body">
                 <TextField
                   id="standard-basic"
                   placeholder="Enter Email"
+                  type="email"
                   className="w-full m-5 p-4  my-4 font-body"
                   onChange={handleChange("email")}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <Person className="mr-5 mb-1" />
+                        <EmailRoundedIcon color="primary" className="mr-5" />
                       </InputAdornment>
                     ),
                   }}
@@ -67,15 +77,14 @@ function EnterEmail(props) {
               </div>
 
               <div className="flex justify-center pt-16 pb-16 px-20">
-                <Link
-                  to="/change-password"
-                  // onClick={(e) => handleLogin(e)}
-                  className="text-white hover:text-white flex gap-5 bg-primary shadow-primary px-12 py-2 rounded-md focus:outline-none text-sm lg:text-base"
+                <button
+                  onClick={handleSubmit}
+                  className="text-white hover:text-white flex gap-5 bg-primary shadow-primary px-12 py-2.5 rounded-md focus:outline-none text-base"
                 >
                   <span className="">Get Link</span>
-                </Link>
+                </button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -89,6 +98,8 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, {
+  forgotPassword,
+  resetPassword,
   clearLoginRelatedErrors,
   registrationError,
   clearRegisterRelatedErrors,

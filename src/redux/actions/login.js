@@ -78,7 +78,26 @@ export const forgotPassword = (email) => {
       );
 
       forgotPasswordData.status === 200 &&
-        dispatch(saveLoginUserDataToState(forgotPasswordData.data));
+        // dispatch(saveForgotPasswordDataToState(forgotPasswordData.data));
+          console.log(forgotPasswordData)
+    } catch (error) {
+      console.log("login error", error);
+      dispatch(loginError(error.response.data));
+    }
+  };
+};
+
+export const resetPassword = (passwordData, passwordResetToken) => {
+  return async (dispatch) => {
+    try {
+      const resetPasswordData = await axios.post(
+        `${BASE_URL}users/reset-password/${passwordResetToken}`,
+        passwordData,
+        requestHeaders
+      );
+
+      resetPasswordData.status === 200 &&
+        dispatch(saveLoginUserDataToState(resetPasswordData.data));
     } catch (error) {
       console.log("login error", error);
       dispatch(loginError(error.response.data));

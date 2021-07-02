@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import { clearLoginRelatedErrors } from "../../redux/actions/login";
+import {
+  clearLoginRelatedErrors,
+  forgotPassword,
+  resetPassword,
+} from "../../redux/actions/login";
 import { connect } from "react-redux";
 import {
   registrationError,
@@ -11,7 +15,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 
-function ChangePassword(props) {
+function ResetPassword(props) {
   const [values, setValues] = useState({
     password: "",
     confirmPassword: "",
@@ -19,15 +23,15 @@ function ChangePassword(props) {
     keepLoggedIn: false,
   });
 
-  const [isButtonClicked, setisButtonClicked] = useState(false);
-
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
     props.clearLoginRelatedErrors();
     props.registrationError();
   };
 
-  const { email, password } = values;
+  // const [isButtonClicked, setisButtonClicked] = useState(false);
+
+  // const { email, password } = values;
 
   // const handleLogin = (e) => {
   //   e.preventDefault();
@@ -35,11 +39,15 @@ function ChangePassword(props) {
   //   setisButtonClicked(true);
   // };
 
-  React.useEffect(() => {
-    if (props.error) {
-      setisButtonClicked(false);
-    }
-  }, [props.error]);
+  // React.useEffect(() => {
+  //   if (props.error) {
+  //     setisButtonClicked(false);
+  //   }
+  // }, [props.error]);
+
+  // const handleCheckChange = (event) => {
+  //   setValues({ ...values, [event.target.name]: event.target.checked });
+  // };
 
   const handlePasswordChange = (event) => {
     setValues({
@@ -59,9 +67,7 @@ function ChangePassword(props) {
   const handleSubmit = () => {
     // your submit logic
   };
-  const handleCheckChange = (event) => {
-    setValues({ ...values, [event.target.name]: event.target.checked });
-  };
+
   useEffect(() => {
     // custom rule will have name 'isPasswordValid'
     ValidatorForm.addValidationRule("isPasswordValid", (value) => {
@@ -91,7 +97,7 @@ function ChangePassword(props) {
           <div className="px-6 sm:px-10 md:px-0 md:w-4/6 mx-auto">
             <div className=" py-16 ">
               <div className="flex justify-center text-xl text-primary">
-                Change Password.
+                Reset Password.
               </div>
               <p className="text-center text-base mt-4">
                 Enter new secure password that you can remember
@@ -99,14 +105,13 @@ function ChangePassword(props) {
             </div>
 
             <div className="max-w-md pb-4">
-              
               <ValidatorForm
                 className="flex flex-col gap-5 max-w-md pb-4"
                 validate="true"
                 autoComplete="on"
                 ref={React.createRef("form")}
                 onSubmit={handleSubmit}
-                onError={(errors) => console.log(errors)}
+                // onError={(errors) => console.log(errors)}
               >
                 <div>
                   <p className="font-medium text-gray-500 mb-3">New Password</p>
@@ -189,17 +194,17 @@ function ChangePassword(props) {
                     }}
                   />
                 </div>
-              </ValidatorForm>
 
-              <div className="flex justify-center pt-16 pb-16 px-20">
-                <button
-                  type="submit"
-                  // onClick={(e) => handleLogin(e)}
-                  className="text-white flex gap-5 bg-primary shadow-primary px-12 py-2 rounded-md focus:outline-none text-sm lg:text-base"
-                >
-                  <span className="">Update</span>
-                </button>
-              </div>
+                <div className="flex justify-center pt-16 pb-16 px-20">
+                  <button
+                    type="submit"
+                    // onClick={(e) => handleLogin(e)}
+                    className="text-white flex gap-5 bg-primary shadow-primary px-12 py-2 rounded-md focus:outline-none text-sm lg:text-base"
+                  >
+                    <span className="">Update</span>
+                  </button>
+                </div>
+              </ValidatorForm>
             </div>
           </div>
         </div>
@@ -214,7 +219,9 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, {
+  forgotPassword,
+  resetPassword,
   clearLoginRelatedErrors,
   registrationError,
   clearRegisterRelatedErrors,
-})(ChangePassword);
+})(ResetPassword);

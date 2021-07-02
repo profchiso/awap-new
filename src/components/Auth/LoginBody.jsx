@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 // import GoogleButton from "./GoogleButton";
-import { ReactComponent as Person } from "../../assets/svgs/person.svg";
 import { Checkbox, FormControl, IconButton, Input } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
@@ -11,15 +10,14 @@ import { Link } from "react-router-dom";
 import { clearLoginRelatedErrors } from "../../redux/actions/login";
 import { connect } from "react-redux";
 import { registrationError,clearRegisterRelatedErrors } from "../../redux/actions/register";
+import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
   },
-  // textField: {
-  //   width: "60%",
-  // },
   inputField: {
     fontFamily: "Google Sans",
   },
@@ -92,7 +90,7 @@ function LoginBody(props) {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <Person className="mr-5 mb-1" />
+                        <EmailRoundedIcon color="primary" className="mr-5" />
                       </InputAdornment>
                     ),
                   }}
@@ -147,7 +145,7 @@ function LoginBody(props) {
                 </div>
                 <div className="flex flex-1"></div>
                 <div className="font-sm flex pt-8 pl-10 sm:p-0">
-                  <Link to="/reset-password" className="font-sm text-primary hover:text-primary">
+                  <Link to="/forgot-password" className="font-sm text-primary hover:text-primary">
                     Forgot Password?
                   </Link>
                 </div>
