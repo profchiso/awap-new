@@ -85,8 +85,9 @@ function PracticeHeader({
             &nbsp;
             <span className="hidden sm:inline-block">Practice Questions</span>
             {width > 300 ? (
-              <span className="sm:hidden inline-block">PQ</span>
+              <span className="sm:hidden inline-block pr-1">PQ</span>
             ) : null}
+            <span className="capitalize">{props?.pathName}</span>
           </span>
         </div>
         <div className="hidden sm:flex items-center  font-body">
@@ -109,17 +110,21 @@ function PracticeHeader({
             <FilterModal>
               <Filter />
               <span className="pl-2 text-primary capitalize font-body font-normal">
-                {width > 1024 ? "Filter":""} {" ",filterValue}
+                {width > 1024 ? "Filter" : ""} {(" ", filterValue)}
               </span>
             </FilterModal>
           ) : null}
         </div>
-        <button
-          className="sm:hidden block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body font-semibold shadow-primary px-6 py-2 rounded-md text-sm lg:text-base font-medium"
-          onClick={props.handleOpen}
-        >
-          End
-        </button>
+        {props?.pathName !== "stats" ? (
+          <button
+            className="sm:hidden block text-white bg-gradient-to-r from-orange1 to-orange2 text-white  font-body font-semibold shadow-primary px-6 py-2 rounded-md text-sm lg:text-base font-medium"
+            onClick={props.handleOpen}
+          >
+            End
+          </button>
+        ) : (
+          null
+        )}
         <Menu
           id="menu-appbar"
           anchorEl={anchorEl}

@@ -1,13 +1,27 @@
 import { useRef, useEffect, useState } from "react";
+import { connect } from "react-redux";
 
-export default function CountDownTimer(props) {
-  let duration = {
-    hour: 0,
-    minutes: 0,
-    seconds: 30,
-  };
+function CountDownTimer(props) {
+  let duration = props.practiceQuestionReducer?.duration;
 
-  let timeToSeconds = duration.hour * 60 * 60 + duration.minutes * 60 + duration.seconds;
+  let newDuration;
+
+  if (duration) {
+    newDuration = {
+      hour: duration?.hour,
+      minutes: duration?.minutes,
+      seconds: 0,
+    };
+  } else {
+    newDuration = {
+      hour: 1,
+      minutes: 30,
+      seconds: 0,
+    };
+  }
+
+  let timeToSeconds =
+    newDuration.hour * 60 * 60 + newDuration.minutes * 60 + newDuration.seconds;
 
   const [Seconds, setSeconds] = useState(timeToSeconds);
 
@@ -71,3 +85,10 @@ export default function CountDownTimer(props) {
 
   return <div className="text-base">{secondsToHms(Seconds)}</div>;
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps, {})(CountDownTimer);

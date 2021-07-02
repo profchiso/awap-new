@@ -52,7 +52,7 @@ function PracticeQuestion(props) {
     submittedQuestionsAndAnswers: userSelectedAnwser,
     year,
     subject,
-    pastQuestionType: questionType,
+    practiceQuestionType: questionType,
   };
   const classes = useStyles();
   const { width } = useWindowDimensions();
@@ -408,7 +408,23 @@ function PracticeQuestion(props) {
                         >
                           <span className="pr-6 sm:pr-8">a.</span>
                           <span>
-                            {questionArray[questionNumber]?.optionA.textOption}
+                            {questionArray[questionNumber]?.optionA
+                              .imageOption ? (
+                              <img
+                                src={
+                                  questionArray[questionNumber]?.optionA
+                                    .imageOption
+                                }
+                                alt=""
+                              />
+                            ) : (
+                              <span>
+                                {
+                                  questionArray[questionNumber]?.optionA
+                                    .textOption
+                                }
+                              </span>
+                            )}
                           </span>
                         </DefaultAnswerBtn>
                       </div>
@@ -429,7 +445,23 @@ function PracticeQuestion(props) {
                         >
                           <span className="pr-6 sm:pr-8">b.</span>
                           <span>
-                            {questionArray[questionNumber]?.optionB.textOption}
+                            {questionArray[questionNumber]?.optionB
+                              .imageOption ? (
+                              <img
+                                src={
+                                  questionArray[questionNumber]?.optionB
+                                    .imageOption
+                                }
+                                alt=""
+                              />
+                            ) : (
+                              <span>
+                                {
+                                  questionArray[questionNumber]?.optionB
+                                    .textOption
+                                }
+                              </span>
+                            )}
                           </span>
                         </DefaultAnswerBtn>
                       </div>
@@ -450,7 +482,23 @@ function PracticeQuestion(props) {
                         >
                           <span className="pr-6 sm:pr-8">c.</span>
                           <span>
-                            {questionArray[questionNumber]?.optionC.textOption}
+                            {questionArray[questionNumber]?.optionC
+                              .imageOption ? (
+                              <img
+                                src={
+                                  questionArray[questionNumber]?.optionC
+                                    .imageOption
+                                }
+                                alt=""
+                              />
+                            ) : (
+                              <span>
+                                {
+                                  questionArray[questionNumber]?.optionC
+                                    .textOption
+                                }
+                              </span>
+                            )}
                           </span>
                         </DefaultAnswerBtn>
                       </div>
@@ -471,7 +519,23 @@ function PracticeQuestion(props) {
                         >
                           <span className="pr-6 sm:pr-8">d.</span>
                           <span>
-                            {questionArray[questionNumber]?.optionD.textOption}
+                            {questionArray[questionNumber]?.optionD
+                              .imageOption ? (
+                              <img
+                                src={
+                                  questionArray[questionNumber]?.optionD
+                                    .imageOption
+                                }
+                                alt=""
+                              />
+                            ) : (
+                              <span>
+                                {
+                                  questionArray[questionNumber]?.optionD
+                                    .textOption
+                                }
+                              </span>
+                            )}
                           </span>
                         </DefaultAnswerBtn>
                       </div>

@@ -17,6 +17,7 @@ const initialState = {
   timedPracticeQuestions: [],
   isViewSolution: false,
   filterValue: "All",
+  hasTakenPqBefore: false,
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
@@ -48,6 +49,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: [],
       isQuestionFetched: false,
       isViewSolution: false,
+       hasTakenPqBefore:false
     };
   } else if (type === "SELECT_PAST_QUESTION_PRACTICE_TYPE") {
     return {
@@ -56,6 +58,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       userSelectedAnwser: [],
       isQuestionFetched: false,
       isViewSolution: false,
+      hasTakenPqBefore:false,
     };
   } else if (type === "API_ERROR") {
     let error = {};
@@ -189,6 +192,11 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       ...state,
       timeRemaining: payload,
     };
+  } else if (type === "ANSWERED_SAME_PQ_BEFORE"){
+    return{
+      ...state,
+      hasTakenPqBefore:payload,
+    }
   }
   return state;
 };

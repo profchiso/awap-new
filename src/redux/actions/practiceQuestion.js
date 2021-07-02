@@ -14,6 +14,7 @@ import {
   FILTER_SOLUTION,
   TEST_AGAIN,
   ANSWERED_QUESTION_FROM_STH,
+  ANSWERED_SAME_PQ_BEFORE,
 } from "./types";
 // import * as actionTypes from "./types";
 
@@ -93,6 +94,7 @@ export const selectPastQuestionSubject = (subject) => {
     payload: subject,
   };
 };
+
 export const selectPastQuestionPracticeType = (type) => {
   return {
     type: SELECT_PAST_QUESTION_PRACTICE_TYPE,
@@ -108,10 +110,13 @@ export const addSelectedAnswerToArray = (selectedQstnAnsObject) => {
 };
 
 export const submitUserAnswers = (submissionData, token) => {
+  // submissionData.practiceQuestionType = "Timed"
+  // submissionData.pastQuestionType = "Timed"
+
   return async (dispatch) => {
     try {
       const submittedAnswers = await axios.post(
-        `${BASE_URL}past-question/${submissionData.subject}/submit-practice-questions`,
+        `${BASE_URL}past-question/${submissionData.subject.toLowerCase()}/submit-practice-questions`,
         submissionData,
         {
           headers: {
@@ -175,3 +180,10 @@ export const timeRemaining = (timeObject) => {
     payload: timeObject,
   };
 };
+
+export const setHasTakenPqBefore =(bool)=>{
+  return {
+    type: ANSWERED_SAME_PQ_BEFORE,
+    payload: bool,
+  }
+}
