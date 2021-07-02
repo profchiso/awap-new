@@ -49,6 +49,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: [],
       isQuestionFetched: false,
       isViewSolution: false,
+       hasTakenPqBefore:false
     };
   } else if (type === "SELECT_PAST_QUESTION_PRACTICE_TYPE") {
     return {
@@ -57,6 +58,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       userSelectedAnwser: [],
       isQuestionFetched: false,
       isViewSolution: false,
+      hasTakenPqBefore:false,
     };
   } else if (type === "API_ERROR") {
     let error = {};

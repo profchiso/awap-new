@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import AnswerLayout from "../components/AnswerContent/AnswerLayout";
 import { connect } from "react-redux";
 import DonutChart from "../components/Charts/DonutChart";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory,Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -57,8 +57,10 @@ function Statistics(props) {
   const viewSolution = () => {
     props.onSideNavYearChange(year, subject);
     props.isViewSolution();
+    console.log("view solution")
+   return <Redirect to="/"/>
 
-    history.goBack();
+    //history.goBack();
   };
 
   const handleTestAgain = () => {
