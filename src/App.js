@@ -28,6 +28,7 @@ import PracticeMoreQuestions from "./Pages/PracticeMoreQuestions";
 import AnsweredBefore from "./Pages/AnsweredBefore";
 import ForgotPassword from "./Pages/ForgotPassword";
 import ResetPassword from "./Pages/ResetPasswordPage";
+import Profile from "./Pages/Profile";
 
 
 const theme = createMuiTheme({
@@ -101,6 +102,7 @@ export default function App() {
               <Route path="/forgot-password" component={ForgotPassword} />
 
               <Route path="/reset-password/:token" component={ResetPassword} />
+              <Route path="/profile" component={Profile} />
 
               {/* TODO */}
               {/* <Route path="/change-password" component={ChangePassword} /> */}

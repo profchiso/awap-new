@@ -79,7 +79,7 @@ export const forgotPassword = (email) => {
 
       forgotPasswordData.status === 200 &&
         // dispatch(saveForgotPasswordDataToState(forgotPasswordData.data));
-          console.log(forgotPasswordData)
+        console.log(forgotPasswordData);
     } catch (error) {
       console.log("login error", error);
       dispatch(loginError(error.response.data));
@@ -90,14 +90,15 @@ export const forgotPassword = (email) => {
 export const resetPassword = (passwordData, passwordResetToken) => {
   return async (dispatch) => {
     try {
-      const resetPasswordData = await axios.post(
+      const resetPasswordData = await axios.patch(
         `${BASE_URL}users/reset-password/${passwordResetToken}`,
         passwordData,
         requestHeaders
       );
 
-      resetPasswordData.status === 200 &&
+      (resetPasswordData.status === 200 || 201) &&
         dispatch(saveLoginUserDataToState(resetPasswordData.data));
+      console.log(resetPasswordData);
     } catch (error) {
       console.log("login error", error);
       dispatch(loginError(error.response.data));
