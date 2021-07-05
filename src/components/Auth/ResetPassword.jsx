@@ -29,26 +29,6 @@ function ResetPassword(props) {
     props.registrationError();
   };
 
-  // const [isButtonClicked, setisButtonClicked] = useState(false);
-
-  // const { email, password } = values;
-
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
-  //   props.loginRequest({ email, password });
-  //   setisButtonClicked(true);
-  // };
-
-  // React.useEffect(() => {
-  //   if (props.error) {
-  //     setisButtonClicked(false);
-  //   }
-  // }, [props.error]);
-
-  // const handleCheckChange = (event) => {
-  //   setValues({ ...values, [event.target.name]: event.target.checked });
-  // };
-
   const handlePasswordChange = (event) => {
     setValues({
       ...values,
@@ -73,16 +53,12 @@ function ResetPassword(props) {
       { password: values.password, confirmPassword: values.confirmPassword },
       props.token
     );
-    // your submit logic
-    //token
-    //password
-    //confirm password
   };
 
   useEffect(() => {
     // custom rule will have name 'isPasswordValid'
     ValidatorForm.addValidationRule("isPasswordValid", (value) => {
-      if (value.length < 5) {
+      if (value.length < 8) {
         return false;
       }
       return true;
@@ -102,7 +78,7 @@ function ResetPassword(props) {
   }, [values.password]);
 
   return (
-    <div className="flex justify-center mt-8 sm:mt-12 h-screen">
+    <div className="flex justify-center mt-8 sm:mt-10 h-screen">
       <div className="py-2 px-auto  sm:w-4/6 lg:w-9/20 h-full sm:h-auto">
         <div className="sm:rounded-md  w-full  bg-white sm:shadow-login max-w-screen-md mx-auto h-full sm:h-auto">
           <div className="px-6 sm:px-10 md:px-0 md:w-4/6 mx-auto">
@@ -139,7 +115,7 @@ function ResetPassword(props) {
                     validators={["required", "isPasswordValid"]}
                     errorMessages={[
                       "This field is required",
-                      "Password is less than 5 characters",
+                      "Password is less than 8 characters",
                     ]}
                     InputProps={{
                       endAdornment: (
@@ -182,7 +158,7 @@ function ResetPassword(props) {
                     ]}
                     errorMessages={[
                       "This field is required",
-                      "Password is less than 5 characters",
+                      "Password is less than 8 characters",
                       "Password mismatch",
                     ]}
                     InputProps={{
@@ -204,15 +180,20 @@ function ResetPassword(props) {
                       ),
                     }}
                   />
+                  {props.loginReducer?.error?.message && (
+                    <p className="pt-4 text-red-500">
+                      {props.loginReducer?.error?.message}
+                    </p>
+                  )}
                 </div>
 
-                <div className="flex justify-center pt-16 pb-16 px-20">
+                <div className="flex justify-center py-10 px-20">
                   <button
                     type="submit"
                     // onClick={(e) => handleLogin(e)}
-                    className="text-white flex gap-5 bg-primary shadow-primary px-12 py-2 rounded-md focus:outline-none text-sm lg:text-base"
+                    className="text-white flex gap-5 bg-primary shadow-primary px-12 py-2 rounded-md focus:outline-none text-base"
                   >
-                    <span className="">Update</span>
+                    <span className="font-medium">Update</span>
                   </button>
                 </div>
               </ValidatorForm>
