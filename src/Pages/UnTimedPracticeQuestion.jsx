@@ -46,7 +46,7 @@ function PracticeQuestion(props) {
     submittedQuestionsAndAnswers: userSelectedAnwser,
     year,
     subject,
-    pastQuestionType: questionType,
+    practiceQuestionType: questionType,
   };
   const classes = useStyles();
   const { width } = useWindowDimensions();
