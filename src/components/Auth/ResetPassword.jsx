@@ -64,8 +64,19 @@ function ResetPassword(props) {
     event.preventDefault();
   };
 
+  console.log(
+    { password: values.password, confirmPassword: values.confirmPassword },
+    props.token
+  );
   const handleSubmit = () => {
+    props.resetPassword(
+      { password: values.password, confirmPassword: values.confirmPassword },
+      props.token
+    );
     // your submit logic
+    //token
+    //password
+    //confirm password
   };
 
   useEffect(() => {

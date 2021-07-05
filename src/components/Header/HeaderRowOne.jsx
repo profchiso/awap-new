@@ -12,7 +12,7 @@ import { Button, Menu, MenuItem } from "@material-ui/core";
 import { FiLogOut } from "react-icons/fi";
 import FilterModal from "./FilterModal";
 import { logout } from "../../redux/actions/login";
-import {BiUser} from "react-icons/bi"
+import { BiUser } from "react-icons/bi";
 import * as Io from "react-icons/io";
 
 const useStyles = makeStyles((theme) => ({
@@ -98,7 +98,7 @@ function HeaderRowOne({
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
               onClose={handleClose}
-              MenuListProps={{ onMouseLeave: handleClose}}
+              MenuListProps={{ onMouseLeave: handleClose }}
               PaperProps={{
                 style: {
                   left: "50%",
@@ -106,43 +106,41 @@ function HeaderRowOne({
                 },
               }}
             >
-
               <div>
-                <MenuItem
-                  onClick={handleClose}
-                  className={`${classes.menuItem} font-body font-normal flex`}
-                >
-                  <span className="justify-self-start px-2">
-                    <BiUser className="text-primary"/>
-                  </span>
-                  <span
-                    className="font-body font-normal flex-1 pr-8 text-primary text-sm"
+                <Link to="/profile">
+                  <MenuItem
+                    onClick={handleClose}
+                    className={`${classes.menuItem} font-body font-normal flex`}
                   >
-                    Profile
-                  </span>
-                </MenuItem>
-                <Link to="/choose-subject">
-                <MenuItem
-                  onClick={handleClose}
-                  className={`${classes.menuItem} font-body font-normal flex`}
-                >
-                  <span className="justify-self-start px-2">
-                    <Io.IoIosStats  className="text-primary"/>
-                  </span>
-                  <span
-                    className="font-body font-normal flex-1 pr-8 text-primary text-sm"
-                  >
-                    Statistics
-                  </span>
-                </MenuItem>
+                    <span className="justify-self-start px-2">
+                      <BiUser className="text-primary" />
+                    </span>
+                    <span className="font-body font-normal flex-1 pr-8 text-primary text-sm">
+                      Profile
+                    </span>
+                  </MenuItem>
                 </Link>
-           
+
+                <Link to="/choose-subject">
+                  <MenuItem
+                    onClick={handleClose}
+                    className={`${classes.menuItem} font-body font-normal flex`}
+                  >
+                    <span className="justify-self-start px-2">
+                      <Io.IoIosStats className="text-primary" />
+                    </span>
+                    <span className="font-body font-normal flex-1 pr-8 text-primary text-sm">
+                      Statistics
+                    </span>
+                  </MenuItem>
+                </Link>
+
                 <MenuItem
                   onClick={handleClose}
                   className={`${classes.menuItem} font-body font-normal flex`}
                 >
                   <span className="justify-self-start px-2">
-                    <FiLogOut  className="text-primary"/>
+                    <FiLogOut className="text-primary" />
                   </span>
                   <span
                     className="font-body font-normal flex-1 pr-8 text-primary text-sm"
@@ -152,7 +150,6 @@ function HeaderRowOne({
                   </span>
                 </MenuItem>
               </div>
-           
             </Menu>
 
             {showFilter ? (
