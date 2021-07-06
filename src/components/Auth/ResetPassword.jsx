@@ -57,12 +57,12 @@ function ResetPassword(props) {
 
   useEffect(() => {
     // custom rule will have name 'isPasswordValid'
-    ValidatorForm.addValidationRule("isPasswordValid", (value) => {
-      if (value.length < 8) {
-        return false;
-      }
-      return true;
-    });
+    // ValidatorForm.addValidationRule("isPasswordValid", (value) => {
+    //   if (value.length < 8) {
+    //     return false;
+    //   }
+    //   return true;
+    // });
     // custom rule will have name 'isPasswordMatch'
     ValidatorForm.addValidationRule("isPasswordMatch", (value) => {
       if (value !== values.password) {
@@ -72,7 +72,7 @@ function ResetPassword(props) {
     });
     return () => {
       //cleanup: remove rule when it is not needed
-      ValidatorForm.removeValidationRule("isPasswordValid");
+      // ValidatorForm.removeValidationRule("isPasswordValid");
       ValidatorForm.removeValidationRule("isPasswordMatch");
     };
   }, [values.password]);
@@ -112,10 +112,10 @@ function ResetPassword(props) {
                     value={values.password}
                     autoComplete="password"
                     type={values.showPassword ? "text" : "password"}
-                    validators={["required", "isPasswordValid"]}
+                    validators={["required"]}
                     errorMessages={[
                       "This field is required",
-                      "Password is less than 8 characters",
+                      // "Password is less than 8 characters",
                     ]}
                     InputProps={{
                       endAdornment: (
@@ -153,12 +153,12 @@ function ResetPassword(props) {
                     type={values.showPassword ? "text" : "password"}
                     validators={[
                       "required",
-                      "isPasswordValid",
+                      // "isPasswordValid",
                       "isPasswordMatch",
                     ]}
                     errorMessages={[
                       "This field is required",
-                      "Password is less than 8 characters",
+                      // "Password is less than 8 characters",
                       "Password mismatch",
                     ]}
                     InputProps={{
