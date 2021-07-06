@@ -83,7 +83,11 @@ function PracticeHeader({
               {year >= 2000 ? year : ""}&nbsp;{subject} WAEC
             </span>
             &nbsp;
-            <span className="hidden sm:inline-block">Practice Questions</span>
+            <span className="hidden sm:inline-block">
+              {props.additionalTitle
+                ? props.additionalTitle
+                : "Practice Questions"}
+            </span>
             {width > 300 ? (
               <span className="sm:hidden inline-block pr-1">PQ</span>
             ) : null}
@@ -122,9 +126,7 @@ function PracticeHeader({
           >
             End
           </button>
-        ) : (
-          null
-        )}
+        ) : null}
         <Menu
           id="menu-appbar"
           anchorEl={anchorEl}

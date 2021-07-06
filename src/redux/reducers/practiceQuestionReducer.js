@@ -17,7 +17,7 @@ const initialState = {
   timedPracticeQuestions: [],
   isViewSolution: false,
   filterValue: "All",
-  hasTakenPqBefore: false,
+  // hasTakenPqBefore: false,
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
@@ -101,10 +101,25 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       isViewSolution: false,
     };
   } else if (type === "IS_VIEW_SOLUTION") {
+
+    //Was copied from TEST_AGAIN: To be worked on
+    const { subject, year, untimedPracticeQuestions } = state;
+    let allQuestions = untimedPracticeQuestions.filter(
+      (q) => Number(q.year) === Number(year) && q.subject === subject
+    );
+    let allQuestionArray = allQuestions[0].submittedQuestionsAndAnswers;
+
+    let questionWithoutAnswers = allQuestionArray.map((element) => {
+      delete element.userSelectedAnswer;
+      return element;
+    });
+    console.log("questionWithoutAnswers", questionWithoutAnswers);
+
     return {
       ...state,
       isViewSolution: true,
       filterValue: "All",
+      questionArray: questionWithoutAnswers,
     };
   } else if (type === "FILTER_SOLUTION") {
     const { subject, year, untimedPracticeQuestions } = state;
@@ -192,11 +207,12 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       ...state,
       timeRemaining: payload,
     };
-  } else if (type === "ANSWERED_SAME_PQ_BEFORE"){
-    return{
-      ...state,
-      hasTakenPqBefore:payload,
-    }
-  }
+  } 
+  // else if (type === "ANSWERED_SAME_PQ_BEFORE"){
+  //   return{
+  //     ...state,
+  //     hasTakenPqBefore:payload,
+  //   }
+  // }
   return state;
 };

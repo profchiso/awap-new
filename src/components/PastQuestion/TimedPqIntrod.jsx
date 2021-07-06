@@ -5,7 +5,7 @@ import { ReactComponent as QuestionMark } from "../../assets/svgs/QuestionMark.s
 import { ReactComponent as TimeLogo } from "../../assets/svgs/TimeLogo.svg";
 
 function TimedPqIntro(props) {
-  const { questionArray, year, subject, isQuestionFetched } =
+  const { questionArray, year, subject, isQuestionFetched, duration } =
     props.practiceQuestionReducer;
 
   return (
@@ -17,11 +17,27 @@ function TimedPqIntro(props) {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <QuestionMark />
-            <span className="md:text-lg pl-3"> 20 Questions</span>
+            <span className="md:text-lg pl-3">
+              {!isQuestionFetched
+                ? "Loading..."
+                : isQuestionFetched && questionArray.length
+                ? `${questionArray.length}  Questions  `
+                : "No  Question"}
+
+            </span>
           </div>
 
           <div className="flex items-center">
-            <TimeLogo /> <span className="md:text-lg pl-3">60 minutes</span>
+            <TimeLogo />
+            <span className="md:text-lg pl-3">
+              {!isQuestionFetched
+                ? "Loading..."
+                : isQuestionFetched && duration?.minutes
+                ? `${duration?.hour} ${
+                    duration?.hour > 0 ? "hours" : "hour"
+                  }   :  ${duration?.minutes} minutes  `
+                : "No timing for this question"}
+            </span>
           </div>
         </div>
         <div className="text-left">
@@ -41,46 +57,25 @@ function TimedPqIntro(props) {
               <div className="flex gap-3">
                 <span>3.</span>
                 <span>Do not let someone else do the work for you</span>
-              </div>{" "}
+              </div>
               <div className="flex gap-3">
                 <span>4.</span>
                 <span>
                   Please DO NOT refresh your browser when exam has started
                 </span>
-              </div>{" "}
+              </div>
               <div className="flex gap-3">
                 <span>5.</span>
                 <span>If refreshed, the exam will be submitted.</span>
               </div>
-              {/* 
-              <div className="flex gap-3">
-                <span>4. </span>
-                <div className="flex flex-col">
-                  <div>
-                    Please DO NOT refresh your browser when exam has started.
-                  </div>
-                  <div>If refreshed, the exam will be submitted.</div>
-                </div>
-              </div>
-             */}
             </div>
           </div>
         </div>
 
-        {/* <div className="flex items-center justify-center">
-                    <span className="md:text-2xl pl-3">
-                        {!isQuestionFetched
-                            ? "Loading..."
-                            : isQuestionFetched && questionArray.length
-                                ? `${questionArray.length}  Questions  `
-                                : "No  Question"}
-
-                    </span>
-                </div> */}
         <div>
           {questionArray?.length ? (
             <Link to="/pq/practice-timed">
-              <button className="text-white bg-primary  font-body shadow-primary px-16  md:px-20 py-2 rounded-md focus:outline-none text-sm lg:text-base">
+              <button className="text-white bg-primary  font-body shadow-primary px-16  md:px-20 py-2.5 rounded-md focus:outline-none text-base">
                 Start
               </button>
             </Link>

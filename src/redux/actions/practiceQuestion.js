@@ -148,9 +148,10 @@ export const onSideNavYearChange = (year, subject) => {
   };
 };
 
-export const isViewSolution = () => {
+export const isViewSolution = (option) => {
   return {
     type: IS_VIEW_SOLUTION,
+    payload: option,
   };
 };
 export const filterSolution = (option) => {

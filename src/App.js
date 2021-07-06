@@ -29,6 +29,7 @@ import AnsweredBefore from "./Pages/AnsweredBefore";
 import ForgotPassword from "./Pages/ForgotPassword";
 import ResetPassword from "./Pages/ResetPasswordPage";
 import Profile from "./Pages/Profile";
+import ViewSolutions from "./Pages/ViewSolutions";
 
 
 const theme = createMuiTheme({
@@ -76,6 +77,11 @@ export default function App() {
                 <UntimedPQ />
               </ProtectedRoute>
 
+              
+              <ProtectedRoute path="/pq/view-solution">
+                <ViewSolutions />
+              </ProtectedRoute>
+
               <ProtectedRoute path="/pq/subject-timed">
                 <TimedPQ />
               </ProtectedRoute>
@@ -83,10 +89,6 @@ export default function App() {
               <ProtectedRoute path="/pq/mobile-subject-Pq">
                 <MobilePq />
               </ProtectedRoute>
-
-              {/* <ProtectedRoute path="/stats">
-                <Statistics />
-              </ProtectedRoute> */}
 
               <Route path="/privacy" component={PrivacyPolicy} />
 
@@ -106,7 +108,6 @@ export default function App() {
 
               {/* TODO */}
               {/* <Route path="/change-password" component={ChangePassword} /> */}
-
 
               {biologyPQYear.map((item, index) => (
                 <ProtectedRoute key={index} path={item.url}>

@@ -16,7 +16,6 @@ import {
   selectPastQuestionPracticeType,
   fetchPracticeQuestion,
   fetchPracticeQuestionTimed,
-  setHasTakenPqBefore,
 } from "../redux/actions/practiceQuestion";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,27 +30,30 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ChooseType(props) {
-  const {token, user } = props.loginReducer;
+  const { token, user } = props.loginReducer;
 
-  const { subject, year, hasTakenPqBefore } = props.practiceQuestionReducer;
+  const { subject, year } = props.practiceQuestionReducer;
+
+  const [hasTakenPqBefore, setHasTakenPqBefore] = useState(false)
+
   const classes = useStyles();
   const { width } = useWindowDimensions();
 
   const [value, setValue] = useState(null);
-  // const [hasTakenPqBefore, props.setHasTakenPqBefore] = useState(false);
+
   const handleChange = async (event) => {
     setValue(event.target.value);
     props.selectPastQuestionPracticeType(event.target.value);
     const { untimedPracticeQuestions, timedPracticeQuestions } = user;
 
-    if (event.target.value === "Timed Questions") {
+    if (event.target.value === "Timed") {
       let hasAnsweredBefore = timedPracticeQuestions.filter(
         (practiceQuestions) =>
           Number(practiceQuestions.year) === Number(year) &&
           practiceQuestions.subject.toLowerCase() === subject.toLowerCase()
       );
       if (hasAnsweredBefore.length) {
-        props.setHasTakenPqBefore(true);
+        setHasTakenPqBefore(true);
       } else {
         props.fetchPracticeQuestionTimed(
           {
@@ -71,7 +73,7 @@ function ChooseType(props) {
       );
 
       if (hasAnsweredBefore.length) {
-        props.setHasTakenPqBefore(true);
+        setHasTakenPqBefore(true);
       } else {
         props.fetchPracticeQuestion(
           { subject: subject.toLowerCase(), year },
@@ -138,6 +140,8 @@ function ChooseType(props) {
       }
       return <Redirect to="/pq/subject-untimed" />;
     } else if (value === "Timed") {
+      console.log(props.practiceQuestionReducer.hasTakenPqBefore);
+
       if (hasTakenPqBefore) {
         return <Redirect to="/answered" />;
       }
@@ -156,5 +160,4 @@ export default connect(mapStateToProps, {
   selectPastQuestionPracticeType,
   fetchPracticeQuestion,
   fetchPracticeQuestionTimed,
-  setHasTakenPqBefore,
 })(ChooseType);

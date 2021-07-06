@@ -56,11 +56,9 @@ function Statistics(props) {
 
   const viewSolution = () => {
     props.onSideNavYearChange(year, subject);
-    props.isViewSolution();
-    console.log("view solution")
-   return <Redirect to="/"/>
-
-    //history.goBack();
+    props.isViewSolution({ year, subject });
+    // console.log("view solution")
+  //  return <Redirect to="/"/>
   };
 
   const handleTestAgain = () => {
@@ -234,12 +232,12 @@ function Statistics(props) {
                   </div>
                 </div>
                 <div className="flex flex-row sm:flex-col gap-4 sm:gap-8">
-                  <button
+                  <Link to="/pq/view-solution"
                     onClick={viewSolution}
-                    className="py-3 px-8 text-base font-body shadow-md font-medium bg-white sm:bg-primary rounded-md sm:text-white text-primary  whitespace-nowrap"
+                    className="py-3 px-8 text-base font-body shadow-md font-medium bg-white sm:bg-primary rounded-md text-primary sm:text-white hover:text-white  whitespace-nowrap"
                   >
                     View Solutions
-                  </button>
+                  </Link>
 
                   <button
                     onClick={handleTestAgain}
