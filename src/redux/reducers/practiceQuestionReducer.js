@@ -49,7 +49,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: [],
       isQuestionFetched: false,
       isViewSolution: false,
-       hasTakenPqBefore:false
+      hasTakenPqBefore: false,
     };
   } else if (type === "SELECT_PAST_QUESTION_PRACTICE_TYPE") {
     return {
@@ -58,7 +58,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       userSelectedAnwser: [],
       isQuestionFetched: false,
       isViewSolution: false,
-      hasTakenPqBefore:false,
+      hasTakenPqBefore: false,
     };
   } else if (type === "API_ERROR") {
     let error = {};
@@ -87,7 +87,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       isAnswerSubmissionSuccessful: true,
       submittedAnswers: payload.data.submitedPracticeQuestion,
       untimedPracticeQuestions: payload.data.untimedPracticeQuestions,
-      timedPracticeQuestions:payload.data.timedPracticeQuestions
+      timedPracticeQuestions: payload.data.timedPracticeQuestions,
     };
   } else if (type === "ON_SIDENAV_YEAR_CHANGE") {
     let updatedQuestionAndArray = state.untimedPracticeQuestions.filter(
@@ -101,7 +101,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       isViewSolution: false,
     };
   } else if (type === "IS_VIEW_SOLUTION") {
-
+    
     //Was copied from TEST_AGAIN: To be worked on
     const { subject, year, untimedPracticeQuestions } = state;
     let allQuestions = untimedPracticeQuestions.filter(
@@ -119,7 +119,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       ...state,
       isViewSolution: true,
       filterValue: "All",
-      questionArray: questionWithoutAnswers,
+      questionArray: questionWithoutAnswers, //this line was added from TEST_AGAIN
     };
   } else if (type === "FILTER_SOLUTION") {
     const { subject, year, untimedPracticeQuestions } = state;
@@ -203,11 +203,11 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: allQuestionArray,
     };
   } else if (type === "TIME_REMAINING") {
-        return {
+    return {
       ...state,
       timeRemaining: payload,
     };
-  } 
+  }
   // else if (type === "ANSWERED_SAME_PQ_BEFORE"){
   //   return{
   //     ...state,
