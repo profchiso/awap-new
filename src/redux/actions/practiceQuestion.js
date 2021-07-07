@@ -15,6 +15,7 @@ import {
   TEST_AGAIN,
   ANSWERED_QUESTION_FROM_STH,
   ANSWERED_SAME_PQ_BEFORE,
+  VIEW_SCORE_BY_PRACTICE_QUESTION_TYPE,
 } from "./types";
 // import * as actionTypes from "./types";
 
@@ -187,4 +188,7 @@ export const setHasTakenPqBefore =(bool)=>{
     type: ANSWERED_SAME_PQ_BEFORE,
     payload: bool,
   }
+}
+export const viewScoreByPraticeQuestionType=(practiceQuestionType)=>{
+  return{ type:VIEW_SCORE_BY_PRACTICE_QUESTION_TYPE,payload:practiceQuestionType}
 }
