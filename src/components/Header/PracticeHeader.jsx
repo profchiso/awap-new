@@ -141,17 +141,19 @@ function PracticeHeader({
           }}
         >
           <div>
-            <MenuItem
-              onClick={handleClose}
-              className={`${classes.menuItem} font-body font-normal flex`}
-            >
-              <span className="justify-self-start px-2">
-                <BiUser className="text-primary" />
-              </span>
-              <span className="font-body font-normal flex-1 pr-8 text-primary text-sm">
-                Profile
-              </span>
-            </MenuItem>
+            <Link to="/profile">
+              <MenuItem
+                onClick={handleClose}
+                className={`${classes.menuItem} font-body font-normal flex`}
+              >
+                <span className="justify-self-start px-2">
+                  <BiUser className="text-primary" />
+                </span>
+                <span className="font-body font-normal flex-1 pr-8 text-primary text-sm">
+                  Profile
+                </span>
+              </MenuItem>
+            </Link>
             <Link to="/choose-subject">
               <MenuItem
                 onClick={handleClose}
