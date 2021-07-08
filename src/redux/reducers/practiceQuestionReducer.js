@@ -1,6 +1,7 @@
 import { logout } from "../actions/login";
 
 const initialState = {
+  timedPracticeQuestions:[],
   userSelectedAnwser: [],
   year: "",
   subject: "",
@@ -14,10 +15,11 @@ const initialState = {
   isAnswerSubmissionSuccessful: false,
   submittedAnswers: {},
   untimedPracticeQuestions: [],
-  timedPracticeQuestions: [],
+  //timedPracticeQuestions: [],
   isViewSolution: false,
   filterValue: "All",
   // hasTakenPqBefore: false,
+  ok:"ok"
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
@@ -207,6 +209,26 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       ...state,
       timeRemaining: payload,
     };
+  }else if(type==="VIEW_SCORE_BY_PRACTICE_QUESTION_TYPE"){
+    const {year,subject, untimedPracticeQuestions,timedPracticeQuestions}= state
+    if(payload==="Timed"){
+      let timeScore= timedPracticeQuestions.filter(practiceQuestion=>Number(practiceQuestion.year)===Number(year) && practiceQuestion.subject===subject )
+      
+      console.log(timeScore[0].submittedQuestionsAndAnswers)
+      return {
+        ...state,
+        //questionArray: timeScore[0].submittedQuestionsAndAnswers,
+      };
+  
+    }else{
+      let untimedScore= untimedPracticeQuestions.filter(practiceQuestion=>Number(practiceQuestion.year)===Number(year) && practiceQuestion.subject===subject )
+      return {
+        ...state,
+        questionArray: untimedScore[0].submittedQuestionsAndAnswers,
+      };
+  
+
+    }
   }
   // else if (type === "ANSWERED_SAME_PQ_BEFORE"){
   //   return{

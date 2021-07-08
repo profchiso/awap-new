@@ -84,7 +84,7 @@ function HeaderRowOne({
                 aria-haspopup="true"
                 onClick={handleClick}
               >
-                <CircleUserAvatar imgUrl="" />
+                <CircleUserAvatar imgUrl={user.avatar!=""? user.avatar:""} />
                 <span className="capitalize font-body font-normal">
                   <span className="px-1 text-primary">
                     Hi {user?.firstName ? user?.firstName : ",Welcome"}

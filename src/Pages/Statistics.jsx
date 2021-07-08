@@ -16,6 +16,7 @@ import {
   onSideNavYearChange,
   isViewSolution,
   testAgain,
+  viewScoreByPraticeQuestionType
 } from "../redux/actions/practiceQuestion";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 
@@ -96,6 +97,7 @@ function Statistics(props) {
                 }`}
                 onClick={() => {
                   setTimedBoolean(false);
+                  props.viewScoreByPraticeQuestionType("Untimed")
                   props.selectPastQuestionPracticeType("Untimed Questions");
                 }}
               >
@@ -107,6 +109,7 @@ function Statistics(props) {
                 }`}
                 onClick={() => {
                   setTimedBoolean(true);
+                  props.viewScoreByPraticeQuestionType("Timed")
                   // props.selectPastQuestionPracticeType("Timed Questions");
                 }}
               >
@@ -266,4 +269,5 @@ export default connect(mapStateToProps, {
   onSideNavYearChange,
   isViewSolution,
   testAgain,
+  viewScoreByPraticeQuestionType
 })(Statistics);
