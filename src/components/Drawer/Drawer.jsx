@@ -97,7 +97,7 @@ function TemporaryDrawer({ loginReducer,logout, blueMenu, ...props }) {
         <Link to="/">
           <ListItem button className="flex">
             <ListItemIcon className={classes.avatarClass}>
-              <CircleUserAvatar imgUrl="" />
+              <CircleUserAvatar imgUrl={user.avatar!=""? user.avatar:""}/>
             </ListItemIcon>
             <ListItemText
               primary={` Hi, ${user?.firstName ? user?.firstName : " Welcome"}`}
