@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import AnswerLayout from "../components/AnswerContent/AnswerLayout";
 import { connect } from "react-redux";
 import DonutChart from "../components/Charts/DonutChart";
-import { Link, useHistory,Redirect } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -16,7 +16,9 @@ import {
   onSideNavYearChange,
   isViewSolution,
   testAgain,
-  viewScoreByPraticeQuestionType
+  viewScoreByPraticeQuestionType,
+  fetchPracticeQuestionTimed,
+  fetchPracticeQuestion,
 } from "../redux/actions/practiceQuestion";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 
@@ -45,7 +47,9 @@ function Statistics(props) {
   const { width } = useWindowDimensions();
   const pathName = props.match?.path?.substring(1);
   console.log("pathName", pathName);
-  const { year, subject, questionArray, questionType } = props.practiceQuestionReducer;
+  const { year, subject, questionArray, questionType } =
+    props.practiceQuestionReducer;
+  const { token } = props.loginReducer;
 
   const history = useHistory();
 
@@ -55,16 +59,30 @@ function Statistics(props) {
     props.selectPastQuestionSubject(event.target.value);
   };
 
-  const viewSolution = () => {
-    props.onSideNavYearChange(year, subject);
-    props.isViewSolution({ year, subject });
-    // console.log("view solution")
-  //  return <Redirect to="/"/>
-  };
+  // const viewSolution = () => {
+  //   props.onSideNavYearChange(year, subject);
+  //   props.isViewSolution({ year, subject });
+  // };
 
-  const handleTestAgain = () => {
-    props.testAgain({ year, subject });
-    history.goBack();
+  const handleTestAgain = async () => {
+    if (questionType === "Timed") {
+      await props.fetchPracticeQuestionTimed(
+        {
+          subject: subject,
+          year,
+          pastQuestionBody: "WAEC",
+          practiceQuestionType: "Timed",
+        },
+        token
+      );
+    } else {
+      await props.fetchPracticeQuestion(
+        { subject: subject.toLowerCase(), year },
+        token
+      );
+    }
+
+    history.push(`/pq/practice-${questionType.toLowerCase()}`);
   };
 
   const [itemNumber, setitemNumber] = useState();
@@ -97,7 +115,7 @@ function Statistics(props) {
                 }`}
                 onClick={() => {
                   setTimedBoolean(false);
-                  props.viewScoreByPraticeQuestionType("Untimed")
+                  props.viewScoreByPraticeQuestionType("Untimed");
                   props.selectPastQuestionPracticeType("Untimed Questions");
                 }}
               >
@@ -109,7 +127,7 @@ function Statistics(props) {
                 }`}
                 onClick={() => {
                   setTimedBoolean(true);
-                  props.viewScoreByPraticeQuestionType("Timed")
+                  props.viewScoreByPraticeQuestionType("Timed");
                   // props.selectPastQuestionPracticeType("Timed Questions");
                 }}
               >
@@ -235,8 +253,9 @@ function Statistics(props) {
                   </div>
                 </div>
                 <div className="flex flex-row sm:flex-col gap-4 sm:gap-8">
-                  <Link to="/pq/view-solution"
-                    onClick={viewSolution}
+                  <Link
+                    to="/pq/view-solution"
+                    // onClick={viewSolution}
                     className="py-3 px-8 text-base font-body shadow-md font-medium bg-white sm:bg-primary rounded-md text-primary sm:text-white hover:text-white  whitespace-nowrap"
                   >
                     View Solutions
@@ -269,5 +288,7 @@ export default connect(mapStateToProps, {
   onSideNavYearChange,
   isViewSolution,
   testAgain,
-  viewScoreByPraticeQuestionType
+  viewScoreByPraticeQuestionType,
+  fetchPracticeQuestionTimed,
+  fetchPracticeQuestion,
 })(Statistics);

@@ -15,11 +15,12 @@ const initialState = {
   isAnswerSubmissionSuccessful: false,
   submittedAnswers: {},
   untimedPracticeQuestions: [],
-  //timedPracticeQuestions: [],
+  timedPracticeQuestions: [],
   isViewSolution: false,
   filterValue: "All",
   // hasTakenPqBefore: false,
-  ok:"ok"
+  ok:"ok",
+  usdf:"sisuhfusdi"
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
@@ -102,7 +103,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers,
       isViewSolution: false,
     };
-  } else if (type === "IS_VIEW_SOLUTION") {
+  } 
+  else if (type === "IS_VIEW_SOLUTION") {
     
     //Was copied from TEST_AGAIN: To be worked on
     const { subject, year, untimedPracticeQuestions } = state;
@@ -115,15 +117,29 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       delete element.userSelectedAnswer;
       return element;
     });
-    console.log("questionWithoutAnswers", questionWithoutAnswers);
+
+    let filledQuestionArray = []
+    for (let question of allQuestionArray){
+      if (question.hasOwnProperty("userSelectedAnswer")){
+        filledQuestionArray.push(question)
+      }else{
+        question.userSelectedAnswer = question.answer
+        filledQuestionArray.push(question)
+      }
+    }
+    console.log("filledQuestionArray", filledQuestionArray);
 
     return {
       ...state,
       isViewSolution: true,
       filterValue: "All",
-      questionArray: questionWithoutAnswers, //this line was added from TEST_AGAIN
+      // questionArray: questionWithoutAnswers,   //old value
+      questionArray: filledQuestionArray,
     };
-  } else if (type === "FILTER_SOLUTION") {
+  }
+  
+  
+  else if (type === "FILTER_SOLUTION") {
     const { subject, year, untimedPracticeQuestions } = state;
     let allQuestions = untimedPracticeQuestions.filter(
       (q) => Number(q.year) === Number(year) && q.subject === subject
