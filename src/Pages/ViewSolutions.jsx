@@ -211,12 +211,7 @@ function ViewSolutions(props) {
                       >
                         Go back to Statistics
                       </Link>
-                      <Link
-                        to="/practice-more"
-                        className="font-medium text-primary hover:text-primary text-base"
-                      >
-                        Practice more questions
-                      </Link>
+                    
                       <Link
                         to="/"
                         className="font-medium text-primary hover:text-primary text-base"

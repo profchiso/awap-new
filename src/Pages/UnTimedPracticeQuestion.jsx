@@ -183,111 +183,53 @@ function PracticeQuestion(props) {
         />
         {questionArray.length ? (
           <>
-            {isViewSolution ? (
-              <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                className={classes.modal}
-                open={open}
-                onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                  timeout: 500,
-                }}
-              >
-                <Fade in={open}>
-                  <div
-                    className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
-                  >
-                    <div className="py-12 flex-1 -mr-12">
-                      <h3>Done viewing solutions?</h3>
-
-                      <div className="pt-10 pb-6 flex flex-col gap-5 items-center justify-center">
-                        <Link
-                          to="/stats"
-                          className="font-medium text-primary hover:text-primary text-base"
-                        >
-                          Go back to Statistics
-                        </Link>
-                        <Link
-                          to="/practice-more"
-                          className="font-medium text-primary hover:text-primary text-base"
-                        >
-                          Practice more questions
-                        </Link>
-                        <Link
-                          to="/"
-                          className="font-medium text-primary hover:text-primary text-base"
-                        >
-                          Go to Home
-                        </Link>
+            <Modal
+              aria-labelledby="transition-modal-title"
+              aria-describedby="transition-modal-description"
+              className={classes.modal}
+              open={open}
+              onClose={handleClose}
+              closeAfterTransition
+              BackdropComponent={Backdrop}
+              BackdropProps={{
+                timeout: 500,
+              }}
+            >
+              <Fade in={open}>
+                <div
+                  className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+                >
+                  <div className="py-12 flex-1 -mr-12">
+                    <h3>Finish Past Question?</h3>
+                    <p className="pt-8 font-medium">
+                      Are you sure you want to end this past question?
+                    </p>
+                    <div className="pt-16 pb-6 flex gap-5 items-center justify-center">
+                      <Link to="/stats">
                         <button
-                          onClick={() => handleClose("ok")}
-                          className="text-base  px-12 font-body px-5 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-                          style={{ color: "#F1420A" }}
+                          onClick={handleSubmit}
+                          className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
                         >
-                          No, Cancel
+                          Yes, Submit
                         </button>
-                      </div>
-                    </div>
-                    <span>
-                      <Button onClick={handleClose}>
-                        <CloseRoundedIcon />
-                      </Button>
-                    </span>
-                  </div>
-                </Fade>
-              </Modal>
-            ) : (
-              <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                className={classes.modal}
-                open={open}
-                onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                  timeout: 500,
-                }}
-              >
-                <Fade in={open}>
-                  <div
-                    className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
-                  >
-                    <div className="py-12 flex-1 -mr-12">
-                      <h3>Finish Past Question?</h3>
-                      <p className="pt-8 font-medium">
-                        Are you sure you want to end this past question?
-                      </p>
-                      <div className="pt-16 pb-6 flex gap-5 items-center justify-center">
-                        <Link to="/stats">
-                          <button
-                            onClick={handleSubmit}
-                            className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-                          >
-                            Yes, Submit
-                          </button>
-                        </Link>
+                      </Link>
 
-                        <button
-                          onClick={() => handleClose("ok")}
-                          className="text-primary  px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-                        >
-                          No, Cancel
-                        </button>
-                      </div>
+                      <button
+                        onClick={() => handleClose("ok")}
+                        className="text-primary  px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                      >
+                        No, Cancel
+                      </button>
                     </div>
-                    <span>
-                      <Button onClick={handleClose}>
-                        <CloseRoundedIcon />
-                      </Button>
-                    </span>
                   </div>
-                </Fade>
-              </Modal>
-            )}
+                  <span>
+                    <Button onClick={handleClose}>
+                      <CloseRoundedIcon />
+                    </Button>
+                  </span>
+                </div>
+              </Fade>
+            </Modal>
 
             <div>
               <div className="flex relative max-w-screen-2xl mx-auto  mt-8">

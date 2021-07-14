@@ -6,6 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { ReactComponent as DeleteIcon } from "../../assets/svgs/DeleteIcon.svg";
 import TextField from "@material-ui/core/TextField";
 import MaterialUiPhoneNumber from "material-ui-phone-number";
+import { updateAvatar } from "../../redux/actions/profile";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,15 +24,18 @@ const useStyles = makeStyles((theme) => ({
 function PersonalInfo(props) {
   const classes = useStyles();
   const { user } = props.loginReducer;
-  const [img, setImg] = useState("");
+  const [img, setImg] = useState({ avatar: "" });
   const [phone, setphone] = useState("");
 
   const handleImgChange = (event) => {
-    setImg(URL.createObjectURL(event.target.files[0]));
-    console.log(URL.createObjectURL(event.target.files[0]));
+    setImg({ avatar: URL.createObjectURL(event.target.files[0]) });
+    console.log("url", URL.createObjectURL(event.target.files[0]));
+
+    // console.log("event", event.target.files[0]);
+    // props.updateAvatar(event.target.files[0]);
   };
   const handleDeleteImg = () => {
-    setImg("");
+    setImg({});
   };
   const handlePhoneChange = (value) => {
     if (value) {
@@ -39,15 +43,13 @@ function PersonalInfo(props) {
     }
   };
   return (
-    <div className="max-w-2xl p-10" onClick={props.onClick}>
-      <h3 className="text-2xl font-medium">Personal Info</h3>
-      <br />
+    <div className="max-w-2xl pt-6 pb-10 px-6" onClick={props.onClick}>
       <div className="flex w-full">
         <div className="w-full max-w-ts3 relative">
           <div className={classes.root}>
             <Avatar
               // src={user.avatar !== "" ? user.avatar : img}
-              src={img}
+              src={img.avatar}
               className={classes.xlarge}
             />
           </div>
@@ -81,13 +83,14 @@ function PersonalInfo(props) {
             <DeleteIcon className="scale-110" />
           </IconButton>
         </div>
-        <div className="w-full pb-24">
+        <div className="w-full px-3">
           <div className="w-full mt-6">
             <p className="mb-3 w-full text-sm">First Name</p>
             <TextField
               id="outlined-basic"
               variant="outlined"
               className="w-full"
+              value={user.firstName}
             />
           </div>
           <div className="w-full mt-6">
@@ -96,6 +99,7 @@ function PersonalInfo(props) {
               id="outlined-basic"
               variant="outlined"
               className="w-full"
+              value={user.lastName}
             />
           </div>
           <div className="w-full mt-6">
@@ -103,7 +107,7 @@ function PersonalInfo(props) {
             <TextField
               id="outlined-basic"
               variant="outlined"
-              placeholder="johndoe@gmail.com"
+              value={user.email}
               className="w-full"
               disabled
             />
@@ -122,6 +126,10 @@ function PersonalInfo(props) {
               defaultValue={phone}
             />
           </div>
+
+          <button className="bg-gradient-to-r from-ansBlue2 to-ansBlue3 p-3 text-white mt-12 font-body font-medium text-base rounded w-full">
+            Save Changes
+          </button>
         </div>
       </div>
     </div>
@@ -133,4 +141,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps)(PersonalInfo);
+export default connect(mapStateToProps, { updateAvatar })(PersonalInfo);
