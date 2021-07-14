@@ -114,7 +114,7 @@ li.recharts-legend-item {
     }
   }
 }
-.openModalNextBtn{
+.openModalNextBtn {
   right: 6%;
   top: 40%;
   @media screen and (min-width: 1600px) {
@@ -122,5 +122,11 @@ li.recharts-legend-item {
   }
   @media screen and (max-height: 480px) {
     top: 60%;
+  }
+}
+
+.Mui_Picture_Label {
+  .MuiIconButton-colorPrimary:hover {
+    background-color: rgba(13, 6, 95, 0.4);
   }
 }

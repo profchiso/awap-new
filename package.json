@@ -21,6 +21,7 @@
     "axios": "^0.21.1",
     "eslint-config-react-app": "^6.0.0",
     "history": "^5.0.0",
+    "material-ui-phone-number": "^2.2.6",
     "material-ui-popup-state": "^1.7.2",
     "node-sass": "^5.0.0",
     "postcss": "^7",
