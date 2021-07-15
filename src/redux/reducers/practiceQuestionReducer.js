@@ -1,7 +1,7 @@
 import { logout } from "../actions/login";
 
 const initialState = {
-  timedPracticeQuestions:[],
+ 
   userSelectedAnwser: [],
   year: "",
   subject: "",
@@ -19,8 +19,7 @@ const initialState = {
   isViewSolution: false,
   filterValue: "All",
   // hasTakenPqBefore: false,
-  ok:"ok",
-  usdf:"sisuhfusdi"
+  
 };
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
@@ -52,7 +51,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: [],
       isQuestionFetched: false,
       isViewSolution: false,
-      hasTakenPqBefore: false,
+      //hasTakenPqBefore: false,
     };
   } else if (type === "SELECT_PAST_QUESTION_PRACTICE_TYPE") {
     return {
@@ -61,7 +60,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       userSelectedAnwser: [],
       isQuestionFetched: false,
       isViewSolution: false,
-      hasTakenPqBefore: false,
+     // hasTakenPqBefore: false,
     };
   } else if (type === "API_ERROR") {
     let error = {};
@@ -202,7 +201,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       delete element.userSelectedAnswer;
       return element;
     });
-    console.log("questionWithoutAnswers", questionWithoutAnswers);
+ 
     return {
       ...state,
       isViewSolution: false,
@@ -226,21 +225,27 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       timeRemaining: payload,
     };
   }else if(type==="VIEW_SCORE_BY_PRACTICE_QUESTION_TYPE"){
+   
     const {year,subject, untimedPracticeQuestions,timedPracticeQuestions}= state
     if(payload==="Timed"){
+      
       let timeScore= timedPracticeQuestions.filter(practiceQuestion=>Number(practiceQuestion.year)===Number(year) && practiceQuestion.subject===subject )
       
-      console.log(timeScore[0].submittedQuestionsAndAnswers)
+     
       return {
         ...state,
-        //questionArray: timeScore[0].submittedQuestionsAndAnswers,
+        questionType:"Timed Questions",
+        questionArray: timeScore.length? timeScore[0].submittedQuestionsAndAnswers :[],
       };
   
     }else{
+      
       let untimedScore= untimedPracticeQuestions.filter(practiceQuestion=>Number(practiceQuestion.year)===Number(year) && practiceQuestion.subject===subject )
+      console.log(untimedScore)
       return {
         ...state,
-        questionArray: untimedScore[0].submittedQuestionsAndAnswers,
+        questionType:"Untimed Questions",
+        questionArray: untimedScore.length? untimedScore[0].submittedQuestionsAndAnswers:[],
       };
   
 

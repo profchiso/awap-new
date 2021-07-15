@@ -128,7 +128,7 @@ function Statistics(props) {
                 onClick={() => {
                   setTimedBoolean(true);
                   props.viewScoreByPraticeQuestionType("Timed");
-                  // props.selectPastQuestionPracticeType("Timed Questions");
+                 props.selectPastQuestionPracticeType("Timed Questions");
                 }}
               >
                 Timed
@@ -168,6 +168,10 @@ function Statistics(props) {
             ) : null}
           </div>
 
+          
+          
+          
+          {questionArray.length?
           <div>
             <div className="flex -mt-16 -mb-10  sm:mt-8 sm:mb-0 -z-10 relative">
               <DonutChart name="Donut" />
@@ -271,6 +275,8 @@ function Statistics(props) {
               </div>
             </div>
           </div>
+          :<h3>{`Your have not taken ${year} ${subject} ${questionType}`}</h3>}
+
         </div>
       </div>
     </AnswerLayout>
