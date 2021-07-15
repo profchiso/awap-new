@@ -28,8 +28,13 @@ function PersonalInfo(props) {
   const [phone, setphone] = useState("");
 
   const handleImgChange = (event) => {
+    const data = new FormData() 
+    
+    console.log(data)
     setImg({ avatar: URL.createObjectURL(event.target.files[0]) });
     console.log("url", URL.createObjectURL(event.target.files[0]));
+
+    data.append('file', event.target.files[0])
 
     // console.log("event", event.target.files[0]);
     // props.updateAvatar(event.target.files[0]);
@@ -49,7 +54,7 @@ function PersonalInfo(props) {
           <div className={classes.root}>
             <Avatar
               // src={user.avatar !== "" ? user.avatar : img}
-              src={img.avatar}
+              src={user.avatar !== "" ? user.avatar : img.avatar}
               className={classes.xlarge}
             />
           </div>
