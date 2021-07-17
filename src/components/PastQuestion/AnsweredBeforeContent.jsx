@@ -40,7 +40,7 @@ function AnsweredBeforeContent(props) {
     <div className="flex justify-center mb-24 pb-40 sm:pb-0">
       <div className="font-body flex flex-col gap-8 text-center mt-24 md:mt-16 px-6 sm:px-0">
         <p className="text-md sm:text-xl md:text-2xl font-body">
-          You've answered Timed {year} {subject} Past Questions before
+          You've answered {questionType} {year} {subject} Past Questions before
         </p>
         <div className="flex justify-center items-center">
           <div className="flex items-center">
