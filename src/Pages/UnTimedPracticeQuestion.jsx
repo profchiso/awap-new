@@ -174,6 +174,24 @@ function PracticeQuestion(props) {
 
   const token = props?.loginReducer?.token;
 
+  const optionDataArray = [
+    {
+      alphaNumber: "a.",
+      option: "optionA",
+    },
+    {
+      alphaNumber: "b.",
+      option: "optionB",
+    },
+    {
+      alphaNumber: "c.",
+      option: "optionC",
+    },
+    {
+      alphaNumber: "d.",
+      option: "optionD",
+    },
+  ];
 
   //ARROW KEYS TO CHANGE QUESTION NUMBER
   useEffect(() => {
@@ -182,7 +200,7 @@ function PracticeQuestion(props) {
       console.log("decreaseQuestionNumber");
     }
     if (rightArrow && questionNumber < questionArray.length) {
-      increaseQuestionNumber();  //Done, only issue left is pagination not aligning, will have to create same but simple custom pagination
+      increaseQuestionNumber(); //Done, only issue left is pagination not aligning, will have to create same but simple custom pagination
       console.log("increaseQuestionNumber");
     }
   }, [leftArrow, rightArrow]);
@@ -291,153 +309,42 @@ function PracticeQuestion(props) {
                       component="fieldset"
                       className="w-full sm:w-6/12 text-center"
                     >
-                      <div className="py-3 ">
-                        <DefaultAnswerBtn
-                          isClicked={isClicked}
-                          showIcon={setIsCorrectOrWrong("optionA")?.showIcon}
-                          isSelected={
-                            isClicked &&
-                            setIsCorrectOrWrong("optionA")?.isCorrectOrWrong
-                          }
-                          onClick={() =>
-                            onSelectedOptionChange(
-                              "optionA",
-                              questionArray[questionNumber]
-                            )
-                          }
-                        >
-                          <span className="pr-6 sm:pr-8">a.</span>
-
-                          {questionArray[questionNumber]?.optionA
-                            .imageOption ? (
-                            <img
-                              src={
-                                questionArray[questionNumber]?.optionA
-                                  .imageOption
-                              }
-                              alt=""
-                            />
-                          ) : (
-                            <span>
-                              {
-                                questionArray[questionNumber]?.optionA
-                                  .textOption
-                              }
+                      {optionDataArray.map((element) => (
+                        <div className="py-3 ">
+                          <DefaultAnswerBtn
+                            isClicked={isClicked}
+                            showIcon={
+                              setIsCorrectOrWrong(element.option)?.showIcon
+                            }
+                            isSelected={
+                              isClicked &&
+                              setIsCorrectOrWrong(element.option)
+                                ?.isCorrectOrWrong
+                            }
+                            onClick={() =>
+                              onSelectedOptionChange(
+                                element.option,
+                                questionArray[questionNumber]
+                              )
+                            }
+                          >
+                            <span className="pr-6 sm:pr-8">
+                              {element.alphaNumber}
                             </span>
-                          )}
-                        </DefaultAnswerBtn>
-                      </div>
-                      <div className="py-3 ">
-                        <DefaultAnswerBtn
-                          isClicked={isClicked}
-                          showIcon={setIsCorrectOrWrong("optionB")?.showIcon}
-                          isSelected={
-                            isClicked &&
-                            setIsCorrectOrWrong("optionB")?.isCorrectOrWrong
-                          }
-                          onClick={() =>
-                            onSelectedOptionChange(
-                              "optionB",
-                              questionArray[questionNumber]
-                            )
-                          }
-                        >
-                          <span className="pr-6 sm:pr-8">b.</span>
-                          <span>
-                            {questionArray[questionNumber]?.optionB
+                            {questionArray[questionNumber]?.[element.option]
                               .imageOption ? (
                               <img
-                                src={
-                                  questionArray[questionNumber]?.optionB
-                                    .imageOption
-                                }
-                                alt=""
+                              src={questionArray[questionNumber]?.[element.option].imageOption}
+                              alt=""
                               />
                             ) : (
                               <span>
-                                {
-                                  questionArray[questionNumber]?.optionB
-                                    .textOption
-                                }
+                                 {questionArray[questionNumber]?.[element.option].textOption}
                               </span>
                             )}
-                          </span>
-                        </DefaultAnswerBtn>
-                      </div>
-                      <div className="py-3 ">
-                        <DefaultAnswerBtn
-                          isClicked={isClicked}
-                          showIcon={setIsCorrectOrWrong("optionC")?.showIcon}
-                          isSelected={
-                            isClicked &&
-                            setIsCorrectOrWrong("optionC")?.isCorrectOrWrong
-                          }
-                          onClick={() =>
-                            onSelectedOptionChange(
-                              "optionC",
-                              questionArray[questionNumber]
-                            )
-                          }
-                        >
-                          <span className="pr-6 sm:pr-8">c.</span>
-                          <span>
-                            {questionArray[questionNumber]?.optionC
-                              .imageOption ? (
-                              <img
-                                src={
-                                  questionArray[questionNumber]?.optionC
-                                    .imageOption
-                                }
-                                alt=""
-                              />
-                            ) : (
-                              <span>
-                                {
-                                  questionArray[questionNumber]?.optionC
-                                    .textOption
-                                }
-                              </span>
-                            )}
-                          </span>
-                        </DefaultAnswerBtn>
-                      </div>
-                      <div className="py-3 ">
-                        <DefaultAnswerBtn
-                          isClicked={isClicked}
-                          showIcon={setIsCorrectOrWrong("optionD")?.showIcon}
-                          isSelected={
-                            isClicked &&
-                            setIsCorrectOrWrong("optionD")?.isCorrectOrWrong
-                          }
-                          onClick={() =>
-                            onSelectedOptionChange(
-                              "optionD",
-                              questionArray[questionNumber]
-                            )
-                          }
-                        >
-                          <span className="pr-6 sm:pr-8">d.</span>
-                          <span>
-                            {questionArray[questionNumber]?.optionD
-                              .imageOption ? (
-                              <img
-                                src={
-                                  questionArray[questionNumber]?.optionD
-                                    .imageOption
-                                }
-                                alt=""
-                              />
-                            ) : (
-                              <span>
-                                {
-                                  questionArray[questionNumber]?.optionD
-                                    .textOption
-                                }
-                              </span>
-                            )}
-                          </span>
-                        </DefaultAnswerBtn>
-                      </div>
+                          </DefaultAnswerBtn>
+                        </div>
+                      ))}
                     </FormControl>
                   </div>
 
