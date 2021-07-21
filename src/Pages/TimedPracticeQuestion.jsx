@@ -186,13 +186,15 @@ function PracticeQuestion(props) {
     setTimeout(() => history.push("/stats"), 4000);
   };
 
+
+  //ARROW KEYS TO CHANGE QUESTION NUMBER
   useEffect(() => {
     if (leftArrow && questionNumber >= 1) {
-      decreaseQuestionNumber();
+     // decreaseQuestionNumber();  //Done, only issue left is pagination not aligning
       console.log("decreaseQuestionNumber");
     }
     if (rightArrow && questionNumber < questionArray.length) {
-      increaseQuestionNumber();
+     //  increaseQuestionNumber();   //Done, only issue left is pagination not aligning
       console.log("increaseQuestionNumber");
     }
   }, [leftArrow, rightArrow]);
