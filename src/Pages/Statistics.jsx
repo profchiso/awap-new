@@ -75,14 +75,16 @@ function Statistics(props) {
         },
         token
       );
+      history.push(`/pq/practice-timed`);
     } else {
       await props.fetchPracticeQuestion(
         { subject: subject.toLowerCase(), year },
         token
       );
+      history.push(`/pq/practice-untimed`);
     }
 
-    history.push(`/pq/practice-${questionType.toLowerCase()}`);
+  // history.push(`/pq/practice-${questionType.toLowerCase()}`);
   };
 
   const [itemNumber, setitemNumber] = useState();
@@ -116,7 +118,8 @@ function Statistics(props) {
                 onClick={() => {
                   setTimedBoolean(false);
                   props.viewScoreByPraticeQuestionType("Untimed");
-                  props.selectPastQuestionPracticeType("Untimed Questions");
+                  // props.selectPastQuestionPracticeType("Untimed Questions");
+                  props.selectPastQuestionPracticeType("Untimed");
                 }}
               >
                 Untimed
@@ -129,6 +132,7 @@ function Statistics(props) {
                   setTimedBoolean(true);
                   props.viewScoreByPraticeQuestionType("Timed");
                   // props.selectPastQuestionPracticeType("Timed Questions");
+                  props.selectPastQuestionPracticeType("Timed");
                 }}
               >
                 Timed
@@ -168,109 +172,113 @@ function Statistics(props) {
             ) : null}
           </div>
 
-          <div>
-            <div className="flex -mt-16 -mb-10  sm:mt-8 sm:mb-0 -z-10 relative">
-              <DonutChart name="Donut" />
-            </div>
-
-            {/* UPDATE UI */}
-            <div className="sm:mt-12">
-              <div className="flex sm:hidden w-full text-center mb-8 gap-14 items-center">
-                <span className="text-lg font-medium">Year:</span>
-                <FormControl
-                  variant="outlined"
-                  className={classes.formMobileYear}
-                >
-                  <Select
-                    labelId="demo-simple-select-placeholder-label-label"
-                    id="demo-simple-select-placeholder-label"
-                    value={itemNumber}
-                    onChange={handleYearChange}
-                    displayEmpty
-                    className={classes.numberSelect}
-                    MenuProps={{ classes: { paper: classes.menuPaper } }}
-                  >
-                    {rangeValue.map((e, i) => (
-                      <MenuItem value={e} key={i}>
-                        {e}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
+          {questionArray.length ? (
+            <div>
+              <div className="flex -mt-16 -mb-10  sm:mt-8 sm:mb-0 -z-10 relative">
+                <DonutChart name="Donut" />
               </div>
 
-              <div className="flex sm:hidden w-full text-center mb-12 gap-8 items-center">
-                <span className="text-lg font-medium">Subject:</span>
-
-                <FormControl
-                  variant="outlined"
-                  className={classes.formMobileSubject}
-                >
-                  <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    defaultValue={subject}
-                    value={subject}
-                    onChange={handleSubject}
-                    className=" font-sm"
+              {/* UPDATE UI */}
+              <div className="sm:mt-12">
+                <div className="flex sm:hidden w-full text-center mb-8 gap-14 items-center">
+                  <span className="text-lg font-medium">Year:</span>
+                  <FormControl
+                    variant="outlined"
+                    className={classes.formMobileYear}
                   >
-                    {/* <MenuItem value="">
+                    <Select
+                      labelId="demo-simple-select-placeholder-label-label"
+                      id="demo-simple-select-placeholder-label"
+                      value={itemNumber}
+                      onChange={handleYearChange}
+                      displayEmpty
+                      className={classes.numberSelect}
+                      MenuProps={{ classes: { paper: classes.menuPaper } }}
+                    >
+                      {rangeValue.map((e, i) => (
+                        <MenuItem value={e} key={i}>
+                          {e}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </div>
+
+                <div className="flex sm:hidden w-full text-center mb-12 gap-8 items-center">
+                  <span className="text-lg font-medium">Subject:</span>
+
+                  <FormControl
+                    variant="outlined"
+                    className={classes.formMobileSubject}
+                  >
+                    <Select
+                      labelId="demo-simple-select-outlined-label"
+                      id="demo-simple-select-outlined"
+                      defaultValue={subject}
+                      value={subject}
+                      onChange={handleSubject}
+                      className=" font-sm"
+                    >
+                      {/* <MenuItem value="">
                     <em>None</em>
                   </MenuItem> */}
-                    <MenuItem value="Mathematics">Mathematics</MenuItem>
-                    <MenuItem value="Physics">Physics</MenuItem>
-                    <MenuItem value="Chemistry">Chemistry</MenuItem>
-                    <MenuItem value="Biology">Biology</MenuItem>
-                  </Select>
-                </FormControl>
-              </div>
+                      <MenuItem value="Mathematics">Mathematics</MenuItem>
+                      <MenuItem value="Physics">Physics</MenuItem>
+                      <MenuItem value="Chemistry">Chemistry</MenuItem>
+                      <MenuItem value="Biology">Biology</MenuItem>
+                    </Select>
+                  </FormControl>
+                </div>
 
-              <div className="flex flex-col flex-col-reverse sm:flex-row justify-between lg:mr-24">
-                <div>
-                  <div className="text-base font-semibold py-3 mt-8 sm:mt-0">
-                    <div className=" text-primary"> Your Chosen Answers</div>
-                    <div className="mt-2">
-                      <hr
-                        className="text-gray-300"
-                        style={{ minWidth: "260px" }}
-                      />
+                <div className="flex flex-col flex-col-reverse sm:flex-row justify-between lg:mr-24">
+                  <div>
+                    <div className="text-base font-semibold py-3 mt-8 sm:mt-0">
+                      <div className=" text-primary"> Your Chosen Answers</div>
+                      <div className="mt-2">
+                        <hr
+                          className="text-gray-300"
+                          style={{ minWidth: "260px" }}
+                        />
+                      </div>
+                    </div>
+                    <div className="ml-5">
+                      {questionArray?.map((item, index) => (
+                        <div
+                          className="flex gap-3 text-base leading-10"
+                          key={index}
+                        >
+                          <div>{index + 1}.</div>
+                          <div className="pl-2">
+                            {item.userSelectedAnswer
+                              ? item.userSelectedAnswer?.slice(-1) //where to take the last letter
+                              : "unanswered"}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <div className="ml-5">
-                    {questionArray?.map((item, index) => (
-                      <div
-                        className="flex gap-3 text-base leading-10"
-                        key={index}
-                      >
-                        <div>{index + 1}.</div>
-                        <div className="pl-2">
-                          {item.userSelectedAnswer
-                            ? item.userSelectedAnswer?.slice(-1) //where to take the last letter
-                            : "unanswered"}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="flex flex-row sm:flex-col gap-4 sm:gap-8">
-                  <Link
-                    to="/pq/view-solution"
-                    // onClick={viewSolution}
-                    className="py-3 px-8 text-base font-body shadow-md font-medium bg-white sm:bg-primary rounded-md text-primary sm:text-white hover:text-white  whitespace-nowrap"
-                  >
-                    View Solutions
-                  </Link>
+                  <div className="flex flex-row sm:flex-col gap-4 sm:gap-8">
+                    <Link
+                      to="/pq/view-solution"
+                      // onClick={viewSolution}
+                      className="py-3 px-8 text-base font-body shadow-md font-medium bg-white sm:bg-primary rounded-md text-primary sm:text-white hover:text-white  whitespace-nowrap"
+                    >
+                      View Solutions
+                    </Link>
 
-                  <button
-                    onClick={handleTestAgain}
-                    className="py-3 whitespace-nowrap w-full text-center text-primary shadow-md px-8 text-base font-body font-medium bg-white rounded-md text-white max-w-ts3 lg:max-w-full"
-                  >
-                    Test Again
-                  </button>
+                    <button
+                      onClick={handleTestAgain}
+                      className="py-3 whitespace-nowrap w-full text-center text-primary shadow-md px-8 text-base font-body font-medium bg-white rounded-md text-white max-w-ts3 lg:max-w-full"
+                    >
+                      Test Again
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <h3>{`Your have not taken ${year} ${subject} ${questionType}`}</h3>
+          )}
         </div>
       </div>
     </AnswerLayout>

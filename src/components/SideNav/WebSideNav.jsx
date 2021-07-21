@@ -13,15 +13,21 @@ import {
 function WebSideNav(props) {
   const token = props?.loginReducer?.token;
 
-  const { untimedPracticeQuestions, subject, year } = props.practiceQuestionReducer;
+  const { untimedPracticeQuestions, subject, year,timedPracticeQuestions,questionType } = props.practiceQuestionReducer;
 
   const [yearNav, setYearNav] = useState(props.practiceQuestionReducer.year);
 
   // const [anotherYearClicked, setAnotherYearClicked] = useState(false)
 
   let years = [];
-  if (untimedPracticeQuestions){
+  if (questionType.includes("Untimed") && untimedPracticeQuestions){
     for (let items of untimedPracticeQuestions) {
+      if (items.subject === subject) {
+        years.push(Number(items.year));
+      }
+    }
+  }else{
+    for (let items of timedPracticeQuestions) {
       if (items.subject === subject) {
         years.push(Number(items.year));
       }

@@ -149,24 +149,24 @@ function ViewSolutions(props) {
     return false;
   };
 
-  const handleSubmit = () => {
-    const { submittedQuestionsAndAnswers } = submissionData;
-    let mergedData = [...submittedQuestionsAndAnswers, ...questionArray];
+  // const handleSubmit = () => {
+  //   const { submittedQuestionsAndAnswers } = submissionData;
+  //   let mergedData = [...submittedQuestionsAndAnswers, ...questionArray];
 
-    console.log(mergedData);
+  //   console.log(mergedData);
 
-    const seen = new Set();
+  //   const seen = new Set();
 
-    const filteredArr = mergedData.filter((element) => {
-      const duplicate = seen.has(element.questionNumber);
-      seen.add(element.questionNumber);
-      return !duplicate;
-    });
+  //   const filteredArr = mergedData.filter((element) => {
+  //     const duplicate = seen.has(element.questionNumber);
+  //     seen.add(element.questionNumber);
+  //     return !duplicate;
+  //   });
 
-    submissionData.submittedQuestionsAndAnswers = filteredArr;
+  //   submissionData.submittedQuestionsAndAnswers = filteredArr;
 
-    props.submitUserAnswers(submissionData, token);
-  };
+  //   props.submitUserAnswers(submissionData, token);
+  // };
 
   const token = props?.loginReducer?.token;
 
@@ -211,12 +211,7 @@ function ViewSolutions(props) {
                       >
                         Go back to Statistics
                       </Link>
-                      <Link
-                        to="/practice-more"
-                        className="font-medium text-primary hover:text-primary text-base"
-                      >
-                        Practice more questions
-                      </Link>
+                    
                       <Link
                         to="/"
                         className="font-medium text-primary hover:text-primary text-base"
