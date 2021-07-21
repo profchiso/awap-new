@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Pagination from "../components/AnswerContent/Pagination";
 import DefaultAnswerBtn from "../components/Button/AnswerButton";
@@ -20,6 +20,7 @@ import {
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 // import { ReactComponent as PreviousIcon } from "../assets/svgs/PreviousIcon.svg";
 import { ReactComponent as NextBtn } from "../assets/svgs/NextBtn.svg";
+import useKeyPress from "../Hooks/UseKeyPress";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -50,6 +51,9 @@ function PracticeQuestion(props) {
   };
   const classes = useStyles();
   const { width } = useWindowDimensions();
+  const leftArrow = useKeyPress("ArrowLeft");
+  const rightArrow = useKeyPress("ArrowRight");
+
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
   const [isClicked, setisClicked] = useState(false);
@@ -169,6 +173,17 @@ function PracticeQuestion(props) {
   };
 
   const token = props?.loginReducer?.token;
+
+  useEffect(() => {
+    if (leftArrow && questionNumber >= 1) {
+      decreaseQuestionNumber();
+      console.log("decreaseQuestionNumber");
+    }
+    if (rightArrow && questionNumber < questionArray.length) {
+      increaseQuestionNumber();
+      console.log("increaseQuestionNumber");
+    }
+  }, [leftArrow, rightArrow]);
 
   if (token) {
     return (
