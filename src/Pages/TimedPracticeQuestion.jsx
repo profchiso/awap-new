@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Pagination from "../components/AnswerContent/Pagination";
 import DefaultAnswerBtn from "../components/Button/AnswerButton";
@@ -23,9 +23,9 @@ import useWindowDimensions from "../Hooks/UseWindowDimension";
 // import { ReactComponent as TimeIcon } from "../assets/svgs/TimeIcon.svg";
 import { ReactComponent as NextBtn } from "../assets/svgs/NextBtn.svg";
 import AccessTimeRoundedIcon from "@material-ui/icons/AccessTimeRounded";
-import Countdown from "react-countdown";
 import CountDownTimer from "../components/Timer/CountDownTimer";
 import { ReactComponent as AlarmClock } from "../assets/svgs/AlarmClock.svg";
+import useKeyPress from "../Hooks/UseKeyPress";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -56,6 +56,8 @@ function PracticeQuestion(props) {
   };
   const classes = useStyles();
   const { width } = useWindowDimensions();
+  const leftArrow = useKeyPress("ArrowLeft");
+  const rightArrow = useKeyPress("ArrowRight");
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
   const [isClicked, setisClicked] = useState(false);
@@ -179,10 +181,40 @@ function PracticeQuestion(props) {
 
   const history = useHistory();
 
+  const optionDataArray = [
+    {
+      alphaNumber: "a.",
+      option: "optionA",
+    },
+    {
+      alphaNumber: "b.",
+      option: "optionB",
+    },
+    {
+      alphaNumber: "c.",
+      option: "optionC",
+    },
+    {
+      alphaNumber: "d.",
+      option: "optionD",
+    },
+  ];
   const delayAndGo = () => {
     handleSubmit();
     setTimeout(() => history.push("/stats"), 4000);
   };
+
+  //ARROW KEYS TO CHANGE QUESTION NUMBER
+  useEffect(() => {
+    if (leftArrow && questionNumber >= 1) {
+      decreaseQuestionNumber(); //Done, only issue left is pagination not aligning, will have to create same but simple custom pagination
+      console.log("decreaseQuestionNumber");
+    }
+    if (rightArrow && questionNumber < questionArray.length) {
+      increaseQuestionNumber(); //Done, only issue left is pagination not aligning, will have to create same but simple custom pagination
+      console.log("increaseQuestionNumber");
+    }
+  }, [leftArrow, rightArrow]);
 
   if (token) {
     return (
@@ -335,154 +367,39 @@ function PracticeQuestion(props) {
                       component="fieldset"
                       className="w-full sm:w-6/12 text-center"
                     >
-                      <div className="py-3 ">
-                        <DefaultAnswerBtn
-                          isClicked={isClicked}
-                          isSelected={
-                            isClicked &&
-                            setisBlueOrRedSelectionColor("optionA")
-                              ?.isBlueOrRedSelectionColor
-                          }
-                          onClick={() =>
-                            onSelectedOptionChange(
-                              "optionA",
-                              questionArray[questionNumber]
-                            )
-                          }
-                        >
-                          <span className="pr-6 sm:pr-8">a.</span>
-                          <span>
-                            {questionArray[questionNumber]?.optionA
+                      {optionDataArray.map((element) => (
+                        <div className="py-3 ">
+                          <DefaultAnswerBtn
+                            isClicked={isClicked}
+                            isSelected={
+                              isClicked &&
+                              setisBlueOrRedSelectionColor(element.option)
+                                ?.isBlueOrRedSelectionColor
+                            }
+                            onClick={() =>
+                              onSelectedOptionChange(
+                                element.option,
+                                questionArray[questionNumber]
+                              )
+                            }
+                          >
+                            <span className="pr-6 sm:pr-8">
+                              {element.alphaNumber}
+                            </span>
+                            {questionArray[questionNumber]?.[element.option]
                               .imageOption ? (
                               <img
-                                src={
-                                  questionArray[questionNumber]?.optionA
-                                    .imageOption
-                                }
+                                src={questionArray[questionNumber]?.[element.option].imageOption}
                                 alt=""
                               />
                             ) : (
                               <span>
-                                {
-                                  questionArray[questionNumber]?.optionA
-                                    .textOption
-                                }
+                                {questionArray[questionNumber]?.[element.option].textOption}
                               </span>
                             )}
-                          </span>
-                        </DefaultAnswerBtn>
-                      </div>
-                      <div className="py-3 ">
-                        <DefaultAnswerBtn
-                          isClicked={isClicked}
-                          isSelected={
-                            isClicked &&
-                            setisBlueOrRedSelectionColor("optionB")
-                              ?.isBlueOrRedSelectionColor
-                          }
-                          onClick={() =>
-                            onSelectedOptionChange(
-                              "optionB",
-                              questionArray[questionNumber]
-                            )
-                          }
-                        >
-                          <span className="pr-6 sm:pr-8">b.</span>
-                          <span>
-                            {questionArray[questionNumber]?.optionB
-                              .imageOption ? (
-                              <img
-                                src={
-                                  questionArray[questionNumber]?.optionB
-                                    .imageOption
-                                }
-                                alt=""
-                              />
-                            ) : (
-                              <span>
-                                {
-                                  questionArray[questionNumber]?.optionB
-                                    .textOption
-                                }
-                              </span>
-                            )}
-                          </span>
-                        </DefaultAnswerBtn>
-                      </div>
-                      <div className="py-3 ">
-                        <DefaultAnswerBtn
-                          isClicked={isClicked}
-                          isSelected={
-                            isClicked &&
-                            setisBlueOrRedSelectionColor("optionC")
-                              ?.isBlueOrRedSelectionColor
-                          }
-                          onClick={() =>
-                            onSelectedOptionChange(
-                              "optionC",
-                              questionArray[questionNumber]
-                            )
-                          }
-                        >
-                          <span className="pr-6 sm:pr-8">c.</span>
-                          <span>
-                            {questionArray[questionNumber]?.optionC
-                              .imageOption ? (
-                              <img
-                                src={
-                                  questionArray[questionNumber]?.optionC
-                                    .imageOption
-                                }
-                                alt=""
-                              />
-                            ) : (
-                              <span>
-                                {
-                                  questionArray[questionNumber]?.optionC
-                                    .textOption
-                                }
-                              </span>
-                            )}
-                          </span>
-                        </DefaultAnswerBtn>
-                      </div>
-                      <div className="py-3 ">
-                        <DefaultAnswerBtn
-                          isClicked={isClicked}
-                          isSelected={
-                            isClicked &&
-                            setisBlueOrRedSelectionColor("optionD")
-                              ?.isBlueOrRedSelectionColor
-                          }
-                          onClick={() =>
-                            onSelectedOptionChange(
-                              "optionD",
-                              questionArray[questionNumber]
-                            )
-                          }
-                        >
-                          <span className="pr-6 sm:pr-8">d.</span>
-                          <span>
-                            {questionArray[questionNumber]?.optionD
-                              .imageOption ? (
-                              <img
-                                src={
-                                  questionArray[questionNumber]?.optionD
-                                    .imageOption
-                                }
-                                alt=""
-                              />
-                            ) : (
-                              <span>
-                                {
-                                  questionArray[questionNumber]?.optionD
-                                    .textOption
-                                }
-                              </span>
-                            )}
-                          </span>
-                        </DefaultAnswerBtn>
-                      </div>
+                          </DefaultAnswerBtn>
+                        </div>
+                      ))}
                     </FormControl>
                   </div>
 
