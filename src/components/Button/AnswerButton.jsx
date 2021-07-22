@@ -27,7 +27,7 @@ function DefaultAnswerBtn(props) {
         <button
           type="button"
           disabled={isViewSolution}
-          className={`flex py-5 px-6 sm:px-10 text-base font-medium bg-white ${props.isSelected} shadow-awesumOne w-full max-w-md sm:min-w-xs mx-auto text-left rounded`}
+          className={`flex py-5 px-6 sm:px-10 text-base font-medium bg-white ${props.isCorrectAnswer} ${props.isSelected} shadow-awesumOne w-full max-w-md sm:min-w-xs mx-auto text-left rounded`}
           onClick={props.onClick}
         >
           {props.children}

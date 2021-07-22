@@ -149,6 +149,24 @@ function ViewSolutions(props) {
     return false;
   };
 
+  const checkWrongOrRight=(question,option)=>{
+    if(question.hasOwnProperty("userSelectedAnswer")){
+       console.log(question)
+      if(question.answer===question.userSelectedAnswer && option===question.answer){
+        return isCorrect
+
+      }else if(question.answer!==question.userSelectedAnswer && option===question.userSelectedAnswer){
+        return isWrong
+      }else if(question.answer!==question.userSelectedAnswer && option!==question.userSelectedAnswer){
+        return
+      }
+    }else if(option===question.answer){
+      console.log(question)
+      return isCorrect
+
+    }
+  }
+
   // const handleSubmit = () => {
   //   const { submittedQuestionsAndAnswers } = submissionData;
   //   let mergedData = [...submittedQuestionsAndAnswers, ...questionArray];
@@ -283,16 +301,8 @@ function ViewSolutions(props) {
                         <DefaultAnswerBtn
                           isClicked={isClicked}
                           showIcon={setIsCorrectOrWrong("optionA")?.showIcon}
-                          isSelected={
-                            isClicked &&
-                            setIsCorrectOrWrong("optionA")?.isCorrectOrWrong
-                          }
-                          onClick={() =>
-                            onSelectedOptionChange(
-                              "optionA",
-                              questionArray[questionNumber]
-                            )
-                          }
+                          isSelected={checkWrongOrRight(questionArray[questionNumber],"optionA")}
+                          isCorrectAnswer={questionArray[questionNumber].answer==="optionA"? isCorrect:""}
                         >
                           <span className="pr-6 sm:pr-8">a.</span>
 
@@ -319,16 +329,8 @@ function ViewSolutions(props) {
                         <DefaultAnswerBtn
                           isClicked={isClicked}
                           showIcon={setIsCorrectOrWrong("optionB")?.showIcon}
-                          isSelected={
-                            isClicked &&
-                            setIsCorrectOrWrong("optionB")?.isCorrectOrWrong
-                          }
-                          onClick={() =>
-                            onSelectedOptionChange(
-                              "optionB",
-                              questionArray[questionNumber]
-                            )
-                          }
+                          isSelected={checkWrongOrRight(questionArray[questionNumber],"optionB")}
+                          isCorrectAnswer={questionArray[questionNumber].answer==="optionB"? isCorrect:""}
                         >
                           <span className="pr-6 sm:pr-8">b.</span>
                           <span>
@@ -356,16 +358,8 @@ function ViewSolutions(props) {
                         <DefaultAnswerBtn
                           isClicked={isClicked}
                           showIcon={setIsCorrectOrWrong("optionC")?.showIcon}
-                          isSelected={
-                            isClicked &&
-                            setIsCorrectOrWrong("optionC")?.isCorrectOrWrong
-                          }
-                          onClick={() =>
-                            onSelectedOptionChange(
-                              "optionC",
-                              questionArray[questionNumber]
-                            )
-                          }
+                          isSelected={checkWrongOrRight(questionArray[questionNumber],"optionC")}
+                          isCorrectAnswer={questionArray[questionNumber].answer==="optionC"? isCorrect:""}
                         >
                           <span className="pr-6 sm:pr-8">c.</span>
                           <span>
@@ -393,16 +387,8 @@ function ViewSolutions(props) {
                         <DefaultAnswerBtn
                           isClicked={isClicked}
                           showIcon={setIsCorrectOrWrong("optionD")?.showIcon}
-                          isSelected={
-                            isClicked &&
-                            setIsCorrectOrWrong("optionD")?.isCorrectOrWrong
-                          }
-                          onClick={() =>
-                            onSelectedOptionChange(
-                              "optionD",
-                              questionArray[questionNumber]
-                            )
-                          }
+                          isSelected={checkWrongOrRight(questionArray[questionNumber],"optionD")}
+                          isCorrectAnswer={questionArray[questionNumber].answer==="optionD"? isCorrect:""}
                         >
                           <span className="pr-6 sm:pr-8">d.</span>
                           <span>
