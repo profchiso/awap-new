@@ -18,6 +18,7 @@ const initialState = {
   timedPracticeQuestions: [],
   isViewSolution: false,
   filterValue: "All",
+  justSubmittedQuestionAnswer: [],
   // hasTakenPqBefore: false,
   
 };
@@ -156,7 +157,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       let correct = allQuestionArray.filter(
         (q) =>
           q.answer === q.userSelectedAnswer &&
-          q.hasOwnProperty("userSelectedAnswer")
+          q?.hasOwnProperty("userSelectedAnswer")
       );
       console.log(payload, correct);
       return {

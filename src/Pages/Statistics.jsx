@@ -277,7 +277,7 @@ function Statistics(props) {
               </div>
             </div>
           ) : (
-            <h3>{`Your have not taken ${year} ${subject} ${questionType}`}</h3>
+            <h3>{`You have not taken ${year} ${subject} ${questionType}`}</h3>
           )}
         </div>
       </div>
