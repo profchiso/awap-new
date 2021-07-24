@@ -5,6 +5,7 @@ import {
   setHasTakenPqBefore,
   fetchPracticeQuestion,
   fetchPracticeQuestionTimed,
+  viewScoreByPraticeQuestionType,
 } from "../../redux/actions/practiceQuestion";
 
 function AnsweredBeforeContent(props) {
@@ -17,7 +18,7 @@ function AnsweredBeforeContent(props) {
   const handleRetakeExam = () => {
     props.setHasTakenPqBefore(false);
 
-    if ((questionType === "Timed")) {
+    if (questionType === "Timed") {
       props.fetchPracticeQuestionTimed(
         {
           subject: subject,
@@ -36,12 +37,16 @@ function AnsweredBeforeContent(props) {
     history.push(`/pq/subject-${questionType.toLowerCase()}`);
   };
 
+  const handleViewSolution = () => {
+    props.viewScoreByPraticeQuestionType(questionType);
+  };
+
   return (
     <div className="flex justify-center mb-24 pb-40 sm:pb-0">
       <div className="font-body flex flex-col gap-8 text-center mt-24 md:mt-16 px-6 sm:px-0">
-        <p className="text-md sm:text-xl md:text-2xl font-body">
+        <h3 className="text-md sm:text-xl md:text-2xl font-body">
           You've answered {questionType} {year} {subject} Past Questions before
-        </p>
+        </h3>
         <div className="flex justify-center items-center">
           <div className="flex items-center">
             <h3 className="md:text-lg xl:text-xl pl-3">
@@ -54,8 +59,9 @@ function AnsweredBeforeContent(props) {
             <div className="flex flex-col max-w-lg mx-auto text-base xl:text-lg">
               <div className="flex gap-3 justify-center">
                 <Link
-                  to="/stats"
+                  to="/pq/view-solution"
                   className="text-primary hover:text-primary p-2 font-mediu hover:underline"
+                  onClick={handleViewSolution}
                 >
                   View Solutions
                 </Link>
@@ -99,4 +105,5 @@ export default connect(mapStateToProps, {
   setHasTakenPqBefore,
   fetchPracticeQuestion,
   fetchPracticeQuestionTimed,
+  viewScoreByPraticeQuestionType,
 })(AnsweredBeforeContent);

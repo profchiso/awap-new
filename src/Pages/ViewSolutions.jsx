@@ -20,6 +20,7 @@ import {
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 // import { ReactComponent as PreviousIcon } from "../assets/svgs/PreviousIcon.svg";
 import { ReactComponent as NextBtn } from "../assets/svgs/NextBtn.svg";
+// import useKeyPress from "../Hooks/UseKeyPress";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff",
     borderRadius: 4,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    // padding: theme.spacing(2, 4, 3),
   },
   bottomNav: {
     width: "100%",
@@ -50,6 +51,8 @@ function ViewSolutions(props) {
   };
   const classes = useStyles();
   const { width } = useWindowDimensions();
+    // const leftArrow = useKeyPress("ArrowLeft");
+  // const rightArrow = useKeyPress("ArrowRight");
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
   const [isClicked, setisClicked] = useState(false);
@@ -188,6 +191,19 @@ function ViewSolutions(props) {
 
   const token = props?.loginReducer?.token;
 
+  //ARROW KEYS TO CHANGE QUESTION NUMBER
+  // useEffect(() => {
+  //   if (leftArrow && questionNumber >= 1) {
+  //     decreaseQuestionNumber(); //Done, only issue left is pagination not aligning, will have to create same but simple custom pagination
+  //     console.log("decreaseQuestionNumber");
+  //   }
+  //   if (rightArrow && questionNumber < questionArray.length) {
+  //     increaseQuestionNumber(); //Done, only issue left is pagination not aligning, will have to create same but simple custom pagination
+  //     console.log("increaseQuestionNumber");
+  //   }
+  // }, [leftArrow, rightArrow]);
+
+
   if (token) {
     return (
       <div className="sm:max-h-screen select-none" onContextMenu={disable}>
@@ -217,10 +233,10 @@ function ViewSolutions(props) {
             >
               <Fade in={open}>
                 <div
-                  className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+                  className={`${classes.paper} p-4 mx-3 flex outline-none text-center w-full max-w-xl`}
                 >
-                  <div className="py-12 flex-1 -mr-12">
-                    <h3>Done viewing solutions?</h3>
+                  <div className="py-2 sm:py-12 flex-1 -mr-12">
+                    <h3 className="pr-3">Done viewing solutions?</h3>
 
                     <div className="pt-10 pb-6 flex flex-col gap-5 items-center justify-center">
                       <Link
