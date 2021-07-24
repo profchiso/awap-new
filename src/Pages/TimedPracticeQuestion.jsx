@@ -205,16 +205,16 @@ function PracticeQuestion(props) {
   };
 
   //ARROW KEYS TO CHANGE QUESTION NUMBER
-  useEffect(() => {
-    if (leftArrow && questionNumber >= 1) {
-      decreaseQuestionNumber(); //Done, only issue left is pagination not aligning, will have to create same but simple custom pagination
-      console.log("decreaseQuestionNumber");
-    }
-    if (rightArrow && questionNumber < questionArray.length) {
-      increaseQuestionNumber(); //Done, only issue left is pagination not aligning, will have to create same but simple custom pagination
-      console.log("increaseQuestionNumber");
-    }
-  }, [leftArrow, rightArrow]);
+  // useEffect(() => {
+  //   if (leftArrow && questionNumber >= 1) {
+  //     decreaseQuestionNumber(); //Done, only issue left is pagination not aligning, will have to create same but simple custom pagination
+  //     console.log("decreaseQuestionNumber");
+  //   }
+  //   if (rightArrow && questionNumber < questionArray.length) {
+  //     increaseQuestionNumber(); //Done, only issue left is pagination not aligning, will have to create same but simple custom pagination
+  //     console.log("increaseQuestionNumber");
+  //   }
+  // }, [leftArrow, rightArrow]);
 
   if (token) {
     return (
