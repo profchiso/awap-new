@@ -43,7 +43,7 @@ function ChooseSubject(props) {
   const handleChange = async (event) => {
     setsubject(event.target.value);
     props.selectPastQuestionSubject(event.target.value);
-    props.selectPastQuestionPracticeType("Untimed Questions"); //the default
+    // props.selectPastQuestionPracticeType("Untimed Questions"); //the default
     props.selectPastQuestionYear(year) //default
     props.answeredQuestionFromSth({year, subject:event.target.value})
   };
