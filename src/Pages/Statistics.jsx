@@ -84,7 +84,7 @@ function Statistics(props) {
       history.push(`/pq/practice-untimed`);
     }
 
-  // history.push(`/pq/practice-${questionType.toLowerCase()}`);
+    // history.push(`/pq/practice-${questionType.toLowerCase()}`);
   };
 
   const [itemNumber, setitemNumber] = useState();
@@ -113,7 +113,7 @@ function Statistics(props) {
             <div className="flex gap-6 pt-4 text-base font-medium">
               <div
                 className={`cursor-pointer  ${
-                  !timedBoolean ? "pb-2 border-b px-2" : ""
+                  questionType === "Untimed" && "pb-2 border-b px-2"
                 }`}
                 onClick={() => {
                   setTimedBoolean(false);
@@ -126,7 +126,7 @@ function Statistics(props) {
               </div>
               <div
                 className={`cursor-pointer  ${
-                  timedBoolean ? "pb-2 border-b px-2" : ""
+                  questionType === "Timed" && "pb-2 border-b px-2"
                 }`}
                 onClick={() => {
                   setTimedBoolean(true);
