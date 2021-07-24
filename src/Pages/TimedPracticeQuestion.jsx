@@ -25,7 +25,7 @@ import { ReactComponent as NextBtn } from "../assets/svgs/NextBtn.svg";
 import AccessTimeRoundedIcon from "@material-ui/icons/AccessTimeRounded";
 import CountDownTimer from "../components/Timer/CountDownTimer";
 import { ReactComponent as AlarmClock } from "../assets/svgs/AlarmClock.svg";
-import useKeyPress from "../Hooks/UseKeyPress";
+// import useKeyPress from "../Hooks/UseKeyPress";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff",
     borderRadius: 4,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    // padding: theme.spacing(2, 4, 3),
   },
   bottomNav: {
     width: "100%",
@@ -56,8 +56,8 @@ function PracticeQuestion(props) {
   };
   const classes = useStyles();
   const { width } = useWindowDimensions();
-  const leftArrow = useKeyPress("ArrowLeft");
-  const rightArrow = useKeyPress("ArrowRight");
+  // const leftArrow = useKeyPress("ArrowLeft");
+  // const rightArrow = useKeyPress("ArrowRight");
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
   const [isClicked, setisClicked] = useState(false);
@@ -245,9 +245,9 @@ function PracticeQuestion(props) {
                 >
                   <Fade in={open}>
                     <div
-                      className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+                      className={`${classes.paper} p-4 mx-3 flex outline-none text-center w-full max-w-xl`}
                     >
-                      <div className="py-12 flex-1 -mr-12">
+                      <div className="py-2 sm:py-12 flex-1 -mr-12">
                         <h3>Time’s Up !</h3>
                         <div>
                           <AlarmClock className="mx-auto" />
@@ -279,9 +279,9 @@ function PracticeQuestion(props) {
               >
                 <Fade in={open}>
                   <div
-                    className={`${classes.paper} flex outline-none text-center w-full max-w-xl`}
+                    className={`${classes.paper} p-4 mx-3 flex outline-none text-center w-full max-w-xl`}
                   >
-                    <div className="py-12 flex-1 -mr-12">
+                    <div className="py-2 sm:py-12  flex-1 -mr-12">
                       <h3>Finish Past Question?</h3>
                       <p className="pt-8 font-medium">
                         Are you sure you want to end this past question?
@@ -290,7 +290,7 @@ function PracticeQuestion(props) {
                         <Link to="/stats">
                           <button
                             onClick={handleSubmit}
-                            className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                            className="text-white whitespace-nowrap bg-primary px-6 sm:px-12 font-body shadow-primary  py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
                           >
                             Yes, Submit
                           </button>
@@ -298,7 +298,7 @@ function PracticeQuestion(props) {
 
                         <button
                           onClick={() => handleClose("ok")}
-                          className="text-primary  px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                          className="text-primary font-body shadow-primary px-6 sm:px-12 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
                         >
                           No, Cancel
                         </button>
