@@ -5,6 +5,7 @@ import {
   setHasTakenPqBefore,
   fetchPracticeQuestion,
   fetchPracticeQuestionTimed,
+  viewScoreByPraticeQuestionType,
 } from "../../redux/actions/practiceQuestion";
 
 function AnsweredBeforeContent(props) {
@@ -17,7 +18,7 @@ function AnsweredBeforeContent(props) {
   const handleRetakeExam = () => {
     props.setHasTakenPqBefore(false);
 
-    if ((questionType === "Timed")) {
+    if (questionType === "Timed") {
       props.fetchPracticeQuestionTimed(
         {
           subject: subject,
@@ -34,6 +35,10 @@ function AnsweredBeforeContent(props) {
       );
     }
     history.push(`/pq/subject-${questionType.toLowerCase()}`);
+  };
+
+  const handleViewSolution = () => {
+    props.viewScoreByPraticeQuestionType(questionType);
   };
 
   return (
@@ -54,8 +59,9 @@ function AnsweredBeforeContent(props) {
             <div className="flex flex-col max-w-lg mx-auto text-base xl:text-lg">
               <div className="flex gap-3 justify-center">
                 <Link
-                  to="/stats"
+                  to="/pq/view-solution"
                   className="text-primary hover:text-primary p-2 font-mediu hover:underline"
+                  onClick={handleViewSolution}
                 >
                   View Solutions
                 </Link>
@@ -99,4 +105,5 @@ export default connect(mapStateToProps, {
   setHasTakenPqBefore,
   fetchPracticeQuestion,
   fetchPracticeQuestionTimed,
+  viewScoreByPraticeQuestionType,
 })(AnsweredBeforeContent);
