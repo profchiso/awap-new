@@ -251,6 +251,12 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
   
 
     }
+  }else if(type==="JUST_ANSWERED_QUESTION_ARRAY"){
+    return{
+      ...state,
+      justSubmittedQuestionAnswer:payload
+    }
+
   }
   // else if (type === "ANSWERED_SAME_PQ_BEFORE"){
   //   return{

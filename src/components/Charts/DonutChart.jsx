@@ -13,7 +13,7 @@ const colors = [
 ];
 
 function DonutChart(props) {
-  const { questionArray } = props.practiceQuestionReducer;
+  const { questionArray,justSubmittedQuestionAnswer } = props.practiceQuestionReducer;
   const { width } = useWindowDimensions();
   //Beninging
   const { subject, year } = props.practiceQuestionReducer;
@@ -36,19 +36,22 @@ function DonutChart(props) {
 
   //Endinging
 
-  let correctAnswers = submittedQuestionArray?.filter(
+  //my modification get data from justSubmittedQuestionAnswer 
+  // switch submittedQuestionArray to justSubmittedQuestionAnswer
+
+  let correctAnswers = justSubmittedQuestionAnswer?.filter(
     (item) => item.userSelectedAnswer === item.answer
   );
-  let wrongAnswers = submittedQuestionArray?.filter(
+  let wrongAnswers = justSubmittedQuestionAnswer?.filter(
     (item) => item.userSelectedAnswer !== item.answer
   );
   // let unAnswered = questionArray?.filter((item) => !item.userSelectedAnswer);
-  let unAnswered = questionArray?.filter((item) => !item.userSelectedAnswer);
+  let unAnswered = justSubmittedQuestionAnswer?.filter((item) => !item.userSelectedAnswer);
 
   let correctAnswersCount = correctAnswers?.length;
   let wrongAnswersCount = wrongAnswers?.length;
   let unAnwseredQuestionsCount = unAnswered?.length;
-  let totalQuestionsCount = questionArray?.length;
+  let totalQuestionsCount = justSubmittedQuestionAnswer?.length;
 
   const data = [
     { name: "Unanswered Questions", value: unAnwseredQuestionsCount },
