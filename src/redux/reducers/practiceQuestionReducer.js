@@ -18,6 +18,7 @@ const initialState = {
   timedPracticeQuestions: [],
   isViewSolution: false,
   filterValue: "All",
+  justSubmittedQuestionAnswer: [],
   // hasTakenPqBefore: false,
   
 };
@@ -90,17 +91,32 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       submittedAnswers: payload.data.submitedPracticeQuestion,
       untimedPracticeQuestions: payload.data.untimedPracticeQuestions,
       timedPracticeQuestions: payload.data.timedPracticeQuestions,
+      justSubmittedQuestionAnswer:payload.data.submitedPracticeQuestion
+
     };
   } else if (type === "ON_SIDENAV_YEAR_CHANGE") {
-    let updatedQuestionAndArray = state.untimedPracticeQuestions.filter(
+   let updatedQuestionAndArray=[]
+
+   if(state.questionType.includes("Untimed")){
+    updatedQuestionAndArray = state.untimedPracticeQuestions.filter(
       (practiceQuestion) =>
         Number(practiceQuestion.year) === Number(payload.year) &&
         practiceQuestion.subject === payload.subject
     );
+
+   }else{
+
+    updatedQuestionAndArray = state.timedPracticeQuestions.filter(
+      (practiceQuestion) =>
+        Number(practiceQuestion.year) === Number(payload.year) &&
+        practiceQuestion.subject === payload.subject
+    );
+   }
     return {
       ...state,
       questionArray: updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers,
       isViewSolution: false,
+      justSubmittedQuestionAnswer:updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers
     };
   } 
   else if (type === "IS_VIEW_SOLUTION") {
@@ -156,7 +172,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       let correct = allQuestionArray.filter(
         (q) =>
           q.answer === q.userSelectedAnswer &&
-          q.hasOwnProperty("userSelectedAnswer")
+          q?.hasOwnProperty("userSelectedAnswer")
       );
       console.log(payload, correct);
       return {
@@ -236,6 +252,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
         ...state,
         questionType:"Timed Questions",
         questionArray: timeScore.length? timeScore[0].submittedQuestionsAndAnswers :[],
+        justSubmittedQuestionAnswer:timeScore.length? timeScore[0].submittedQuestionsAndAnswers :[],
       };
   
     }else{
@@ -246,10 +263,17 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
         ...state,
         questionType:"Untimed Questions",
         questionArray: untimedScore.length? untimedScore[0].submittedQuestionsAndAnswers:[],
+        justSubmittedQuestionAnswer:untimedScore.length? untimedScore[0].submittedQuestionsAndAnswers:[],
       };
   
 
     }
+  }else if(type==="JUST_ANSWERED_QUESTION_ARRAY"){
+    return{
+      ...state,
+      justSubmittedQuestionAnswer:payload
+    }
+
   }
   // else if (type === "ANSWERED_SAME_PQ_BEFORE"){
   //   return{

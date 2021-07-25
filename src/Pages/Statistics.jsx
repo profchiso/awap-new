@@ -113,7 +113,7 @@ function Statistics(props) {
             <div className="flex gap-6 pt-4 text-base font-medium">
               <div
                 className={`cursor-pointer  ${
-                  questionType === "Untimed" && "pb-2 border-b px-2"
+                  questionType.includes("Untimed") && "pb-2 border-b px-2"
                 }`}
                 onClick={() => {
                   setTimedBoolean(false);
@@ -126,7 +126,7 @@ function Statistics(props) {
               </div>
               <div
                 className={`cursor-pointer  ${
-                  questionType === "Timed" && "pb-2 border-b px-2"
+                  !questionType.includes("Untimed") && "pb-2 border-b px-2"
                 }`}
                 onClick={() => {
                   setTimedBoolean(true);
@@ -277,7 +277,7 @@ function Statistics(props) {
               </div>
             </div>
           ) : (
-            <h3>{`Your have not taken ${year} ${subject} ${questionType}`}</h3>
+            <h3>{`You have not taken ${year} ${subject} ${questionType}`}</h3>
           )}
         </div>
       </div>

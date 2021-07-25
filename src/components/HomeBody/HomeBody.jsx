@@ -377,11 +377,11 @@ function HomeBody(props) {
             </div>
           </div>
           {token ? (
-            <Link to="/">
-              <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-16 font-body rounded-full">
+            // <Link to="/">
+              <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-16 font-body rounded-full" onClick={handleOpen}>
                 Invite a Friend
               </button>
-            </Link>
+            // </Link>
           ) : (
             <Link to="/sign-up">
               <button className="text-white bg-primary text-md lg:text-lg py-4 mt-8 md:mt-32 px-20 font-body rounded-full">

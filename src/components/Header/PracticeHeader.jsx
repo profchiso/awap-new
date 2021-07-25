@@ -91,7 +91,7 @@ function PracticeHeader({
             {width > 300 ? (
               <span className="sm:hidden inline-block pr-1">PQ</span>
             ) : null}
-            <span className="capitalize">{props?.pathName}</span>
+            <span className="capitalize">{" "}{props?.pathName}</span>
           </span>
         </div>
         <div className="hidden sm:flex items-center  font-body">

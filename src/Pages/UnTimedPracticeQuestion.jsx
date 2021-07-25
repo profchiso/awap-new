@@ -16,6 +16,7 @@ import {
   addSelectedAnswerToArray,
   submitUserAnswers,
   isViewSolution,
+  justAnsweredQuestionArray
 } from "../redux/actions/practiceQuestion";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 // import { ReactComponent as PreviousIcon } from "../assets/svgs/PreviousIcon.svg";
@@ -168,6 +169,7 @@ function PracticeQuestion(props) {
     });
 
     submissionData.submittedQuestionsAndAnswers = filteredArr;
+    props.justAnsweredQuestionArray(filteredArr)
 
     props.submitUserAnswers(submissionData, token);
   };
@@ -463,4 +465,5 @@ export default connect(mapStateToProps, {
   addSelectedAnswerToArray,
   submitUserAnswers,
   isViewSolution,
+  justAnsweredQuestionArray
 })(PracticeQuestion);

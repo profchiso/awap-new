@@ -153,7 +153,7 @@ function ViewSolutions(props) {
   };
 
   const checkWrongOrRight=(question,option)=>{
-    if(question.hasOwnProperty("userSelectedAnswer")){
+    if(question?.hasOwnProperty("userSelectedAnswer")){
        console.log(question)
       if(question.answer===question.userSelectedAnswer && option===question.answer){
         return isCorrect

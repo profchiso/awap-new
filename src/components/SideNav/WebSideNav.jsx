@@ -37,7 +37,8 @@ function WebSideNav(props) {
   const handleAnotherYear = (item, subject) => {
     setYearNav(item);
     props.selectPastQuestionYear(item);
-    props.selectPastQuestionPracticeType("Untimed Questions");
+    // props.selectPastQuestionPracticeType("Untimed Questions");
+    props.selectPastQuestionPracticeType(questionType);
     props.onSideNavYearChange(item, subject)
     // props.fetchPracticeQuestion(
     //   { subject: subject.toLowerCase(), year },
