@@ -91,32 +91,38 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       submittedAnswers: payload.data.submitedPracticeQuestion,
       untimedPracticeQuestions: payload.data.untimedPracticeQuestions,
       timedPracticeQuestions: payload.data.timedPracticeQuestions,
-      justSubmittedQuestionAnswer:payload.data.submitedPracticeQuestion
+      //justSubmittedQuestionAnswer:payload.data.submitedPracticeQuestion
 
     };
   } else if (type === "ON_SIDENAV_YEAR_CHANGE") {
-   let updatedQuestionAndArray=[]
+  //  let updatedQuestionAndArray=[]
 
-   if(state.questionType.includes("Untimed")){
-    updatedQuestionAndArray = state.untimedPracticeQuestions.filter(
-      (practiceQuestion) =>
-        Number(practiceQuestion.year) === Number(payload.year) &&
-        practiceQuestion.subject === payload.subject
-    );
+  //  if(state.questionType.includes("Untimed")){
+  //   updatedQuestionAndArray = state.untimedPracticeQuestions.filter(
+  //     (practiceQuestion) =>
+  //       Number(practiceQuestion.year) === Number(payload.year) &&
+  //       practiceQuestion.subject === payload.subject
+  //   );
 
-   }else{
+  //  }else{
 
-    updatedQuestionAndArray = state.timedPracticeQuestions.filter(
-      (practiceQuestion) =>
-        Number(practiceQuestion.year) === Number(payload.year) &&
-        practiceQuestion.subject === payload.subject
-    );
-   }
+  //   updatedQuestionAndArray = state.timedPracticeQuestions.filter(
+  //     (practiceQuestion) =>
+  //       Number(practiceQuestion.year) === Number(payload.year) &&
+  //       practiceQuestion.subject === payload.subject
+  //   );
+  //  }
+
+  let  updatedQuestionAndArray = state.timedPracticeQuestions.filter(
+    (practiceQuestion) =>
+      Number(practiceQuestion.year) === Number(payload.year) &&
+      practiceQuestion.subject === payload.subject
+  );
     return {
       ...state,
       questionArray: updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers,
       isViewSolution: false,
-      justSubmittedQuestionAnswer:updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers
+      //justSubmittedQuestionAnswer:updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers
     };
   } 
   else if (type === "IS_VIEW_SOLUTION") {
