@@ -91,7 +91,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       submittedAnswers: payload.data.submitedPracticeQuestion,
       untimedPracticeQuestions: payload.data.untimedPracticeQuestions,
       timedPracticeQuestions: payload.data.timedPracticeQuestions,
-      //justSubmittedQuestionAnswer:payload.data.submitedPracticeQuestion
+     // justSubmittedQuestionAnswer:payload.data.submitedPracticeQuestion
 
     };
   } else if (type === "ON_SIDENAV_YEAR_CHANGE") {
