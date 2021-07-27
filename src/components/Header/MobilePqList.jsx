@@ -7,6 +7,7 @@ import {selectPastQuestionSubject} from "../../redux/actions/practiceQuestion"
 function MobilePqList(props) {
   return (
     <div className="mt-8">
+      <p className="p-3 ml-5 text-base">Choose a Subject</p>
       <div className="bg-f8 p-4 max-w-xs mx-auto">
         <MenuItem
           className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"

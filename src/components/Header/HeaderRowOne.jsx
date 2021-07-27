@@ -58,7 +58,7 @@ function HeaderRowOne({
 
   return (
     <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
-      <div className="flex items-center my-5">
+      <div className="flex items-center my-3">
         <div className="transform md:scale-80 scale-70 hidden md:block">
           <Link to="/">
             <AwesumEdgeLogo />

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { questionArray } from "../../DB/dummyQuestion";
 import { BASE_URL, requestHeaders } from "./config";
 import {
   TIME_REMAINING,
@@ -16,6 +17,7 @@ import {
   ANSWERED_QUESTION_FROM_STH,
   ANSWERED_SAME_PQ_BEFORE,
   VIEW_SCORE_BY_PRACTICE_QUESTION_TYPE,
+  JUST_ANSWERED_QUESTION_ARRAY
 } from "./types";
 // import * as actionTypes from "./types";
 
@@ -191,4 +193,11 @@ export const setHasTakenPqBefore =(bool)=>{
 }
 export const viewScoreByPraticeQuestionType=(practiceQuestionType)=>{
   return{ type:VIEW_SCORE_BY_PRACTICE_QUESTION_TYPE,payload:practiceQuestionType}
+}
+export const justAnsweredQuestionArray=(questionArray)=>{
+
+  return{
+    type:JUST_ANSWERED_QUESTION_ARRAY,
+    payload:questionArray
+  }
 }

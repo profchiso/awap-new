@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.b16053ae.chunk.css",
-    "main.js": "/static/js/main.e153eb2b.chunk.js",
-    "main.js.map": "/static/js/main.e153eb2b.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.3d138d5b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.3d138d5b.js.map",
+    "main.css": "/static/css/main.bcc985b4.chunk.css",
+    "main.js": "/static/js/main.ab5d46ee.chunk.js",
+    "main.js.map": "/static/js/main.ab5d46ee.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d2569895.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d2569895.js.map",
     "static/css/2.ba359e8e.chunk.css": "/static/css/2.ba359e8e.chunk.css",
-    "static/js/2.e41a69e9.chunk.js": "/static/js/2.e41a69e9.chunk.js",
-    "static/js/2.e41a69e9.chunk.js.map": "/static/js/2.e41a69e9.chunk.js.map",
-    "static/js/3.6f670241.chunk.js": "/static/js/3.6f670241.chunk.js",
-    "static/js/3.6f670241.chunk.js.map": "/static/js/3.6f670241.chunk.js.map",
+    "static/js/2.e02e1945.chunk.js": "/static/js/2.e02e1945.chunk.js",
+    "static/js/2.e02e1945.chunk.js.map": "/static/js/2.e02e1945.chunk.js.map",
+    "static/js/3.b597ca57.chunk.js": "/static/js/3.b597ca57.chunk.js",
+    "static/js/3.b597ca57.chunk.js.map": "/static/js/3.b597ca57.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.ba359e8e.chunk.css.map": "/static/css/2.ba359e8e.chunk.css.map",
-    "static/css/main.b16053ae.chunk.css.map": "/static/css/main.b16053ae.chunk.css.map",
-    "static/js/2.e41a69e9.chunk.js.LICENSE.txt": "/static/js/2.e41a69e9.chunk.js.LICENSE.txt",
+    "static/css/main.bcc985b4.chunk.css.map": "/static/css/main.bcc985b4.chunk.css.map",
+    "static/js/2.e02e1945.chunk.js.LICENSE.txt": "/static/js/2.e02e1945.chunk.js.LICENSE.txt",
     "static/media/AlarmClock.fec8e166.svg": "/static/media/AlarmClock.fec8e166.svg",
     "static/media/AplusIcon.e752beba.svg": "/static/media/AplusIcon.e752beba.svg",
     "static/media/AwesumBook.ca3b9001.svg": "/static/media/AwesumBook.ca3b9001.svg",
@@ -51,10 +51,10 @@
     "static/media/wrongIcon.c2d3312b.svg": "/static/media/wrongIcon.c2d3312b.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.3d138d5b.js",
+    "static/js/runtime-main.d2569895.js",
     "static/css/2.ba359e8e.chunk.css",
-    "static/js/2.e41a69e9.chunk.js",
-    "static/css/main.b16053ae.chunk.css",
-    "static/js/main.e153eb2b.chunk.js"
+    "static/js/2.e02e1945.chunk.js",
+    "static/css/main.bcc985b4.chunk.css",
+    "static/js/main.ab5d46ee.chunk.js"
   ]
 }
