@@ -101,8 +101,8 @@ function PersonalInfo(props) {
               id="outlined-basic"
               variant="outlined"
               className="w-full"
-              value={firstName}
-              onChange={()=>handleChange("firstName")}
+              value={updateData.firstName}
+              onChange={handleChange("firstName")}
             />
           </div>
           <div className="w-full mt-6">
@@ -111,8 +111,8 @@ function PersonalInfo(props) {
               id="outlined-basic"
               variant="outlined"
               className="w-full"
-              value={lastName}
-              onChange={()=>handleChange("lastName")}
+              value={updateData.lastName}
+              onChange={handleChange("lastName")}
             />
           </div>
           <div className="w-full mt-6">
@@ -132,7 +132,7 @@ function PersonalInfo(props) {
               data-cy="user-phone"
               defaultCountry={"ng"}
               variant="outlined"
-              value={phone}
+              value={updateData.phoneNumber}
               onChange={handlePhoneChange}
               autoComplete="phone-number"
               className="w-full"

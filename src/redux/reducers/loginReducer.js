@@ -70,6 +70,7 @@ export const loginReducer = (state = initialState, actions) => {
             error,
         };
     } else if (type === "SAVE_UPDATED_PROFILE_DATA_TO_STATE") {
+        console.log(payload)
 
         const { avatar, firstName, lastName, email, phoneNumber } = payload.data.user
 
