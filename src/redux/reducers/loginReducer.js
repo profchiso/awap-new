@@ -3,6 +3,12 @@ const initialState = {
     user: {},
     error: { message: "" },
     isAuthenticated: false,
+    avatar: "",
+    firstName: "",
+    lastName: "",
+    role: "",
+    email: "",
+    phoneNumber: ""
 };
 
 export const loginReducer = (state = initialState, actions) => {
@@ -54,6 +60,23 @@ export const loginReducer = (state = initialState, actions) => {
 
 
         };
+    } else if (type === "SAVE_UPDATED_PROFILE_DATA_TO_STATE") {
+        //saveLoginUserDataToState(payload)
+
+        console.log(payload)
+
+        const { avatar, firstName, lastName, email, phoneNumber } = payload.data.user
+
+        return {
+            ...state,
+            user: payload.data.user,
+            avatar,
+            firstName,
+            lastName,
+            email,
+            phoneNumber: phoneNumber || ""
+
+        }
     }
 
     return state;

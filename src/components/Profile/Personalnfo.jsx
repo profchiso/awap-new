@@ -6,7 +6,8 @@ import IconButton from "@material-ui/core/IconButton";
 import { ReactComponent as DeleteIcon } from "../../assets/svgs/DeleteIcon.svg";
 import TextField from "@material-ui/core/TextField";
 import MaterialUiPhoneNumber from "material-ui-phone-number";
-import { updateAvatar } from "../../redux/actions/profile";
+import {saveLoginUserDataToState,updateProfile } from "../../redux/actions/login";
+import { updateAvatar, } from "../../redux/actions/profile";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,22 +24,29 @@ const useStyles = makeStyles((theme) => ({
 
 function PersonalInfo(props) {
   const classes = useStyles();
-  const { user } = props.loginReducer;
+  const { user,token,firstName,lastName, avatar,email,phoneNumber } = props.loginReducer;
+  
   const [img, setImg] = useState({ avatar: "" });
   const [phone, setphone] = useState("");
+  const [updateData, setUpdateData]= useState({})
 
-  const handleImgChange = (event) => {
-    const data = new FormData() 
-    
-    console.log(data)
-    setImg({ avatar: URL.createObjectURL(event.target.files[0]) });
-    console.log("url", URL.createObjectURL(event.target.files[0]));
-
-    data.append('file', event.target.files[0])
-
-    // console.log("event", event.target.files[0]);
-    // props.updateAvatar(event.target.files[0]);
+  const handleImgChange = async(event) => {
+    const data = new FormData()
+    data.append("avatar",event.target.files[0])
+    data.append("avatarName",event.target.files[0].name)
+    await props.updateProfile(data,token)
   };
+
+  const handleProfileUpdate= async()=>{
+    const data = new FormData()
+    data.append('avatar', updateData.avatar)
+    data.append("firstName","Chinedu1");
+    data.append("lastName","Okorie1");
+
+    // console.log(data)
+    //console.log(updateData)
+  
+  }
   const handleDeleteImg = () => {
     setImg({});
   };
@@ -54,7 +62,7 @@ function PersonalInfo(props) {
           <div className={classes.root}>
             <Avatar
               // src={user.avatar !== "" ? user.avatar : img}
-              src={user.avatar !== "" ? user.avatar : img.avatar}
+              src={avatar !== "" ?avatar : img.avatar}
               className={classes.xlarge}
             />
           </div>
@@ -95,7 +103,7 @@ function PersonalInfo(props) {
               id="outlined-basic"
               variant="outlined"
               className="w-full"
-              value={user.firstName}
+              value={firstName}
             />
           </div>
           <div className="w-full mt-6">
@@ -104,7 +112,7 @@ function PersonalInfo(props) {
               id="outlined-basic"
               variant="outlined"
               className="w-full"
-              value={user.lastName}
+              value={lastName}
             />
           </div>
           <div className="w-full mt-6">
@@ -112,7 +120,7 @@ function PersonalInfo(props) {
             <TextField
               id="outlined-basic"
               variant="outlined"
-              value={user.email}
+              value={email}
               className="w-full"
               disabled
             />
@@ -132,7 +140,7 @@ function PersonalInfo(props) {
             />
           </div>
 
-          <button className="bg-gradient-to-r from-ansBlue2 to-ansBlue3 p-3 text-white mt-12 font-body font-medium text-base rounded w-full">
+          <button onClick={handleProfileUpdate} className="bg-gradient-to-r from-ansBlue2 to-ansBlue3 p-3 text-white mt-12 font-body font-medium text-base rounded w-full">
             Save Changes
           </button>
         </div>
@@ -146,4 +154,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, { updateAvatar })(PersonalInfo);
+export default connect(mapStateToProps, { updateAvatar,updateProfile,saveLoginUserDataToState})(PersonalInfo);
