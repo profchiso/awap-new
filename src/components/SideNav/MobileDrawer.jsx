@@ -44,7 +44,7 @@ const useStyles = makeStyles({
 function TemporaryDrawer({ loginReducer,logout, blueMenu, ...props }) {
  
   const classes = useStyles();
-  const { user } = loginReducer;
+  const { user, token } = loginReducer;
   // const [isLoggedIn,setIsLoggedIn]= React.useState(true)
  
 
@@ -94,7 +94,7 @@ function TemporaryDrawer({ loginReducer,logout, blueMenu, ...props }) {
       <Divider />
 
       <List className={classes.listTwoClass}>
-        <Link to="/">
+        <Link to={token?"/profile":"/"}>
           <ListItem button className="flex">
             <ListItemIcon className={classes.avatarClass}>
               <CircleUserAvatar imgUrl={user.avatar!=""? user.avatar:""}/>

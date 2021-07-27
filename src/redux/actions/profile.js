@@ -2,7 +2,6 @@ import axios from "axios";
 import { BASE_URL, requestHeaders } from "./config";
 import * as actionTypes from "./types";
 
-
 export const updateAvatar = (userAvatar) => {
   return async (dispatch) => {
     try {
@@ -21,18 +20,39 @@ export const updateAvatar = (userAvatar) => {
   };
 };
 
+export const updatePassword = (passwordData, token) => {
+  return async (dispatch) => {
+    try {
+      const profilePassData = await axios.patch(
+        `${BASE_URL}users/update-password`,
+        passwordData,
+        {
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      profilePassData.status === 200 &&
+        dispatch(saveProfileDataToState(profilePassData.data));
+    } catch (error) {
+      console.log("profile error", error);
+      dispatch(profileError(error.response.data));
+    }
+  };
+};
 
 export const saveProfileDataToState = (data) => {
-    return {
-      type: actionTypes.SAVE_PROFILE_DATA_TO_STATE,
-      payload: data,
-    };
+  return {
+    type: actionTypes.SAVE_PROFILE_DATA_TO_STATE,
+    payload: data,
   };
+};
 
-
-  export const profileError = (error) => {
-    return {
-      type: actionTypes.PROFILE_ERROR,
-      payload: error,
-    };
+export const profileError = (error) => {
+  return {
+    type: actionTypes.PROFILE_ERROR,
+    payload: error,
   };
+};

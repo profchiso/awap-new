@@ -49,8 +49,8 @@ function PersonalInfo(props) {
   };
   return (
     <div className="max-w-2xl pt-6 pb-10 px-6" onClick={props.onClick}>
-      <div className="flex w-full">
-        <div className="w-full max-w-ts3 relative">
+      <div className="flex flex-col sm:flex-row w-full">
+        <div className="w-full max-w-ts3 relative mx-auto sm:mx-0">
           <div className={classes.root}>
             <Avatar
               // src={user.avatar !== "" ? user.avatar : img}

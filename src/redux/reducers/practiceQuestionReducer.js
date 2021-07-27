@@ -111,7 +111,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     let allQuestions = untimedPracticeQuestions.filter(
       (q) => Number(q.year) === Number(year) && q.subject === subject
     );
-    let allQuestionArray = allQuestions[0].submittedQuestionsAndAnswers;
+    let allQuestionArray = allQuestions[0]?.submittedQuestionsAndAnswers;
 
     let questionWithoutAnswers = allQuestionArray.map((element) => {
       delete element.userSelectedAnswer;
@@ -144,7 +144,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     let allQuestions = untimedPracticeQuestions.filter(
       (q) => Number(q.year) === Number(year) && q.subject === subject
     );
-    let allQuestionArray = allQuestions[0].submittedQuestionsAndAnswers;
+    let allQuestionArray = allQuestions[0]?.submittedQuestionsAndAnswers;
 
     if (payload === "showAll") {
       return {
@@ -196,7 +196,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     let allQuestions = untimedPracticeQuestions.filter(
       (q) => Number(q.year) === Number(year) && q.subject === subject
     );
-    let allQuestionArray = allQuestions[0].submittedQuestionsAndAnswers;
+    let allQuestionArray = allQuestions[0]?.submittedQuestionsAndAnswers;
 
     let questionWithoutAnswers = allQuestionArray.map((element) => {
       delete element.userSelectedAnswer;
@@ -214,7 +214,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       (q) =>
         Number(q.year) === Number(payload.year) && q.subject === payload.subject
     );
-    let allQuestionArray = allQuestions[0].submittedQuestionsAndAnswers;
+    let allQuestionArray = allQuestions[0]?.submittedQuestionsAndAnswers;
 
     return {
       ...state,
@@ -236,7 +236,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       return {
         ...state,
         questionType:"Timed Questions",
-        questionArray: timeScore.length? timeScore[0].submittedQuestionsAndAnswers :[],
+        questionArray: timeScore.length? timeScore[0]?.submittedQuestionsAndAnswers :[],
       };
   
     }else{
@@ -246,7 +246,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       return {
         ...state,
         questionType:"Untimed Questions",
-        questionArray: untimedScore.length? untimedScore[0].submittedQuestionsAndAnswers:[],
+        questionArray: untimedScore.length? untimedScore[0]?.submittedQuestionsAndAnswers:[],
       };
   
 

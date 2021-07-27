@@ -167,6 +167,8 @@ module.exports = {
       '0': '0',
       'badge': '2rem',
       'icon': '3rem',
+      'ts': "6rem",
+      'xs2': "11rem",
       'xs1': "18rem",
       'xs': "20rem",
       'md': "30rem",

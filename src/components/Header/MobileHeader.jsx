@@ -1,6 +1,6 @@
 import React from 'react'
 import Search from '../Search/Search';
-import TemporaryDrawer from '../Drawer/Drawer';
+import TemporaryDrawer from '../SideNav/MobileDrawer';
 
 
 export default function MobileHeader() {

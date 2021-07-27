@@ -14,7 +14,7 @@ export const loginReducer = (state = initialState, actions) => {
     ) {
         localStorage.setItem('token', JSON.stringify(payload.data.accessToken));
         localStorage.setItem('user', JSON.stringify(payload.data.user));
-        let error = {}
+        let error = null
         return {
             ...state,
             token: payload.data.accessToken,
@@ -46,7 +46,7 @@ export const loginReducer = (state = initialState, actions) => {
 
         };
     } else if (type === 'CLEAR_LOGIN_RELATED_ERROR') {
-        let error = {};
+        let error = null;
 
         return {
             ...state,

@@ -30,8 +30,8 @@ function Profile(props) {
         )}
         <div className=" max-w-screen-xl mx-auto h-full">
           <Router>
-            <div className="flex gap-12 justify-center pt-10 pb-12">
-              <div className="flex flex-col gap-3 text-gray-700 font-medium">
+            <div className="flex flex-col md:flex-row gap-12 justify-center pt-10 px-4 sm:px-10 pb-12">
+              <div className="flex flex-col gap-3 text-gray-700 font-medium min-w-xs2 max-w-9/10">
                 <p className="pl-4">ACCOUNT</p>
                 <NavLink
                   to="/profile"
@@ -56,7 +56,7 @@ function Profile(props) {
                   Password
                 </NavLink>
               </div>
-              <div className="bg-white shadow-sm w-full rounded max-w-2xl">
+              <div className="bg-white shadow-sm w-full rounded max-w-2xl mb-24 sm:mb-0">
                 <Route exact path="/profile">
                   <PersonalInfo />
                 </Route>

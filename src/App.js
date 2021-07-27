@@ -14,10 +14,8 @@ import ChooseYear from "./Pages/ChooseYear";
 import UntimedPQ from "./Pages/UntimedPQ";
 import TimedPQ from "./Pages/TimedPQ";
 import ChooseType from "./Pages/ChooseType";
-import Answers from "./Pages/Answers/BiologyAnswers";
 import UntimedPracticeQuestion from "./Pages/UnTimedPracticeQuestion";
 import TimedPracticeQuestion from "./Pages/TimedPracticeQuestion";
-import { biologyPQYear } from "./DB/BiologyPQ";
 import MobilePq from "./Pages/MobilePq";
 import Statistics from "./Pages/Statistics";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
@@ -108,11 +106,6 @@ export default function App() {
               {/* TODO */}
               {/* <Route path="/change-password" component={ChangePassword} /> */}
 
-              {biologyPQYear.map((item, index) => (
-                <ProtectedRoute key={index} path={item.url}>
-                  <Answers />
-                </ProtectedRoute>
-              ))}
               <Route path="/under-construction" component={UnderConstruction} />
 
               <Route path="*" component={Unavailable} />

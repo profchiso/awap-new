@@ -20,7 +20,7 @@ export const login = (userData) => {
         dispatch(saveLoginUserDataToState(loggedInUser.data));
     } catch (error) {
       console.log("login error", error);
-      dispatch(loginError(error.response.data));
+      dispatch(loginError(error.response?.data));
     }
   };
 };

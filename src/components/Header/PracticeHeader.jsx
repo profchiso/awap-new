@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { Button, Menu, MenuItem } from "@material-ui/core";
 import { FiLogOut } from "react-icons/fi";
 import { makeStyles } from "@material-ui/core/styles";
-import TemporaryDrawer from "../Drawer/Drawer";
+import TemporaryDrawer from "../SideNav/MobileDrawer";
 import useWindowDimensions from "../../Hooks/UseWindowDimension";
 import { logout } from "../../redux/actions/login";
 import { BiUser } from "react-icons/bi";

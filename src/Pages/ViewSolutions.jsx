@@ -155,15 +155,15 @@ function ViewSolutions(props) {
   const checkWrongOrRight=(question,option)=>{
     if(question?.hasOwnProperty("userSelectedAnswer")){
        console.log(question)
-      if(question.answer===question.userSelectedAnswer && option===question.answer){
+      if(question?.answer===question.userSelectedAnswer && option===question?.answer){
         return isCorrect
 
-      }else if(question.answer!==question.userSelectedAnswer && option===question.userSelectedAnswer){
+      }else if(question?.answer!==question.userSelectedAnswer && option===question.userSelectedAnswer){
         return isWrong
-      }else if(question.answer!==question.userSelectedAnswer && option!==question.userSelectedAnswer){
+      }else if(question?.answer!==question.userSelectedAnswer && option!==question.userSelectedAnswer){
         return
       }
-    }else if(option===question.answer){
+    }else if(option===question?.answer){
       console.log(question)
       return isCorrect
 

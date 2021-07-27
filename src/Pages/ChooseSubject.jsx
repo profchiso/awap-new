@@ -85,13 +85,13 @@ function ChooseSubject(props) {
               </div>
             </div>
             <div>
-              {subject ? (
+              {subject === "Biology"? (
                 <Link to="/stats">
                   <button className="text-white bg-primary font-body shadow-primary px-16 md:px-20 py-2 rounded-md focus:outline-none text-sm lg:text-base">
                     Next
                   </button>
                 </Link>
-              ) : null}
+              ) : <p className="text-base sm:text-lg md:text-xl">{subject} is not yet ready </p>}
             </div>
           </div>
         </div>
