@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { ReactComponent as DeleteIcon } from "../../assets/svgs/DeleteIcon.svg";
 import TextField from "@material-ui/core/TextField";
 import MaterialUiPhoneNumber from "material-ui-phone-number";
-import {saveLoginUserDataToState,updateProfile } from "../../redux/actions/login";
+import {saveLoginUserDataToState,updateProfileAvatar,updateProfileText } from "../../redux/actions/login";
 import { updateAvatar, } from "../../redux/actions/profile";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,24 +28,21 @@ function PersonalInfo(props) {
   
   const [img, setImg] = useState({ avatar: "" });
   const [phone, setphone] = useState("");
-  const [updateData, setUpdateData]= useState({})
+  const [updateData, setUpdateData]= useState({firstName,lastName,phoneNumber})
 
   const handleImgChange = async(event) => {
     const data = new FormData()
     data.append("avatar",event.target.files[0])
     data.append("avatarName",event.target.files[0].name)
-    await props.updateProfile(data,token)
+    await props.updateProfileAvatar(data,token)
+  };
+
+  const handleChange = (prop) => (event) => {
+    setUpdateData({ ...updateData, [prop]: event.target.value });
   };
 
   const handleProfileUpdate= async()=>{
-    const data = new FormData()
-    data.append('avatar', updateData.avatar)
-    data.append("firstName","Chinedu1");
-    data.append("lastName","Okorie1");
-
-    // console.log(data)
-    //console.log(updateData)
-  
+    await props.updateProfileText(updateData,token)
   }
   const handleDeleteImg = () => {
     setImg({});
@@ -53,6 +50,7 @@ function PersonalInfo(props) {
   const handlePhoneChange = (value) => {
     if (value) {
       setphone(value);
+      setUpdateData({ ...updateData, phoneNumber: value });
     }
   };
   return (
@@ -104,6 +102,7 @@ function PersonalInfo(props) {
               variant="outlined"
               className="w-full"
               value={firstName}
+              onChange={()=>handleChange("firstName")}
             />
           </div>
           <div className="w-full mt-6">
@@ -113,6 +112,7 @@ function PersonalInfo(props) {
               variant="outlined"
               className="w-full"
               value={lastName}
+              onChange={()=>handleChange("lastName")}
             />
           </div>
           <div className="w-full mt-6">
@@ -154,4 +154,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, { updateAvatar,updateProfile,saveLoginUserDataToState})(PersonalInfo);
+export default connect(mapStateToProps, { updateAvatar,updateProfileAvatar,saveLoginUserDataToState,updateProfileText})(PersonalInfo);

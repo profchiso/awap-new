@@ -124,7 +124,7 @@ export const populateProfileData = (user) => {
   };
 };
 
-export const updateProfile=(updateData,token)=>{
+export const updateProfileAvatar=(updateData,token)=>{
 
   return async (dispatch) => {
     try {
@@ -155,3 +155,31 @@ export const saveUpdatedProfileToState = (profileData) => {
     payload: profileData,
   };
 };
+
+
+
+export const updateProfileText=(updateData,token)=>{
+
+  return async (dispatch) => {
+    try {
+      const updatedProfileData = await axios.patch(
+        `${BASE_URL}users/update-me`,
+        updateData,
+        {
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      updatedProfileData.status === 200 &&
+        dispatch(saveUpdatedProfileToState(updatedProfileData.data));
+    } catch (error) {
+      console.log("profile error", error);
+      dispatch(profileError(error.response.data));
+    }
+  };
+}
+
+
+
