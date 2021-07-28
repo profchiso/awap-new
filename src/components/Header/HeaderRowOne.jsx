@@ -11,7 +11,8 @@ import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 import { Button, Menu, MenuItem } from "@material-ui/core";
 import { FiLogOut } from "react-icons/fi";
 import FilterModal from "./FilterModal";
-import { logout } from "../../redux/actions/login";
+import { logout,populateProfileData } from "../../redux/actions/login";
+
 import { BiUser } from "react-icons/bi";
 import * as Io from "react-icons/io";
 
@@ -35,6 +36,7 @@ function HeaderRowOne({
   showHeaderTitle,
   loginReducer,
   logout,
+  populateProfileData,
   ...props
 }) {
   const classes = useStyles();
@@ -115,7 +117,7 @@ function HeaderRowOne({
                     <span className="justify-self-start px-2">
                       <BiUser className="text-primary" />
                     </span>
-                    <span className="font-body font-normal flex-1 pr-8 text-primary text-sm">
+                    <span onClick={()=>populateProfileData(user)} className="font-body font-normal flex-1 pr-8 text-primary text-sm">
                       Profile
                     </span>
                   </MenuItem>
@@ -185,4 +187,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps, { logout })(HeaderRowOne);
+export default connect(mapStateToProps, { logout,populateProfileData })(HeaderRowOne);

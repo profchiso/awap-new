@@ -3,6 +3,12 @@ const initialState = {
     user: {},
     error: { message: "" },
     isAuthenticated: false,
+    avatar: "",
+    firstName: "",
+    lastName: "",
+    role: "",
+    email: "",
+    phoneNumber: ""
 };
 
 export const loginReducer = (state = initialState, actions) => {
@@ -15,10 +21,16 @@ export const loginReducer = (state = initialState, actions) => {
         localStorage.setItem('token', JSON.stringify(payload.data.accessToken));
         localStorage.setItem('user', JSON.stringify(payload.data.user));
         let error = null
+        const { avatar, firstName, lastName, email, phoneNumber } = payload.data.user
         return {
             ...state,
             token: payload.data.accessToken,
             user: payload.data.user,
+            avatar,
+            firstName,
+            lastName,
+            email,
+            phoneNumber: phoneNumber || "",
             isSuccessful: true,
             isAuthenticated: true,
             error
@@ -40,6 +52,11 @@ export const loginReducer = (state = initialState, actions) => {
         return {
             ...state,
             user,
+            avatar:"",
+            firstName:"",
+            lastName:"",
+            email:"",
+            phoneNumber:"",
             isSuccessful: false,
             isAuthenticated: false,
             token: '',
@@ -51,9 +68,22 @@ export const loginReducer = (state = initialState, actions) => {
         return {
             ...state,
             error,
-
-
         };
+    } else if (type === "SAVE_UPDATED_PROFILE_DATA_TO_STATE") {
+        
+
+        const { avatar, firstName, lastName, email, phoneNumber } = payload.data.user
+
+        return {
+            ...state,
+            user: payload.data.user,
+            avatar,
+            firstName,
+            lastName,
+            email,
+            phoneNumber: phoneNumber || ""
+
+        }
     }
 
     return state;
