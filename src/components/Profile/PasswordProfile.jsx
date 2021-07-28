@@ -16,6 +16,7 @@ function PasswordProfile(props) {
     keepLoggedIn: false,
   });
   const { token } = props.loginReducer;
+  const { error } = props.profileReducer;
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
@@ -171,6 +172,7 @@ function PasswordProfile(props) {
               ),
             }}
           />
+         { error && <p>{error?.message}</p>}
         </div>
 
         <br />
