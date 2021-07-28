@@ -59,10 +59,10 @@ function Statistics(props) {
     props.selectPastQuestionSubject(event.target.value);
   };
 
-  // const viewSolution = () => {
-  //   props.onSideNavYearChange(year, subject);
-  //   props.isViewSolution({ year, subject });
-  // };
+  const viewSolution = () => {
+   
+    props.isViewSolution({ year, subject });
+  };
 
   const handleTestAgain = async () => {
     if (questionType === "Timed") {
@@ -260,7 +260,7 @@ function Statistics(props) {
                   <div className="flex flex-row sm:flex-col gap-4 sm:gap-8">
                     <Link
                       to="/pq/view-solution"
-                      // onClick={viewSolution}
+                      onClick={viewSolution}
                       className="py-3 px-8 text-base font-body shadow-md font-medium bg-white sm:bg-primary rounded-md text-primary sm:text-white hover:text-white  whitespace-nowrap"
                     >
                       View Solutions

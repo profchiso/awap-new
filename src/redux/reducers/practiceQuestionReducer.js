@@ -151,7 +151,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       isViewSolution: true,
       filterValue: "All",
       // questionArray: questionWithoutAnswers,   //old value
-      questionArray: filledQuestionArray,
+      //questionArray: filledQuestionArray,
     };
   }
   
