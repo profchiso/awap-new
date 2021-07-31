@@ -189,7 +189,7 @@ function Statistics(props) {
                     <Select
                       labelId="demo-simple-select-placeholder-label-label"
                       id="demo-simple-select-placeholder-label"
-                      value={itemNumber}
+                      value={year}
                       onChange={handleYearChange}
                       displayEmpty
                       className={classes.numberSelect}

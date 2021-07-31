@@ -138,7 +138,7 @@ function SimpleMenu(props) {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/subject-choose-year" className="w-48 " >
+            <Link to="/under-construction" className="w-48 " >
               <span className="font-body font-normal text-gray-800" onClick={()=>props.selectPastQuestionSubject("Chemistry")}>
                 Chemistry
               </span>
@@ -148,7 +148,7 @@ function SimpleMenu(props) {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/subject-choose-year" className="w-48 " >
+            <Link to="/under-construction" className="w-48 " >
               <span className="font-body font-normal text-gray-800" onClick={()=>props.selectPastQuestionSubject("Physics")}>
                 Physics
               </span>
@@ -158,7 +158,7 @@ function SimpleMenu(props) {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/subject-choose-year" className="w-48 " >
+            <Link to="/under-construction" className="w-48 " >
               <span className="font-body font-normal text-gray-800" onClick={()=>props.selectPastQuestionSubject("Math")}>
                 Math
               </span>
@@ -172,7 +172,7 @@ function SimpleMenu(props) {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/math" className="w-48 ">
+            <Link to="/under-construction" className="w-48 ">
               <span className="font-body font-normal text-gray-800">
                 Math
               </span>
@@ -182,7 +182,7 @@ function SimpleMenu(props) {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/english" className="w-48 ">
+            <Link to="/under-construction" className="w-48 ">
               <span className="font-body font-normal text-gray-800">
                 English
               </span>
@@ -192,7 +192,7 @@ function SimpleMenu(props) {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/physics" className="w-48 ">
+            <Link to="/under-construction" className="w-48 ">
               <span className="font-body font-normal text-gray-800">
                 Physics
               </span>
@@ -202,7 +202,7 @@ function SimpleMenu(props) {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/chemistry" className="w-48 ">
+            <Link to="/under-construction" className="w-48 ">
               <span className="font-body font-normal text-gray-800">
                 Chemistry
               </span>
@@ -216,7 +216,7 @@ function SimpleMenu(props) {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/english" className="w-48 ">
+            <Link to="/under-construction" className="w-48 ">
               <span className="font-body font-normal text-gray-800">
                 English
               </span>
@@ -226,7 +226,7 @@ function SimpleMenu(props) {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/math" className="w-48 ">
+            <Link to="/under-construction" className="w-48 ">
               <span className="font-body font-normal text-gray-800">
                 Math
               </span>
@@ -236,7 +236,7 @@ function SimpleMenu(props) {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/basic-science" className="w-48 ">
+            <Link to="/under-construction" className="w-48 ">
               <span className="font-body font-normal text-gray-800">
                 Basic Science
               </span>
@@ -246,7 +246,7 @@ function SimpleMenu(props) {
             className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
             onClick={handleClose}
           >
-            <Link to="/pq/basic-tech" className="w-48 ">
+            <Link to="/under-construction" className="w-48 ">
               <span className="font-body font-normal text-gray-800">
                 Basic Tech
               </span>

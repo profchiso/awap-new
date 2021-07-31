@@ -36,7 +36,7 @@ export const updatePassword = (passwordData, token) => {
       );
 
       profilePassData.status === 200 &&
-        dispatch(saveProfileDataToState(profilePassData.data));
+        dispatch(savePasswordSuccessful(profilePassData.data));
     } catch (error) {
       console.log("profile error", error);
       dispatch(profileError(error.response.data));
@@ -51,10 +51,23 @@ export const saveProfileDataToState = (data) => {
   };
 };
 
+export const savePasswordSuccessful = (data) => {
+  return {
+    type: actionTypes.SAVE_PASSWORD_SUCCESSFUL,
+    payload: data,
+  };
+};
+
 export const profileError = (error) => {
   return {
     type: actionTypes.PROFILE_ERROR,
     payload: error,
+  };
+};
+
+export const clearProfileRelatedErrors = () => {
+  return {
+    type: actionTypes.CLEAR_PROFILE_RELATED_ERROR,
   };
 };
 

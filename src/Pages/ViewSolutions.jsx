@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ViewSolutions(props) {
-  const { userSelectedAnwser, year, subject, questionType } =
+  const { userSelectedAnwser, year, subject, questionType, filterValue } =
     props.practiceQuestionReducer;
   const submissionData = {
     submittedQuestionsAndAnswers: userSelectedAnwser,
@@ -51,7 +51,7 @@ function ViewSolutions(props) {
   };
   const classes = useStyles();
   const { width } = useWindowDimensions();
-    // const leftArrow = useKeyPress("ArrowLeft");
+  // const leftArrow = useKeyPress("ArrowLeft");
   // const rightArrow = useKeyPress("ArrowRight");
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
@@ -152,23 +152,30 @@ function ViewSolutions(props) {
     return false;
   };
 
-  const checkWrongOrRight=(question,option)=>{
-    if(question?.hasOwnProperty("userSelectedAnswer")){
-       console.log(question)
-      if(question?.answer===question.userSelectedAnswer && option===question?.answer){
-        return isCorrect
-
-      }else if(question?.answer!==question.userSelectedAnswer && option===question.userSelectedAnswer){
-        return isWrong
-      }else if(question?.answer!==question.userSelectedAnswer && option!==question.userSelectedAnswer){
-        return
+  const checkWrongOrRight = (question, option) => {
+    if (question?.hasOwnProperty("userSelectedAnswer")) {
+      console.log(question);
+      if (
+        question?.answer === question.userSelectedAnswer &&
+        option === question?.answer
+      ) {
+        return isCorrect;
+      } else if (
+        question?.answer !== question.userSelectedAnswer &&
+        option === question.userSelectedAnswer
+      ) {
+        return isWrong;
+      } else if (
+        question?.answer !== question.userSelectedAnswer &&
+        option !== question.userSelectedAnswer
+      ) {
+        return;
       }
-    }else if(option===question?.answer){
-      console.log(question)
-      return isCorrect
-
+    } else if (option === question?.answer) {
+      console.log(question);
+      return isCorrect;
     }
-  }
+  };
 
   // const handleSubmit = () => {
   //   const { submittedQuestionsAndAnswers } = submissionData;
@@ -203,6 +210,33 @@ function ViewSolutions(props) {
   //   }
   // }, [leftArrow, rightArrow]);
 
+  const handleNoData = () => {
+    if (filterValue === "Incorrect") {
+      return (
+        <div className="w-full mt-6 sm:mt-12 xl:mt-24 text-center flex items-center justify-center">
+          <h2 className="text-xl sm:text-xl lg:text-3xl font-semibold">
+            No Questions Answered Incorrectly
+          </h2>
+        </div>
+      );
+    } else if (filterValue === "Correct") {
+      return (
+        <div className="w-full mt-6 sm:mt-12 xl:mt-24 text-center flex items-center justify-center">
+          <h2 className="text-xl sm:text-xl lg:text-3xl font-semibold">
+            No Questions Answered Correctly
+          </h2>
+        </div>
+      );
+    } else if (filterValue === "Unanswered") {
+      return (
+        <div className="w-full mt-6 sm:mt-12 xl:mt-24 text-center flex items-center justify-center">
+          <h2 className="text-xl sm:text-xl lg:text-3xl font-semibold">
+            No Unanswered Questions
+          </h2>
+        </div>
+      );
+    }
+  };
 
   if (token) {
     return (
@@ -245,7 +279,7 @@ function ViewSolutions(props) {
                       >
                         Go back to Statistics
                       </Link>
-                    
+
                       <Link
                         to="/"
                         className="font-medium text-primary hover:text-primary text-base"
@@ -302,9 +336,7 @@ function ViewSolutions(props) {
                             className="w-full"
                           />
                         </div>
-                      ) : (
-                        ""
-                      )}
+                      ) : null}
                     </div>
                   </div>
 
@@ -317,8 +349,15 @@ function ViewSolutions(props) {
                         <DefaultAnswerBtn
                           isClicked={isClicked}
                           showIcon={setIsCorrectOrWrong("optionA")?.showIcon}
-                          isSelected={checkWrongOrRight(questionArray[questionNumber],"optionA")}
-                          isCorrectAnswer={questionArray[questionNumber].answer==="optionA"? isCorrect:""}
+                          isSelected={checkWrongOrRight(
+                            questionArray[questionNumber],
+                            "optionA"
+                          )}
+                          isCorrectAnswer={
+                            questionArray[questionNumber].answer === "optionA"
+                              ? isCorrect
+                              : ""
+                          }
                         >
                           <span className="pr-6 sm:pr-8">a.</span>
 
@@ -345,8 +384,15 @@ function ViewSolutions(props) {
                         <DefaultAnswerBtn
                           isClicked={isClicked}
                           showIcon={setIsCorrectOrWrong("optionB")?.showIcon}
-                          isSelected={checkWrongOrRight(questionArray[questionNumber],"optionB")}
-                          isCorrectAnswer={questionArray[questionNumber].answer==="optionB"? isCorrect:""}
+                          isSelected={checkWrongOrRight(
+                            questionArray[questionNumber],
+                            "optionB"
+                          )}
+                          isCorrectAnswer={
+                            questionArray[questionNumber].answer === "optionB"
+                              ? isCorrect
+                              : ""
+                          }
                         >
                           <span className="pr-6 sm:pr-8">b.</span>
                           <span>
@@ -374,8 +420,15 @@ function ViewSolutions(props) {
                         <DefaultAnswerBtn
                           isClicked={isClicked}
                           showIcon={setIsCorrectOrWrong("optionC")?.showIcon}
-                          isSelected={checkWrongOrRight(questionArray[questionNumber],"optionC")}
-                          isCorrectAnswer={questionArray[questionNumber].answer==="optionC"? isCorrect:""}
+                          isSelected={checkWrongOrRight(
+                            questionArray[questionNumber],
+                            "optionC"
+                          )}
+                          isCorrectAnswer={
+                            questionArray[questionNumber].answer === "optionC"
+                              ? isCorrect
+                              : ""
+                          }
                         >
                           <span className="pr-6 sm:pr-8">c.</span>
                           <span>
@@ -403,8 +456,15 @@ function ViewSolutions(props) {
                         <DefaultAnswerBtn
                           isClicked={isClicked}
                           showIcon={setIsCorrectOrWrong("optionD")?.showIcon}
-                          isSelected={checkWrongOrRight(questionArray[questionNumber],"optionD")}
-                          isCorrectAnswer={questionArray[questionNumber].answer==="optionD"? isCorrect:""}
+                          isSelected={checkWrongOrRight(
+                            questionArray[questionNumber],
+                            "optionD"
+                          )}
+                          isCorrectAnswer={
+                            questionArray[questionNumber].answer === "optionD"
+                              ? isCorrect
+                              : ""
+                          }
                         >
                           <span className="pr-6 sm:pr-8">d.</span>
                           <span>
@@ -451,9 +511,7 @@ function ViewSolutions(props) {
 
                   <div className="">
                     <div className="shadow-bottomNav w-full fixed bottom-0 z-50 sm:block sm:static sm:shadow-none bg-white">
-                      {width > 640 ? (
-                        ""
-                      ) : (
+                      {width > 640 ? null : (
                         <div className="flex justify-evenly items-center py-6  lg:max-w-2xl mx-auto">
                           <div>
                             <button
@@ -492,9 +550,7 @@ function ViewSolutions(props) {
                       >
                         <NextBtn />
                       </button>
-                    ) : (
-                      ""
-                    )}
+                    ) : null}
 
                     <div className="hidden sm:flex justify-center items-center align-text-bottom mt-12 px-8 pb-40 sm:pb-20 md:mt-4 ml-16 uniqueBtn">
                       <Pagination
@@ -524,7 +580,9 @@ function ViewSolutions(props) {
               </div>
             </div>
           </>
-        ) : null}
+        ) : (
+          handleNoData()
+        )}
       </div>
     );
   }

@@ -13,7 +13,8 @@ const colors = [
 ];
 
 function DonutChart(props) {
-  const { questionArray,justSubmittedQuestionAnswer } = props.practiceQuestionReducer;
+  const { questionArray, justSubmittedQuestionAnswer } =
+    props.practiceQuestionReducer;
   const { width } = useWindowDimensions();
   //Beninging
   const { subject, year } = props.practiceQuestionReducer;
@@ -36,7 +37,7 @@ function DonutChart(props) {
 
   //Endinging
 
-  //my modification get data from justSubmittedQuestionAnswer 
+  //my modification get data from justSubmittedQuestionAnswer
   // switch submittedQuestionArray to justSubmittedQuestionAnswer
 
   let correctAnswers = justSubmittedQuestionAnswer?.filter(
@@ -46,7 +47,9 @@ function DonutChart(props) {
     (item) => item.userSelectedAnswer !== item.answer
   );
   // let unAnswered = questionArray?.filter((item) => !item.userSelectedAnswer);
-  let unAnswered = justSubmittedQuestionAnswer?.filter((item) => !item.userSelectedAnswer);
+  let unAnswered = justSubmittedQuestionAnswer?.filter(
+    (item) => !item.userSelectedAnswer
+  );
 
   let correctAnswersCount = correctAnswers?.length;
   let wrongAnswersCount = wrongAnswers?.length;
@@ -66,43 +69,45 @@ function DonutChart(props) {
 
   return (
     <div>
-      {/* <div className="flex flex-col relative top-52 left-16 sm:left-28 text-2xl sm:text-3xl font-medium "> */}
-        <div className="flex flex-col absolute top-44 left-16 sm:left-28 text-2xl sm:text-3xl font-medium ">
-          {valueOfroundedPercentScore ? (
-            roundedPercentScore !== Infinity ? (
-              roundedPercentScore + "%"
-            ) : (
-              <span className="text-center">
-                <svg
-                  class="animate-spin ml-3 mb-1 h-5 w-5 text-primary"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    class="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="4"
-                  ></circle>
-                  <path
-                    class="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
-                </svg>
-              </span>
-            )
-          ) : (
-            "0%"
-          )}
-     
-      </div>
       <div
-        className={`flex flex-row items-center sm:gap-14`}
+        className={`flex flex-col absolute top-44 ${
+          roundedPercentScore?.toString()?.length <= 1
+            ? "left-16"
+            : "left-12"
+        } sm:left-28 text-2xl sm:text-3xl font-medium`}
       >
+        {valueOfroundedPercentScore ? (
+          roundedPercentScore !== Infinity ? (
+            roundedPercentScore + "%"
+          ) : (
+            <span className="text-center">
+              <svg
+                class="animate-spin ml-3 mb-1 h-5 w-5 text-primary"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                ></circle>
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+            </span>
+          )
+        ) : (
+          "0%"
+        )}
+      </div>
+      <div className={`flex flex-row items-center sm:gap-14`}>
         <div className="flex flex-col items-center transform scale-50 sm:scale-100 -ml-20 sm:ml-0">
           <div className="sm:mb-4">
             <p className="sm:text-lg font-medium text-3xl">Percent Score</p>
@@ -143,9 +148,12 @@ function DonutChart(props) {
             </div>
           </div>
           <div className="flex flex-col gap-9">
-            <div className="ml-3 whitespace-nowrap"> Unanswered {width > 640 && "Questions"}</div>
             <div className="ml-3 whitespace-nowrap">
-              {width > 640 ? "Questions answered correctly" : "Correct"} 
+              {" "}
+              Unanswered {width > 640 && "Questions"}
+            </div>
+            <div className="ml-3 whitespace-nowrap">
+              {width > 640 ? "Questions answered correctly" : "Correct"}
             </div>
             <div className="ml-3 whitespace-nowrap">
               {width > 640 ? "Questions answered incorrectly" : "Incorrect"}

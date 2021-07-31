@@ -15,8 +15,9 @@ function PasswordProfile(props) {
     showPassword: false,
     keepLoggedIn: false,
   });
+  const [isSubmitting, setisSubmitting] = useState(false);
   const { token } = props.loginReducer;
-  const { error } = props.profileReducer;
+  const { error,message } = props.profileReducer;
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
@@ -29,9 +30,9 @@ function PasswordProfile(props) {
     event.preventDefault();
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    props.updatePassword(
+    await props.updatePassword(
       {
         oldPassword: values.oldPassword,
         newPassword: values.newPassword,
@@ -39,7 +40,7 @@ function PasswordProfile(props) {
       },
       token
     );
-    // your submit logic
+    setisSubmitting(true);
   };
 
   useEffect(() => {
@@ -172,7 +173,8 @@ function PasswordProfile(props) {
               ),
             }}
           />
-         { error && <p>{error?.message}</p>}
+          {error && isSubmitting && <p className="text-red-500 pt-4">{error?.message}</p>}
+          {message && isSubmitting && <p className="text-green-500 pt-4">{message}</p>}
         </div>
 
         <br />

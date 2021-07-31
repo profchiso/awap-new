@@ -26,7 +26,7 @@ function MobilePqList(props) {
           className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
           
         >
-          <Link to="/pq/subject-choose-year" className="w-48 ">
+          <Link to="/under-construction" className="w-48 ">
             <span
               className="font-body font-normal text-gray-800"
               onClick={() => props.selectPastQuestionSubject("Chemistry")}
@@ -39,7 +39,7 @@ function MobilePqList(props) {
           className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
           
         >
-          <Link to="/pq/subject-choose-year" className="w-48 ">
+          <Link to="/under-construction" className="w-48 ">
             <span
               className="font-body font-normal text-gray-800"
               onClick={() => props.selectPastQuestionSubject("Physics")}
@@ -52,7 +52,7 @@ function MobilePqList(props) {
           className="font-body font-normal hover:bg-white hover:rounded-lg hover:shadow"
           
         >
-          <Link to="/pq/subject-choose-year" className="w-48 ">
+          <Link to="/under-construction" className="w-48 ">
             <span
               className="font-body font-normal text-gray-800"
               onClick={() => props.selectPastQuestionSubject("Math")}

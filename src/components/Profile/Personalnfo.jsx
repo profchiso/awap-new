@@ -24,8 +24,10 @@ const useStyles = makeStyles((theme) => ({
 
 function PersonalInfo(props) {
   const classes = useStyles();
-  const { user,token,firstName,lastName, avatar,email,phoneNumber } = props.loginReducer;
-  
+  const {token,firstName,lastName, avatar,phoneNumber ,email } = props.loginReducer;
+  const {message} = props.profileReducer;
+  const [isSubmitting, setisSubmitting] = useState(false);
+
   const [img, setImg] = useState({ avatar: "" });
   const [phone, setphone] = useState("");
   const [updateData, setUpdateData]= useState({firstName,lastName,phoneNumber})
@@ -43,6 +45,7 @@ function PersonalInfo(props) {
 
   const handleProfileUpdate= async()=>{
     await props.updateProfileText(updateData,token)
+    setisSubmitting(true)
   }
   const handleDeleteImg = () => {
     setImg({});
@@ -139,6 +142,7 @@ function PersonalInfo(props) {
               defaultValue={phone}
             />
           </div>
+          {message && isSubmitting && <p className="text-green-500 pt-4">{message}</p>}
 
           <button onClick={handleProfileUpdate} className="bg-gradient-to-r from-ansBlue2 to-ansBlue3 p-3 text-white mt-12 font-body font-medium text-base rounded w-full">
             Save Changes
