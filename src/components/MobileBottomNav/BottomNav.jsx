@@ -47,12 +47,12 @@ export default function SimpleBottomNavigation() {
         icon={<ImportContactsRoundedIcon />}
         className="whitespace-nowrap"
       />
-      <BottomNavigationAction
+      {/* <BottomNavigationAction
         label="Quizes"
         value="folder"
         icon={<EmojiEventsIcon />}
         className="whitespace-nowrap"
-      />
+      /> */}
     </BottomNavigation>
   );
 }
