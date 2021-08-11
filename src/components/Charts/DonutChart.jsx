@@ -135,28 +135,33 @@ function DonutChart(props) {
 
         <div className="flex items-center mt-4 -ml-12 sm:ml-0">
           <div className="flex flex-col gap-1">
-            <div className="bg-grayEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
-              {unAnwseredQuestionsCount}
-            </div>
 
-            <div className=" bg-blueEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
+          <div className=" bg-blueEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
               {correctAnswersCount}
             </div>
 
             <div className="bg-orangeEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
               {wrongAnswersCount}
             </div>
+            <div className="bg-grayEllipse text-white text-center font-semibold p-3.5  bg-center bg-no-repeat">
+              {unAnwseredQuestionsCount}
+            </div>
+
+            
+
+            
           </div>
           <div className="flex flex-col gap-9">
-            <div className="ml-3 whitespace-nowrap">
-              {" "}
-              Unanswered {width > 640 && "Questions"}
-            </div>
+            
             <div className="ml-3 whitespace-nowrap">
               {width > 640 ? "Questions answered correctly" : "Correct"}
             </div>
             <div className="ml-3 whitespace-nowrap">
               {width > 640 ? "Questions answered incorrectly" : "Incorrect"}
+            </div>
+            <div className="ml-3 whitespace-nowrap">
+              {" "}
+              Unanswered {width > 640 && "Questions"}
             </div>
           </div>
         </div>
