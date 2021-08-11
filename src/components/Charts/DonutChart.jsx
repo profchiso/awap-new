@@ -44,7 +44,7 @@ function DonutChart(props) {
     (item) => item.userSelectedAnswer === item.answer
   );
   let wrongAnswers = justSubmittedQuestionAnswer?.filter(
-    (item) => item.userSelectedAnswer !== item.answer
+    (item) => item.hasOwnProperty("userSelectedAnswer") && item.userSelectedAnswer !== item.answer
   );
   // let unAnswered = questionArray?.filter((item) => !item.userSelectedAnswer);
   let unAnswered = justSubmittedQuestionAnswer?.filter(
