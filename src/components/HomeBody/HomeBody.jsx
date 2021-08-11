@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff",
     borderRadius: 4,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    // padding: theme.spacing(2, 4, 3),
   },
   bottomNav: {
     width: "100%",
@@ -120,7 +120,7 @@ function HomeBody(props) {
       >
         <Fade in={open}>
           <div
-            className={`${classes.paper} flex outline-none text-center w-full max-w-sm md:max-w-xl mx-3`}
+            className={`${classes.paper} mx-3 py-6 flex outline-none text-center w-full max-w-sm md:max-w-xl`}
           >
             <div className="sm:py-12 flex-1 -mr-12">
               <h3>Share On</h3>

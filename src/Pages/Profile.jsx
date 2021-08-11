@@ -9,6 +9,7 @@ import { Redirect } from "react-router";
 import PasswordProfile from "../components/Profile/PasswordProfile";
 import PersonalInfo from "../components/Profile/Personalnfo";
 import HeaderRowOne from "../components/Header/HeaderRowOne";
+import { clearProfileRelatedErrors } from "../redux/actions/profile";
 
 function Profile(props) {
   const { width } = useWindowDimensions();
@@ -40,7 +41,10 @@ function Profile(props) {
                       ? "bg-gradient-to-r from-ansBlue2 to-ansBlue3 hover:text-white text-white py-3 px-4 rounded"
                       : "text-gray-600 hover:text-primary pl-4  py-3"
                   }
-                  onClick={() => setcurrentPath("/profile")}
+                  onClick={() => {
+                    setcurrentPath("/profile");
+                    clearProfileRelatedErrors();
+                  }}
                 >
                   Personal Information
                 </NavLink>
@@ -51,7 +55,10 @@ function Profile(props) {
                       ? "bg-gradient-to-r from-ansBlue2 to-ansBlue3 hover:text-white text-white py-3 px-4 rounded"
                       : "text-gray-600 hover:text-primary pl-4  py-3"
                   }
-                  onClick={() => setcurrentPath("/profile/password")}
+                  onClick={() => {
+                    setcurrentPath("/profile/password");
+                    clearProfileRelatedErrors();
+                  }}
                 >
                   Password
                 </NavLink>
@@ -78,4 +85,4 @@ const mapStateToProps = (state) => {
     ...state,
   };
 };
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps, { clearProfileRelatedErrors })(Profile);

@@ -158,7 +158,7 @@ function PracticeQuestion(props) {
     const { submittedQuestionsAndAnswers } = submissionData;
     let mergedData = [...submittedQuestionsAndAnswers, ...questionArray];
 
-    console.log(mergedData);
+    
 
     const seen = new Set();
 
@@ -311,7 +311,7 @@ function PracticeQuestion(props) {
                       component="fieldset"
                       className="w-full sm:w-6/12 text-center"
                     >
-                      {optionDataArray.map((element) => (
+                      {/* {optionDataArray.map((element) => (
                         <div className="py-3 ">
                           <DefaultAnswerBtn
                             isClicked={isClicked}
@@ -346,7 +346,93 @@ function PracticeQuestion(props) {
                             )}
                           </DefaultAnswerBtn>
                         </div>
-                      ))}
+                      ))} */}
+                      <div className="py-3 ">
+                        <DefaultAnswerBtn
+                          isClicked={isClicked}
+                          showIcon={setIsCorrectOrWrong("optionA")?.showIcon}
+                          isSelected={
+                            isClicked &&
+                            setIsCorrectOrWrong("optionA")?.isCorrectOrWrong
+                          }
+                          onClick={() =>
+                            onSelectedOptionChange(
+                              "optionA",
+                              questionArray[questionNumber]
+                            )
+                          }
+                        >
+                          <span className="pr-6 sm:pr-8">a.</span>
+                          <span>
+                            {questionArray[questionNumber]?.optionA.textOption}
+                          </span>
+                        </DefaultAnswerBtn>
+                      </div>
+                      <div className="py-3 ">
+                        <DefaultAnswerBtn
+                          isClicked={isClicked}
+                          showIcon={setIsCorrectOrWrong("optionB")?.showIcon}
+                          isSelected={
+                            isClicked &&
+                            setIsCorrectOrWrong("optionB")?.isCorrectOrWrong
+                          }
+                          onClick={() =>
+                            onSelectedOptionChange(
+                              "optionB",
+                              questionArray[questionNumber]
+                            )
+                          }
+                        >
+                          <span className="pr-6 sm:pr-8">b.</span>
+                          <span>
+                            {questionArray[questionNumber]?.optionB.textOption}
+                          </span>
+                        </DefaultAnswerBtn>
+                      </div>
+                      <div className="py-3 ">
+                        <DefaultAnswerBtn
+                          isClicked={isClicked}
+                          showIcon={setIsCorrectOrWrong("optionC")?.showIcon}
+                          isSelected={
+                            isClicked &&
+                            setIsCorrectOrWrong("optionC")?.isCorrectOrWrong
+                          }
+                          onClick={() =>
+                            onSelectedOptionChange(
+                              "optionC",
+                              questionArray[questionNumber]
+                            )
+                          }
+                        >
+                          <span className="pr-6 sm:pr-8">c.</span>
+                          <span>
+                            {questionArray[questionNumber]?.optionC.textOption}
+                          </span>
+                        </DefaultAnswerBtn>
+                      </div>
+                      <div className="py-3 ">
+                        <DefaultAnswerBtn
+                          isClicked={isClicked}
+                          showIcon={setIsCorrectOrWrong("optionD")?.showIcon}
+                          isSelected={
+                            isClicked &&
+                            setIsCorrectOrWrong("optionD")?.isCorrectOrWrong
+                          }
+                          onClick={() =>
+                            onSelectedOptionChange(
+                              "optionD",
+                              questionArray[questionNumber]
+                            )
+                          }
+                        >
+                          <span className="pr-6 sm:pr-8">d.</span>
+                          <span>
+                            {questionArray[questionNumber]?.optionD.textOption}
+                          </span>
+                        </DefaultAnswerBtn>
+                      </div>
+
+
                     </FormControl>
                   </div>
 
