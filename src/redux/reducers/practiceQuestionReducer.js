@@ -20,6 +20,7 @@ const initialState = {
   filterValue: "All",
   justSubmittedQuestionAnswer: [],
   // hasTakenPqBefore: false,
+  currentQuestionNumber:""
   
 };
 
@@ -85,13 +86,14 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       userSelectedAnwser: [...filteredUserSelectedAnwers, payload],
     };
   } else if (type === "SUBMIT_USER_ANSWERS") {
+    console.log("submit",payload.data.submitedPracticeQuestion.submittedQuestionsAndAnswers)
     return {
       ...state,
       isAnswerSubmissionSuccessful: true,
       submittedAnswers: payload.data.submitedPracticeQuestion,
       untimedPracticeQuestions: payload.data.untimedPracticeQuestions,
       timedPracticeQuestions: payload.data.timedPracticeQuestions,
-     // justSubmittedQuestionAnswer:payload.data.submitedPracticeQuestion
+     justSubmittedQuestionAnswer:payload.data.submitedPracticeQuestion.submittedQuestionsAndAnswers
 
     };
   } else if (type === "ON_SIDENAV_YEAR_CHANGE") {
@@ -157,11 +159,11 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
   
   
   else if (type === "FILTER_SOLUTION") {
-    const { subject, year, untimedPracticeQuestions } = state;
+    const { subject, year, untimedPracticeQuestions,justSubmittedQuestionAnswer } = state;
     let allQuestions = untimedPracticeQuestions.filter(
       (q) => Number(q.year) === Number(year) && q.subject === subject
     );
-    let allQuestionArray = allQuestions[0]?.submittedQuestionsAndAnswers;
+    let allQuestionArray =justSubmittedQuestionAnswer //allQuestions[0]?.submittedQuestionsAndAnswers;
 
     if (payload === "showAll") {
       return {
@@ -273,15 +275,16 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
   }else if(type==="JUST_ANSWERED_QUESTION_ARRAY"){
     return{
       ...state,
-      justSubmittedQuestionAnswer:payload
+      justSubmittedQuestionAnswer:payload,
+      questionArray:payload
     }
 
   }
-  // else if (type === "ANSWERED_SAME_PQ_BEFORE"){
-  //   return{
-  //     ...state,
-  //     hasTakenPqBefore:payload,
-  //   }
-  // }
+  else if (type === "SET_CURRENT_QUESTION_NUMBER"){
+    return{
+      ...state,
+      currentQuestionNumber:payload,
+    }
+  }
   return state;
 };

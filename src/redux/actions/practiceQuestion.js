@@ -17,7 +17,8 @@ import {
   ANSWERED_QUESTION_FROM_STH,
   ANSWERED_SAME_PQ_BEFORE,
   VIEW_SCORE_BY_PRACTICE_QUESTION_TYPE,
-  JUST_ANSWERED_QUESTION_ARRAY
+  JUST_ANSWERED_QUESTION_ARRAY,
+  SET_CURRENT_QUESTION_NUMBER
 } from "./types";
 // import * as actionTypes from "./types";
 
@@ -199,5 +200,13 @@ export const justAnsweredQuestionArray=(questionArray)=>{
   return{
     type:JUST_ANSWERED_QUESTION_ARRAY,
     payload:questionArray
+  }
+}
+
+export const setCurrentQuestionNumber=(questionNumber)=>{
+
+  return{
+    type:SET_CURRENT_QUESTION_NUMBER,
+    payload:questionNumber
   }
 }
