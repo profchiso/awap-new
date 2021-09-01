@@ -552,15 +552,58 @@ function ViewSolutions(props) {
                       </button>
                     ) : null}
 
-                    <div className="hidden sm:flex justify-center items-center align-text-bottom mt-12 px-8 pb-40 sm:pb-20 md:mt-4 ml-16 uniqueBtn">
-                      <Pagination
+                    {/* <div className="hidden sm:flex justify-center items-center align-text-bottom mt-12 px-8 pb-40 sm:pb-20 md:mt-4 ml-16 uniqueBtn"> */}
+                      {/* <Pagination
                         count={questionArray.length}
                         setQuestionNumber={setQuestionNumber}
                         prevButtonClicked={prevButtonClicked}
                         nextButtonClicked={nextButtonClicked}
                         handlePaginationChange={handlePaginationChange}
-                      />
-                    </div>
+                      /> */}
+                      {/* <div className="flex justify-between  mt-12 px-8">
+                      <button
+                              onClick={() => decreaseQuestionNumber()}
+                              className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                            >
+                              PREVIOUS
+                            </button>
+
+                            <button
+                              onClick={() => decreaseQuestionNumber()}
+                              className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                            >
+                              NEXT
+                            </button>
+                
+                      </div>
+                    </div> */}
+                     <div className="flex justify-evenly items-center py-6  lg:max-w-2xl mx-auto">
+                          <div>
+                            <button
+                              onClick={() => decreaseQuestionNumber()}
+                              className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                            >
+                              PREVIOUS
+                            </button>
+                          </div>
+                          <div>
+                            {questionNumber + 1 === questionArray.length ? (
+                              <button
+                                // onClick={() => handleOpen()}
+                                className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                              >
+                                FINISH
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => increaseQuestionNumber()}
+                                className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
+                              >
+                                NEXT
+                              </button>
+                            )}
+                          </div>
+                        </div>
                   </div>
                 </div>
                 <div className="">
