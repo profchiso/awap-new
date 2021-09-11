@@ -285,6 +285,12 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       ...state,
       currentQuestionNumber:payload,
     }
+  }else if (type === "BACK_TO_STATISTICS"){
+    console.log(state.justSubmittedQuestionAnswer)
+    return{
+      ...state,
+      questionArray:state.justSubmittedQuestionAnswer,
+    }
   }
   return state;
 };

@@ -16,6 +16,7 @@ import {
   addSelectedAnswerToArray,
   submitUserAnswers,
   isViewSolution,
+  backToStatistics
 } from "../redux/actions/practiceQuestion";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
 // import { ReactComponent as PreviousIcon } from "../assets/svgs/PreviousIcon.svg";
@@ -276,6 +277,7 @@ function ViewSolutions(props) {
                       <Link
                         to="/stats"
                         className="font-medium text-primary hover:text-primary text-base"
+                        onClick={()=>backToStatistics()}
                       >
                         Go back to Statistics
                       </Link>
@@ -354,7 +356,7 @@ function ViewSolutions(props) {
                             "optionA"
                           )}
                           isCorrectAnswer={
-                            questionArray[questionNumber].answer === "optionA"
+                            questionArray[questionNumber]?.answer === "optionA"
                               ? isCorrect
                               : ""
                           }
@@ -389,7 +391,7 @@ function ViewSolutions(props) {
                             "optionB"
                           )}
                           isCorrectAnswer={
-                            questionArray[questionNumber].answer === "optionB"
+                            questionArray[questionNumber]?.answer === "optionB"
                               ? isCorrect
                               : ""
                           }
@@ -425,7 +427,7 @@ function ViewSolutions(props) {
                             "optionC"
                           )}
                           isCorrectAnswer={
-                            questionArray[questionNumber].answer === "optionC"
+                            questionArray[questionNumber]?.answer === "optionC"
                               ? isCorrect
                               : ""
                           }
@@ -461,7 +463,7 @@ function ViewSolutions(props) {
                             "optionD"
                           )}
                           isCorrectAnswer={
-                            questionArray[questionNumber].answer === "optionD"
+                            questionArray[questionNumber]?.answer === "optionD"
                               ? isCorrect
                               : ""
                           }
@@ -641,4 +643,5 @@ export default connect(mapStateToProps, {
   addSelectedAnswerToArray,
   submitUserAnswers,
   isViewSolution,
+  backToStatistics
 })(ViewSolutions);

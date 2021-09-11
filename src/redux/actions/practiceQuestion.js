@@ -18,7 +18,8 @@ import {
   ANSWERED_SAME_PQ_BEFORE,
   VIEW_SCORE_BY_PRACTICE_QUESTION_TYPE,
   JUST_ANSWERED_QUESTION_ARRAY,
-  SET_CURRENT_QUESTION_NUMBER
+  SET_CURRENT_QUESTION_NUMBER,
+  BACK_TO_STATISTICS,
 } from "./types";
 // import * as actionTypes from "./types";
 
@@ -208,5 +209,13 @@ export const setCurrentQuestionNumber=(questionNumber)=>{
   return{
     type:SET_CURRENT_QUESTION_NUMBER,
     payload:questionNumber
+  }
+}
+
+export const backToStatistics=()=>{
+  console.log("back to statistic")
+
+  return{
+    type:BACK_TO_STATISTICS,
   }
 }

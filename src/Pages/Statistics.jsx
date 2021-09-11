@@ -47,7 +47,7 @@ function Statistics(props) {
   const { width } = useWindowDimensions();
   const pathName = props.match?.path?.substring(1);
   console.log("pathName", pathName);
-  const { year, subject, questionArray, questionType } =
+  const { year, subject, questionArray, questionType,justSubmittedQuestionAnswer } =
     props.practiceQuestionReducer;
   const { token } = props.loginReducer;
 
@@ -242,7 +242,7 @@ function Statistics(props) {
                       </div>
                     </div>
                     <div className="ml-5">
-                      {questionArray?.map((item, index) => (
+                      {justSubmittedQuestionAnswer?.map((item, index) => (
                         <div
                           className="flex gap-3 text-base leading-10"
                           key={index}
