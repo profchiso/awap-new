@@ -19,8 +19,6 @@ import {
   backToStatistics
 } from "../redux/actions/practiceQuestion";
 import useWindowDimensions from "../Hooks/UseWindowDimension";
-// import { ReactComponent as PreviousIcon } from "../assets/svgs/PreviousIcon.svg";
-import { ReactComponent as NextBtn } from "../assets/svgs/NextBtn.svg";
 // import useKeyPress from "../Hooks/UseKeyPress";
 
 const useStyles = makeStyles((theme) => ({
@@ -52,8 +50,7 @@ function ViewSolutions(props) {
   };
   const classes = useStyles();
   const { width } = useWindowDimensions();
-  // const leftArrow = useKeyPress("ArrowLeft");
-  // const rightArrow = useKeyPress("ArrowRight");
+ 
   const [value, setValue] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
   const [isClicked, setisClicked] = useState(false);
@@ -178,38 +175,10 @@ function ViewSolutions(props) {
     }
   };
 
-  // const handleSubmit = () => {
-  //   const { submittedQuestionsAndAnswers } = submissionData;
-  //   let mergedData = [...submittedQuestionsAndAnswers, ...questionArray];
-
-  //   console.log(mergedData);
-
-  //   const seen = new Set();
-
-  //   const filteredArr = mergedData.filter((element) => {
-  //     const duplicate = seen.has(element.questionNumber);
-  //     seen.add(element.questionNumber);
-  //     return !duplicate;
-  //   });
-
-  //   submissionData.submittedQuestionsAndAnswers = filteredArr;
-
-  //   props.submitUserAnswers(submissionData, token);
-  // };
+  
 
   const token = props?.loginReducer?.token;
 
-  //ARROW KEYS TO CHANGE QUESTION NUMBER
-  // useEffect(() => {
-  //   if (leftArrow && questionNumber >= 1) {
-  //     decreaseQuestionNumber(); //Done, only issue left is pagination not aligning, will have to create same but simple custom pagination
-  //     console.log("decreaseQuestionNumber");
-  //   }
-  //   if (rightArrow && questionNumber < questionArray.length) {
-  //     increaseQuestionNumber(); //Done, only issue left is pagination not aligning, will have to create same but simple custom pagination
-  //     console.log("increaseQuestionNumber");
-  //   }
-  // }, [leftArrow, rightArrow]);
 
   const handleNoData = () => {
     if (filterValue === "Incorrect") {
@@ -550,35 +519,11 @@ function ViewSolutions(props) {
                         onClick={() => handleOpen()}
                         className="fixed openModalNextBtn z-10 shadow-primary rounded-full focus:outline-none transform md:scale-125"
                       >
-                        <NextBtn />
+                       
                       </button>
                     ) : null}
 
-                    {/* <div className="hidden sm:flex justify-center items-center align-text-bottom mt-12 px-8 pb-40 sm:pb-20 md:mt-4 ml-16 uniqueBtn"> */}
-                      {/* <Pagination
-                        count={questionArray.length}
-                        setQuestionNumber={setQuestionNumber}
-                        prevButtonClicked={prevButtonClicked}
-                        nextButtonClicked={nextButtonClicked}
-                        handlePaginationChange={handlePaginationChange}
-                      /> */}
-                      {/* <div className="flex justify-between  mt-12 px-8">
-                      <button
-                              onClick={() => decreaseQuestionNumber()}
-                              className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-                            >
-                              PREVIOUS
-                            </button>
-
-                            <button
-                              onClick={() => decreaseQuestionNumber()}
-                              className="text-white bg-primary px-12 font-body shadow-primary px-5 py-2 rounded-md focus:outline-none text-sm lg:text-md font-medium"
-                            >
-                              NEXT
-                            </button>
-                
-                      </div>
-                    </div> */}
+                    
                      <div className="flex justify-evenly items-center py-6  lg:max-w-2xl mx-auto">
                           <div>
                             <button
@@ -607,6 +552,7 @@ function ViewSolutions(props) {
                           </div>
                         </div>
                   </div>
+
                 </div>
                 <div className="">
                   <button
