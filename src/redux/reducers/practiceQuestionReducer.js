@@ -8,8 +8,6 @@ const initialState = {
   questionType: "",
   questionArray: [],
   currentQuestion: {},
-  // selectedAnwser: "",
-  // correctAnswer: "",
   error: {},
   isQuestionFetched: false,
   isAnswerSubmissionSuccessful: false,
@@ -19,7 +17,7 @@ const initialState = {
   isViewSolution: false,
   filterValue: "All",
   justSubmittedQuestionAnswer: [],
-  // hasTakenPqBefore: false,
+  filterQuestionArray:[],
   currentQuestionNumber:""
   
 };
@@ -53,7 +51,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       questionArray: [],
       isQuestionFetched: false,
       isViewSolution: false,
-      //hasTakenPqBefore: false,
     };
   } else if (type === "SELECT_PAST_QUESTION_PRACTICE_TYPE") {
     return {
@@ -62,7 +59,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       userSelectedAnwser: [],
       isQuestionFetched: false,
       isViewSolution: false,
-     // hasTakenPqBefore: false,
+     
     };
   } else if (type === "API_ERROR") {
     let error = {};
@@ -93,7 +90,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       submittedAnswers: payload.data.submitedPracticeQuestion,
       untimedPracticeQuestions: payload.data.untimedPracticeQuestions,
       timedPracticeQuestions: payload.data.timedPracticeQuestions,
-     justSubmittedQuestionAnswer:payload.data.submitedPracticeQuestion.submittedQuestionsAndAnswers
+     justSubmittedQuestionAnswer:payload.data.submitedPracticeQuestion.submittedQuestionsAndAnswers,
+     filterQuestionArray:payload.data.submitedPracticeQuestion.submittedQuestionsAndAnswers
 
     };
   } else if (type === "ON_SIDENAV_YEAR_CHANGE") {
@@ -120,7 +118,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       ...state,
       questionArray: updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers,
       isViewSolution: false,
-      justSubmittedQuestionAnswer:updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers
+      justSubmittedQuestionAnswer:updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers,
+      filterQuestionArray:updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers
     };
   } 
   else if (type === "IS_VIEW_SOLUTION") {
@@ -159,25 +158,27 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
   
   
   else if (type === "FILTER_SOLUTION") {
-    const { subject, year, untimedPracticeQuestions,justSubmittedQuestionAnswer } = state;
+    const { subject, year, untimedPracticeQuestions,justSubmittedQuestionAnswer,filterQuestionArray } = state;
     let allQuestions = untimedPracticeQuestions.filter(
       (q) => Number(q.year) === Number(year) && q.subject === subject
     );
     let allQuestionArray =justSubmittedQuestionAnswer //allQuestions[0]?.submittedQuestionsAndAnswers;
 
-    if (payload === "showAll") {
+    if (payload === "All") {
+      let all=filterQuestionArray.sort(function(a, b){return a.questionNumber-b.questionNumber})
+      console.log(payload, all);
       return {
         ...state,
         isViewSolution: true,
-        questionArray: allQuestionArray,
+        questionArray: all,
         filterValue: "All",
       };
     } else if (payload === "Correct") {
-      let correct = allQuestionArray.filter(
+      let correct = filterQuestionArray.filter(
         (q) =>
           q.answer === q.userSelectedAnswer &&
           q?.hasOwnProperty("userSelectedAnswer")
-      );
+      ).sort(function(a, b){return a.questionNumber-b.questionNumber});
       console.log(payload, correct);
       return {
         ...state,
@@ -186,11 +187,11 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
         filterValue: payload,
       };
     } else if (payload === "Incorrect") {
-      let inCorrect = allQuestionArray.filter(
+      let inCorrect = filterQuestionArray.filter(
         (q) =>
           q.answer !== q.userSelectedAnswer &&
           q.hasOwnProperty("userSelectedAnswer")
-      );
+      ).sort(function(a, b){return a.questionNumber-b.questionNumber});
       console.log(payload, inCorrect);
       return {
         ...state,
@@ -199,9 +200,9 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
         filterValue: payload,
       };
     } else if (payload === "Unanswered") {
-      let unAnswered = allQuestionArray.filter(
+      let unAnswered = filterQuestionArray.filter(
         (q) => !q.hasOwnProperty("userSelectedAnswer")
-      );
+      ).sort(function(a, b){return a.questionNumber-b.questionNumber});
       console.log(payload, unAnswered);
       return {
         ...state,
@@ -250,8 +251,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     if(payload==="Timed"){
       
       let timeScore= timedPracticeQuestions.filter(practiceQuestion=>Number(practiceQuestion.year)===Number(year) && practiceQuestion.subject===subject )
-      
-     
       return {
         ...state,
         questionType:"Timed Questions",

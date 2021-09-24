@@ -35,10 +35,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function FilterModal(props) {
+  const { filterValue } =props.practiceQuestionReducer;
+  
   const classes = useStyles();
 
   //
-  const [value, setValue] = React.useState("showAll");
+  const [value, setValue] = React.useState(filterValue);
   const handleCheckChange = (event) => {
     setValue(event.target.value);
     props.filterSolution(event.target.value)
@@ -96,7 +98,7 @@ function FilterModal(props) {
                   <div>
                     <div>
                       <FormControlLabel
-                        value="showAll"
+                        value="All"
                         control={<Radio color="primary" />}
                         label="Show All"
                       />
