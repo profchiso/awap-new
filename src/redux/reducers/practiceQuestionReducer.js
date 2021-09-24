@@ -91,7 +91,8 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       untimedPracticeQuestions: payload.data.untimedPracticeQuestions,
       timedPracticeQuestions: payload.data.timedPracticeQuestions,
      justSubmittedQuestionAnswer:payload.data.submitedPracticeQuestion.submittedQuestionsAndAnswers,
-     filterQuestionArray:payload.data.submitedPracticeQuestion.submittedQuestionsAndAnswers
+     filterQuestionArray:payload.data.submitedPracticeQuestion.submittedQuestionsAndAnswers,
+     //userSelectedAnwser:payload.data.submitedPracticeQuestion.submittedQuestionsAndAnswers
 
     };
   } else if (type === "ON_SIDENAV_YEAR_CHANGE") {
@@ -162,10 +163,10 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     let allQuestions = untimedPracticeQuestions.filter(
       (q) => Number(q.year) === Number(year) && q.subject === subject
     );
-    let allQuestionArray =justSubmittedQuestionAnswer //allQuestions[0]?.submittedQuestionsAndAnswers;
+    let allQuestionArray = allQuestions[0]?.submittedQuestionsAndAnswers;
 
     if (payload === "All") {
-      let all=filterQuestionArray.sort(function(a, b){return a.questionNumber-b.questionNumber})
+      let all=allQuestionArray.sort(function(a, b){return a.questionNumber-b.questionNumber})
       console.log(payload, all);
       return {
         ...state,
@@ -174,7 +175,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
         filterValue: "All",
       };
     } else if (payload === "Correct") {
-      let correct = filterQuestionArray.filter(
+      let correct = allQuestionArray.filter(
         (q) =>
           q.answer === q.userSelectedAnswer &&
           q?.hasOwnProperty("userSelectedAnswer")
@@ -187,7 +188,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
         filterValue: payload,
       };
     } else if (payload === "Incorrect") {
-      let inCorrect = filterQuestionArray.filter(
+      let inCorrect = allQuestionArray.filter(
         (q) =>
           q.answer !== q.userSelectedAnswer &&
           q.hasOwnProperty("userSelectedAnswer")
@@ -200,7 +201,7 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
         filterValue: payload,
       };
     } else if (payload === "Unanswered") {
-      let unAnswered = filterQuestionArray.filter(
+      let unAnswered = allQuestionArray.filter(
         (q) => !q.hasOwnProperty("userSelectedAnswer")
       ).sort(function(a, b){return a.questionNumber-b.questionNumber});
       console.log(payload, unAnswered);
