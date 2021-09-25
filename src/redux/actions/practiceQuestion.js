@@ -213,9 +213,7 @@ export const setCurrentQuestionNumber=(questionNumber)=>{
 }
 
 export const backToStatistics=()=>{
-  console.log("back to statistic")
-
   return{
-    type:BACK_TO_STATISTICS,
+    type:"OKAY",
   }
 }

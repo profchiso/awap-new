@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
 function PracticeQuestion(props) {
   const { userSelectedAnwser, year, subject, questionType } =
     props.practiceQuestionReducer;
+    console.log(userSelectedAnwser)
   const submissionData = {
     submittedQuestionsAndAnswers: userSelectedAnwser,
     year,

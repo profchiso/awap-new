@@ -24,6 +24,7 @@ const initialState = {
 
 export const practiceQuestionReducer = (state = initialState, actions) => {
   const { type, payload } = actions;
+  console.log(type,payload)
 
   if (type === "SAVE_PAST_QUESTION_TO_STATE") {
     return {
@@ -81,6 +82,9 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     return {
       ...state,
       userSelectedAnwser: [...filteredUserSelectedAnwers, payload],
+      justSubmittedQuestionAnswer:[...filteredUserSelectedAnwers, payload],
+      filterQuestionArray:[...filteredUserSelectedAnwers, payload],
+
     };
   } else if (type === "SUBMIT_USER_ANSWERS") {
     console.log("submit",payload.data.submitedPracticeQuestion.submittedQuestionsAndAnswers)
@@ -113,8 +117,6 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
         practiceQuestion.subject === payload.subject
     );
    }
-
-
     return {
       ...state,
       questionArray: updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers,
@@ -124,36 +126,31 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
     };
   } 
   else if (type === "IS_VIEW_SOLUTION") {
-    
-    //Was copied from TEST_AGAIN: To be worked on
-    const { subject, year, untimedPracticeQuestions } = state;
-    let allQuestions = untimedPracticeQuestions.filter(
-      (q) => Number(q.year) === Number(year) && q.subject === subject
+    let updatedQuestionAndArray=[]
+
+   if(state.questionType.includes("Untimed")){
+    updatedQuestionAndArray = state.untimedPracticeQuestions.filter(
+      (practiceQuestion) =>
+        Number(practiceQuestion.year) === Number(payload.year) &&
+        practiceQuestion.subject === payload.subject
     );
-    let allQuestionArray = allQuestions[0]?.submittedQuestionsAndAnswers;
 
-    let questionWithoutAnswers = allQuestionArray.map((element) => {
-      delete element.userSelectedAnswer;
-      return element;
-    });
+   }else{
 
-    let filledQuestionArray = []
-    for (let question of allQuestionArray){
-      if (question.hasOwnProperty("userSelectedAnswer")){
-        filledQuestionArray.push(question)
-      }else{
-        question.userSelectedAnswer = question.answer
-        filledQuestionArray.push(question)
-      }
-    }
-    console.log("filledQuestionArray", filledQuestionArray);
+    updatedQuestionAndArray = state.timedPracticeQuestions.filter(
+      (practiceQuestion) =>
+        Number(practiceQuestion.year) === Number(payload.year) &&
+        practiceQuestion.subject === payload.subject
+    );
+   }
+
 
     return {
       ...state,
-      isViewSolution: true,
-      filterValue: "All",
-      // questionArray: questionWithoutAnswers,   //old value
-      //questionArray: filledQuestionArray,
+      questionArray: updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers,
+      isViewSolution: false,
+      justSubmittedQuestionAnswer:updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers,
+      filterQuestionArray:updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers
     };
   }
   
@@ -286,11 +283,33 @@ export const practiceQuestionReducer = (state = initialState, actions) => {
       currentQuestionNumber:payload,
     }
   }else if (type === "BACK_TO_STATISTICS"){
-    console.log(state.justSubmittedQuestionAnswer)
-    return{
+    console.log("back to statistic")
+    let updatedQuestionAndArray=[]
+
+   if(state.questionType.includes("Untimed")){
+    updatedQuestionAndArray = state.untimedPracticeQuestions.filter(
+      (practiceQuestion) =>
+        Number(practiceQuestion.year) === Number(payload.year) &&
+        practiceQuestion.subject === payload.subject
+    );
+
+   }else{
+
+    updatedQuestionAndArray = state.timedPracticeQuestions.filter(
+      (practiceQuestion) =>
+        Number(practiceQuestion.year) === Number(payload.year) &&
+        practiceQuestion.subject === payload.subject
+    );
+   }
+console.log("bts",updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers)
+
+    return {
       ...state,
-      questionArray:state.justSubmittedQuestionAnswer,
-    }
+      questionArray: updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers,
+      isViewSolution: false,
+      justSubmittedQuestionAnswer:updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers,
+      filterQuestionArray:updatedQuestionAndArray[0]?.submittedQuestionsAndAnswers
+    };
   }
   return state;
 };
