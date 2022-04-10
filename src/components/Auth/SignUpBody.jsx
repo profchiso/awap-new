@@ -73,6 +73,7 @@ function SignUpBody(props) {
       confirmPassword: values.confirmPassword,
       lastName: values.lastName,
       firstName: values.firstName,
+      userName:values.userName
     };
     // console.log(signUpData);
     await props.signUpRequest(signUpData);
@@ -81,6 +82,7 @@ function SignUpBody(props) {
       email: "",
       firstName: "",
       lastName: "",
+      userName: "",
       password: "",
       confirmPassword: "",
     });
@@ -140,6 +142,25 @@ function SignUpBody(props) {
               </div>
 
               <div className="flex justify-center pb-12  font-body">
+              <TextField
+                    id="standard-basic"
+                    placeholder="Username"
+                    className="w-full m-5 p-4  my-4 font-body"
+                    onChange={handleChange("userName")}
+                    value={values.userName}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <Person className="mr-5 mb-1" />
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                </div>  
+
+             
+
+              <div className="flex justify-center pb-12  font-body">
                 <TextField
                   id="standard-basic"
                   placeholder="Email"
@@ -158,6 +179,7 @@ function SignUpBody(props) {
                   }}
                 />
               </div>
+             
 
               <div className="flex justify-center pb-12 font-body">
                 <FormControl className=" w-full">
