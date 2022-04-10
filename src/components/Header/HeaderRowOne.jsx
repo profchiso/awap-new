@@ -2,8 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import Search from "../Search/Search";
 import { ReactComponent as AwesumEdgeLogo } from "../../assets/svgs/AwesumEdgeLogo.svg";
-import awesumBook from "../../assets/svgs/AwesumBook.svg";
-import { Link, Redirect } from "react-router-dom";
+import awapLogo from "../../assets/images/awapLogo.png";
+import { Link, } from "react-router-dom";
 import { ReactComponent as Filter } from "../../assets/svgs/FilterIcon.svg";
 import { makeStyles } from "@material-ui/core/styles";
 import { CircleUserAvatar } from "../Avatar/Avatar";
@@ -61,13 +61,13 @@ function HeaderRowOne({
   return (
     <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
       <div className="flex items-center my-3">
-        <div className="transform md:scale-80 scale-70 hidden md:block">
+        <div className="transform md:scale-80 scale-70 hidden md:block rounded-full">
           <Link to="/">
-            <AwesumEdgeLogo />
+            <img src={awapLogo} alt="Awap"  className="rounded-full" width="90px" height="90px"/>
           </Link>
         </div>
         <div className="block md:hidden">
-          <img src={awesumBook} alt="" />
+          <img src={awapLogo} alt=""  className="rounded-full" width="40px" height="40px" />
         </div>
 
         {showHeaderTitle ? (

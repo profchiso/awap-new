@@ -1,6 +1,5 @@
 import React from "react";
 import HeaderRowOne from "./HeaderRowOne";
-import HeaderRowTwo from "./HeaderRowTwo";
 
 export default function Header(props) {
   return (
@@ -10,7 +9,7 @@ export default function Header(props) {
         showHeaderTitle={props.showHeaderTitle}
         headerTitle={props.headerTitle}
       />
-      <HeaderRowTwo />
+      {/* <HeaderRowTwo /> */}
     </div>
   );
 }

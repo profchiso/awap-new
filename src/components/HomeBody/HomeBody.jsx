@@ -130,10 +130,10 @@ function HomeBody(props) {
                     <a href="mailto:">
                       <Button className="flex gap-4 ">
                         <EmailShareButton
-                          url="https://awesumedge.com/"
-                          subject="Join AwesumEdge"
-                          body="We Teach to Create Impact and Enrich Lives. Sign up today!"
-                          title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!"
+                          url="https://awapinvestors.com/"
+                          subject="Join Awap"
+                          body="Join! to embrace financial possibilities"
+                          title="Join Awap Investors!"
                           className="flex items-center"
                         >
                           <EmailIcon size={width>480?48:40} round={true} />
@@ -147,8 +147,8 @@ function HomeBody(props) {
                     <br /> <br />
                     <Button className="flex gap-4">
                       <WhatsappShareButton
-                        url="https://awesumedge.com/"
-                        title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!"
+                        url="https://awapinvestors.com/"
+                        title="Join Awap Investors!"
                         className="flex items-center"
                       >
                         <WhatsappIcon size={width>480?48:40} round={true} />
@@ -165,9 +165,9 @@ function HomeBody(props) {
                   <div>
                     <Button className="flex gap-4 ">
                       <FacebookShareButton
-                        url="https://awesumedge.com/"
-                        title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!"
-                        hashtag="AwesumEdge"
+                        url="https://awapinvestors.com/"
+                        title="Join Awap Investors!"
+                        hashtag="Awap Investors"
                         className="flex items-center"
                       >
                         <FacebookIcon size={width>480?48:40} round={true} />
@@ -182,9 +182,9 @@ function HomeBody(props) {
                     <br /> <br />
                     <Button className="flex gap-4">
                       <TwitterShareButton
-                        url="https://awesumedge.com/"
-                        title="Join AwesumEdge: We Teach to Create Impact and Enrich Lives. Sign up today!"
-                        hashtag="AwesumEdge"
+                        url="https://awapinvestors.com/"
+                        title="Join Awap Investors!"
+                        hashtag="Awap Investors"
                         className="flex items-center"
                       >
                         <TwitterIcon size={width>480?48:40} round={true} />  
@@ -218,10 +218,10 @@ function HomeBody(props) {
         <div className="flex">
           <div>
             <p className="pt-16 sm:pt-32 pb-8 sm:pb-12 text-xl  md:text-3xl lg:text-4xl whitespace-nowrap">
-              Curious Learners Change the World
+              Awap Investors
             </p>
             <p className="text-md sm:text-lg lg:text-xl pb-8">
-              Courses for Secondary/High School Students
+              ...embracing financial possibilities
             </p>
             {token ? (
               // INSERT A SHARE MODAL
@@ -248,8 +248,8 @@ function HomeBody(props) {
       </div>
 
       <h3 className="text-2xl md:text-4xl text-center mt-0 md:mt-24 md:mb-12 font-medium text-primary">
-        <span className="font-normal sm:font-medium">Why Learn with </span>
-        <span>AwesumEdge </span>
+        <span className="font-normal sm:font-medium">What we offer @  </span>
+        <span>Awap Investors </span>
       </h3>
 
       <div className="flex flex-1 py-8 px-4 justify-around gap-0 sm:gap-4">
@@ -258,28 +258,52 @@ function HomeBody(props) {
 
           <p className="text-sm md:text-base px-2">
             {width < 480
-              ? `Prepare Adequately`
-              : `Prepare Adequately for your Test/Exam`}
+              ? `AGRICULTURE`
+              : `AGRICULTURE`}
           </p>
         </div>
         <div className="text-center text-primary pb-4 max-w-1/3">
           <img src={aplusIcon} className="mx-auto px-2" alt="" />
           <p className="text-sm md:text-base px-1">
-            Excellent Result Guaranteed
+          REAL ESTATE INVESTMENT
           </p>
         </div>
         <div className="text-center text-primary pb-4 max-w-1/3 ">
           <img src={selfPacedLearning} alt="" className="mx-auto px-2" />
-          <p className="text-sm md:text-base">Self Paced Learning</p>
+          <p className="text-sm md:text-base">FOREX TRADING</p>
+        </div>
+      </div>
+      <div className="flex flex-1 py-8 px-4 justify-around gap-0 sm:gap-4">
+        <div className="text-center text-primary pb-4  max-w-1/3">
+          <img src={testTimer} className="mx-auto px-2" alt="" />
+
+          <p className="text-sm md:text-base px-2">
+            {width < 480
+              ? `
+              FINANCIAL SERVICES`
+              : `
+              FINANCIAL SERVICES`}
+          </p>
+        </div>
+        <div className="text-center text-primary pb-4 max-w-1/3">
+          <img src={aplusIcon} className="mx-auto px-2" alt="" />
+          <p className="text-sm md:text-base px-1">
+            
+AWAP DIGITAL ACADEMY [ADA]
+          </p>
+        </div>
+        <div className="text-center text-primary pb-4 max-w-1/3 ">
+          <img src={selfPacedLearning} alt="" className="mx-auto px-2" />
+          <p className="text-sm md:text-base">BUSINESS SUPPORT SERVICES</p>
         </div>
       </div>
 
       <div className="text-center mt-32 sm:mt-64 pb-8 px-6 sm:px-16 ">
         <p className="text-primary text-2xl sm:text-4xl  font-medium">
-          Explore Our Classes
+        Investment Packages
         </p>
 
-        <div className="flex justify-end items-center content-center">
+        {/* <div className="flex justify-end items-center content-center">
           <div className="mt-8">
             <FormControl
               variant="outlined"
@@ -319,7 +343,7 @@ function HomeBody(props) {
             </p>
             <NextIcon className="text-sm " />
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="flex px-7 sm:max-w-6xl mx-auto">
@@ -346,7 +370,7 @@ function HomeBody(props) {
 
       <div className="flex flex-wrap justify-center items-center text-center  mt-32 sm:mt-64 pb-40">
         <h3 className="relative top-44 lg:top-48 text-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
-          What Our Users Say
+          What People Say About us
         </h3>
 
         <div className="bg-bodyLightBlue bg-cover bg-center bg-no-repeat py-48 lg:py-64 w-full">
@@ -355,24 +379,24 @@ function HomeBody(props) {
               {width < 1024 ? (
                 <Avatar
                   alt="user"
-                  src={someb}
+                  src={""}
                   className={`${classes.large} mx-auto sm:w-auto`}
                 />
               ) : (
                 <Avatar
                   alt="user"
-                  src={someb}
+                  src={""}
                   className={`${classes.xlarge} mx-auto sm:w-auto`}
                 />
               )}
-              <p className="py-2  text-sm md:text-lg sm:py-4 opacity-75">Ayo</p>
+              <p className="py-2  text-sm md:text-lg sm:py-4 opacity-75">Chinedu</p>
             </div>
             <div className="opacity-50 text-sm md:text-lg top-0 ">
               <p className="sm:whitespace-nowrap">
-                I love the past questions, and how they were solved.
+               Awap is lifting many people
               </p>
               <p className="whitespace-nowrap">
-                They helped me prepare well for my exams !
+                out of poverty !
               </p>
             </div>
           </div>

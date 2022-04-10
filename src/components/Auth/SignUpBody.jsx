@@ -131,7 +131,7 @@ function SignUpBody(props) {
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
-                          <Person className="mr-5 mb-1" />
+                          <Person className="mr-5 mb-1 " />
                         </InputAdornment>
                       ),
                     }}

@@ -1,7 +1,7 @@
 
 
 
-export  const RealEstate=()=> {
+export  default function RealEstate(){
     return (
         <div className="text-center pt-8 md:pt-16 text-xl sm:text-2xl  font-body text-gray-600">
            <div className='page3-write-up'>

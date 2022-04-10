@@ -8,10 +8,11 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import FeedbackRoundedIcon from "@material-ui/icons/FeedbackRounded";
+// import FeedbackRoundedIcon from "@material-ui/icons/FeedbackRounded";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 import { ReactComponent as MenuIcon } from "../../assets/svgs/menuIcon.svg";
-import AwesumEdgeLogo from "../../assets/svgs/AwesumEdgeLogo.svg";
+// import AwesumEdgeLogo from "../../assets/svgs/AwesumEdgeLogo.svg";
+import awapLogo from "../../assets/images/awapLogo.png";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { CircleUserAvatar } from "../Avatar/Avatar";
@@ -85,7 +86,7 @@ function TemporaryDrawer({ loginReducer,logout, blueMenu, ...props }) {
         <ListItem button>
           <ListItemIcon>
             <Link to="/">
-              <img src={AwesumEdgeLogo} alt="" className="transform scale-90" />
+            <img src={awapLogo} alt="" className="rounded-full" width="40px" height="40px" />
             </Link>
           </ListItemIcon>
         </ListItem>
@@ -106,14 +107,14 @@ function TemporaryDrawer({ loginReducer,logout, blueMenu, ...props }) {
           </ListItem>
         </Link>
 
-        <Link to="/">
+        {/* <Link to="/">
           <ListItem button>
             <ListItemIcon>
               <FeedbackRoundedIcon />
             </ListItemIcon>
             <ListItemText primary="Feedback" className="text-primary" />
           </ListItem>
-        </Link>
+        </Link> */}
 
         <Link to="/">
           <ListItem button>

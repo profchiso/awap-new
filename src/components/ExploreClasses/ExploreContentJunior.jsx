@@ -12,7 +12,10 @@ import WithTutorial from "../Carousels/WithTutorial";
 import UAParser from "ua-parser-js";
 import "semantic-ui-css/semantic.min.css";
 import "react-multi-carousel/lib/styles.css";
-import ComingSoon from "./ComingSoon";
+// import {Agriculture,Forex,RealEstate} from "./ComingSoon";
+import Agriculture from "./Agriculture";
+import Forex from "./Forex";
+import RealEstate from "./RealEstate"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -119,17 +122,15 @@ export default function ExploreContent() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          {isVideoReady ? <WithTutorial /> : <ComingSoon />}
+          {isVideoReady ? <WithTutorial /> : <Agriculture />}
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          {isVideoReady ? <WithTutorial /> : <ComingSoon />}
+          {isVideoReady ? <WithTutorial /> : <Forex />}
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          {isVideoReady ? <WithTutorial /> : <ComingSoon />}
+          {isVideoReady ? <WithTutorial /> : <RealEstate />}
         </TabPanel>
-        <TabPanel value={value} index={3} dir={theme.direction}>
-          {isVideoReady ? <WithTutorial /> : <ComingSoon />}
-        </TabPanel>
+        
       </SwipeableViews>
     </div>
   );

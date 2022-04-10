@@ -10,19 +10,19 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const tutorialSteps = [
   {
     id: 1,
-    label: "We Teach to Create Impact and Enrich Lives",
+    label: "CEO",
   },
   {
     id: 2,
-    label: "We Provide quality Education",
+    label: "Dir Finance",
   },
   {
     id: 3,
-    label: "We Teach to Create Impact and Enrich Lives",
+    label: "CTO",
   },
   {
     id: 4,
-    label: "We Provide quality Education",
+    label: "MD",
   },
 ];
 

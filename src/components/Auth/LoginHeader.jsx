@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { ReactComponent as AwesumEdgeLogo } from "../../assets/svgs/AwesumEdgeLogo.svg";
-import awesumBook from "../../assets/svgs/AwesumBook.svg";
+import awapLogo from "../../assets/images/awapLogo.png";
+
 import { Link } from "react-router-dom";
 import {
   registrationError,
@@ -15,13 +15,13 @@ function LoginHeader(props) {
       <div className="max-w-screen-2xl mx-auto flex justify-between items-center py-1 sm:py-3 px-10 ">
         <div>
           <div className="transform md:scale-80 scale-70 hidden md:block">
-            <Link to="/">
-              <AwesumEdgeLogo />
-            </Link>
+          <Link to="/">
+            <img src={awapLogo} alt="Awap"  className="rounded-full" width="90px" height="90px"/>
+          </Link>
           </div>
           <div className="block md:hidden">
             <Link to="/">
-              <img src={awesumBook} alt="" />
+              <img src={awapLogo} alt="" className="rounded-full" width="40px" height="40px" />
             </Link>
           </div>
         </div>

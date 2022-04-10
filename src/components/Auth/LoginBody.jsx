@@ -190,7 +190,7 @@ function LoginBody(props) {
 
           <div className="justify-center w-full bg-gray-50 h-full py-6">
             <div className="py-2 flex justify-center horizontal_Line max-w-3/4 mx-auto">
-              New to AwesumEdge?
+              New to Awap?
             </div>
             <div className="py-2 flex justify-center">
               <Link

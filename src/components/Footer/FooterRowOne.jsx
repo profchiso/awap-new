@@ -12,7 +12,7 @@ export default function FooterRowOne() {
         <div className="bg-gradient-to-b from-blueFour to-blueTwo lg:bg-none flex justify-center footerRowOne">
         <div className="">
           <div className="md:pt-32 md:pb-16 pt-8 pb-4 transform scale-75 md:scale-100">
-            <AwesumEdgeWhiteLogo />
+            <h1>Follow us on</h1>
           </div>
           <div className="flex gap-10 md:pb-32 pb-8 transform scale-75 md:scale-100">
             <div className="p-2">
@@ -21,9 +21,9 @@ export default function FooterRowOne() {
               </Link>
             </div>
             <div className="p-2">
-              <a href="https://www.facebook.com/AwesumEdge" target="_blank">
+              <Link href="https://www.facebook.com/Awap" target="_blank">
                 <FacebookIcon />
-              </a>
+              </Link>
             </div>
             <div className="p-2">
               <Link to="youtube.com" target="_blank">
