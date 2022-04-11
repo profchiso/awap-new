@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
-// import GoogleButton from "./GoogleButton";
+import { ReactComponent as Person } from "../../assets/svgs/person.svg";
 import { Checkbox, FormControl, IconButton, Input } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
@@ -34,6 +34,7 @@ function LoginBody(props) {
     weight: "",
     weightRange: "",
     email: "",
+    userName: "",
     showPassword: false,
   });
   const [isButtonClicked, setisButtonClicked] = useState(false);
@@ -57,11 +58,11 @@ function LoginBody(props) {
   const handleCheckChange = (event) => {
     setChecked(event.target.checked);
   };
-  const { email, password } = values;
+  const { userName, password } = values;
 
   const handleLogin = (e) => {
     e.preventDefault();
-    props.loginRequest({ email, password });
+    props.loginRequest({ userName, password });
     setisButtonClicked(true);
     
   };
@@ -81,21 +82,22 @@ function LoginBody(props) {
               Log In.
             </div>
             <form>
-              <div className="flex justify-center pb-12  font-body">
-                <TextField
-                  id="standard-basic"
-                  placeholder="Email"
-                  className="w-full m-5 p-4  my-4 font-body"
-                  onChange={handleChange("email")}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <EmailRoundedIcon color="primary" className="mr-5" />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </div>
+            <div className="flex justify-center pb-12  font-body">
+              <TextField
+                    id="standard-basic"
+                    placeholder="Username"
+                    className="w-full m-5 p-4  my-4 font-body"
+                    onChange={handleChange("userName")}
+                    value={values.userName}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <Person className="mr-5 mb-1" />
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                </div> 
               <div className="flex justify-center pb-8 font-body">
                 <FormControl className=" w-full">
                   <Input

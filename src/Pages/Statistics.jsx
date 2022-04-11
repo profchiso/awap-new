@@ -112,9 +112,7 @@ function Statistics(props) {
           <div className="flex justify-between items-center">
             <div className="flex gap-6 pt-4 text-base font-medium">
               <div
-                className={`cursor-pointer  ${
-                  questionType.includes("Untimed") && "pb-2 border-b px-2"
-                }`}
+                className={`cursor-pointer pb-2 border-b px-2`}
                 onClick={() => {
                   setTimedBoolean(false);
                   props.viewScoreByPraticeQuestionType("Untimed");
@@ -125,9 +123,7 @@ function Statistics(props) {
                 Untimed
               </div>
               <div
-                className={`cursor-pointer  ${
-                  !questionType.includes("Untimed") && "pb-2 border-b px-2"
-                }`}
+                className={`cursor-pointer pb-2 border-b px-2`}
                 onClick={() => {
                   setTimedBoolean(true);
                   props.viewScoreByPraticeQuestionType("Timed");

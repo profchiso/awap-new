@@ -123,7 +123,7 @@ function HeaderRowOne({
                   </MenuItem>
                 </Link>
 
-                <Link to="/choose-subject">
+                <Link to="/dashboard">
                   <MenuItem
                     onClick={handleClose}
                     className={`${classes.menuItem} font-body font-normal flex`}
@@ -132,7 +132,7 @@ function HeaderRowOne({
                       <Io.IoIosStats className="text-primary" />
                     </span>
                     <span className="font-body font-normal flex-1 pr-8 text-primary text-sm">
-                      Statistics
+                      Dashboard
                     </span>
                   </MenuItem>
                 </Link>

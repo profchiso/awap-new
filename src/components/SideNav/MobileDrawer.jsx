@@ -8,7 +8,7 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-// import FeedbackRoundedIcon from "@material-ui/icons/FeedbackRounded";
+import DashboardIcon from '@material-ui/icons/Dashboard';
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 import { ReactComponent as MenuIcon } from "../../assets/svgs/menuIcon.svg";
 // import AwesumEdgeLogo from "../../assets/svgs/AwesumEdgeLogo.svg";
@@ -107,14 +107,14 @@ function TemporaryDrawer({ loginReducer,logout, blueMenu, ...props }) {
           </ListItem>
         </Link>
 
-        {/* <Link to="/">
+        <Link to="/dashboard">
           <ListItem button>
             <ListItemIcon>
-              <FeedbackRoundedIcon />
+              <DashboardIcon />
             </ListItemIcon>
-            <ListItemText primary="Feedback" className="text-primary" />
+            <ListItemText primary="Dashboard" className="text-primary" />
           </ListItem>
-        </Link> */}
+        </Link>
 
         <Link to="/">
           <ListItem button>

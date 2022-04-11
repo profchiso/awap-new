@@ -6,6 +6,7 @@ import { CircleUserAvatar } from "../Avatar/Avatar";
 import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 import { connect } from "react-redux";
 import { Button, Menu, MenuItem } from "@material-ui/core";
+import awapLogo from "../../assets/images/awapLogo.png";
 import { FiLogOut } from "react-icons/fi";
 import { makeStyles } from "@material-ui/core/styles";
 import TemporaryDrawer from "../SideNav/MobileDrawer";
@@ -67,10 +68,10 @@ function PracticeHeader({
         <div className="transform md:scale-80 scale-70">
           <Link to="/">
             <span className="hidden md:block lg:hidden">
-              <img src={awesumBook} alt="logo" />
+            <img src={awapLogo} alt="Awap"  className="rounded-full" width="90px" height="90px"/>
             </span>
             <span className="hidden md:hidden lg:block">
-              <AwesumEdgeLogo />
+            <img src={awapLogo} alt="Awap"  className="rounded-full" width="90px" height="90px"/>
             </span>
           </Link>
         </div>
@@ -80,13 +81,13 @@ function PracticeHeader({
         <div className="flex flex-1 justify-center pr-3 sm:px-5 sm:px-0 -ml-1 lg:-ml-28 font-medium text-base md:text-lg">
           <span className="whitespace-nowrap">
             <span>
-              {year >= 2000 ? year : ""}&nbsp;{subject} WAEC
+              {/* {year >= 2000 ? year : ""}&nbsp;{subject} WAEC */}
             </span>
             &nbsp;
             <span className="hidden sm:inline-block">
-              {props.additionalTitle
+              {/* {props.additionalTitle
                 ? props.additionalTitle
-                : "Practice Questions"}
+                : "Practice Questions"} */}
             </span>
             {width > 300 ? (
               <span className="sm:hidden inline-block pr-1">PQ</span>
@@ -154,7 +155,7 @@ function PracticeHeader({
                 </span>
               </MenuItem>
             </Link>
-            <Link to="/choose-subject">
+            <Link to="/dashboard">
               <MenuItem
                 onClick={handleClose}
                 className={`${classes.menuItem} font-body font-normal flex`}
@@ -163,7 +164,7 @@ function PracticeHeader({
                   <Io.IoIosStats className="text-primary" />
                 </span>
                 <span className="font-body font-normal flex-1 pr-8 text-primary text-sm">
-                  Statistics
+                  Dashboard
                 </span>
               </MenuItem>
             </Link>

@@ -90,6 +90,7 @@ export default function App() {
               <Route path="/privacy" component={PrivacyPolicy} />
 
               <Route path="/stats" component={Statistics} />
+              <Route path="/dashboard" component={Statistics} />
 
               <Route path="/terms" component={TermsPage} />
 

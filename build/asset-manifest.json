@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.12ec9b86.chunk.css",
-    "main.js": "/static/js/main.19258a0e.chunk.js",
-    "main.js.map": "/static/js/main.19258a0e.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.d2569895.js",
-    "runtime-main.js.map": "/static/js/runtime-main.d2569895.js.map",
+    "main.css": "/static/css/main.74024532.chunk.css",
+    "main.js": "/static/js/main.a06232a8.chunk.js",
+    "main.js.map": "/static/js/main.a06232a8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7aa8dcc8.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7aa8dcc8.js.map",
     "static/css/2.ba359e8e.chunk.css": "/static/css/2.ba359e8e.chunk.css",
-    "static/js/2.f1adcedb.chunk.js": "/static/js/2.f1adcedb.chunk.js",
-    "static/js/2.f1adcedb.chunk.js.map": "/static/js/2.f1adcedb.chunk.js.map",
-    "static/js/3.b597ca57.chunk.js": "/static/js/3.b597ca57.chunk.js",
-    "static/js/3.b597ca57.chunk.js.map": "/static/js/3.b597ca57.chunk.js.map",
+    "static/js/2.715ac9e9.chunk.js": "/static/js/2.715ac9e9.chunk.js",
+    "static/js/2.715ac9e9.chunk.js.map": "/static/js/2.715ac9e9.chunk.js.map",
+    "static/js/3.920c4360.chunk.js": "/static/js/3.920c4360.chunk.js",
+    "static/js/3.920c4360.chunk.js.map": "/static/js/3.920c4360.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.ba359e8e.chunk.css.map": "/static/css/2.ba359e8e.chunk.css.map",
-    "static/css/main.12ec9b86.chunk.css.map": "/static/css/main.12ec9b86.chunk.css.map",
-    "static/js/2.f1adcedb.chunk.js.LICENSE.txt": "/static/js/2.f1adcedb.chunk.js.LICENSE.txt",
+    "static/css/main.74024532.chunk.css.map": "/static/css/main.74024532.chunk.css.map",
+    "static/js/2.715ac9e9.chunk.js.LICENSE.txt": "/static/js/2.715ac9e9.chunk.js.LICENSE.txt",
     "static/media/AlarmClock.fec8e166.svg": "/static/media/AlarmClock.fec8e166.svg",
     "static/media/AplusIcon.e752beba.svg": "/static/media/AplusIcon.e752beba.svg",
     "static/media/AwesumBook.ca3b9001.svg": "/static/media/AwesumBook.ca3b9001.svg",
@@ -36,6 +36,7 @@
     "static/media/TimeLogo.2d320ed9.svg": "/static/media/TimeLogo.2d320ed9.svg",
     "static/media/TwitterIcon.e4400c81.svg": "/static/media/TwitterIcon.e4400c81.svg",
     "static/media/YoutubeIcon.679cce3a.svg": "/static/media/YoutubeIcon.679cce3a.svg",
+    "static/media/awapLogo.bddd8548.png": "/static/media/awapLogo.bddd8548.png",
     "static/media/semantic.min.css": "/static/media/outline-icons.ddae9b1b.woff",
     "static/media/clockIcon.9cc59777.svg": "/static/media/clockIcon.9cc59777.svg",
     "static/media/correctIcon.bb43e36b.svg": "/static/media/correctIcon.bb43e36b.svg",
@@ -51,10 +52,10 @@
     "static/media/wrongIcon.c2d3312b.svg": "/static/media/wrongIcon.c2d3312b.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d2569895.js",
+    "static/js/runtime-main.7aa8dcc8.js",
     "static/css/2.ba359e8e.chunk.css",
-    "static/js/2.f1adcedb.chunk.js",
-    "static/css/main.12ec9b86.chunk.css",
-    "static/js/main.19258a0e.chunk.js"
+    "static/js/2.715ac9e9.chunk.js",
+    "static/css/main.74024532.chunk.css",
+    "static/js/main.a06232a8.chunk.js"
   ]
 }
