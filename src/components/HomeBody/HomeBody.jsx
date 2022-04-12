@@ -248,8 +248,8 @@ function HomeBody(props) {
       </div>
 
       <h3 className="text-2xl md:text-4xl text-center mt-0 md:mt-24 md:mb-12 font-medium text-primary">
-        <span className="font-normal sm:font-medium">What we offer @  </span>
-        <span>Awap Investors </span>
+        <span className="font-normal sm:font-medium">WHAT WE OFFER   </span>
+        
       </h3>
 
       <div className="flex flex-1 py-8 px-4 justify-around gap-0 sm:gap-4">
