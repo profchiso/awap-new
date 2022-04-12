@@ -116,6 +116,18 @@ function TemporaryDrawer({ loginReducer,logout, blueMenu, ...props }) {
           </ListItem>
         </Link>
 }
+
+         {!token && 
+         <Link to="/sign-up">
+         <ListItem button>
+           <ListItemIcon>
+             <DashboardIcon />
+           </ListItemIcon>
+           <ListItemText primary="Register" className="text-primary" />
+         </ListItem>
+       </Link>
+        }
+
         <Link to="/">
           <ListItem button>
             <ListItemIcon>
