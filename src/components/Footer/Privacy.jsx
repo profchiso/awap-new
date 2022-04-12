@@ -6,12 +6,12 @@ export default function Privacy() {
   return (
     <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
       <h3 className="text-base text-primary sm:text-lg lg:text-2xl text-center py-10  sm:py-16 ">
-        PRIVACY POLICY 
+      AWAP  PRIVACY POLICY 
       </h3>
       <div className="text-base  max-w-3xl mx-auto font-medium leading-7">
         <div className="opacity-75 ">
           <div className="">
-            Welcome to the Awesumedge's Privacy Notice (“Notice”).
+            Welcome to the Awap Investors's Privacy Notice (“Notice”).
           </div>
           <br />
           <div>
@@ -19,522 +19,271 @@ export default function Privacy() {
               to="/"
               className="text-primary hover:text-primary hover:underline"
             >
-              www.awesumedge.com
+              www.awapinvestors.com
             </Link>{" "}
-            is an e-learning platform where students can access thousands of
-            instructional videos, past questions and lots of practice problems
-            to better prepare them for success. It is operated by AwesumEdge LLC
-            and its subsidiaries.
+            <h4 className="text-base text-primary sm:text-lg lg:text-2xl text-center py-10  sm:py-16 ">
+            Introduction
+      </h4>
+      AWAP INVESTORS LTD is strongly committed to protecting personal data. This privacy statement describes why and how we collect and use personal data and provides information about individuals’ rights in relation to personal data. It applies to personal data provided to us, both by individuals themselves or by others. We may use personal data provided to us for any of the purposes described in this privacy statement or as otherwise stated at the point of collection.
           </div>
           <br />
           <div>
-            AwesumEdge LLC values its users' privacy. This Privacy Policy
-            ("Policy") will help you understand how we collect and use personal
-            information from those who visit our website or make use of our
-            online facilities and services, and what we will and will not do
-            with the information we collect. Our Policy has been designed and
-            created to ensure those affiliated with AwesumEdge LLC of our
-            commitment and realization of our obligation not only to meet, but
-            to exceed, most existing privacy standards.
+          In this privacy statement, we refer to information about you or information that identifies you as “personal data” or “personal information”. We also sometimes collectively refer to handling, collecting, protecting or storing your personal information as “processing” such personal information.
           </div>
           <br />
           <div>
-            We reserve the right to make changes to this Policy at any given
-            time. If you want to make sure that you are up to date with the
-            latest changes, we advise you to frequently visit this page. If at
-            any point in time AwesumEdge LLC decides to make use of any
-            personally identifiable information on file, in a manner vastly
-            different from that which was stated when this information was
-            initially collected, the user or users shall be promptly notified by
-            email. Users at that time shall have the option as to whether to
-            permit the use of their information in this separate manner.
+          Awap investors Ltd processes personal data for numerous purposes. Our policy is to be transparent about why and how we process personal data. 
           </div>
           <br />
           <div>
-            This Policy applies to AwesumEdge LLC and any subsidiary company
-            listed below, and it governs any and all data collection and usage
-            by us. Through the use of www.awesumedge.com and any subsidiary
-            website listed below, you are therefore consenting to the data
-            collection procedures expressed in this Policy.
+          Awap investors Ltd processes personal data for numerous purposes. Our policy is to be transparent about why and how we process personal data. 
+          </div>
+          <br/>
+          <div>
+          To find out more about our specific processing activities, go to our processing activities.
           </div>
           <br />
           <div className="flex flex-col sm:flex-row gap-5 text-center justify-around">
             <div className="flex-col">
-              <div className="font-bold">Subsidiary Company</div>
-              <div>AwesumEdge Nigeria Limited</div>
+              <div className="font-bold text-base text-primary sm:text-lg lg:text-2xl text-center py-10  sm:py-16 ">Our legal grounds for processing your personal data</div>
+              <div>Your local law may require us to set out in this privacy statement the legal grounds on which we rely in order to process your personal information. In such cases, we rely on one or more of the following processing conditions:</div>
             </div>
-            <div className="flex-col">
-              <div className="font-bold">Subsidiary Website</div>
+            {/* <div className="flex-col">
+              <div className="font-bold">Website</div>
               <div>
                 <Link
                   to="/"
                   className="text-primary hover:text-primary hover:underline"
                 >
-                  www.awesumedge.com
+                  www.awapinvestors.com
                 </Link>
               </div>
-            </div>
+            </div> */}
           </div>
           <br /> <br />
           <div>
-            Please note that this Policy does not govern the collection and use
-            of information by companies that AwesumEdge LLC does not control,
-            nor by individuals not employed or managed by us. If you visit a
-            website that we mention or link to, be sure to review its privacy
-            policy before providing the site with information. It is highly
-            recommended and suggested that you review the privacy policies and
-            statements of any website you choose to use or frequent to better
-            understand the way in which websites garner, make use of and share
-            the information collected.
+          •	our legitimate interests in the effective delivery of information and services to you and in the effective and lawful operation of our businesses and the legitimate interests of our clients in receiving professional services from us as part of running their business (provided these do not interfere with your rights);
           </div>
           <br />
-          <div className="ml-5">
-            <div>
-              Specifically, this Policy will inform you of the following:
-            </div>
-            <ol class="list-decimal pt-2 list-outside">
-              <li className="pl-2">
-                What personally identifiable information is collected from you
-                through our website;
-              </li>
-              <li className="pl-2">
-                Why we collect personally identifiable information and the legal
-                basis for such collection;
-              </li>
-              <li className="pl-2">
-                How we use the collected information and with whom it may be
-                shared;
-              </li>
-              <li className="pl-2">
-                What choices are available to you regarding the use of your
-                data; and
-              </li>
-              <li className="pl-2">
-                The security procedures in place to protect the misuse of your
-                information
-              </li>
-            </ol>
+          <div>
+          •	our legitimate interests in developing and improving our businesses, services and offerings and indeveloping new awap business strategies (provided these do not interfere with your rights);
           </div>
+          <br/>
+          <div>
+          •	to satisfy any requirement of law, regulation or professional body of which we are a member (for example, for some of our services, we have a legal obligation to provide the service in a certain way);
+          </div>
+          <br/>
+          <div>
+          •	to perform our obligations under a contractual arrangement with you; or
+          </div>
+          <br/>
+          <div>
+          •	where no other processing condition is available, if you have agreed to us processing your personal information for the relevant purpose.
+          </div>
+          <br/>
+          
         </div>
         <br />
         <br />
-        <br />
+        
         <div>
-          <div className="text-primary text-xl">Information We Collect</div>
+          <div className="text-primary text-xl">Transfers of personal data
+Cross-border transfers
+</div>
           <br />
           <div className="opacity-75 ">
             <div>
-              It is always up to you whether to disclose personally identifiable
-              information to us, although if you elect not to do so, we reserve
-              the right not to register you as a user or provide you with any
-              products or services. This website collects various types of
-              information, such as:
+            If we process your personal information, your personal information may be transferred to and stored outside the country where you are located. This includes countries outside the European Economic Area (EEA), if you are based in the EEA, and countries that do not have laws that provide specific protection for personal information.
             </div>
             <br />
             <div className="ml-5">
               <ul className="list-disc  pt-2 list-outside">
                 <li className="pl-2">
-                  Voluntarily provided information which may include your name,
-                  email address, billing and/or credit card information etc.
-                  which may be used when you purchase products and/or services
-                  and to deliver the services you have requested.
+                •	to a recipient located in a country which provides an adequate level of protection for your personal information; and/or
                 </li>
                 <li className="pl-2">
-                  Information automatically collected when visiting our website,
-                  which may include cookies, third party tracking technologies
-                  and server logs.
+                •	under an agreement which satisfies EU requirements for the transfer of personal data to data processors or data controllers outside the EEA, such as standard contractual clauses approved by the European Commission
                 </li>
               </ul>
             </div>
             <br />
-            <div>
-              In addition, AwesumEdge LLC may have the occasion to collect
-              non-personal anonymous demographic information, such as age,
-              gender and race, as well as the type of browser you are using, IP
-              address, or type of operating system, which will assist us in
-              providing and maintaining superior quality service.
-            </div>
-            <br />
-            <div>
-              AwesumEdge LLC may also deem it necessary, from time to time, to
-              follow websites that our users may frequent to gleam what types of
-              services and products may be the most popular to customers or the
-              general public.
-            </div>
-            <br />
-            <div>
-              Please be rest assured that this site will only collect personal
-              information that you knowingly and willingly provide to us by way
-              of surveys, completed membership forms, and emails. It is the
-              intent of this site to use personal information only for the
-              purpose for which it was requested, and any additional uses
-              specifically provided for on this Policy.
-            </div>
+            
           </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <div>
-          <div className="text-primary text-xl">
-            Why We Collect Information and For How Long
-          </div>
-          <br />
-          <div className="opacity-75 ">
-            <div>We are collecting your data for several reasons:</div>
-            <br />
-            <div className="ml-5">
-              <ul className="list-disc  pt-2 list-outside">
-                <li className="pl-2">
-                  To better understand your needs and provide you with the
-                  services you have requested
-                </li>
-                <li className="pl-2">
-                  To fulfill our legitimate interest in improving our services
-                  and products;
-                </li>
-                <li className="pl-2">
-                  To send you promotional emails containing information we think
-                  you may like when we have your consent to do so.
-                </li>
-                <li className="pl-2">
-                  To contact you to fill out surveys or participate in other
-                  types of market research, when we have your consent to do so;
-                </li>
-                <li className="pl-2">
-                  To customize our website according to your online behavior and
-                  personal preferences.
-                </li>
-              </ul>
-            </div>
-            <br />
-            <div>
-              The data we collect from you will be stored for no longer than
-              necessary. The length of time we retain said information will be
-              determined based upon the following criteria: the length of time
-              your personal information remains relevant; the length of time it
-              is reasonable to keep records to demonstrate that we have
-              fulfilled our duties and obligations; any limitation periods
-              within which claims might be made; any retention periods
-              prescribed by law or recommended by regulators, professional
-              bodies or associations; the type of contract we have with you, the
-              existence of your consent, and our legitimate interest in keeping
-              such information as stated in this Policy.
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div>
-          <div className="text-primary text-xl">
-            Use of Information Collected
-          </div>
-          <br />
-          <div className="opacity-75 ">
-            <div>
-              AwesumEdge LLC does not now, nor will it in the future, sell, rent
-              or lease any of its customer lists and/or names to any third
-              parties.
-            </div>
-            <br />
-            <div>
-              AwesumEdge LLC may collect and may make use of personal
-              information to assist in the operation of our website and to
-              ensure delivery of the services you need and request. At times, we
-              may find it necessary to use personally identifiable information
-              as a means to keep you informed of other possible products and/or
-              services that may be available to you from www.awesumedge.com and
-              its subsidiaries.
-            </div>
-            <br />
-            <div>
-              AwesumEdge LLC and its subsidiaries may also be in contact with
-              you with regards to completing surveys and/or research
-              questionnaires related to your opinion of current or potential
-              future services that may be offered.
-            </div>
-            <br />
-            <div>
-              AwesumEdge LLC may feel it necessary, from time to time, to
-              contact you on behalf of our other external business partners with
-              regards to a potential new offer which may be of interest to you.
-              If you consent or show interest in presented offers, then, at that
-              time, specific identifiable information, such as name, email
-              address and/or telephone number, may be shared with the third
-              party.
-            </div>
-            <br />
-            <div>
-              AwesumEdge LLC may find it beneficial to all our customers to
-              share specific data with our trusted partners in an effort to
-              conduct statistical analysis, provide you with email and/or postal
-              mail, deliver support and/or arrange for deliveries to be made.
-              Those third parties shall be strictly prohibited from making use
-              of your personal information, other than to deliver those services
-              which you requested, and as such they are required, in accordance
-              with this agreement, to maintain the strictest of confidentiality
-              with regards to all your information.
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div>
-          <div className="text-primary text-xl">Disclosure of Information</div>
-          <br />
-          <div className="opacity-75 ">
-            <div>
-              AwesumEdge LLC may not use or disclose the information provided by
-              you except under the following circumstances:
-            </div>
-            <br />
-            <div className="ml-5">
-              <ul className="list-disc  pt-2 list-outside">
-                <li className="pl-2">
-                  as necessary to provide services or products you have ordered
-                </li>
-                <li className="pl-2">
-                  in other ways described in this Policy or to which you have
-                  otherwise consented
-                </li>
-                <li className="pl-2">
-                  in the aggregate with other information in such a way so that
-                  your identity cannot reasonably be determined
-                </li>
-                <li className="pl-2">
-                  as required by law, or in response to a subpoena or search
-                  warrant;
-                </li>
-                <li className="pl-2">
-                  to outside auditors who have agreed to keep the information
-                  confidential;
-                </li>
-                <li className="pl-2">
-                  as necessary to enforce the Terms of Service;
-                </li>
-                <li className="pl-2">
-                  as necessary to maintain, safeguard and preserve all the
-                  rights and property of AwesumEdge LLC;
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div>
-          <div className="text-primary text-xl">Non-Marketing Purposes</div>
-          <br />
-          <div className="opacity-75 ">
-            <div>
-              AwesumEdge LLC greatly respects your privacy. We do maintain and
-              reserve the right to contact you if needed for non-marketing
-              purposes (such as bug alerts, security breaches, account issues,
-              and/or changes in AwesumEdge LLC products and services). In
-              certain circumstances, we may use our website, newspapers, or
-              other public means to post a notice.
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div>
-          <div className="text-primary text-xl">
-            Children under the age of 18
-          </div>
-          <br />
-          <div className="opacity-75 ">
-            <div>
-              AwesumEdge LLC's website is not directed to, and does not
-              knowingly collect personal identifiable information from, children
-              under the age of eighteen (18). If it is determined that such
-              information has been inadvertently collected on anyone under the
-              age of eighteen (18), we shall immediately take the necessary
-              steps to ensure that such information is deleted from our system's
-              database, or in the alternative, that verifiable parental consent
-              is obtained for the use and storage of such information. Anyone
-              under the age of eighteen (18) must seek and obtain parent or
-              guardian permission to use this website. By using this website,
-              you warrant that you have obtained such permission.
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div>
-          <div className="text-primary text-xl">Unsubscribe or Opt-Out</div>
-          <br />
-          <div className="opacity-75 ">
-            <div>
-              All users and visitors to our website have the option to
-              discontinue receiving communications from us by way of email or
-              newsletters. To discontinue or unsubscribe from our website please
-              send an email that you wish to unsubscribe to{" "}
-              <a
-                href="mailto:info@awesumedge.com"
-                className="text-primary hover:text-primary hover:underline"
-              >
-                info@awesumedge.com
-              </a>
-              . If you wish to unsubscribe or opt-out from any third-party
-              websites, you must go to that specific website to unsubscribe or
-              opt-out. AwesumEdge LLC will continue to adhere to this Policy
-              with respect to any personal information previously collected.
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div>
-          <div className="text-primary text-xl">Links to Other Websites</div>
-          <br />
-          <div className="opacity-75 ">
-            <div>
-              Our website does contain links to affiliate and other websites.
-              AwesumEdge LLC does not claim nor accept responsibility for any
-              privacy policies, practices and/or procedures of other such
-              websites. Therefore, we encourage all users and visitors to be
-              aware when they leave our website and to read the privacy
-              statements of every website that collects personally identifiable
-              information. This Privacy Policy Agreement applies only and solely
-              to the information collected by our website
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div>
-          <div className="text-primary text-xl">
-            Notice to European Union Users
-          </div>
-          <br />
-          <div className="opacity-75 ">
-            <div>
-              AwesumEdge LLC's operations are located primarily in the United
-              States and Nigeria. If you provide information to us, the
-              information will be transferred out of the European Union (EU) and
-              sent to the United States. (The adequacy decision on the EU-US
-              Privacy became operational on August 1, 2016. This framework
-              protects the fundamental rights of anyone in the EU whose personal
-              data is transferred to the United States for commercial purposes.
-              It allows the free transfer of data to companies that are
-              certified in the US under the Privacy Shield.) By providing
-              personal information to us, you are consenting to its storage and
-              use as described in this Policy.{" "}
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div>
-          <div className="text-primary text-xl">Security</div>
-          <br />
-          <div className="opacity-75 ">
-            <div>
-              AwesumEdge LLC takes precautions to protect your information. When
-              you submit sensitive information via the website, your information
-              is protected both online and offline. Wherever we collect
-              sensitive information (e.g. credit card information), that
-              information is encrypted and transmitted to us in a secure way.
-              You can verify this by looking for a lock icon in the address bar
-              and looking for "https" at the beginning of the address of the
-              webpage.
-            </div>
-            <br />
-            <div>
-              While we use encryption to protect sensitive information
-              transmitted online, we also protect your information offline. Only
-              employees who need the information to perform a specific job (for
-              example, billing or customer service) are granted access to
-              personally identifiable information. The computers and servers in
-              which we store personally identifiable information are kept in a
-              secure environment. This is all done to prevent any loss, misuse,
-              unauthorized access, disclosure or modification of the user's
-              personal information under our control.
-            </div>
-            <br />
-            <div>
-              The company also uses Secure Socket Layer (SSL) for authentication
-              and private communications to build users' trust and confidence in
-              the internet and website use by providing simple and secure access
-              and communication of credit card and personal information.
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div>
-          <div className="text-primary text-xl">Acceptance of Terms </div>
-          <br />
-          <div className="opacity-75 ">
-            <div>
-              By using this website, you are hereby accepting the terms and
-              conditions stipulated within the Privacy Policy Agreement. If you
-              are not in agreement with our terms and conditions, then you
-              should refrain from further use of our sites. In addition, your
-              continued use of our website following the posting of any updates
-              or changes to our terms and conditions shall mean that you agree
-              and acceptance of such changes.
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div>
-          <div className="text-primary text-xl">How to Contact Us </div>
-          <br />
-          <div className="opacity-75 ">
-            <div>
-              If you have any questions or concerns regarding the Privacy Policy
-              Agreement related to our website, please feel free to contact us
-              at the following email, telephone number or mailing address.
-            </div>
-            <br />
 
-            <address className="not-italic flex gap-5">
-              <div className="flex flex-col gap-5">
-                <div className="font-bold pr-2"> Email:</div>
-                <div className="font-bold pr-2"> Telephone {width > 640? "Number" : ""}:</div>
-                <div className="font-bold"> Mailing Address:</div>
-              </div>
-           
-              <div  className="flex flex-col gap-5">
-                <div>
-                  <a
-                    href="mailto:info@awesumedge.com"
-                    className="text-primary hover:text-primary hover:underline"
-                  >
-                    info@awesumedge.com
-                  </a>
-                </div>
-                <div className="text-primary hover:text-primary">
-                  +18326141954
-                </div>
+        <br />
+        <br />
 
-                <div className="text-primary">
-                  <div>AwesumEdge LLC</div>
-                  <div>PO Box 243</div>
-                  <div>Beaverton, Oregon</div>
-                  <div>97075</div>
-                </div>
+        <div>
+          <div className="text-primary text-xl">Other AWAP BUSINESS FIRMS</div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+            For details of other awap business sectors visit our website @ https//:awapinvestors.com
+We may share personal data with other awap business firms where necessary in connection with the purposes described in this privacy statement. For example, when providing professional services to a client we may share personal information with awap business Firms in different territories that are involved in providing advice to that client.
+
+            </div>
+          </div>
+        </div>
+        
+        <br />
+        <br/>
+        <div>
+          <div className="text-primary text-xl">Third Party Providers</div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+            We may transfer or disclose the personal data we collect to third party contractors, subcontractors, and/or their subsidiaries and affiliates. Third parties support the Awap Network in providing its services and help provide, run and manage IT systems. Examples of third party contractors we use are providers of identity management, website hosting and management, data analysis, data backup, security and cloud storage services. The servers powering and facilitating our IT infrastructure are located in secure data centres around the world, and personal data may be stored in any one of them.
+
+            </div>
+          </div>
+          <br/>
+          <div className="opacity-75 ">
+            <div>
+            The third party providers may use their own third party subcontractors that have access to personal data (sub-processors). It is our policy to use only third party providers that are bound to maintain appropriate levels of security and confidentiality, to process personal information only as instructed by AWAP, and to flow those same obligations down to their sub-processors.
+
+            </div>
+          </div>
+        </div>
+        <br/>
+        <br/>
+        <div>
+          <div className="text-primary text-xl">
+          Other disclosures
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>We may also disclose personal information under the following circumstances:</div>
+            <br />
+            <div className="ml-5">
+              <ul className="list-disc  pt-2 list-outside">
+                <li className="pl-2">
+                •	when explicitly requested by you;
+                </li>
+                <li className="pl-2">
+                •	when required to deliver publications or reference materials requested by you;
+                </li>
+                <li className="pl-2">
+                •	when required to facilitate conferences or events hosted by a third party;
+                </li>
+                <li className="pl-2">
+                •	to law enforcement, regulatory and other government agencies and to professional bodies, as required by and/or in accordance with applicable law or regulation. AWAP may also review and use your personal information to determine whether disclosure is required or permitted.
+                </li>
                
-              </div>
-            </address>
+              </ul>
+            </div>
+            <br />
+            
           </div>
         </div>
         <br />
         <br />
         <br />
+        <div>
+          <div className="text-primary text-xl">
+            
+Security
+
+          </div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+            We have implemented generally accepted standards of technology and operational security in order to protect personal information from loss, misuse, alteration or destruction. Only authorised persons are provided access to personal information; such individuals have agreed to maintain the confidentiality of this information.
+            </div>
+            <br />
+            <div>
+            Although we use appropriate security measures once we have received your personal data, the transmission of data over the internet (including by e-mail) is never completely secure. We endeavor to protect personal data, but we cannot guarantee the security of data transmitted to or by us.
+            </div>
+           
+            <br />
+            
+            
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div>
+          <div className="text-primary text-xl">Your legal rights in relation to personal data</div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+            You may have certain rights under your local law in relation to the personal information we hold about you. In particular, you may have a legal right to:
+            </div>
+            <br />
+            <div className="ml-5">
+              <ul className="list-disc  pt-2 list-outside">
+                <li className="pl-2">
+                •	Obtain confirmation as to whether we process personal data about you, receive a copy of your personal data and obtain certain other information about how and why we process your personal data
+                </li>
+                <li className="pl-2">
+                •	The right to request for your personal data to be amended or rectified where it is inaccurate (for example, if you change your address) and to have incomplete personal data completed
+                </li>
+                <li className="pl-2">
+                	The right to delete your personal data in the following cases:
+                  <ul className="list-disc  pt-2 list-outside">
+                    <li className="pl-4">	the personal data is no longer necessary in relation to the purposes for which they were collected and processed;</li>
+                    <li className="pl-4">	our legal ground for processing is consent, you withdraw consent and we have no other lawful basis for the processing;</li>
+                    <li className="pl-4">	our legal ground for processing is that the processing is necessary for legitimate interests pursued by us or a third party, you object to the processing and we do not have overriding legitimate grounds;</li>
+                    <li className="pl-4">	you object to processing for direct marketing purposes;</li>
+                    <li className="pl-4">	your personal data has been unlawfully processed; or</li>
+                    <li className="pl-4">	your personal data must be erased to comply with a legal obligation to which we are subject.</li>
+                    	
+                  </ul>
+                </li>
+                
+                <li className="pl-2">
+                The right to restrict personal data processing in the following cases:
+                <ul className="list-disc  pt-2 list-outside">
+                    <li className="pl-4">	for a period enabling us to verify the accuracy of personal data where you contested the accuracy of the personal data;</li>
+                    <li className="pl-4">	your personal data have been unlawfully processed and you request restriction of processing instead of deletion;</li>
+                    <li className="pl-4">	your personal data are no longer necessary in relation to the purposes for which they were collected and processed but the personal data is required by you to establish, exercise or defend legal claims; or</li>
+                    <li className="pl-4">	o	for a period enabling us to verify whether the legitimate grounds relied on by us override your interests where you have objected to processing based on it being necessary for the pursuit of a legitimate interest identified by us.</li>
+                  </ul>
+                </li>
+                <li className="pl-2">
+                The right to object to the processing of your personal data in the following cases
+                <ul className="list-disc  pt-2 list-outside">
+                    <li className="pl-4">our legal ground for processing is that the processing is necessary for a legitimate interest pursued by us or a third party; or</li>
+                    <li className="pl-4">our processing is for direct marketing purposes.;</li>
+                    
+                  </ul>
+                  </li>
+                <li className="pl-2">
+                	The right to data portability
+                </li>
+                <li className="pl-2">
+                The right to receive your personal data provided by you to us and the right to send the data to another organisation (or ask us to do so if technically feasible) where our lawful basis for processing the personal data is consent or necessity for the performance of our contract with you and the processing is carried out by automated means.
+                </li>
+                <li className="pl-2">
+                The right to withdraw consent
+                </li>
+                <li className="pl-2">
+                	Where we process personal data based on consent, individuals have a right to withdraw consent at any time. We do not generally process personal data based on consent (as we can usually rely on another legal basis).
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div>
+          <div className="text-primary text-xl">Changes to this privacy statement</div>
+          <br />
+          <div className="opacity-75 ">
+            <div>
+            This privacy statement was last updated on 28 March 2022
+We may update this privacy statement at any time by publishing an updated version here. So you know when we make changes to this privacy statement, we will amend the revision date at the top of this page. The new modified or amended privacy statement will apply from that revision date. Therefore, we encourage you to review this privacy statement periodically to be informed about how we are protecting your information.
+
+            </div>
+          </div>
+        </div>
+        <br />
+        
+        
+      
       </div>
     </div>
   );

@@ -106,7 +106,7 @@ function TemporaryDrawer({ loginReducer,logout, blueMenu, ...props }) {
             />
           </ListItem>
         </Link>
-
+{token &&
         <Link to="/dashboard">
           <ListItem button>
             <ListItemIcon>
@@ -115,7 +115,7 @@ function TemporaryDrawer({ loginReducer,logout, blueMenu, ...props }) {
             <ListItemText primary="Dashboard" className="text-primary" />
           </ListItem>
         </Link>
-
+}
         <Link to="/">
           <ListItem button>
             <ListItemIcon>
