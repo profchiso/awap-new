@@ -62,7 +62,8 @@
     },
     "scripts": {
         "start:craco": "craco start",
-        "build": "craco build",
+        "build:craco": "craco build",
+        "build": "npm run build:tailwind && react-scripts build",
         "test": "craco test",
         "eject": "react-scripts eject",
         "npm:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",

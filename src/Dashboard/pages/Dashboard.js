@@ -10,27 +10,18 @@ export default function Dashboard() {
                         <StatusCard
                             color="pink"
                             icon="trending_up"
-                            title="Traffic"
+                            title="Promo Bal"
                             amount="350,897"
                             percentage="3.48"
                             percentageIcon="arrow_upward"
                             percentageColor="green"
                             date="Since last month"
                         />
-                        <StatusCard
-                            color="pink"
-                            icon="groups"
-                            title="New Users"
-                            amount="2,356"
-                            percentage="3.48"
-                            percentageIcon="arrow_downward"
-                            percentageColor="red"
-                            date="Since last week"
-                        />
+                        
                         <StatusCard
                             color="purple"
                             icon="paid"
-                            title="Sales"
+                            title="Cashout Bal"
                             amount="924"
                             percentage="1.10"
                             percentageIcon="arrow_downward"
@@ -38,9 +29,19 @@ export default function Dashboard() {
                             date="Since yesterday"
                         />
                         <StatusCard
+                            color="pink"
+                            icon="groups"
+                            title="MY Team"
+                            amount="2,356"
+                            percentage="3.48"
+                            percentageIcon="arrow_downward"
+                            percentageColor="red"
+                            date="Since last week"
+                        />
+                        <StatusCard
                             color="blue"
                             icon="poll"
-                            title="Performance"
+                            title="Investments"
                             amount="49,65%"
                             percentage="12"
                             percentageIcon="arrow_upward"
