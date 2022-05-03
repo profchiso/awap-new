@@ -27,6 +27,7 @@ import ForgotPassword from "./Pages/ForgotPassword";
 import ResetPassword from "./Pages/ResetPasswordPage";
 import Profile from "./Pages/Profile";
 import ViewSolutions from "./Pages/ViewSolutions";
+import DashboardApp from "./Pages/Dashboard";
 
 
 const theme = createMuiTheme({
@@ -90,7 +91,7 @@ export default function App() {
               <Route path="/privacy" component={PrivacyPolicy} />
 
               <Route path="/stats" component={Statistics} />
-              <Route path="/dashboard" component={Statistics} />
+              <Route path="/dashboard" component={DashboardApp} />
 
               <Route path="/terms" component={TermsPage} />
 
