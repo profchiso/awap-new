@@ -14,12 +14,13 @@ export default function StatusCard({
     percentageColor,
     percentageIcon,
     date,
+    bg
 }) {
     return (
         <div className="px-4 mb-10">
             <Card>
                 <CardRow>
-                    <CardHeader color={color} iconOnly className="mb-0">
+                    <CardHeader color={color} iconOnly className={`mb-0 ${bg}`}>
                         <Icon name={icon} size="3xl" color="white" />
                     </CardHeader>
 

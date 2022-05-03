@@ -53,6 +53,7 @@ module.exports = {
             'primary': '#016f02',
             'secondary': '#ffed4a',
             'danger': '#e3342f',
+            "white": "#ffffff",
         }),
         boxShadow: {
             sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
@@ -83,6 +84,21 @@ module.exports = {
             danger: "#e3342f",
             f8: "#F8F8FA",
             lightRed: "#EF4358",
+            cardOrange: "#d22d77",
+            cardBlue: "#00a8ff",
+            cardGreen: "#00c853",
+            cardpurple: "#6c5ce7",
+            cardGray: "#7c42e8",
+            cardYellow: "#ffd600",
+            cardPink: "#ff6f91",
+            cardTeal: "#00e676",
+            cardRed: "#ff1744",
+            cardBlueLight: "#00b0ff",
+            cardGreenLight: "#00e676",
+            cardPurpleLight: "#6c5ce7",
+            cardNice: "#814bed"
+
+
         }),
 
         gradientColorStops: theme => ({

@@ -91,7 +91,16 @@ export default function App() {
               <Route path="/privacy" component={PrivacyPolicy} />
 
               <Route path="/stats" component={Statistics} />
+
               <Route path="/dashboard" component={DashboardApp} />
+              <Route path="/dashboard/deposit" component={DashboardApp} />
+              <Route path="/dashboard/activate" component={DashboardApp} />
+              <Route path="/dashboard/dollar-transfer" component={DashboardApp} />
+              <Route path="/dashboard/convert-fund" component={DashboardApp} />
+              <Route path="/dashboard/my-team" component={DashboardApp} />
+              <Route path="/dashboard/invest" component={DashboardApp} />
+              <Route path="/dashboard/loan" component={DashboardApp} />
+              <Route path="/dashboard/savings" component={DashboardApp} />
 
               <Route path="/terms" component={TermsPage} />
 

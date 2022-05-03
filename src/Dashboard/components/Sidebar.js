@@ -28,7 +28,7 @@ export default function Sidebar() {
                                     to="/dashboard"
                                     exact
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-primary shadow-md"
+                                    activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
                                     <Icon name="dashboard" size="2xl" />
                                     Dashboard
@@ -39,7 +39,7 @@ export default function Sidebar() {
                                     to="/dashboard/deposit"
                                     exact
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-primary shadow-md"
+                                    activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
                                     <Icon name="dashboard" size="2xl" />
                                     Deposit
@@ -49,8 +49,8 @@ export default function Sidebar() {
                                 <NavLink
                                     to="/dashboard/activate"
                                     exact
-                                    className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-primary shadow-md"
+                                    className="  flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
+                                    activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
                                     <Icon name="dashboard" size="2xl" />
                                     Activate
@@ -60,7 +60,7 @@ export default function Sidebar() {
                                 <NavLink
                                     to="/dashboard/dollar-transfer"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-primary shadow-md"
+                                    activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
                                     <Icon name="settings" size="2xl" />
                                     Dollar Transfer
@@ -70,7 +70,7 @@ export default function Sidebar() {
                                 <NavLink
                                     to="/dashboard/convert-fund"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-primary shadow-md"
+                                    activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
                                     <Icon name="toc" size="2xl" />
                                     Convert Fund
@@ -80,7 +80,7 @@ export default function Sidebar() {
                                 <NavLink
                                     to="/dashboard/my-team"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-primary shadow-md"
+                                    activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
                                     <Icon name="map" size="2xl" />
                                     My Team
@@ -90,7 +90,7 @@ export default function Sidebar() {
                                 <NavLink
                                     to="/dashboard/invest"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-primary shadow-md"
+                                    activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
                                     <Icon name="map" size="2xl" />
                                     Invest
@@ -100,7 +100,7 @@ export default function Sidebar() {
                                 <NavLink
                                     to="/dashboard/loan"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-primary shadow-md"
+                                    activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
                                     <Icon name="map" size="2xl" />
                                     Loan
@@ -110,7 +110,7 @@ export default function Sidebar() {
                                 <NavLink
                                     to="/dashboard/savings"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-primary shadow-md"
+                                    activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
                                     <Icon name="map" size="2xl" />
                                     Savings
