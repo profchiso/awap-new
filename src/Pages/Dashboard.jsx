@@ -17,13 +17,14 @@ function DashboardApp() {
     <>
     <Sidebar />
     <div className="md:ml-64">
-        <Switch>
+      <Dashboard/>
+        {/* <Switch>
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/settings" component={Settings} />
             <Route exact path="/tables" component={Tables} />
             <Route exact path="/maps" component={Maps} />
             <Redirect from="*" to="/" />
-        </Switch>
+        </Switch> */}
         <Footer />
     </div>
 </>

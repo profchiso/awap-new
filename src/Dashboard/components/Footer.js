@@ -9,11 +9,11 @@ export default function footer() {
                     rel="noreferrer"
                     className="text-light-blue-500 hover:text-light-blue-700"
                 >
-                    Creative Tim
+                    AWAP INVESTORS LTD
                 </a>
             </p>
 
-            <ul className="list-unstyled flex">
+            {/* <ul className="list-unstyled flex">
                 <li className="mr-6">
                     <a
                         className="text-gray-700 hover:text-gray-900 font-medium block text-sm"
@@ -54,7 +54,7 @@ export default function footer() {
                         Contact Us
                     </a>
                 </li>
-            </ul>
+            </ul> */}
         </footer>
     );
 }
