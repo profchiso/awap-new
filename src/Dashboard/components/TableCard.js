@@ -8,38 +8,30 @@ import Team2 from '../../assets/img/team-2-800x800.jpg';
 import Team3 from '../../assets/img/team-3-800x800.jpg';
 import Team4 from '../../assets/img/team-4-470x470.png';
 
-export default function CardTable() {
+export default function CardTable({tableTitle,columns,data}) {
     return (
         <Card>
             <CardHeader color="bg-cardNice" contentPosition="left" className="bg-cardNice">
-                <h2 className="text-white text-2xl">Investments</h2>
+                <h2 className="text-white text-2xl">{tableTitle}</h2>
             </CardHeader>
             <CardBody>
                 <div className="overflow-x-auto">
                     <table className="items-center w-full bg-transparent border-collapse">
                         <thead>
                             <tr>
-                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                                    Project
+                                {columns.map((column, index) => (
+                                
+                                <th key={index} className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                    {column}
                                 </th>
-                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                                    Budget
-                                </th>
-                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                                    Status
-                                </th>
-                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                                    Users
-                                </th>
-                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                                    Completion
-                                </th>
+                                ))}
+                               
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    Argon Design System
+                                    Agricultural
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     $2,500 USD
@@ -86,7 +78,7 @@ export default function CardTable() {
                             </tr>
                             <tr>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    Black Dashboard Sketch
+                                    Forex
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     $1,800 USD
@@ -133,7 +125,7 @@ export default function CardTable() {
                             </tr>
                             <tr>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    React Material Dashboard
+                                    Real Estate
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     $4,400 USD
@@ -180,7 +172,7 @@ export default function CardTable() {
                             </tr>
                             <tr>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    React Material Dashboard
+                                    Forex
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     $2,200 USD
@@ -191,13 +183,7 @@ export default function CardTable() {
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     <div className="flex">
-                                        <div className="w-10 h-10 rounded-full border-2 border-white">
-                                            <Image
-                                                src={Team1}
-                                                rounded
-                                                alt="..."
-                                            />
-                                        </div>
+                                      
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
                                             <Image
                                                 src={Team2}
@@ -205,13 +191,7 @@ export default function CardTable() {
                                                 alt="..."
                                             />
                                         </div>
-                                        <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team3}
-                                                rounded
-                                                alt="..."
-                                            />
-                                        </div>
+                                       
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
                                             <Image
                                                 src={Team4}

@@ -88,7 +88,7 @@ module.exports = {
             cardBlue: "#00a8ff",
             cardGreen: "#00c853",
             cardpurple: "#6c5ce7",
-            cardGray: "#7c42e8",
+            cardGray: "#7393B3",
             cardYellow: "#ffd600",
             cardPink: "#ff6f91",
             cardTeal: "#00e676",
@@ -96,7 +96,8 @@ module.exports = {
             cardBlueLight: "#00b0ff",
             cardGreenLight: "#00e676",
             cardPurpleLight: "#6c5ce7",
-            cardNice: "#814bed"
+            cardNice: "#814bed",
+            cardLime: "#00FF00"
 
 
         }),

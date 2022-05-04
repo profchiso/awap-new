@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import Button from '@material-tailwind/react/Button';
 import Icon from '@material-tailwind/react/Icon';
-import NavbarInput from '@material-tailwind/react/NavbarInput';
+// import NavbarInput from '@material-tailwind/react/NavbarInput';
 import Image from '@material-tailwind/react/Image';
 import Dropdown from '@material-tailwind/react/Dropdown';
 import DropdownItem from '@material-tailwind/react/DropdownItem';
@@ -11,11 +11,11 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
     const location = useLocation().pathname;
 
     return (
-        <nav className="bg-primary md:ml-64 py-6 px-3">
-            <div className="container max-w-full mx-auto flex items-center justify-between md:pr-8 md:pl-10">
+        <nav className=" md:ml-64 py-6 px-3">
+            <div className=" bg-primary container max-w-full mx-auto flex items-center justify-between md:pr-8 md:pl-10">
                 <div className="md:hidden">
                     <Button
-                        color="transparent"
+                        color="black"
                         buttonType="link"
                         size="lg"
                         iconOnly
@@ -31,7 +31,7 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                         } z-50 transition-all duration-300`}
                     >
                         <Button
-                            color="transparent"
+                            color="black"
                             buttonType="link"
                             size="lg"
                             iconOnly
@@ -52,7 +52,7 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                     </h4>
 
                     <div className="flex">
-                        <NavbarInput placeholder="Search" />
+                        {/* <NavbarInput placeholder="Search" /> */}
 
                         <div className="-mr-4 ml-6">
                             <Dropdown

@@ -8,7 +8,7 @@ export default function Dashboard() {
                 <div className="container mx-auto max-w-full">
                     <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
                         <StatusCard
-                            color="bg-primary"
+                            color="orange"
                             icon="trending_up"
                             title="Promo Bal."
                             amount="350,897"
@@ -19,7 +19,7 @@ export default function Dashboard() {
                             bg="bg-cardRed"
                         />
                         <StatusCard
-                            color="pink"
+                            color="lightBlue"
                             icon="groups"
                             title="Cashout Bal."
                             amount="2,356"
@@ -27,7 +27,7 @@ export default function Dashboard() {
                             percentageIcon="arrow_downward"
                             percentageColor="red"
                             date="Since last week"
-                            bg="bg-cardgreen"
+                            bg="bg-cardGray"
                         />
                         <StatusCard
                             color="purple"
@@ -40,8 +40,19 @@ export default function Dashboard() {
                             date="Since yesterday"
                             bg="bg-cardTeal"
                         />
+                         {/* <StatusCard
+                            color="purple"
+                            icon="paid"
+                            title="My Team"
+                            amount="924"
+                            percentage="1.10"
+                            percentageIcon="arrow_downward"
+                            percentageColor="orange"
+                            date="Since yesterday"
+                            bg="bg-cardTeal"
+                        /> */}
                         <StatusCard
-                            color="blue"
+                            color="bg-cardLime"
                             icon="poll"
                             title="Investment"
                             amount="49,65%"
@@ -49,7 +60,7 @@ export default function Dashboard() {
                             percentageIcon="arrow_upward"
                             percentageColor="green"
                             date="Since last month"
-                            bg="bg-cardPink"
+                            bg="bg-cardLime"
                         />
                     </div>
                 </div>
@@ -58,7 +69,7 @@ export default function Dashboard() {
             <div className="px-3 md:px-8 h-auto -mt-24">
                 <div className="container mx-auto max-w-full">
                     <div className="grid grid-cols-1 px-4 mb-16">
-                        <TableCard />
+                        <TableCard tableTitle="Investments" columns={["Pcakage","Amount","Inv. Date","Mat. Date","Status"]} data={[]}/>
                     </div>
                 </div>
             </div>
