@@ -1,10 +1,13 @@
 import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom';
+import {  Redirect } from 'react-router-dom';
+import { connect } from "react-redux";
+
+import { login, saveLoginUserDataToState,clearLoginRelatedErrors } from "../redux/actions/login";
 import Sidebar from '../Dashboard/components/Sidebar';
 import Dashboard from '../Dashboard/pages/Dashboard';
-import Settings from '../Dashboard/pages/Settings';
-import Tables from '../Dashboard/pages/Tables';
-import Maps from '../Dashboard/pages/Maps';
+// import Settings from '../Dashboard/pages/Settings';
+// import Tables from '../Dashboard/pages/Tables';
+// import Maps from '../Dashboard/pages/Maps';
 import Footer from '../Dashboard/components/Footer';
 
 
@@ -12,9 +15,10 @@ import Footer from '../Dashboard/components/Footer';
 import '../assets/styles/tailwind.css';
 
 
-function DashboardApp() {
+function DashboardApp(props) {
   return (
     <>
+    {props.loginReducer.token==="" && <Redirect to="/"/> }
     <Sidebar />
     <div className="md:ml-64">
       <Dashboard/>
@@ -31,4 +35,15 @@ function DashboardApp() {
   )
 }
 
-export default DashboardApp
+const mapStateToProps = (state) => {
+
+  return {
+    ...state,
+  };
+};
+
+export default connect(mapStateToProps, {
+  login,
+  saveLoginUserDataToState,
+  clearLoginRelatedErrors
+})(DashboardApp);

@@ -11,7 +11,7 @@ function Login(props) {
   
   return (
     <div className="bg-f8 pb-8 2xl:h-screen">
-      {props.loginReducer.token!=="" && <Redirect to="/"/> }
+      {props.loginReducer.token!=="" && <Redirect to="/dashboard"/> }
         <LoginHeader />
         <LoginBody loginRequest={props.login} error={props.loginReducer?.error?.message} />
     </div>

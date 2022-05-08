@@ -10,7 +10,7 @@ export default function Dashboard() {
                         <StatusCard
                             color="orange"
                             icon="trending_up"
-                            title="Promo Bal."
+                            title="Reserved capital"
                             amount="350,897"
                             percentage="3.48"
                             percentageIcon="arrow_upward"
@@ -21,7 +21,7 @@ export default function Dashboard() {
                         <StatusCard
                             color="lightBlue"
                             icon="groups"
-                            title="Cashout Bal."
+                            title="Profit Bal."
                             amount="2,356"
                             percentage="3.48"
                             percentageIcon="arrow_downward"

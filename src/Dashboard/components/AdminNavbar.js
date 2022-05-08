@@ -1,14 +1,21 @@
 import { useLocation } from 'react-router-dom';
 import Button from '@material-tailwind/react/Button';
 import Icon from '@material-tailwind/react/Icon';
-// import NavbarInput from '@material-tailwind/react/NavbarInput';
+import {Link } from "react-router-dom"
+import { connect } from "react-redux";
+import { logout } from "../../redux/actions/login";
 import Image from '@material-tailwind/react/Image';
 import Dropdown from '@material-tailwind/react/Dropdown';
 import DropdownItem from '@material-tailwind/react/DropdownItem';
 import ProfilePicture from '../../assets/img/team-1-800x800.jpg';
 
-export default function AdminNavbar({ showSidebar, setShowSidebar }) {
+function AdminNavbar({ showSidebar, logout, setShowSidebar }) {
     const location = useLocation().pathname;
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        logout();
+      };
 
     return (
         <nav className=" md:ml-64 py-6 px-3">
@@ -46,9 +53,10 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
 
                 <div className="flex justify-between items-center w-full">
                     <h4 className="uppercase text-white text-sm tracking-wider mt-1">
-                        {location === '/'
+                        {/* {location === '/'
                             ? 'DASHBOARD'
-                            : location.toUpperCase().replace('/', '')}
+                            : location.toUpperCase().replace('/', '')} */}
+                            
                     </h4>
 
                     <div className="flex">
@@ -69,13 +77,11 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                                 }}
                             >
                                 <DropdownItem color="lightBlue">
-                                    Action
+                                    <Link to="/profile">Profile</Link>
                                 </DropdownItem>
-                                <DropdownItem color="lightBlue">
-                                    Another Action
-                                </DropdownItem>
-                                <DropdownItem color="lightBlue">
-                                    Something Else
+                                
+                                <DropdownItem color="lightBlue" >
+                                    <div onClick={()=>handleLogout()}>Logout</div>
                                 </DropdownItem>
                             </Dropdown>
                         </div>
@@ -85,3 +91,14 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
         </nav>
     );
 }
+
+
+const mapStateToProps = (state) => {
+
+    return {
+      ...state,
+    };
+  };
+  export default connect(mapStateToProps, {
+    logout,
+  })(AdminNavbar);
