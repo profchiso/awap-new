@@ -1,6 +1,7 @@
+import React from 'react'
 import StatusCard from '../components/StatusCard';
 import Button from '@material-tailwind/react/Button';
-import React from 'react'
+import H2 from "@material-tailwind/react/Heading2";
 import {  Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 import { login, saveLoginUserDataToState,clearLoginRelatedErrors } from "../../redux/actions/login";
@@ -73,20 +74,26 @@ function Activate(props) {
 
             <div className="px-3 md:px-8 h-auto -mt-24">
                 <div className="container mx-auto max-w-full">
-                    <div className="grid grid-cols-1 px-4 mb-16">
-                       <h3>Activate your account</h3>
-                       <pr>Activation of your account will cost you $5  and after account activation, you will be able to carry out other the platform full operation</pr>
-                       <Button
-                        color="lightBlue"
+                    <div className="py-2 px-6">
+                       <H2 color="lightGreen">Activate your account</H2>
+                       
+                      
+                    </div>
+                    <div className='py-2 px-6'>
+                    <p>Activation of your account will cost you $5  and after account activation, you will be able to carry out other the platform full operations</p>
+                    </div>
+                    <div className='p-6'>
+                    <Button
+                        color="green"
                         buttonType="outline"
-                        size="sm"
-                        rounded={true}
+                        size="regular"
+                        rounded={false}
                         block={false}
                         iconOnly={false}
                         ripple="dark"
                         >
                             Proceed
-                        </Button>
+                    </Button>
                     </div>
                 </div>
             </div>
