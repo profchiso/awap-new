@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import { NavLink,Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { logout } from "../../redux/actions/login";
 import AdminNavbar from './AdminNavbar';
 import Icon from '@material-tailwind/react/Icon';
 import H6 from '@material-tailwind/react/Heading6';
 
-export default function Sidebar() {
+ function Sidebar(props) {
+     const {loginReducer}=props
+     const {user}=loginReducer
     const [showSidebar, setShowSidebar] = useState('-left-64');
     return (
         <>
@@ -36,7 +40,7 @@ export default function Sidebar() {
                             </li>
                             <li className="rounded-lg mb-4">
                                 <NavLink
-                                    to="/dashboard/deposit"
+                                    to="/deposit"
                                     exact
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
@@ -45,9 +49,9 @@ export default function Sidebar() {
                                     Deposit
                                 </NavLink>
                             </li>
-                            <li className="rounded-lg mb-4">
+                            <li className={`rounded-lg mb-4 ${user.isActivated? "hidden":""}`}>
                                 <NavLink
-                                    to="/dashboard/activate"
+                                    to="/activate"
                                     exact
                                     className="  flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
@@ -58,7 +62,7 @@ export default function Sidebar() {
                             </li>
                             <li className="rounded-lg mb-2">
                                 <NavLink
-                                    to="/dashboard/dollar-transfer"
+                                    to="/dollar-transfer"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
@@ -68,7 +72,7 @@ export default function Sidebar() {
                             </li>
                             <li className="rounded-lg mb-2 ">
                                 <NavLink
-                                    to="/dashboard/convert-fund"
+                                    to="/convert-fund"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
@@ -78,7 +82,7 @@ export default function Sidebar() {
                             </li>
                             <li className="rounded-lg mb-2 text-gray-700">
                                 <NavLink
-                                    to="/dashboard/my-team"
+                                    to="/my-team"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
@@ -88,7 +92,7 @@ export default function Sidebar() {
                             </li>
                             <li className="rounded-lg mb-2 text-gray-700">
                                 <NavLink
-                                    to="/dashboard/invest"
+                                    to="/invest"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
@@ -98,7 +102,7 @@ export default function Sidebar() {
                             </li>
                             <li className="rounded-lg mb-2 text-gray-700">
                                 <NavLink
-                                    to="/dashboard/loan"
+                                    to="/loan"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
@@ -108,12 +112,22 @@ export default function Sidebar() {
                             </li>
                             <li className="rounded-lg mb-2 text-gray-700">
                                 <NavLink
-                                    to="/dashboard/savings"
+                                    to="/savings"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
                                 >
                                     <Icon name="map" size="2xl" />
                                     Savings
+                                </NavLink>
+                            </li>
+                            <li className="rounded-lg mb-2 text-gray-700">
+                                <NavLink
+                                    to="/share-market"
+                                    className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
+                                    activeClassName="bg-primary from-light-blue-500 to-light-blue-700 text-secondary shadow-md"
+                                >
+                                    <Icon name="map" size="2xl" />
+                                    Share market
                                 </NavLink>
                             </li>
                           
@@ -127,3 +141,12 @@ export default function Sidebar() {
         </>
     );
 }
+const mapStateToProps = (state) => {
+
+    return {
+      ...state,
+    };
+  };
+  export default connect(mapStateToProps, {
+    logout,
+  })(Sidebar);

@@ -28,6 +28,7 @@ import ResetPassword from "./Pages/ResetPasswordPage";
 import Profile from "./Pages/Profile";
 import ViewSolutions from "./Pages/ViewSolutions";
 import DashboardApp from "./Pages/Dashboard";
+import Activate from "./Dashboard/pages/Activate";
 
 
 const theme = createMuiTheme({
@@ -93,14 +94,14 @@ export default function App() {
               <Route path="/stats" component={Statistics} />
 
               <Route path="/dashboard" component={DashboardApp} />
-              <Route path="/dashboard/deposit" component={DashboardApp} />
-              <Route path="/dashboard/activate" component={DashboardApp} />
-              <Route path="/dashboard/dollar-transfer" component={DashboardApp} />
-              <Route path="/dashboard/convert-fund" component={DashboardApp} />
-              <Route path="/dashboard/my-team" component={DashboardApp} />
-              <Route path="/dashboard/invest" component={DashboardApp} />
-              <Route path="/dashboard/loan" component={DashboardApp} />
-              <Route path="/dashboard/savings" component={DashboardApp} />
+              <Route path="/deposit" component={DashboardApp} />
+              <Route path="/activate" component={Activate}  />
+              <Route path="/dollar-transfer" component={DashboardApp} />
+              <Route path="/convert-fund" component={DashboardApp} />
+              <Route path="/my-team" component={DashboardApp} />
+              <Route path="/invest" component={DashboardApp} />
+              <Route path="/loan" component={DashboardApp} />
+              <Route path="/savings" component={DashboardApp} />
 
               <Route path="/terms" component={TermsPage} />
 

@@ -81,7 +81,7 @@ function AdminNavbar({ showSidebar, logout, setShowSidebar }) {
                                 </DropdownItem>
                                 
                                 <DropdownItem color="lightBlue" >
-                                    <div onClick={()=>handleLogout()}>Logout</div>
+                                    <Link onClick={()=>handleLogout()}>Logout</Link>
                                 </DropdownItem>
                             </Dropdown>
                         </div>
