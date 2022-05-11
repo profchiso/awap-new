@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.851b0a50.chunk.css",
-    "main.js": "/static/js/main.effb63f9.chunk.js",
-    "main.js.map": "/static/js/main.effb63f9.chunk.js.map",
+    "main.js": "/static/js/main.8bafaf1b.chunk.js",
+    "main.js.map": "/static/js/main.8bafaf1b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.00575511.js",
     "runtime-main.js.map": "/static/js/runtime-main.00575511.js.map",
     "static/css/2.867aab75.chunk.css": "/static/css/2.867aab75.chunk.css",
-    "static/js/2.c3c6bfb3.chunk.js": "/static/js/2.c3c6bfb3.chunk.js",
-    "static/js/2.c3c6bfb3.chunk.js.map": "/static/js/2.c3c6bfb3.chunk.js.map",
+    "static/js/2.f4415626.chunk.js": "/static/js/2.f4415626.chunk.js",
+    "static/js/2.f4415626.chunk.js.map": "/static/js/2.f4415626.chunk.js.map",
     "static/js/3.33777537.chunk.js": "/static/js/3.33777537.chunk.js",
     "static/js/3.33777537.chunk.js.map": "/static/js/3.33777537.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.867aab75.chunk.css.map": "/static/css/2.867aab75.chunk.css.map",
     "static/css/main.851b0a50.chunk.css.map": "/static/css/main.851b0a50.chunk.css.map",
-    "static/js/2.c3c6bfb3.chunk.js.LICENSE.txt": "/static/js/2.c3c6bfb3.chunk.js.LICENSE.txt",
+    "static/js/2.f4415626.chunk.js.LICENSE.txt": "/static/js/2.f4415626.chunk.js.LICENSE.txt",
     "static/media/AlarmClock.fec8e166.svg": "/static/media/AlarmClock.fec8e166.svg",
     "static/media/AplusIcon.e752beba.svg": "/static/media/AplusIcon.e752beba.svg",
     "static/media/AwesumBook.ca3b9001.svg": "/static/media/AwesumBook.ca3b9001.svg",
@@ -29,11 +29,8 @@
     "static/media/InstagramIcon.72868745.svg": "/static/media/InstagramIcon.72868745.svg",
     "static/media/NextBtn.092ccc5f.svg": "/static/media/NextBtn.092ccc5f.svg",
     "static/media/NextIcon.483edcd2.svg": "/static/media/NextIcon.483edcd2.svg",
-    "static/media/QuestionMark.4346361b.svg": "/static/media/QuestionMark.4346361b.svg",
-    "static/media/RoundBackIcon.b152761a.svg": "/static/media/RoundBackIcon.b152761a.svg",
     "static/media/SelfPacedLearning.858108aa.svg": "/static/media/SelfPacedLearning.858108aa.svg",
     "static/media/TestTimer.077c75de.svg": "/static/media/TestTimer.077c75de.svg",
-    "static/media/TimeLogo.2d320ed9.svg": "/static/media/TimeLogo.2d320ed9.svg",
     "static/media/TwitterIcon.e4400c81.svg": "/static/media/TwitterIcon.e4400c81.svg",
     "static/media/YoutubeIcon.679cce3a.svg": "/static/media/YoutubeIcon.679cce3a.svg",
     "static/media/awapLogo.bddd8548.png": "/static/media/awapLogo.bddd8548.png",
@@ -58,8 +55,8 @@
   "entrypoints": [
     "static/js/runtime-main.00575511.js",
     "static/css/2.867aab75.chunk.css",
-    "static/js/2.c3c6bfb3.chunk.js",
+    "static/js/2.f4415626.chunk.js",
     "static/css/main.851b0a50.chunk.css",
-    "static/js/main.effb63f9.chunk.js"
+    "static/js/main.8bafaf1b.chunk.js"
   ]
 }
