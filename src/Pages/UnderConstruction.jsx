@@ -19,7 +19,8 @@ export default function UnderConstruction() {
       <div className="flex justify-center">
         <div className="pb-40 px-8">
           <p className="text-primary text-base md:text-xl py-20">
-            Sorry, the Page you are looking for is under Construction
+          IPO IN PROGRESS
+SHARE MARKET COMING SOON
           </p>
           <img src={Construction} alt="" className="w-full max-w-lg mx-auto" />
         </div>

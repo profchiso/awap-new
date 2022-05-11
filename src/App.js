@@ -11,22 +11,22 @@ import Unavailable from "./Pages/404";
 import { store, persistor } from "./redux/store/store";
 import ProtectedRoute from "./Routes/ProtectedRoute";
 import ChooseYear from "./Pages/ChooseYear";
-import UntimedPQ from "./Pages/UntimedPQ";
-import TimedPQ from "./Pages/TimedPQ";
-import ChooseType from "./Pages/ChooseType";
+// import UntimedPQ from "./Pages/UntimedPQ";
+// import TimedPQ from "./Pages/TimedPQ";
+// import ChooseType from "./Pages/ChooseType";
 import UntimedPracticeQuestion from "./Pages/UnTimedPracticeQuestion";
 import TimedPracticeQuestion from "./Pages/TimedPracticeQuestion";
-import MobilePq from "./Pages/MobilePq";
+// import MobilePq from "./Pages/MobilePq";
 import Statistics from "./Pages/Statistics";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsPage from "./Pages/TermsPage";
 import UnderConstruction from "./Pages/UnderConstruction";
-import ChooseSubject from "./Pages/ChooseSubject";
-import AnsweredBefore from "./Pages/AnsweredBefore";
+// import ChooseSubject from "./Pages/ChooseSubject";
+// import AnsweredBefore from "./Pages/AnsweredBefore";
 import ForgotPassword from "./Pages/ForgotPassword";
 import ResetPassword from "./Pages/ResetPasswordPage";
 import Profile from "./Pages/Profile";
-import ViewSolutions from "./Pages/ViewSolutions";
+// import ViewSolutions from "./Pages/ViewSolutions";
 import DashboardApp from "./Pages/Dashboard";
 import Activate from "./Dashboard/pages/Activate";
 
@@ -68,30 +68,30 @@ export default function App() {
                 <TimedPracticeQuestion />
               </ProtectedRoute>
 
-              <ProtectedRoute path="/pq/subject-choose-type">
+              {/* <ProtectedRoute path="/pq/subject-choose-type">
                 <ChooseType />
               </ProtectedRoute>
 
               <ProtectedRoute path="/pq/subject-untimed">
                 <UntimedPQ />
-              </ProtectedRoute>
+              </ProtectedRoute> */}
 
               
-              <ProtectedRoute path="/pq/view-solution">
+              {/* <ProtectedRoute path="/pq/view-solution">
                 <ViewSolutions />
-              </ProtectedRoute>
+              </ProtectedRoute> */}
 
-              <ProtectedRoute path="/pq/subject-timed">
+              {/* <ProtectedRoute path="/pq/subject-timed">
                 <TimedPQ />
-              </ProtectedRoute>
+              </ProtectedRoute> */}
 
-              <ProtectedRoute path="/pq/mobile-subject-Pq">
+              {/* <ProtectedRoute path="/pq/mobile-subject-Pq">
                 <MobilePq />
-              </ProtectedRoute>
+              </ProtectedRoute> */}
 
               <Route path="/privacy" component={PrivacyPolicy} />
 
-              <Route path="/stats" component={Statistics} />
+              {/* <Route path="/stats" component={Statistics} /> */}
 
               <Route path="/dashboard" component={DashboardApp} />
               <Route path="/deposit" component={DashboardApp} />
@@ -102,13 +102,14 @@ export default function App() {
               <Route path="/invest" component={DashboardApp} />
               <Route path="/loan" component={DashboardApp} />
               <Route path="/savings" component={DashboardApp} />
+              <Route path="/share-market" component={UnderConstruction} />
 
               <Route path="/terms" component={TermsPage} />
 
-              <Route path="/choose-subject" component={ChooseSubject} />
+              {/* <Route path="/choose-subject" component={ChooseSubject} /> */}
 
 
-              <Route path="/answered" component={AnsweredBefore} />
+              {/* <Route path="/answered" component={AnsweredBefore} /> */}
 
               <Route path="/forgot-password" component={ForgotPassword} />
 

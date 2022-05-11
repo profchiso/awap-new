@@ -42,6 +42,7 @@ function SignUpBody(props) {
     confirmPassword: "",
     firstName: "",
     lastName: "",
+    phone: "",
   });
   const [isButtonClicked, setisButtonClicked] = useState(false);
 
@@ -73,7 +74,8 @@ function SignUpBody(props) {
       confirmPassword: values.confirmPassword,
       lastName: values.lastName,
       firstName: values.firstName,
-      userName:values.userName
+      userName:values.userName,
+      phone: values.phone,
     };
     // console.log(signUpData);
     await props.signUpRequest(signUpData);
@@ -85,6 +87,7 @@ function SignUpBody(props) {
       userName: "",
       password: "",
       confirmPassword: "",
+      phone: "",
     });
     if (!!props?.success) {
       history.push("/");
@@ -179,6 +182,23 @@ function SignUpBody(props) {
                   }}
                 />
               </div>
+
+              <div className="flex justify-center pb-12  font-body">
+              <TextField
+                    id="standard-basic"
+                    placeholder="Phone"
+                    className="w-full m-5 p-4  my-4 font-body"
+                    onChange={handleChange("phone")}
+                    value={values.phone}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          {/* < className="mr-5 mb-1" /> */}
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                </div>
              
 
               <div className="flex justify-center pb-12 font-body">

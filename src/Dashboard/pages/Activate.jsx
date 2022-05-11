@@ -80,7 +80,7 @@ function Activate(props) {
                       
                     </div>
                     <div className='py-2 px-6'>
-                    <p>Activation of your account will cost you $5  and after account activation, you will be able to carry out other the platform full operations</p>
+                    <p>Activation of your account will cost you $5  and after account activation, you will be able to carry out the platform full operations</p>
                     </div>
                     <div className='p-6'>
                     <Button
