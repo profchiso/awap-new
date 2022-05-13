@@ -1,22 +1,49 @@
-import React from 'react'
+import React, {useState} from 'react'
 import StatusCard from '../components/StatusCard';
 import Button from '@material-tailwind/react/Button';
+import {Alert} from '@material-tailwind/react'
 import H2 from "@material-tailwind/react/Heading2";
 import {  Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
-import { login, saveLoginUserDataToState,clearLoginRelatedErrors } from "../../redux/actions/login";
+import { login, saveLoginUserDataToState,clearLoginRelatedErrors,activateAccount,saveActivationDataToState } from "../../redux/actions/login";
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
-
+import axios from 'axios';
+import { BASE_URL, requestHeaders } from "../../redux/actions/config";
+import {message } from 'antd';
 
 // Tailwind CSS Style Sheet
 import '../../assets/styles/tailwind.css';
 
 
 function Activate(props) {
+    
+    
+    const {user,token} = props.loginReducer
+    const activate= async(payload)=> {
+        try {
+              const activated = await axios.post(
+                `${BASE_URL}activation`,
+                payload,
+               { headers: {
+                    "content-type": "application/json",
+                    authorization: `Bearer ${token}`,
+                  }},
+            );
+            console.log("activated",activated);
+            props.saveActivationDataToState(activated.data);
+            message.success(activated.data.data.message,5)
+            
+        } catch (error) {
+            console.log("error", error);
+            
+        }
+    }
+  
   return (
     <>
-    {props.loginReducer.token==="" && <Redirect to="/"/> }
+    {token==="" && <Redirect to="/"/> }
+  
     <Sidebar />
     <div className="md:ml-64">
     <>
@@ -27,7 +54,7 @@ function Activate(props) {
                             color="orange"
                             icon="trending_up"
                             title="Reserved capital"
-                            amount="350,897"
+                            amount={`${user.balance}`}
                             percentage="3.48"
                             percentageIcon="arrow_upward"
                             percentageColor="green"
@@ -38,7 +65,7 @@ function Activate(props) {
                             color="lightBlue"
                             icon="groups"
                             title="Profit Bal."
-                            amount="2,356"
+                            amount={`${user.cashoutBalance}`}
                             percentage="3.48"
                             percentageIcon="arrow_downward"
                             percentageColor="red"
@@ -71,8 +98,7 @@ function Activate(props) {
                     </div>
                 </div>
             </div>
-
-            <div className="px-3 md:px-8 h-auto -mt-24">
+            <div className={`px-3 md:px-8 h-auto -mt-24 ${user.isActivated? "hidden":""}`}>
                 <div className="container mx-auto max-w-full">
                     <div className="py-2 px-6">
                        <H2 color="lightGreen">Activate your account</H2>
@@ -91,6 +117,7 @@ function Activate(props) {
                         block={false}
                         iconOnly={false}
                         ripple="dark"
+                        onClick={() => activate({userId:user._id,amount:5})}
                         >
                             Proceed
                     </Button>
@@ -114,7 +141,9 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   login,
   saveLoginUserDataToState,
-  clearLoginRelatedErrors
+  clearLoginRelatedErrors,
+  activateAccount,
+  saveActivationDataToState
 })(Activate);
 
 

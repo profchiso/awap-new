@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
-import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider,  createTheme } from "@material-ui/core/styles";
 import LandingPage from "./Pages/LandingPage";
 import "react-multi-carousel/lib/styles.css";
 import Login from "./Pages/Login";
@@ -29,9 +29,9 @@ import Profile from "./Pages/Profile";
 // import ViewSolutions from "./Pages/ViewSolutions";
 import DashboardApp from "./Pages/Dashboard";
 import Activate from "./Dashboard/pages/Activate";
+import 'antd/dist/antd.css';
 
-
-const theme = createMuiTheme({
+const theme =  createTheme({
   palette: {
     primary: {
       main: "#0D065F",

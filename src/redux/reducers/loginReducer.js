@@ -14,6 +14,8 @@ const initialState = {
 export const loginReducer = (state = initialState, actions) => {
     const { type, payload } = actions;
 
+
+
     if (
         type === 'SAVE_LOGGED_IN_USER_DATA' ||
         type === "LOGIN_SUCCESS"
@@ -36,6 +38,7 @@ export const loginReducer = (state = initialState, actions) => {
             error
         };
     } else if (type === 'REGISTRATION_ERROR' || type === 'LOGIN_ERROR') {
+        //ACCOUNT_ACTIVATION
         localStorage.removeItem('token');
         localStorage.removeItem('user');
 
@@ -45,6 +48,15 @@ export const loginReducer = (state = initialState, actions) => {
             isSuccessful: false,
             isAuthenticated: false,
         };
+    } else if (type === 'ACCOUNT_ACTIVATION') {
+        //ACCOUNT_ACTIVATION
+
+
+        return {
+            ...state,
+            user: payload.data.user,
+
+        };
     } else if (type === 'LOGOUT') {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
@@ -52,11 +64,11 @@ export const loginReducer = (state = initialState, actions) => {
         return {
             ...state,
             user,
-            avatar:"",
-            firstName:"",
-            lastName:"",
-            email:"",
-            phoneNumber:"",
+            avatar: "",
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNumber: "",
             isSuccessful: false,
             isAuthenticated: false,
             token: '',
@@ -70,7 +82,7 @@ export const loginReducer = (state = initialState, actions) => {
             error,
         };
     } else if (type === "SAVE_UPDATED_PROFILE_DATA_TO_STATE") {
-        
+
 
         const { avatar, firstName, lastName, email, phoneNumber } = payload.data.user
 

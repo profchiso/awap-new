@@ -27,6 +27,34 @@ export const login = (userData) => {
     };
 };
 
+export const activateAccount = (payload) => {
+    console.log("activateAccount payload", payload);
+    console.log( `${BASE_URL}activation`)
+    
+    return async(dispatch) => {
+        try {
+        
+            // const activated = await axios.post(
+            //     `${BASE_URL}activation`,
+            //     payload,
+            //     requestHeaders
+            // );
+            console.log("activated");
+
+            // activated.status === 201 &&
+            //     dispatch(saveActivationDataToState(activated.data));
+        } catch (error) {
+            console.log("login error", error);
+            dispatch(loginError(error.response ?.data));
+        }
+    };
+};
+export const saveActivationDataToState = (activationPayload) => {
+    return {
+        type: "ACCOUNT_ACTIVATION",
+        payload: activationPayload,
+    };
+};
 export const saveLoginUserDataToState = (loggedInUserData) => {
     return {
         type: SAVE_LOGGED_IN_USER_DATA,

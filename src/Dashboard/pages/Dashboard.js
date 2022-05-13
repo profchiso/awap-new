@@ -1,7 +1,11 @@
+
+import { connect } from "react-redux";
+import { login, saveLoginUserDataToState,clearLoginRelatedErrors,activateAccount } from "../../redux/actions/login";
 import StatusCard from '../components/StatusCard';
 import TableCard from '../components/TableCard';
 
-export default function Dashboard() {
+ function Dashboard(props) {
+    const {user,token} = props.loginReducer
     return (
         <>
             <div className="bg-light-blue-500 pt-14 pb-28 px-3 md:px-8 h-auto">
@@ -11,7 +15,7 @@ export default function Dashboard() {
                             color="orange"
                             icon="trending_up"
                             title="Reserved capital"
-                            amount="350,897"
+                            amount={`${user.balance}`}
                             percentage="3.48"
                             percentageIcon="arrow_upward"
                             percentageColor="green"
@@ -22,7 +26,7 @@ export default function Dashboard() {
                             color="lightBlue"
                             icon="groups"
                             title="Profit Bal."
-                            amount="2,356"
+                            amount={`${user.cashoutBalance}`}
                             percentage="3.48"
                             percentageIcon="arrow_downward"
                             percentageColor="red"
@@ -76,3 +80,18 @@ export default function Dashboard() {
         </>
     );
 }
+const mapStateToProps = (state) => {
+
+    return {
+      ...state,
+    };
+  };
+  
+  export default connect(mapStateToProps, {
+    login,
+    saveLoginUserDataToState,
+    clearLoginRelatedErrors,
+    activateAccount
+  })(Dashboard);
+  
+  
