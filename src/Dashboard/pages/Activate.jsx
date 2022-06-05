@@ -52,7 +52,7 @@ function Activate(props) {
                     <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
                         <StatusCard
                             color="orange"
-                            icon="trending_up"
+                            icon="paid"
                             title="Reserved capital"
                             amount={`${user.balance}`}
                             percentage="3.48"
@@ -63,7 +63,7 @@ function Activate(props) {
                         />
                         <StatusCard
                             color="lightBlue"
-                            icon="groups"
+                            icon="paid"
                             title="Profit Bal."
                             amount={`${user.cashoutBalance}`}
                             percentage="3.48"
@@ -74,7 +74,7 @@ function Activate(props) {
                         />
                         <StatusCard
                             color="purple"
-                            icon="paid"
+                            icon="trending_up"
                             title="My Team"
                             amount="924"
                             percentage="1.10"

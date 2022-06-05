@@ -33,6 +33,7 @@ import ShareMarket from "./Dashboard/pages/ShareMarket";
 import Loan from "./Dashboard/pages/loan";
 import Savings from "./Dashboard/pages/Savings";
 import MyTeam from "./Dashboard/pages/MyTeam";
+import ConvertFund from "./Dashboard/pages/ConvertFund";
 import 'antd/dist/antd.css';
 
 const theme =  createTheme({
@@ -101,7 +102,7 @@ export default function App() {
               <Route path="/deposit" component={DashboardApp} />
               <Route path="/activate" component={Activate}  />
               <Route path="/dollar-transfer" component={DashboardApp} />
-              <Route path="/convert-fund" component={DashboardApp} />
+              <Route path="/convert-fund" component={ConvertFund} />
               <Route path="/my-team" component={MyTeam} />
               <Route path="/invest" component={DashboardApp} />
               <Route path="/loan" component={Loan} />
