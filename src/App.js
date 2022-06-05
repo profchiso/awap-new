@@ -29,6 +29,10 @@ import Profile from "./Pages/Profile";
 // import ViewSolutions from "./Pages/ViewSolutions";
 import DashboardApp from "./Pages/Dashboard";
 import Activate from "./Dashboard/pages/Activate";
+import ShareMarket from "./Dashboard/pages/ShareMarket";
+import Loan from "./Dashboard/pages/loan";
+import Savings from "./Dashboard/pages/Savings";
+import MyTeam from "./Dashboard/pages/MyTeam";
 import 'antd/dist/antd.css';
 
 const theme =  createTheme({
@@ -98,11 +102,11 @@ export default function App() {
               <Route path="/activate" component={Activate}  />
               <Route path="/dollar-transfer" component={DashboardApp} />
               <Route path="/convert-fund" component={DashboardApp} />
-              <Route path="/my-team" component={DashboardApp} />
+              <Route path="/my-team" component={MyTeam} />
               <Route path="/invest" component={DashboardApp} />
-              <Route path="/loan" component={DashboardApp} />
-              <Route path="/savings" component={DashboardApp} />
-              <Route path="/share-market" component={UnderConstruction} />
+              <Route path="/loan" component={Loan} />
+              <Route path="/savings" component={Savings} />
+              <Route path="/share-market" component={ShareMarket} />
 
               <Route path="/terms" component={TermsPage} />
 
