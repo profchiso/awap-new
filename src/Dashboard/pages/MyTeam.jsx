@@ -1,11 +1,21 @@
 
 import { connect } from "react-redux";
 import {Redirect}from "react-router-dom"
+import Card from '@material-tailwind/react/Card';
+import CardHeader from '@material-tailwind/react/CardHeader';
+import CardBody from '@material-tailwind/react/CardBody';
+import Image from '@material-tailwind/react/Image';
+import Progress from '@material-tailwind/react/Progress';
+import Team1 from '../../assets/img/team-1-800x800.jpg';
+import Team2 from '../../assets/img/team-2-800x800.jpg';
+import Team3 from '../../assets/img/team-3-800x800.jpg';
+import Team4 from '../../assets/img/team-4-470x470.png';
 import { login, saveLoginUserDataToState,clearLoginRelatedErrors,activateAccount } from "../../redux/actions/login";
 import StatusCard from '../components/StatusCard';
 import TableCard from '../components/TableCard';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
+const columns=["Name","Username","Country","Joined Date","Activated"]
 
  function Dashboard(props) {
     const {user,token} = props.loginReducer
@@ -69,17 +79,59 @@ import Sidebar from '../components/Sidebar';
             <div className="px-3 md:px-8 h-auto -mt-24">
                 <div className="container mx-auto max-w-full">
                     <div className="grid grid-cols-1 px-4 mb-16">
-                        <TableCard tableTitle="My Team" columns={["Name","Username","Country","Mat. Date","Status"]} data={[]}/>
+                    <Card>
+            <CardHeader color="bg-cardNice" contentPosition="left" className="bg-cardNice">
+                <h2 className="text-white text-2xl">My Team</h2>
+            </CardHeader>
+            <CardBody>
+                <div className="overflow-x-auto">
+                    <table className="items-center w-full bg-transparent border-collapse">
+                        <thead>
+                            <tr>
+                                {columns.map((column, index) => (
+                                
+                                <th key={index} className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                    {column}
+                                </th>
+                                ))}
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    Chinedu okorie
+                                </th>
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    chinedu
+                                </th>
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    <i className="fas fa-circle fa-sm text-orange-500 mr-2"></i>{' '}
+                                    Nigeria
+                                </th>
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    05/06/2022
+                                </th>
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    Yes
+                                </th>
+                            </tr>
+                          
+                           
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </CardBody>
+        </Card>
+
+
+
+                        
                     </div>
                 </div>
             </div>
-            {/* <Switch>
-                <Route exact path="/" component={Dashboard} />
-                <Route exact path="/settings" component={Settings} />
-                <Route exact path="/tables" component={Tables} />
-                <Route exact path="/maps" component={Maps} />
-                <Redirect from="*" to="/" />
-            </Switch> */}
+          
             <Footer />
         </div>
     </>
